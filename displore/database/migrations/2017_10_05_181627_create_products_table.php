@@ -13,7 +13,9 @@ class CreateProductsTable extends Migration {
 			$table->string('title', 30);
 			$table->text('description');
 			$table->double('price');
-			$table->string('price_time', 30);
+			$table->char('price_time');
+			$table->timestamps();
+			$table->softDeletes();
 		});
 	}
 

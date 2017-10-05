@@ -2,18 +2,34 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model 
+class User extends Authenticatable
 {
 
     protected $table = 'users';
-    public $timestamps = false;
-    protected $hidden = array('salt');
+    public $timestamps = true;
 
-    public function Users()
+    use SoftDeletes;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'first_name', 
+        'last_name',
+        'email',
+        'password'
+    ];
+
+    protected $dates = ['deleted_at'];
+
+    public function products()
     {
-        return $this->hasMany('Product', 'user_id');
+        return $this->hasMany('Product');
     }
 
 }

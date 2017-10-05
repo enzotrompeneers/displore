@@ -3,16 +3,26 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model 
 {
 
     protected $table = 'products';
-    public $timestamps = false;
+    public $timestamps = true;
 
-    public function Product()
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
+    public function images()
     {
-        return $this->hasMany('Product_Image', 'product_id');
+        return $this->hasMany('ProductImage');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany('ProductReview');
     }
 
 }

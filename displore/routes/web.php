@@ -1,13 +1,17 @@
 <?php
+/**
+*  Alle displore routes
+*
+*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Authentication routes
+Auth::routes();
 
-Route::get('/', 'HomeController@index'); 
-Route::get('login', 'LoginController@index');
-Route::get('register', 'RegisterController@index');
-Route::get('offer', 'OfferController@index');
-Route::get('discover', 'DiscoverController@index');
-Route::get('detail', 'DetailController@index');
-Route::get('detail/{id}', 'DetailController@show');
+//Product routes
+Route::get('/ontdek', 'ProductController@index');
+Route::get('/ervaring/maken', 'ProductController@create')->name('product.create');
+Route::post('/ervaring/maken', 'ProductController@store')->name('product.store');
+Route::get('/ervaring/toon/{id}', 'ProductController@show');
+
+//Home routes
+Route::get('/', 'HomeController@index')->name('home');
