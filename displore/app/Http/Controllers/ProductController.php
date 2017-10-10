@@ -10,13 +10,25 @@ class ProductController extends Controller
 {
 
   /**
-   * Display a listing of the resource.
+   * Geeft populaire en recent nieuwe ervaringen op het platform
    *
    * @return Response
    */
   public function index()
   {
     return view('discover');
+  }
+
+  /**
+  * Zoekt door ervaringen
+  * 
+  * @return Response
+  */
+  public function search(Request $request)
+  {
+    $search_term = request('search_input');
+
+    return view('discover', compact('search_term'));
   }
 
   /**

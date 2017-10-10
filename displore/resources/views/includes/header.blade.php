@@ -1,4 +1,4 @@
-<title>Tester</title>
+<title>Displore</title>
 <meta name="description" content="Project" />
 <meta name="keywords" content="project" />
 <meta name="robots" content="nofollow" />

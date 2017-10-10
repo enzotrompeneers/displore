@@ -17,12 +17,19 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Toont de ontdekpagina
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         return view('home');
+    }
+
+    /**
+    * Toont de landing pagina met welkom en slagzin
+    */
+    public function lander(){
+        return view('lander');
     }
 }
