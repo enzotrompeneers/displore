@@ -13,4 +13,8 @@
 	<h2>Zoeken naar: {{ $search_term }}</h2>
 @endif
 
+@foreach($products as $product)
+	{{ $product->title }}
+@endforeach
+
 @stop

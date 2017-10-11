@@ -16,7 +16,9 @@ class ProductController extends Controller
    */
   public function index()
   {
-    return view('discover');
+    $products = Product::take(30)->get();
+
+    return view('discover', compact('products'));
   }
 
   /**
@@ -28,7 +30,9 @@ class ProductController extends Controller
   {
     $search_term = request('search_input');
 
-    return view('discover', compact('search_term'));
+    $products = Product::search($search_term)->get();
+
+    return view('discover', compact('search_term', 'products'));
   }
 
   /**

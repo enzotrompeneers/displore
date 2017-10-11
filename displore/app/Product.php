@@ -2,16 +2,17 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model 
 {
+    use SoftDeletes;
+    use Searchable;
 
     protected $table = 'products';
     public $timestamps = true;
-
-    use SoftDeletes;
 
     protected $dates = ['deleted_at'];
 
@@ -23,6 +24,13 @@ class Product extends Model
     public function reviews()
     {
         return $this->hasMany('ProductReview');
+    }
+
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        return $array;
     }
 
 }
