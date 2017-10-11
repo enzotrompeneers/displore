@@ -14,7 +14,7 @@
 @endif
 
 @foreach($products as $product)
-	{{ $product->title }}
+	<a href="{{ route('product.show', $product->id) }}"> {{ $product->title }}</a>
 @endforeach
 
 @stop
