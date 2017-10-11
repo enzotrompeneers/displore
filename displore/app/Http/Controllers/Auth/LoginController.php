@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'discover';
+    protected $redirectTo = 'ontdek';
 
     /**
      * Create a new controller instance.
