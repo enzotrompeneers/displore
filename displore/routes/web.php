@@ -20,6 +20,7 @@ Route::get('/ervaring/maken', 'ProductController@create')->name('product.create'
 Route::post('/ervaring/maken', 'ProductController@store')->name('product.store');
 Route::get('/ervaring/toon/{id}', 'ProductController@show')->name('product.show');
 Route::get('/ervaring/bewerken/{id}', 'ProductController@edit')->name('product.edit');
+Route::patch('/ervaring/bewerken/{id}', 'ProductController@update')->name('product.update');
 
 //Home routes
 Route::get('/', 'HomeController@lander')->name('lander');
