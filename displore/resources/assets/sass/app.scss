@@ -1,9 +1,18 @@
-
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
-// Variables
 @import "variables";
+@import "atomic/lander";
+@import "header";
 
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+.header h1 img {
+    float: left;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .header h1 {
+    position: relative;
+    color: white;
+    font-size:1.5rem;
+  }
+  .top-bar {
+      height: 75px;
+  }
