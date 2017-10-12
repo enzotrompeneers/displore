@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Product;
+use App\ProductReview;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller 
@@ -42,7 +43,7 @@ class ProductController extends Controller
    */
   public function create()
   {
-    return view('product/create');
+    return view('product.create');
   }
 
   /**
@@ -74,8 +75,9 @@ class ProductController extends Controller
   public function show($id)
   {
     $product = Product::find($id);
+    $reviews = $product->reviews()->get();
 
-    return view('product/show', compact('product'));
+    return view('product.show', compact('product', 'reviews'));
   }
 
   /**
@@ -95,7 +97,9 @@ class ProductController extends Controller
    */
   public function edit($id)
   {
-    
+    $product = Product::find($id);
+
+    return view('product.edit', compact('product'));    
   }
 
   /**
@@ -104,9 +108,19 @@ class ProductController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
+  public function update(Request $request, $id)
   {
-    
+    $product = Product::find($id);
+
+    $product->title = request('title');
+    $product->user_id = Auth::user()->id;
+    $product->description = request('description');
+    $product->price = request('price');
+    $product->price_time = request('price_time');
+
+    $product->save();
+
+    return redirect('/ervaring/toon/' . $product->id);
   }
 
   /**

@@ -28,19 +28,12 @@ class Product extends Model
 
     public function images()
     {
-        return $this->hasMany('ProductImage');
+        return $this->hasMany('App\ProductImage');
     }
 
     public function reviews()
     {
-        return $this->hasMany('ProductReview');
-    }
-
-    public function toSearchableArray()
-    {
-        $array = $this->toArray();
-
-        return $array;
+        return $this->hasMany('App\ProductReview');
     }
 
 }

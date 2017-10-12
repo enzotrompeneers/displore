@@ -22,7 +22,7 @@
 		<li><a href="{{ route('lander') }}">Home</a></li>
 	</ul>
 	<ul class="right">
-		<li><a href="{{ route('product.show.all') }}">Jouw ervaringen</a></li>
+		<li><a href="{{ route('user.offers) }}">Jouw ervaringen</a></li>
 		<li><a href="{{ route('displore') }}">Wat is displore?</a></li>
 		<li><a href="{{ route('login') }}">Login</a></li>
 	</ul>

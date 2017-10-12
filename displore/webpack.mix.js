@@ -17,7 +17,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 //Browser sync
 mix.browserSync({
-    host: 'localhost',
+    host: '127.0.0.1',
     port: 3000,
     proxy: 'http://192.168.33.10:80/',
     files: [
