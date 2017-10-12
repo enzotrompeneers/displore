@@ -79,6 +79,15 @@ class ProductController extends Controller
   }
 
   /**
+   * Display all your products
+   * @return Response
+   */
+  public function showAll() {
+    $product = Product::showAll();
+    return view('product/show', compact('product'));
+  }
+
+  /**
    * Show the form for editing the specified resource.
    *
    * @param  int  $id

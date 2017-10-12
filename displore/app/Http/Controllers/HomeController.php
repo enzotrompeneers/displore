@@ -22,4 +22,7 @@ class HomeController extends Controller
     public function lander(){
         return view('lander');
     }
+    public function displore(){
+        return view('lander');
+    }
 }
