@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Product;
+use App\ProductReview;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller 
@@ -74,8 +75,9 @@ class ProductController extends Controller
   public function show($id)
   {
     $product = Product::find($id);
+    $reviews = $product->reviews()->get();
 
-    return view('product.show', compact('product'));
+    return view('product.show', compact('product', 'reviews'));
   }
 
   /**

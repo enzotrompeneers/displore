@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\ProductReview;
+
 class ProductReviewController extends Controller 
 {
 
@@ -30,9 +33,18 @@ class ProductReviewController extends Controller
    *
    * @return Response
    */
-  public function store()
+  public function store($product_id)
   {
-    
+    $review = new ProductReview();
+
+    $review->user_id = Auth::user()->id;
+    $review->product_id = $product_id;
+    $review->text = request('text');
+    $review->stars = request('stars');
+
+    $review->save();
+
+    return redirect('/ervaring/toon/' . $product_id);
   }
 
   /**

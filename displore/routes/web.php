@@ -16,11 +16,21 @@ Route::get('/gebruiker/reservaties', 'UserController@reservations')->name('user.
 //Product routes
 Route::get('/ontdek', 'ProductController@index')->name('discover');
 Route::post('/ontdek/zoeken', 'ProductController@search')->name('discover.search');
-Route::get('/ervaring/maken', 'ProductController@create')->name('product.create');
-Route::post('/ervaring/maken', 'ProductController@store')->name('product.store');
 Route::get('/ervaring/toon/{id}', 'ProductController@show')->name('product.show');
-Route::get('/ervaring/bewerken/{id}', 'ProductController@edit')->name('product.edit');
-Route::patch('/ervaring/bewerken/{id}', 'ProductController@update')->name('product.update');
 
 //Home routes
 Route::get('/', 'HomeController@lander')->name('lander');
+
+
+//Protected routes
+
+Route::middleware('auth')->group(function(){
+	//Review routes
+	Route::post('/recensie/maken/{product_id}', 'ProductReviewController@store')->name('review.store');
+
+	//Product routes
+	Route::get('/ervaring/maken', 'ProductController@create')->name('product.create');
+	Route::post('/ervaring/maken', 'ProductController@store')->name('product.store');
+	Route::get('/ervaring/bewerken/{id}', 'ProductController@edit')->name('product.edit');
+	Route::patch('/ervaring/bewerken/{id}', 'ProductController@update')->name('product.update');
+});
