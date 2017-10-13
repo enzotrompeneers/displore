@@ -12,6 +12,10 @@
 		<link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
 		<link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		<meta name="csrf-token" content="{{ csrf_token() }}">
+
+	</head>
+	<body>
 
 		<!-- Menu -->   
 		<nav class="top-bar" data-topbar>
@@ -35,9 +39,6 @@
 				@endif
 			</ul>
 		</nav>
-		<!-- End Menu -->
-    </head>
-    <body>
         <!-- Call To Action -->
 		<div class="call_to_action_wrapper">
 			<h1>De website om ervaringen te ontdekken</h1>
@@ -45,9 +46,7 @@
 			<a href="{{ route('discover') }}" class="button ontdekken">ONTDEKKEN</a>
 			<a href="{{ route('product.create') }}" class="button aanbieden">AANBIEDEN</a>
 		</div>
-		<!-- End Call To Action -->
-		<script>
-			$(document).foundation();
-		</script>
+
+		<script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
