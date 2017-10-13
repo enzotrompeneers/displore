@@ -17,12 +17,12 @@
 		<nav class="top-bar" data-topbar>
 			<ul class="title-area dropdown menu" data-dropdown-menu>
 				<li class="header">
-					<a href="/"><img src="{{asset('assets/graphics/displore_logo.svg')}}" alt="Displore"></a>
+					<a href="{{ route('lander') }}"><img src="{{asset('assets/graphics/displore_logo.svg')}}" alt="Displore"></a>
 				</li>
+				<li><h1>Displore</h1></li>
 			</ul>
 			<ul class="left">
-				<li><a href="{{ route('lander') }}">Displore</a></li>
-				<li><a href="{{ route('lander') }}">Home</a></li>
+				<!-- <li><a href="{{ route('lander') }}">Home</a></li> -->
 			</ul>
 			<ul class="right">
 				<li><a href="{{ route('lander') }}">Wat is displore?</a></li>
@@ -38,7 +38,7 @@
     </head>
     <body>
         <!-- Call To Action -->
-		<div class="call_to_action">
+		<div class="call_to_action_wrapper">
 			<h1>De website om ervaringen te ontdekken</h1>
 			<h2>Weet je niet wat te doen? Heb je ooit al eens iets heel speciaal willen doen? Je vind het allemaal hier!</h2>
 			<a href="{{ route('discover') }}" class="button ontdekken">ONTDEKKEN</a>

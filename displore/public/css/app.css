@@ -3,31 +3,7 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/graphics/lander_background.jpg");
 }
 
-.top-bar {
-  padding: 0 100px;
-}
-
-.header {
-  float: left;
-  color: #fff;
-  display: block;
-}
-
-h1,
-h2 {
-  color: white;
-  padding: 0;
-}
-
-h2 {
-  font-size: 1.2rem;
-}
-
-a:hover {
-  color: #e7173e;
-}
-
-.call_to_action {
+.call_to_action_wrapper {
   text-align: center;
   top: 30%;
   position: relative;
@@ -35,29 +11,10 @@ a:hover {
   left: 20%;
 }
 
-.ontdekken {
-  background-color: #e7173e;
-  border: 3px solid #e7173e;
-}
-
-.ontdekken:hover {
-  border: 3px solid #fff;
-  background-color: #e7173e;
-}
-
-.aanbieden {
-  border: 3px solid #fff;
-  background-color: transparent;
-}
-
-.aanbieden:hover {
-  border: 3px solid #e7173e;
-  background-color: transparent;
-}
-
-.ontdekken,
-.aanbieden {
-  position: relative;
+.header {
+  float: left;
+  color: #fff;
+  display: block;
 }
 
 .header img {
@@ -68,6 +25,8 @@ a:hover {
 
 .top-bar {
   background-color: transparent;
+  padding: 0 100px;
+  height: 75px;
 }
 
 .right {
@@ -96,23 +55,46 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 
+li a:hover {
+  color: #e7173e;
+}
+
 .header a {
   padding: 10px;
 }
 
-.header h1 img {
-  float: left;
-  width: 50px;
-  height: 50px;
-}
-
-.header h1 {
-  position: relative;
+h1,
+h2 {
   color: white;
-  font-size: 1.5rem;
+  padding: 0;
 }
 
-.top-bar {
-  height: 75px;
+h2 {
+  font-size: 1.2rem;
+}
+
+.ontdekken {
+  background-color: #e7173e;
+  border: 3px solid #e7173e;
+}
+
+.ontdekken:hover {
+  border: 3px solid #fff;
+  background-color: #e7173e;
+}
+
+.aanbieden {
+  border: 3px solid #fff;
+  background-color: transparent;
+}
+
+.aanbieden:hover {
+  border: 3px solid #e7173e;
+  background-color: transparent;
+}
+
+.ontdekken,
+.aanbieden {
+  position: relative;
 }
 

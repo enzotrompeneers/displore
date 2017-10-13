@@ -1,0 +1,19 @@
+.ontdekken {
+    background-color: #e7173e;
+    border: 3px solid #e7173e;
+}
+.ontdekken:hover {
+    border: 3px solid #fff;
+    background-color: #e7173e;
+}
+.aanbieden {
+    border: 3px solid #fff;
+    background-color: transparent;
+}
+.aanbieden:hover {
+    border: 3px solid #e7173e;
+    background-color: transparent;
+}
+.ontdekken, .aanbieden {
+    position: relative;
+}
