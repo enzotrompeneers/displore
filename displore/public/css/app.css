@@ -1,4 +1,4 @@
-body {
+@import url(https://fonts.googleapis.com/css?family=Work+Sans|Yantramanav);body {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url("/assets/graphics/lander_background.jpg");
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/graphics/lander_background.jpg");
 }
@@ -67,10 +67,15 @@ h1,
 h2 {
   color: white;
   padding: 0;
+  font-family: primary;
 }
 
 h2 {
   font-size: 1.2rem;
+}
+
+body {
+  font-family: secondary;
 }
 
 .ontdekken {
