@@ -1,19 +1,54 @@
 <!-- Login -->
 <div class="contact-panel" id="contact-panel" data-toggler=".is-active">
-    <a class="contact-panel-button" data-toggle="contact-panel">Login</a>
-    <form action="">
-        <div class="row">
-        <label>Email
-            <input type="email" name="email" placeholder="E-mail adres">
-        </label>
+
+    <li><a id="login_dropdown_btn" class="contact-panel-button" data-toggle="contact-panel">Login</a></li>
+    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+        {{ csrf_field() }}
+        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+            <label for="email" class="col-md-4 control-label">E-Mail Adres</label>
+            <div class="col-md-6">
+                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                @if ($errors->has('email'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div><br>
+
+        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+            <label for="password" class="col-md-4 control-label">Wachtwoord</label>
+
+            <div class="col-md-6">
+                <input id="password" type="password" class="form-control" name="password" required>
+
+                @if ($errors->has('password'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
+            </div>
         </div>
-        <div class="row">
-        <label>Wachtwoord
-            <input type="password" name="password" placeholder="Wachtwoord">
-        </label>
+
+
+        <div class="form-group">
+            <div class="col-md-8 col-md-offset-4">
+                <label>
+                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Onthoud me
+                </label>
+                <button type="submit" class="btn btn-primary">
+                    Login
+                </button>
+                </div>
+        </div><br>
+
+        <div class="form-group">
+            <div class="col-md-6 col-md-offset-4">
+                    <a class="btn btn-link" href="{{ route('password.request') }}">Wachtwoord vergeten?</a><br>
+                    <a class="btn btn-link" href="{{ route('register') }}">Nog niet geregistreerd?</a><br><br>
+                    <a class="login-box-social-button-facebook">Inloggen met facebook</a>
+            </div>
         </div>
-        <div class="contact-panel-actions">
-        <input class="login-box-submit-button" type="submit" name="login" value="Login" />
-        </div>
+            
     </form>
 </div>

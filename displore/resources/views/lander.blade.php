@@ -17,7 +17,6 @@
 
 	</head>
 	<body>
-
 		<!-- Menu -->   
 		<nav class="top-bar" data-topbar>
 			<ul class="title-area dropdown menu" data-dropdown-menu>
@@ -35,21 +34,20 @@
 					<li><a href="{{ route('user.offers') }}">Jouw ervaringen</a></li>
 					<li><a href="{{ route('user.profile') }}">Toon Profiel</a></li>
 				@else
-					<li><a href="{{ route('login') }}">Login</a></li>
 					@include('layouts.login')
 				@endif
 			</ul>
 		</nav>
-
 		<!-- End Menu -->
+
         <!-- Call To Action -->
 		<div class="call_to_action_wrapper">
 			<h1>De website om ervaringen te ontdekken</h1>
 			<h2>Weet je niet wat te doen? Heb je ooit al eens iets heel speciaal willen doen? Je vind het allemaal hier!</h2>
-			<a href="{{ route('discover') }}" class="button ontdekken">ONTDEKKEN</a>
-			<a href="{{ route('product.create') }}" class="button aanbieden">AANBIEDEN</a>
+			<a href="{{ route('discover') }}" class="button red_btn">ONTDEKKEN</a>
+			<a href="{{ route('product.create') }}" class="button white_btn">AANBIEDEN</a>
 		</div>
-
+		<!-- End Call To Action -->
 		<script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

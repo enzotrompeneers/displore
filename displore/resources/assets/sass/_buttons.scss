@@ -1,19 +1,172 @@
-.ontdekken {
+.red_btn {
     background-color: #e7173e;
     border: 3px solid #e7173e;
 }
-.ontdekken:hover {
+.red_btn:hover {
     border: 3px solid #fff;
     background-color: #e7173e;
 }
-.aanbieden {
+.white_btn{
     border: 3px solid #fff;
     background-color: transparent;
 }
-.aanbieden:hover {
+.white_btn:hover, .login_btn:hover {
     border: 3px solid #e7173e;
     background-color: transparent;
 }
-.ontdekken, .aanbieden {
+.white_btn, .red_btn {
     position: relative;
 }
+.login_btn {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 1rem 0;
+    padding: 2rem;
+    -webkit-appearance: none;
+    border: 3px solid #fff;
+    border-radius: 0;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    font-size: 0.9rem;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    color: #fff;
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+  }
+
+  
+  // facebook_btn
+.login-box {
+    box-shadow: 0 2px 4px rgba(10, 10, 10, 0.4);
+    background: #fefefe;
+    border-radius: 0;
+    overflow: hidden;
+  }
+  
+  .login-box .or {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    display: inline-block;
+    min-width: 2.1em;
+    padding: 0.3em;
+    border-radius: 50%;
+    font-size: 0.6rem;
+    text-align: center;
+    font-size: 1.275rem;
+    background: #cacaca;
+    box-shadow: 0 2px 4px rgba(10, 10, 10, 0.4);
+  }
+  
+  @media screen and (max-width: 39.9375em) {
+    .login-box .or {
+      top: 85%;
+    }
+  }
+  
+  .login-box-title {
+    font-weight: 300;
+    font-size: 1.875rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .login-box-form-section,
+  .login-box-social-section-inner {
+    padding: 2.5rem;
+  }
+  
+  .login-box-social-section {
+    background: url("https://images.pexels.com/photos/179124/pexels-photo-179124.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .login-box-input {
+    margin-bottom: 1.25rem;
+    height: 2rem;
+    border: 0;
+    padding-left: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #1779ba;
+    font-weight: 400;
+  }
+  
+  .login-box-input:focus {
+    color: #1779ba;
+    transition: 0.2s ease-in-out;
+    box-shadow: none;
+    border: 0;
+    border-bottom: 2px solid #1779ba;
+  }
+  
+  .login-box-submit-button {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 1rem 0;
+    padding: 0.85em 1em;
+    -webkit-appearance: none;
+    border: 1px solid transparent;
+    border-radius: 0;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    font-size: 0.9rem;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    background-color: #1779ba;
+    color: #fefefe;
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+  
+  .login-box-social-button-facebook {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 1rem 0;
+    padding: 0.85em 1em;
+    -webkit-appearance: none;
+    border: 1px solid transparent;
+    border-radius: 0;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    font-size: 0.9rem;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    background-color: #3b5998;
+    color: #fefefe;
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+  }
+  
+  [data-whatinput='mouse'] .login-box-social-button-facebook {
+    outline: 0;
+  }
+  
+  .login-box-social-button-facebook:hover, .login-box-social-button-facebook:focus {
+    background-color: #2f477a;
+    color: #fefefe;
+  }
+  // End facebook_btn
+
+  .arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #fff;
+  }
