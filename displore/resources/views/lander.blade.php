@@ -31,6 +31,7 @@
 					<li><a href="{{ route('user.profile') }}">Toon Profiel</a></li>
 				@else
 					<li><a href="{{ route('login') }}">Login</a></li>
+					@include('layouts.login')
 				@endif
 			</ul>
 		</nav>
