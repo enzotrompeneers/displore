@@ -36,17 +36,10 @@
                 <label>
                     <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Onthoud me
                 </label>
-                <button type="submit" class="btn btn-primary">
-                    Login
-                </button>
-                </div>
-        </div><br>
-
-        <div class="form-group">
-            <div class="col-md-6 col-md-offset-4">
-                    <a class="btn btn-link" href="{{ route('password.request') }}">Wachtwoord vergeten?</a><br>
-                    <a class="btn btn-link" href="{{ route('register') }}">Nog niet geregistreerd?</a><br><br>
-                    <a class="login-box-social-button-facebook">Inloggen met facebook</a>
+                <a type="submit" class="big_btn login_btn">Inloggen</a>
+                <a class="big_btn facebook_btn">Inloggen met facebook</a>
+                <a class="btn btn-link" href="{{ route('password.request') }}">Wachtwoord vergeten?</a><br>
+                <a class="btn btn-link" href="{{ route('register') }}">Nog niet geregistreerd?</a><br><br>
             </div>
         </div>
             
