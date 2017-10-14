@@ -21,7 +21,6 @@ Route::get('/ervaring/toon/{id}', 'ProductController@show')->name('product.show'
 //Home routes
 Route::get('/', 'HomeController@lander')->name('lander');
 
-
 //Protected routes
 
 Route::middleware('auth')->group(function(){
@@ -33,4 +32,8 @@ Route::middleware('auth')->group(function(){
 	Route::post('/ervaring/maken', 'ProductController@store')->name('product.store');
 	Route::get('/ervaring/bewerken/{id}', 'ProductController@edit')->name('product.edit');
 	Route::patch('/ervaring/bewerken/{id}', 'ProductController@update')->name('product.update');
+
+	//Reservation routes
+	Route::post('/reservatie/maken', 'ReservationController@store')->name('reservation.store');
+
 });
