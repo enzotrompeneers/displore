@@ -1,4 +1,11 @@
-@import url(https://fonts.googleapis.com/css?family=Work+Sans|Yantramanav);.lander-bg {
+@import url(https://fonts.googleapis.com/css?family=Work+Sans|Yantramanav);/**
+ * Foundation for Sites by ZURB
+ * Version 6.4.4-rc1
+ * foundation.zurb.com
+ * Licensed under MIT Open Source
+ */
+
+.lander-bg {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url("/assets/graphics/lander_background.jpg");
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/graphics/lander_background.jpg");
 }
@@ -9,6 +16,32 @@
   position: relative;
   width: 60%;
   left: 20%;
+}
+
+.tab {
+  padding: 12px 25px;
+  color: #555;
+  border: 1px solid #efefef;
+  border-top: 3px solid #dadada;
+  background: white;
+  text-decoration: none;
+  margin: 0;
+  margin-right: 3px;
+  font-weight: 800;
+}
+
+.tab:hover {
+  border-top: 3px solid #e7173e;
+}
+
+.tab-active {
+  border-top: 3px solid #e7173e;
+}
+
+.tab-content {
+  margin-top: -1px;
+  border: 1px solid #efefef;
+  background: white;
 }
 
 .header {
@@ -67,6 +100,10 @@ h1 {
   font-weight: 700;
 }
 
+h2 {
+  font-size: 1.2rem;
+}
+
 h1,
 h2,
 h3,
@@ -83,24 +120,126 @@ h2 {
   font-family: "Yantramanav";
 }
 
-h2 {
-  font-size: 1.2rem;
-}
-
-body {
+input[type="text"],
+input[type="email"],
+.textbox {
+  padding: 10px 15px;
+  border: 1px solid #dadada;
+  border-radius: 3px;
+  outline: none;
   font-family: "Work Sans";
+  font-size: 16px;
+  font-weight: 700;
+  display: block;
 }
 
-.big_btn {
+input[type="text"]:focus,
+input[type="email"]:focus,
+.textbox:focus {
+  border: 1px solid #c1c0c0;
+}
+
+.form-group {
+  padding: 10px 0px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group .textbox {
+  margin-top: 5px;
+}
+
+input[type="submit"],
+.button,
+.big_btn,
+.white_btn,
+.facebook_btn,
+.login_btn {
   display: inline-block;
   vertical-align: middle;
   margin: 0 0 1rem 0;
+  font-family: inherit;
   padding: 0.85em 1em;
   -webkit-appearance: none;
   border: 1px solid transparent;
   border-radius: 0;
   -webkit-transition: background-color 0.25s ease-out, color 0.25s ease-out;
   transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  font-size: 0.9rem;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  background-color: #1779ba;
+  color: #fefefe;
+  border-radius: 3px;
+  font-weight: 700;
+  -webkit-transition: background-color 0.25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  background-color: #e7173e;
+  border: 2px solid #e7173e;
+  padding: 10px 15px;
+  font-size: 16px;
+  outline: none;
+}
+
+[data-whatinput='mouse'] input[type="submit"],
+[data-whatinput='mouse'] .button,
+[data-whatinput='mouse'] .big_btn,
+[data-whatinput='mouse'] .white_btn,
+[data-whatinput='mouse'] .facebook_btn,
+[data-whatinput='mouse'] .login_btn {
+  outline: 0;
+}
+
+input[type="submit"]:hover,
+.button:hover,
+.big_btn:hover,
+.white_btn:hover,
+.facebook_btn:hover,
+.login_btn:hover,
+input[type="submit"]:focus,
+.button:focus,
+.big_btn:focus,
+.white_btn:focus,
+.facebook_btn:focus,
+.login_btn:focus {
+  background-color: #14679e;
+  color: #fefefe;
+}
+
+input[type="submit"]:hover,
+.button:hover,
+.big_btn:hover,
+.white_btn:hover,
+.facebook_btn:hover,
+.login_btn:hover {
+  background-color: #d01538;
+  border: 2px solid #d01538;
+}
+
+input[type="submit"]:active,
+.button:active,
+.big_btn:active,
+.white_btn:active,
+.facebook_btn:active,
+.login_btn:active,
+input[type="submit"]:focus,
+.button:focus,
+.big_btn:focus,
+.white_btn:focus,
+.facebook_btn:focus,
+.login_btn:focus {
+  background-color: #e7173e;
+  border: 2px solid #e7173e;
+}
+
+.big_btn {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 1rem 0;
+  padding: 0.65em 1em;
+  -webkit-appearance: none;
+  border: 1px solid transparent;
   font-size: 0.9rem;
   line-height: 1;
   text-align: center;
@@ -123,24 +262,15 @@ body {
   color: #fff;
 }
 
-.red_btn {
-  background-color: #e7173e;
-  border: 3px solid #e7173e;
-}
-
-.red_btn:hover {
-  border: 3px solid #fff;
-  background-color: #e7173e;
-}
-
 .white_btn {
-  border: 3px solid #fff;
+  border: 2px solid #fff;
   background-color: transparent;
 }
 
 .white_btn:hover {
-  border: 3px solid #e7173e;
-  background-color: transparent;
+  background-color: white;
+  border: 2px solid #fff;
+  color: black;
 }
 
 .white_btn,
@@ -263,5 +393,16 @@ body {
     width: 100%;
     right: 0;
   }
+}
+
+body {
+  background: #F5F5F5;
+  font-family: "Work Sans";
+  color: #222;
+}
+
+a:active,
+a:focus {
+  color: #555;
 }
 

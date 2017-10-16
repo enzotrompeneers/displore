@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans|Yantramanav');
 
+//foundation import
+@import "node_modules/foundation-sites/scss/foundation";
+
 @import "variables";
 @import "lander";
+@import "tabs";
 @import "navbar";
 @import "headings";
+@import "textbox";
 @import "buttons";
 @import "login";
-
+@import "general";
 
  

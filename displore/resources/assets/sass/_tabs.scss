@@ -1,0 +1,25 @@
+.tab{
+	padding: 12px 25px;
+	color: $secondary-2;
+	border: 1px solid $secondary-4;
+	border-top: 3px solid $secondary-3;
+	background: white;
+	text-decoration: none;
+	margin: 0;
+	margin-right: 3px;
+	font-weight: 800;
+
+	&:hover{
+		border-top: 3px solid $primary-1;
+	}
+
+	&-active{
+		border-top: 3px solid $primary-1;
+	}
+
+	&-content{
+		margin-top: -1px;
+		border: 1px solid $secondary-4;
+		background: white;
+	}
+}

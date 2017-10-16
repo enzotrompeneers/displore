@@ -1,12 +1,37 @@
+%button{
+    @include button;
+    border-radius: 3px;
+    font-weight: 700;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+    background-color: $primary-1;
+    border: 2px solid $primary-1;
+    padding: 10px 15px;
+    font-size: 16px;
+    outline: none;
+
+    &:hover{
+        background-color: darken($primary-1, 5%);
+        border: 2px solid darken($primary-1, 5%);
+    }
+
+    &:active, &:focus{
+        background-color: $primary-1;
+        border: 2px solid $primary-1;
+    }
+}
+
+input[type="submit"], .button{
+    @extend %button;
+}
+
 .big_btn {
+    @extend %button;
     display: inline-block;
     vertical-align: middle;
     margin: 0 0 1rem 0;
-    padding: 0.85em 1em;
+    padding: 0.65em 1em;
     -webkit-appearance: none;
     border: 1px solid transparent;
-    border-radius: 0;
-    transition: background-color 0.25s ease-out, color 0.25s ease-out;
     font-size: 0.9rem;
     line-height: 1;
     text-align: center;
@@ -19,44 +44,49 @@
     font-weight: 500;
     margin-bottom: 1.25rem;
     text-transform: uppercase;
-  }
-  [data-whatinput='mouse'] .big_btn {
+}
+
+[data-whatinput='mouse'] .big_btn {
     outline: 0;
-  }
-  .big_btn:hover {
-      color: #fff;
-  }
-.red_btn {
-    background-color: #e7173e;
-    border: 3px solid #e7173e;
 }
-.red_btn:hover {
-    border: 3px solid #fff;
-    background-color: #e7173e;
+
+.big_btn:hover {
+    color: #fff;
 }
+
 .white_btn{
-    border: 3px solid #fff;
+    @extend %button;
+    border: 2px solid #fff;
     background-color: transparent;
 }
+
 .white_btn:hover {
-    border: 3px solid #e7173e;
-    background-color: transparent;
+    background-color: white;
+    border: 2px solid #fff;
+    color: black;
 }
+
 .white_btn, .red_btn {
     position: relative;
 }
+
 .facebook_btn {
-    background-color: #3b5998;
+    @extend %button;
+    background-color: $facebook-color;
 }
+
 .facebook_btn:hover {
     background-color: #2f477a;
     color: #fff;
 }
+
 .login_btn {
-    background-color: #e7173e;
+    @extend %button;
+    background-color: $primary-1;
 }
+
 .login_btn:hover {
-    background-color: #e7173e;
+    background-color: $primary-1;
 }
   
   

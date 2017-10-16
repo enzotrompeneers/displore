@@ -23,7 +23,6 @@ Route::get('/ervaring/toon/{id}', 'ProductController@show')->name('product.show'
 Route::get('/', 'HomeController@lander')->name('lander');
 
 //Protected routes
-
 Route::middleware('auth')->group(function(){
 	//Review routes
 	Route::post('/recensie/maken/{product_id}', 'ProductReviewController@store')->name('review.store');
@@ -36,5 +35,4 @@ Route::middleware('auth')->group(function(){
 
 	//Reservation routes
 	Route::post('/reservatie/maken', 'ReservationController@store')->name('reservation.store');
-
 });
