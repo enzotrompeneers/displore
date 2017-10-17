@@ -1,0 +1,62 @@
+.header{
+	@include clearfix;
+	background: white;
+	padding: 25px 45px;
+	border-bottom: 2px solid $secondary-3;
+	width: 100%;
+	box-sizing: border-box;
+
+	&-logo{
+		float: left;
+	}
+
+	nav{
+		line-height: 110px;
+		float: right;
+	}
+
+	ul{
+		margin: 0; padding: 0;
+	}
+
+	&-list-item{
+		float: left;
+		margin: 0;
+		margin-left: 35px;
+		box-sizing: border-box;
+		padding: 0;
+	}
+
+	&-list-item a{
+		padding: 15px 0px;
+	}
+
+	&-list-item-link{
+		line-height: 90px;
+		color: $secondary-1;
+	}
+
+	&-logo-text, &-logo-image{
+		float: left;
+	}
+
+	&-logo-text{
+		line-height: 110px;
+		margin-left: 15px;
+	}
+
+	&-logo-text, &-logo-text a{
+		font-size: 38px;
+		color: $secondary-1;
+		font-family: $font-primary;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	&-logo-image{
+		height: 75px;
+		width: 75px;
+		padding: 15px 0px;
+	}
+}
+

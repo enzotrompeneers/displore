@@ -3,8 +3,10 @@
 //foundation import
 @import "node_modules/foundation-sites/scss/foundation";
 
+@import "mixins";
 @import "variables";
 @import "lander";
+@import "header";
 @import "tabs";
 @import "navbar";
 @import "headings";

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Reservation extends Model
 {
@@ -13,11 +14,11 @@ class Reservation extends Model
 
     public function product()
     {
-    	return $this->hasOne('Product')
+    	return $this->belongsTo('App\Product');
     }
 
     public function user()
     {
-        return $this->hasOne('User');
+        return $this->belongsTo('App\User');
     }
 }

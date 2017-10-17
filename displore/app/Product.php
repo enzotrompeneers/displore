@@ -24,8 +24,6 @@ class Product extends Model
 
     protected $dates = ['deleted_at'];
 
-    
-
     public function images()
     {
         return $this->hasMany('App\ProductImage');
@@ -34,6 +32,16 @@ class Product extends Model
     public function reviews()
     {
         return $this->hasMany('App\ProductReview');
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany('App\Reservation');
+    }
+
+    public function user()
+    {
+        return $this->hasOne('App\User');
     }
 
 }

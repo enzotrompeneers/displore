@@ -1,13 +1,15 @@
 %button{
     @include button;
+    margin: 0;
     border-radius: 3px;
     font-weight: 700;
     transition: background-color 0.25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
     background-color: $primary-1;
     border: 2px solid $primary-1;
-    padding: 10px 15px;
+    padding: 10px 25px;
     font-size: 16px;
     outline: none;
+    text-decoration: none;
 
     &:hover{
         background-color: darken($primary-1, 5%);
@@ -28,7 +30,6 @@ input[type="submit"], .button{
     @extend %button;
     display: inline-block;
     vertical-align: middle;
-    margin: 0 0 1rem 0;
     padding: 0.65em 1em;
     -webkit-appearance: none;
     border: 1px solid transparent;
@@ -52,6 +53,19 @@ input[type="submit"], .button{
 
 .big_btn:hover {
     color: #fff;
+}
+
+.red_ghost{
+    @extend %button;
+    background-color: transparent;
+    border-color: $primary-1;
+    color: $primary-1;
+
+    &:hover{
+        background-color: $primary-1;
+        border-color: $primary-1;
+        color: white;
+    }
 }
 
 .white_btn{

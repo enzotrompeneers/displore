@@ -22,7 +22,7 @@
 		<!-- Menu -->   
 		<nav class="top-bar" data-topbar>
 			<ul class="title-area dropdown menu" data-dropdown-menu>
-				<li class="header">
+				<li class="top-bar-item">
 					<a href="{{ route('lander') }}"><img src="{{asset('assets/graphics/displore_logo.svg')}}" alt="Displore"></a>
 				</li>
 				<li><h1>Displore</h1></li>

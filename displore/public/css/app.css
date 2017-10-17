@@ -18,6 +18,75 @@
   left: 20%;
 }
 
+.header {
+  content: "";
+  display: table;
+  clear: both;
+  background: white;
+  padding: 25px 45px;
+  border-bottom: 2px solid #dadada;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.header-logo {
+  float: left;
+}
+
+.header nav {
+  line-height: 110px;
+  float: right;
+}
+
+.header ul {
+  margin: 0;
+  padding: 0;
+}
+
+.header-list-item {
+  float: left;
+  margin: 0;
+  margin-left: 35px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+.header-list-item a {
+  padding: 15px 0px;
+}
+
+.header-list-item-link {
+  line-height: 90px;
+  color: #333;
+}
+
+.header-logo-text,
+.header-logo-image {
+  float: left;
+}
+
+.header-logo-text {
+  line-height: 110px;
+  margin-left: 15px;
+}
+
+.header-logo-text,
+.header-logo-text a {
+  font-size: 38px;
+  color: #333;
+  font-family: "Yantramanav";
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.header-logo-image {
+  height: 75px;
+  width: 75px;
+  padding: 15px 0px;
+}
+
 .tab {
   padding: 12px 25px;
   color: #555;
@@ -27,7 +96,7 @@
   text-decoration: none;
   margin: 0;
   margin-right: 3px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .tab:hover {
@@ -42,15 +111,16 @@
   margin-top: -1px;
   border: 1px solid #efefef;
   background: white;
+  padding: 15px 25px 45px 25px;
 }
 
-.header {
+.top-bar-item {
   float: left;
   color: #fff;
   display: block;
 }
 
-.header img {
+.top-bar-item img {
   float: left;
   width: 50px;
   height: 50px;
@@ -110,11 +180,13 @@ h3,
 h4,
 h5 {
   font-family: "Yantramanav";
+  color: #333;
 }
 
+.lander_headers,
 .call_to_action_wrapper h1,
-.top-bar h1,
-h2 {
+.call_to_action_wrapper h2,
+.top-bar h1 {
   color: white;
   padding: 0;
   font-family: "Yantramanav";
@@ -174,6 +246,7 @@ input[type="search"]:focus {
 input[type="submit"],
 .button,
 .big_btn,
+.red_ghost,
 .white_btn,
 .facebook_btn,
 .login_btn {
@@ -193,20 +266,23 @@ input[type="submit"],
   cursor: pointer;
   background-color: #1779ba;
   color: #fefefe;
+  margin: 0;
   border-radius: 3px;
   font-weight: 700;
   -webkit-transition: background-color 0.25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
   transition: background-color 0.25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
   background-color: #e7173e;
   border: 2px solid #e7173e;
-  padding: 10px 15px;
+  padding: 10px 25px;
   font-size: 16px;
   outline: none;
+  text-decoration: none;
 }
 
 [data-whatinput='mouse'] input[type="submit"],
 [data-whatinput='mouse'] .button,
 [data-whatinput='mouse'] .big_btn,
+[data-whatinput='mouse'] .red_ghost,
 [data-whatinput='mouse'] .white_btn,
 [data-whatinput='mouse'] .facebook_btn,
 [data-whatinput='mouse'] .login_btn {
@@ -216,12 +292,14 @@ input[type="submit"],
 input[type="submit"]:hover,
 .button:hover,
 .big_btn:hover,
+.red_ghost:hover,
 .white_btn:hover,
 .facebook_btn:hover,
 .login_btn:hover,
 input[type="submit"]:focus,
 .button:focus,
 .big_btn:focus,
+.red_ghost:focus,
 .white_btn:focus,
 .facebook_btn:focus,
 .login_btn:focus {
@@ -232,6 +310,7 @@ input[type="submit"]:focus,
 input[type="submit"]:hover,
 .button:hover,
 .big_btn:hover,
+.red_ghost:hover,
 .white_btn:hover,
 .facebook_btn:hover,
 .login_btn:hover {
@@ -242,12 +321,14 @@ input[type="submit"]:hover,
 input[type="submit"]:active,
 .button:active,
 .big_btn:active,
+.red_ghost:active,
 .white_btn:active,
 .facebook_btn:active,
 .login_btn:active,
 input[type="submit"]:focus,
 .button:focus,
 .big_btn:focus,
+.red_ghost:focus,
 .white_btn:focus,
 .facebook_btn:focus,
 .login_btn:focus {
@@ -258,7 +339,6 @@ input[type="submit"]:focus,
 .big_btn {
   display: inline-block;
   vertical-align: middle;
-  margin: 0 0 1rem 0;
   padding: 0.65em 1em;
   -webkit-appearance: none;
   border: 1px solid transparent;
@@ -282,6 +362,18 @@ input[type="submit"]:focus,
 
 .big_btn:hover {
   color: #fff;
+}
+
+.red_ghost {
+  background-color: transparent;
+  border-color: #e7173e;
+  color: #e7173e;
+}
+
+.red_ghost:hover {
+  background-color: #e7173e;
+  border-color: #e7173e;
+  color: white;
 }
 
 .white_btn {
@@ -417,10 +509,21 @@ input[type="submit"]:focus,
   }
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: #F5F5F5;
   font-family: "Work Sans";
   color: #222;
+}
+
+.container {
+  margin: 50px auto;
+  width: 1020px;
 }
 
 a:active,

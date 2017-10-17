@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Reservation;
 use Auth;
 
 class UserController extends Controller
@@ -84,6 +85,10 @@ class UserController extends Controller
 
     public function reservations()
     {
-        return view('user.reservations');
+        $my_reservations = Reservation::where('user_id', Auth::user()->id)->get();
+
+        $products = Product::where('user_id', Auth::user()->id)->get();
+        
+        return view('user.reservations', compact('my_reservations', 'products'));
     }
 }

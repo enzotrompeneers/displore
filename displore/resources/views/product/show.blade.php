@@ -17,7 +17,9 @@
 	<form action="{{ route('reservation.store') }}" method="post">
 		<h3>{{ $product->price }} per {{ $product->price_time }}</h3>
 
-		<input type="hidden" name="product_id">
+		{{ csrf_field() }}
+
+		<input type="hidden" name="product_id" value="{{ $product->id }}">
 
 		<label for="from">Van</label>
 		<input type="datetime" id="from" name="from">
