@@ -51,13 +51,13 @@
 				</div>
 				<div class="medium-6 cell">
 					<label>Upload een afbeeldingen over de aanbieding</label>
-					<label class="button secondary">Upload Afbeelding</label>
+					<label class="button primary">Upload Afbeelding</label>
 					<input type="file" class="show-for-sr" name="image">
 				</div>
 
 			</div>
 			<div class="medium-12 cell">
-				<input type="submit" class="button alert" value="Aanbieden"/>
+				<input type="submit" class="button primary" value="Aanbieden"/>
 			</div>
 		</form>
 	</div>
