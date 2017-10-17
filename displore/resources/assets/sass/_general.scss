@@ -15,6 +15,14 @@ body{
 	width: 1020px;
 }
 
+.clearfix{
+	@include clearfix;
+}
+
+.float-right{
+	float: right;
+}
+
 a:active, a:focus{
 	color: $secondary-2;
 }	

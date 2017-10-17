@@ -197,6 +197,7 @@ input[type="email"],
 input[type="search"],
 input[type="datetime"],
 input[type="number"],
+input[type="password"],
 select,
 textarea,
 .textbox {
@@ -208,7 +209,7 @@ textarea,
   font-size: 16px;
   font-weight: 700;
   display: block;
-  background: white;
+  background-color: white;
 }
 
 input[type="text"]:focus,
@@ -216,6 +217,7 @@ input[type="email"]:focus,
 input[type="search"]:focus,
 input[type="datetime"]:focus,
 input[type="number"]:focus,
+input[type="password"]:focus,
 select:focus,
 textarea:focus,
 .textbox:focus {
@@ -454,15 +456,6 @@ input[type="submit"]:focus,
   width: 100%;
 }
 
-.contact-panel input[type="text"],
-.contact-panel input[type="email"],
-.contact-panel textarea {
-  background: #303030;
-  border: #0a0a0a;
-  -webkit-transition: background 0.3s ease-in-out;
-  transition: background 0.3s ease-in-out;
-}
-
 .contact-panel input[type="text"]:focus,
 .contact-panel input[type="email"]:focus,
 .contact-panel textarea:focus {
@@ -524,6 +517,16 @@ body {
 .container {
   margin: 50px auto;
   width: 1020px;
+}
+
+.clearfix {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.float-right {
+  float: right;
 }
 
 a:active,

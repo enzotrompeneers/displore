@@ -3,6 +3,7 @@ input[type="email"],
 input[type="search"],
 input[type="datetime"],
 input[type="number"],
+input[type="password"],
 select,
 textarea,
 .textbox{
@@ -14,7 +15,7 @@ textarea,
 	font-size: 16px;
 	font-weight: 700;
 	display: block;
-	background: white;
+	background-color: white;
 
 	&:focus{
 		border: 1px solid darken($secondary-3, 10%);
