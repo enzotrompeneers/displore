@@ -19,14 +19,16 @@
             </div>
             <nav>
                 <ul>
-                    <li class="header-list-item"><a href="{{ route('product.create') }}" class="red_ghost">Ervaring aanbieden</a></li>
-                    <li class="header-list-item"><a href="{{ route('user.offers') }}" class="header-list-item-link">Jouw ervaringen</a></li>
-                    <li class="header-list-item">
-                        <form action="{{ route('logout') }}" method="post">
-                            {{ csrf_field() }}
-                            <input type="submit" value="Uitloggen">
-                        </form>
-                    </li>
+                    
+
+                    @if ($user = Auth::user()) 
+                        <li class="header-list-item"><a href="{{ route('product.create') }}" class="red_ghost">Ervaring aanbieden</a></li>
+                        <li class="header-list-item"><a href="{{ route('user.offers') }}" class="header-list-item-link">Jouw ervaringen</a></li>
+                        <li class="header-list-item"><a class="button primary" href="{{ route('logout') }}">Uitloggen</a></li>
+                    @else
+                        <li class="header-list-item"><a class="button primary" href="{{ route('login') }}">Inloggen</a></li>
+                    @endif
+                    
                 </ul>
                 
                 

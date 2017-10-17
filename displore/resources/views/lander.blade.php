@@ -19,28 +19,38 @@
 
 	</head>
 	<body class="lander-bg">
-		<!-- Menu -->   
-		<nav class="top-bar" data-topbar>
-			<ul class="title-area dropdown menu" data-dropdown-menu>
-				<li class="top-bar-item">
-					<a href="{{ route('lander') }}"><img src="{{asset('assets/graphics/displore_logo.svg')}}" alt="Displore"></a>
-				</li>
-				<li><h1>Displore</h1></li>
-			</ul>
-			<ul class="left">
-				<!-- <li><a href="{{ route('lander') }}">Home</a></li> -->
-			</ul>
-			<ul class="right">
-				<li><a href="{{ route('lander') }}">Wat is displore?</a></li>
+
+	<!-- Navbar -->
+	<header  class="header" style="background-color: transparent; border: none;">
+            <div class="header-logo">
+                <div class="header-logo-image">
+                    <a href="{{ route('lander') }}"><img src="{{asset('assets/graphics/displore_logo.svg')}}" alt="Displore"></a>
+                </div>
+
+                <div class="header-logo-text">
+                    <a href="{{ route('lander') }}" style="color:white;">
+                        Displore
+                    </a>
+                </div>
+                
+            </div>
+            <nav>
+                <ul>
+				 <li class="header-list-item"><a href="{{ route('lander') }}">Wat is displore?</a></li>
+
+
 				@if ($user = Auth::user()) 
-					<li><a href="{{ route('user.offers') }}">Jouw ervaringen</a></li>
-					<li><a href="{{ route('user.profile') }}">Toon Profiel</a></li>
-					<li><a href="{{ route('logout') }}">Uitloggen</a></li>
+                    <li class="header-list-item"><a class="red_ghost" href="{{ route('user.offers') }}" >Jouw ervaringen</a></li>
+					<li class="header-list-item"><a href="{{ route('user.profile') }}">{{ $user->first_name }}</a></li>
+					<li class="header-list-item"><a class="button primary" href="{{ route('logout') }}">Uitloggen</a></li>
 				@else
-					@include('layouts.login')
+					<li class="header-list-item"><a class="button primary" href="{{ route('login') }}">Inloggen</a></li>
 				@endif
-			</ul>
-		</nav>
+                </ul>
+                
+                
+            </nav>
+        </header>
 		<!-- End Navbar -->
 
         <!-- Call To Action -->
