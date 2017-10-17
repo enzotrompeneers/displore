@@ -3,12 +3,9 @@
     <head>
         @include('includes.header')
     </head>
-    <body>
+    <body class="body_master">
         <header>
-            <form action="{{ route('logout') }}" method="post">
-                {{ csrf_field() }}
-                <input type="submit" value="Uitloggen">
-            </form>
+            @include('layouts.navbar')
         </header>
         <container>
             @yield('content')

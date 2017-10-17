@@ -12,12 +12,11 @@
 		<link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
 		<link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
 	</head>
-	<body>
-		<!-- Menu -->   
+	<body class="body_lander">
+		<!-- Navbar -->
 		<nav class="top-bar" data-topbar>
 			<ul class="title-area dropdown menu" data-dropdown-menu>
 				<li class="header">
@@ -33,12 +32,13 @@
 				@if ($user = Auth::user()) 
 					<li><a href="{{ route('user.offers') }}">Jouw ervaringen</a></li>
 					<li><a href="{{ route('user.profile') }}">Toon Profiel</a></li>
+					<li><a href="{{ route('logout') }}">Uitloggen</a></li>
 				@else
 					@include('layouts.login')
 				@endif
 			</ul>
 		</nav>
-		<!-- End Menu -->
+		<!-- End Navbar -->
 
         <!-- Call To Action -->
 		<div class="call_to_action_wrapper">

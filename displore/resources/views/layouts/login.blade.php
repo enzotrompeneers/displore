@@ -15,7 +15,6 @@
                 @endif
             </div>
         </div><br>
-
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
             <label for="password" class="col-md-4 control-label">Wachtwoord</label>
 
@@ -36,7 +35,7 @@
                 <label>
                     <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Onthoud me
                 </label>
-                <a type="submit" class="big_btn login_btn">Inloggen</a>
+                <button type="submit" class="big_btn login_btn">Inloggen</button><br>
                 <a class="big_btn facebook_btn">Inloggen met facebook</a>
                 <a class="btn btn-link" href="{{ route('password.request') }}">Wachtwoord vergeten?</a><br>
                 <a class="btn btn-link" href="{{ route('register') }}">Nog niet geregistreerd?</a><br><br>
