@@ -36,6 +36,7 @@
 				</div>
 				<div class="medium-6 cell">
 					<label>Selecteer een locatie</label>
+					<div id="googleMap" name="location" style="width:100%;height:250px;background-color:grey;"></div>
 				</div>
 				<div class="medium-6 cell">
 					<label>Categorie</label>
@@ -54,15 +55,12 @@
 				</div>
 
 			</div>
-
-
-			<div>
-				<label>Locatie</label>
-				<input type="text" name="location"/>
+			<div class="medium-12 cell">
+				<input type="submit" class="button alert" value="Aanbieden"/>
 			</div>
 
 
-			<input type="submit" class="button alert" value="Aanbieden"/>
+			
 		</form>
 	</div>
 @endsection
