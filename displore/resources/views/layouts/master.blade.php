@@ -3,7 +3,7 @@
     <head>
         @include('includes.header')
     </head>
-    <body>
+    <body class="body_master">
         <header class="header">
             <div class="header-logo">
                 <div class="header-logo-image">

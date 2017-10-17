@@ -6,6 +6,7 @@
 
 //Authentication routes
 Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout');
 
 //User routes
 Route::get('/gebruiker', 'UserController@profile')->name('user.profile');

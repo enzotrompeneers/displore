@@ -35,12 +35,13 @@
 				@if ($user = Auth::user()) 
 					<li><a href="{{ route('user.offers') }}">Jouw ervaringen</a></li>
 					<li><a href="{{ route('user.profile') }}">Toon Profiel</a></li>
+					<li><a href="{{ route('logout') }}">Uitloggen</a></li>
 				@else
 					@include('layouts.login')
 				@endif
 			</ul>
 		</nav>
-		<!-- End Menu -->
+		<!-- End Navbar -->
 
         <!-- Call To Action -->
 		<div class="call_to_action_wrapper">
