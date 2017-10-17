@@ -36,6 +36,7 @@
 				</div>
 				<div class="medium-6 cell">
 					<label>Selecteer een locatie</label>
+					<div id="googleMap" name="location" style="width:100%;height:250px;background-color:grey;"></div>
 				</div>
 				<div class="medium-6 cell">
 					<label>Categorie</label>
@@ -47,22 +48,17 @@
 							<option value="dier">Dier</option>
 							<option value="woning">Woning</option>
 						</select>
+				</div>
+				<div class="medium-6 cell">
 					<label>Upload een afbeeldingen over de aanbieding</label>
-
-					<label for="exampleFileUpload" class="hollow button secondary">Upload Afbeelding</label>
+					<label class="button secondary">Upload Afbeelding</label>
 					<input type="file" class="show-for-sr" name="image">
 				</div>
 
 			</div>
-
-
-			<div>
-				<label>Locatie</label>
-				<input type="text" name="location"/>
+			<div class="medium-12 cell">
+				<input type="submit" class="button alert" value="Aanbieden"/>
 			</div>
-
-
-			<input type="submit" class="button alert" value="Aanbieden"/>
 		</form>
 	</div>
 @endsection
