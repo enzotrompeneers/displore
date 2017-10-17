@@ -48,9 +48,10 @@
 							<option value="dier">Dier</option>
 							<option value="woning">Woning</option>
 						</select>
+				</div>
+				<div class="medium-6 cell">
 					<label>Upload een afbeeldingen over de aanbieding</label>
-
-					<label for="exampleFileUpload" class="hollow button secondary">Upload Afbeelding</label>
+					<label class="button secondary">Upload Afbeelding</label>
 					<input type="file" class="show-for-sr" name="image">
 				</div>
 
@@ -58,9 +59,6 @@
 			<div class="medium-12 cell">
 				<input type="submit" class="button alert" value="Aanbieden"/>
 			</div>
-
-
-			
 		</form>
 	</div>
 @endsection
