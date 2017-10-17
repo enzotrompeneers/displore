@@ -75,6 +75,11 @@ class ProductController extends Controller
   public function show($id)
   {
     $product = Product::find($id);
+
+    if($product === null){
+      return abort('404');
+    }
+
     $reviews = $product->reviews()->get();
 
     return view('product.show', compact('product', 'reviews'));

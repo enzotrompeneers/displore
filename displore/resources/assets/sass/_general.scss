@@ -1,0 +1,10 @@
+body{
+	background: $body-color;
+	font-family: $font-secondary;
+
+	color: $body-font-color;
+}
+
+a:active, a:focus{
+	color: $secondary-2;
+}	

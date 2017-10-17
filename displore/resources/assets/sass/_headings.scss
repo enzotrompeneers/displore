@@ -1,17 +1,18 @@
-$fonts: (
-    primary: 'Yantramanav',
-    secondary: 'Work Sans',
-
-);
-.call_to_action_wrapper h1, .top-bar h1,  h2 {
-    color: white;
-    padding: 0;
-    font-family: primary;
-
+h1{
+	font-weight: 700;
 }
+
 h2 {
     font-size: 1.2rem;
 }
-body {
-    font-family: secondary;
+
+h1, h2, h3, h4, h5{
+	font-family: $font-primary;
 }
+
+.call_to_action_wrapper h1, .top-bar h1,  h2 {
+    color: white;
+    padding: 0;
+    font-family: $font-primary;
+}
+
