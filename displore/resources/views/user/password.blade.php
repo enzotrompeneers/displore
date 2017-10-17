@@ -4,7 +4,7 @@
 	@component('components.user-tabs')
 		<h1>Wachtwoord veranderen</h1>
 
-		<form method="post">
+		<form action="{{ route('user.password_change') }}" method="post">
 			{{ method_field('PATCH') }}
 			{{ csrf_field() }}
 

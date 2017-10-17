@@ -11,6 +11,8 @@ Auth::routes();
 Route::get('/gebruiker', 'UserController@profile')->name('user.profile');
 Route::patch('/gebruiker', 'UserController@update')->name('user.update');
 Route::get('/gebruiker/wachtwoord', 'UserController@password')->name('user.password');
+Route::patch('/gebruiker/wachtwoord', 'UserController@passwordChange')->name('user.password_change');
+Route::patch('/gebruiker/paypal', 'UserController@paypal')->name('user.paypal');
 Route::get('/gebruiker/ervaringen', 'UserController@offers')->name('user.offers');
 Route::get('/gebruiker/reservaties', 'UserController@reservations')->name('user.reservations');
 

@@ -1,5 +1,10 @@
 input[type="text"], 
 input[type="email"],
+input[type="search"],
+input[type="datetime"],
+input[type="number"],
+select,
+textarea,
 .textbox{
 	padding: 10px 15px;
 	border: 1px solid $secondary-3;
@@ -9,9 +14,20 @@ input[type="email"],
 	font-size: 16px;
 	font-weight: 700;
 	display: block;
+	background: white;
 
 	&:focus{
 		border: 1px solid darken($secondary-3, 10%);
+	}
+}
+
+input[type="search"]{
+	border: none;
+	outline: none;
+	float: left;
+
+	&:active, &:focus{
+		border: none;
 	}
 }
 

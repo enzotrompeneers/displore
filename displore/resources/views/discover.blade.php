@@ -5,8 +5,11 @@
 
 <form action="{{ route('discover.search') }}" method="post">
 	{{ csrf_field() }}
-	<input type="search" name="search_input" id="search_input">
-	<input type="submit" value="Zoeken">
+	<div class="textbox">
+		<input type="search" name="search_input" id="search_input" placeholder="Begin met zoeken">
+		<input type="submit" value="Zoeken">
+	</div>
+
 </form>
 
 @if(isset($search_term))

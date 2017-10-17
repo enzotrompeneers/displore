@@ -8,7 +8,7 @@ use Auth;
 
 class UserController extends Controller
 {
-     public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -23,6 +23,27 @@ class UserController extends Controller
     public function password()
     {
     	return view('user.password');
+    }
+
+    public function passwordChange(){
+        $user = Auth::user();
+
+        if(
+            $user->password === bcrypt(request('old_password')) && 
+            request('new_password') === request('new_password_again')
+        )
+        {
+            $user->password = bcrypt(request('new_password'));
+            $user->update();
+        }
+        else
+        {
+            echo "Nope das fout";
+        }
+
+       
+
+        return redirect('/gebruiker/wachtwoord');
     }
 
     public function offers()
@@ -46,6 +67,16 @@ class UserController extends Controller
         $user->city = request('city');
         $user->country = request('country');
 
+        $user->update();
+
+        return redirect('/gebruiker');
+    }
+
+    public function paypal(Request $request)
+    {
+        $user = Auth::user();
+
+        $user->paypal = request('paypal');
         $user->update();
 
         return redirect('/gebruiker');

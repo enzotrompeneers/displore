@@ -37,5 +37,20 @@
 			</div>
 			<input type="submit" class="button red_btn" value="Gebruikersinformatie Wijzigen">
 		</form>
+
+		<h1>Paypal Toevoegen</h1>
+		<h4>Deze actie is nodig om dingen te kunnen aanbieden <!-- TODO: mag van header naar iets anders veranderen --></h4>
+
+		<form action="{{ route('user.paypal') }}" method="post">
+			{{ csrf_field() }}
+			{{ method_field('PATCH') }}
+			
+			<div class="form-group">
+				<label for="paypal">Paypal emailadres</label>
+				<input type="text" id="paypal" value="{{ $user->paypal }}" name="paypal">
+			</div>
+
+			<input type="submit" value="Paypal toevoegen">
+		</form>
 	@endcomponent
 @endsection
