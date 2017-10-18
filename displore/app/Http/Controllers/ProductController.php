@@ -115,7 +115,7 @@ class ProductController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function update(Request $request, $id)
+  public function update(StoreProduct $request, $id)
   {
     $product = Product::find($id);
 
@@ -138,7 +138,9 @@ class ProductController extends Controller
    */
   public function destroy($id)
   {
-    
+    $product = Product::find($id)->delete();
+
+    return redirect('/gebruiker');
   }
   
 }

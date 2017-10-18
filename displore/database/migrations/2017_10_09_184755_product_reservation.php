@@ -18,7 +18,7 @@ class ProductReservation extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('product_id')->unsigned();
             $table->datetime('from');
-            $table->datetime('to');
+            $table->datetime('to')->nullable();
             $table->integer('quantity');
             $table->timestamps();
             $table->softDeletes();

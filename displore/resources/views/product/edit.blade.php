@@ -54,9 +54,19 @@
 						<input type="file" class="show-for-sr" id="upload_image" name="image">
 					</div>
 					</div>
-				<div class="medium-12 cell">
-					<input type="submit" class="button primary" value="Bewerking Opslaan"/>
-				</div>
+
+				
+					<div class="medium-12 cell">
+						<input type="submit" class="button primary" value="Bewerking Opslaan"/>
+					</div>	
 		</form>
+			<div class="medium-12 cell">
+				<form action="{{ route('product.destroy') }}" method="post">
+					{{ csrf_field() }}
+					{{ method_field('DELETE') }}
+					<input type="submit" class="red_ghost" value="Verwijderen"/>
+				</form>
+			</div>
+		</div>
 	</div>
 @endsection

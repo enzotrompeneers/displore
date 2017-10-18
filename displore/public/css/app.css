@@ -455,7 +455,6 @@ input[type="search"]:focus {
   margin-top: 5px;
 }
 
-input[type="submit"],
 .button,
 .big_btn,
 .red_ghost,
@@ -491,7 +490,6 @@ input[type="submit"],
   text-decoration: none;
 }
 
-[data-whatinput='mouse'] input[type="submit"],
 [data-whatinput='mouse'] .button,
 [data-whatinput='mouse'] .big_btn,
 [data-whatinput='mouse'] .red_ghost,
@@ -501,14 +499,12 @@ input[type="submit"],
   outline: 0;
 }
 
-input[type="submit"]:hover,
 .button:hover,
 .big_btn:hover,
 .red_ghost:hover,
 .white_btn:hover,
 .facebook_btn:hover,
 .login_btn:hover,
-input[type="submit"]:focus,
 .button:focus,
 .big_btn:focus,
 .red_ghost:focus,
@@ -519,7 +515,6 @@ input[type="submit"]:focus,
   color: #fefefe;
 }
 
-input[type="submit"]:hover,
 .button:hover,
 .big_btn:hover,
 .red_ghost:hover,
@@ -530,14 +525,12 @@ input[type="submit"]:hover,
   border: 2px solid #d01538;
 }
 
-input[type="submit"]:active,
 .button:active,
 .big_btn:active,
 .red_ghost:active,
 .white_btn:active,
 .facebook_btn:active,
 .login_btn:active,
-input[type="submit"]:focus,
 .button:focus,
 .big_btn:focus,
 .red_ghost:focus,
@@ -546,6 +539,10 @@ input[type="submit"]:focus,
 .login_btn:focus {
   background-color: #e7173e;
   border: 2px solid #e7173e;
+}
+
+input[type="submit"] {
+  border-radius: 3px;
 }
 
 .big_btn {
