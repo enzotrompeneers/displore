@@ -35,7 +35,7 @@ Route::middleware('auth')->group(function(){
 	Route::post('/ervaring/maken', 'ProductController@store')->name('product.store');
 	Route::get('/ervaring/bewerken/{id}', 'ProductController@edit')->name('product.edit');
 	Route::patch('/ervaring/bewerken/{id}', 'ProductController@update')->name('product.update');
-	Route::delete('/ervaring/verwijderen', 'ProductController@destroy')->name('product.destroy');
+	Route::delete('/ervaring/verwijderen/{id}', 'ProductController@destroy')->name('product.destroy');
 
 	//Reservation routes
 	Route::post('/reservatie/maken', 'ReservationController@store')->name('reservation.store');

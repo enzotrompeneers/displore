@@ -57,11 +57,11 @@
 
 				
 					<div class="medium-12 cell">
-						<input type="submit" class="button primary" value="Bewerking Opslaan"/>
-					</div>	
+						<input type="submit" class="button primary float-left" value="Bewerking Opslaan"/>
+					
 		</form>
-			<div class="medium-12 cell">
-				<form action="{{ route('product.destroy') }}" method="post">
+			
+				<form action="{{ route('product.destroy', $product->id) }}" class="form-inline float-left" method="post">
 					{{ csrf_field() }}
 					{{ method_field('DELETE') }}
 					<input type="submit" class="red_ghost" value="Verwijderen"/>
