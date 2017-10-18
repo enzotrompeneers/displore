@@ -549,6 +549,18 @@ a:focus {
   padding: 10px;
 }
 
+.borderdiv {
+  border: 1px solid #000000;
+  height: 70px;
+  padding: 15px;
+  margin: 10px;
+}
+
+.product_text {
+  line-height: 2.5;
+  display: inline;
+}
+
 .body_master {
   background-color: black;
 }
