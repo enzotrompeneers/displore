@@ -751,9 +751,15 @@ module.exports = __webpack_require__(35);
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-__webpack_require__(9);
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__form_fileupload__ = __webpack_require__(40);
+
+
 
 (function () {
     console.log("app loaded");
@@ -31729,6 +31735,55 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export FileUpload */
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var FileUpload = function () {
+	function FileUpload() {
+		_classCallCheck(this, FileUpload);
+
+		this.fileupload = document.getElementsByClassName("file-upload-holder");
+
+		if (this.fileupload === null) {
+			return;
+		}
+
+		this.events();
+	}
+
+	_createClass(FileUpload, [{
+		key: "showInformation",
+		value: function showInformation(label, input) {
+			label.innerHTML = "Je hebt " + input.files.length + " afbeeldingen geupload";
+		}
+	}, {
+		key: "events",
+		value: function events() {
+			for (var fileUpload = 0; fileUpload < this.fileupload.length; fileUpload++) {
+				var input = this.fileupload[fileUpload].children[1];
+				var label = this.fileupload[fileUpload].children[0];
+
+				input.onchange = this.showInformation.bind(input, label, input);
+			}
+		}
+	}]);
+
+	return FileUpload;
+}();
+
+new FileUpload();
 
 /***/ })
 /******/ ]);

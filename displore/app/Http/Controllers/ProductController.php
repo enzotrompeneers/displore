@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Product;
 use App\ProductReview;
+use App\Http\Requests\StoreProduct;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller 
@@ -51,8 +52,9 @@ class ProductController extends Controller
    *
    * @return Response
    */
-  public function store(Request $request)
+  public function store(StoreProduct $request)
   {
+
     $product = new Product();
 
     $product->title = request('title');
