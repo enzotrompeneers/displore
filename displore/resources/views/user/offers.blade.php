@@ -5,7 +5,9 @@
 	@component('components.user-tabs')
 		<h1>Jouw aanbiedingen</h1>
 		@foreach($products as $product)
-			{{ $product->title }} - <a href="{{ route('product.edit', $product->id) }}">Bewerken</a>
+			<div class="borderdiv">
+				<div class="product_text">{{ $product->title }}</div><a class="red_ghost right" href="{{ route('product.edit', $product->id) }}">Bewerken</a>
+			</div>
 		@endforeach
 	@endcomponent
 	
