@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	<div class="row container">
+	<div class="row container-white">
 		<h1>Ervaring aanbieden</h1>
 		<hr>
 
@@ -51,8 +51,8 @@
 				</div>
 				<div class="medium-6 cell">
 					<label>Upload een afbeeldingen over de aanbieding</label>
-					<label class="button primary">Upload Afbeelding</label>
-					<input type="file" class="show-for-sr" name="image">
+					<label for="upload_image" class="button primary">Upload Afbeelding</label>
+					<input type="file" class="show-for-sr" id="upload_image" name="image">
 				</div>
 
 			</div>
