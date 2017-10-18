@@ -17,7 +17,6 @@ export class FileUpload{
 		label.innerHTML = "Je hebt " + input.files.length + " afbeeldingen geupload";
 	}
 
-
 	events()
 	{
 		for(let fileUpload = 0; fileUpload < this.fileupload.length; fileUpload++)
