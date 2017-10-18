@@ -37,7 +37,7 @@
                 <div class="col-md-6 col-md-offset-4">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Onthoud me
                         </label>
                     </div>
                 </div>
@@ -45,16 +45,27 @@
 
             <div class="form-group">
                 <div class="col-md-8 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="button primary">
                         Login
                     </button>
 
                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                        Forgot Your Password?
+                        Wachtwoord vergeten?
                     </a>
                 </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-4">
+                    <a class="btn btn-link" href="{{ route('register') }}">Nog niet geregistreerd?</a>
+                </div>
+                <div class="col-md-4 col-md-offset-4">
+                    <a class="button facebook_btn">Inloggen met facebook</a>
+                </div>
+                
             </div>
         </form>
     </div>
 </div>
 @endsection
+
+
