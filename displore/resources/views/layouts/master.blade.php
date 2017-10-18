@@ -19,8 +19,6 @@
             </div>
             <nav>
                 <ul>
-                    
-
                     @if ($user = Auth::user()) 
                         <li class="header-list-item"><a href="{{ route('product.create') }}" class="red_ghost">Ervaring aanbieden</a></li>
                         <li class="header-list-item"><a href="{{ route('user.offers') }}" class="header-list-item-link">Jouw ervaringen</a></li>

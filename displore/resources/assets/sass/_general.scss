@@ -26,4 +26,12 @@ body{
 a:active, a:focus{
 	color: $secondary-2;
 }	
+.container-white {
+    padding: 20px;
+    background-color: #fff;
+}
+.cell {
+    float: left;
+    padding:10px;
+}
 

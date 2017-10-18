@@ -417,7 +417,7 @@ input[type="submit"]:focus,
   padding: 0.25rem 1.25rem;
   text-align: center;
   position: absolute;
-  top: 375px;
+  top: 400px;
   right: 10px;
   margin-top: 20px;
   -webkit-transition: background 0.25s ease-in-out;
@@ -443,9 +443,9 @@ input[type="submit"]:focus,
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   width: 350px;
-  height: 375px;
+  height: 600px;
   position: fixed;
-  top: -375px;
+  top: -400px;
   right: 10px;
   -webkit-transition: top 0.5s ease-in-out;
   transition: top 0.5s ease-in-out;
@@ -532,5 +532,15 @@ body {
 a:active,
 a:focus {
   color: #555;
+}
+
+.container-white {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.cell {
+  float: left;
+  padding: 10px;
 }
 
