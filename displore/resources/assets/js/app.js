@@ -1,6 +1,9 @@
 import './bootstrap';
 import './form/fileupload';
+import 'foundation-datepicker/js/foundation-datepicker';
 
+// '/js/foundation-datepicker.js'
+// '/stylesheets/foundation-datepicker.css'
 (function(){
 	console.log("app loaded");
 
@@ -19,6 +22,7 @@ import './form/fileupload';
     // End close panel Outside Container
 
     // Login Toggle Event
+    /** 
     $contact_panel = document.getElementById("contact-panel");
     $login_dropdown_btn = document.getElementById("login_dropdown_btn");
     
@@ -27,7 +31,7 @@ import './form/fileupload';
         $contact_panel.classList.toggle("is-active");
     }
     // End Login Toggle Event
-
+    */
     // implementation of disabled form fields
 
     // Datepicker
