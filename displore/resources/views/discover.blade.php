@@ -6,7 +6,7 @@
 <form action="{{ route('discover.search') }}" method="post">
 	{{ csrf_field() }}
 	<div class="clearfix textbox">
-		<input type="search" name="search_input" id="search_input" placeholder="Begin met zoeken">
+		<input type="search" name="search_input" id="search_input" placeholder="Wat wil je ontdekken?">
 		<input type="submit" class="float-right" value="Zoeken">
 	</div>
 
