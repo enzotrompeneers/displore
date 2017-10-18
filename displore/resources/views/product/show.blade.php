@@ -28,17 +28,18 @@
 			<div class="medium-3 cell date_container">
 
 				<label class="date_label" for="from">Van</label>
-				<!-- <input type="datetime" id="from" name="from"> -->
 				<input type="datetime" class="span2" value="" id="dpd1">
-
 				<label class="date_label" for="to">Tot</label>
-				<!-- <input type="datetime" id="to" name="to"> -->
-				<input type="text" class="span2" value="" id="dpd2">
-
+				@if ( $product->price_time == "uur")
+					<input type="text" class="span2" value="" id="dpd2" disabled>
+				@else
+					<input type="text" class="span2" value="" id="dpd2">
+				@endif
 				<label class="date_label" for="quantity">Aantal</label>
 				<input type="datetime" id="quantity" name="quantity">
 				<p>{{ $product->price_time }}</p>
 			</div>
+		</form>
 			<div class="medium-6 cell">
 				<h2>Vergelijkbare ervaringen</h2>
 			</div>
@@ -63,6 +64,6 @@
 				</form>
 			</div>
 			
-	</form>
+	
 
 @stop
