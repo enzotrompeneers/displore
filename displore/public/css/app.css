@@ -534,3 +534,17 @@ a:focus {
   color: #555;
 }
 
+.body_master {
+  background-color: black;
+}
+
+.container {
+  background-color: white;
+  padding: 20px;
+}
+
+.cell {
+  float: left;
+  padding: 10px;
+}
+
