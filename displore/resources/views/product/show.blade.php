@@ -3,6 +3,8 @@
 @section('content')
 <div class="row container-white-padding">
 	<form action="{{ route('reservation.store') }}" method="post">
+		{{ csrf_field() }}
+		<input type="hidden" name="product_id" value="{{ $product->id }}"/>
 		<div class="grid-x grid-padding-x">
 			<div class="medium-6 cell">
 				@if(Auth::check())
@@ -28,12 +30,12 @@
 			<div class="medium-3 cell date_container">
 
 				<label class="date_label" for="from">Van</label>
-				<input type="datetime" class="span2" value="" id="dpd1">
+				<input type="datetime" class="span2" value="" name="from" id="dpd1">
 				<label class="date_label" for="to">Tot</label>
 				@if ( $product->price_time == "uur")
-					<input type="text" class="span2" value="" id="dpd2" disabled>
+					<input type="text" class="span2" value="" name="to" id="dpd2" disabled>
 				@else
-					<input type="text" class="span2" value="" id="dpd2">
+					<input type="text" class="span2" value="" name="to" id="dpd2">
 				@endif
 				<label class="date_label" for="quantity">Aantal</label>
 				<input type="datetime" id="quantity" name="quantity">
