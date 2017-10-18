@@ -416,6 +416,26 @@ input[type="submit"]:focus,
   background-color: #e7173e;
 }
 
+#reservation_btn {
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  /* Black background with opacity */
+  border-style: none;
+  margin-top: 56px;
+}
+
+#reservation_btn:hover {
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Black background with opacity */
+  border-style: none;
+  margin-top: 56px;
+}
+
 .contact-panel-button {
   color: #fff;
   width: auto;
@@ -544,6 +564,11 @@ a:focus {
   background-color: #fff;
 }
 
+.container-white-padding {
+  background-color: #fff;
+  padding: 0;
+}
+
 .cell {
   float: left;
   padding: 10px;
@@ -561,6 +586,34 @@ a:focus {
   display: inline;
 }
 
+.price_container {
+  background-color: #e7173e;
+  padding: 0;
+  margin: 0;
+  height: 250px;
+}
+
+.price_text {
+  color: #fff;
+  font-size: 4rem;
+  margin-left: 50px;
+}
+
+.per_text {
+  font-size: 2rem;
+  margin-left: 50px;
+}
+
+.date_container {
+  background-color: #000;
+  height: 250px;
+}
+
+.date_label {
+  color: #fff;
+  text-transform: uppercase;
+}
+
 .body_master {
   background-color: black;
 }
@@ -568,10 +621,5 @@ a:focus {
 .container-white {
   background-color: white;
   padding: 20px;
-}
-
-.cell {
-  float: left;
-  padding: 10px;
 }
 
