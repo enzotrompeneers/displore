@@ -1,4 +1,5 @@
-require('./bootstrap');
+import './bootstrap';
+import './form/fileupload';
 
 (function(){
 	console.log("app loaded");

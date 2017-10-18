@@ -5,7 +5,7 @@
 		<h1>Ervaring aanbieden</h1>
 		<hr>
 
-		<form action="{{ route('product.store') }}" method="post">
+		<form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
 			{{ csrf_field() }}
 			<div class="grid-container">
 				<div class="grid-x grid-padding-x">
@@ -58,8 +58,10 @@
 
 				<div class="medium-6 cell">
 					<label>Upload een afbeeldingen over de aanbieding</label>
-					<label for="upload_image" class="button primary">Upload Afbeelding</label>
-					<input type="file" class="show-for-sr" id="upload_image" name="image">
+					<div class="file-upload-holder">
+						<label for="upload_image" class="button primary file-upload-label">Upload Afbeelding</label>
+						<input type="file" class="show-for-sr file-upload" id="upload_image" name="image[]" multiple>
+					</div>
 					{{ $errors->first('image') }}
 				</div>
 
