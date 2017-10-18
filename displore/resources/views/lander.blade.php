@@ -21,7 +21,7 @@
 	<body class="lander-bg">
 
 	<!-- Navbar -->
-	<header  class="header" style="background-color: transparent; border: none;">
+	<header  class="header header-lander">
             <div class="header-logo">
                 <div class="header-logo-image">
                     <a href="{{ route('lander') }}"><img src="{{asset('assets/graphics/displore_logo.svg')}}" alt="Displore"></a>
@@ -36,12 +36,11 @@
             </div>
             <nav>
                 <ul>
-				 <li class="header-list-item"><a href="{{ route('lander') }}">Wat is displore?</a></li>
-
+				 <li class="header-list-item"><a href="{{ route('lander') }}" class="header-list-item-link">Wat is displore?</a></li>
 
 				@if ($user = Auth::user()) 
                     <li class="header-list-item"><a class="red_ghost" href="{{ route('user.offers') }}" >Jouw ervaringen</a></li>
-					<li class="header-list-item"><a href="{{ route('user.profile') }}">{{ $user->first_name }}</a></li>
+					<li class="header-list-item"><a class="header-list-item-link" href="{{ route('user.profile') }}">{{ $user->first_name }} {{ $user->last_name }}</a></li>
 					<li class="header-list-item"><a class="button primary" href="{{ route('logout') }}">Uitloggen</a></li>
 				@else
 					<li class="header-list-item"><a class="button primary" href="{{ route('login') }}">Inloggen</a></li>

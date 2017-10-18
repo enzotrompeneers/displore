@@ -6,7 +6,6 @@
 		<h1>Reservaties bij jouw</h1>
 
 		@foreach($products as $product)
-			{{ $product->title }}
 			@foreach($product->reservations()->get() as $reservation)
 				
 				<div>

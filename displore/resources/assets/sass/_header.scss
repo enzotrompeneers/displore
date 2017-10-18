@@ -6,6 +6,16 @@
 	width: 100%;
 	box-sizing: border-box;
 
+	&-lander{
+		background-color: transparent; 
+		border: none;
+
+		.header-list-item-link{
+			color: white;
+		}
+		
+	}
+
 	&-logo{
 		float: left;
 	}
@@ -15,15 +25,13 @@
 		float: right;
 	}
 
-	ul{
-		margin: 0; padding: 0;
-	}
-
+	
 	&-list-item{
 		float: left;
 		margin: 0;
 		margin-left: 35px;
 		box-sizing: border-box;
+		line-height: 110px;
 		padding: 0;
 	}
 
@@ -32,8 +40,8 @@
 	}
 
 	&-list-item-link{
-		line-height: 90px;
 		color: $secondary-1;
+		line-height: 90px;
 	}
 
 	&-logo-text, &-logo-image{
