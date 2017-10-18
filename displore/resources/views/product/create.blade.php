@@ -12,10 +12,12 @@
 				<div class="medium-6 cell">
 					<label>Titel</label>
 					<input type="text" placeholder="typ hier een catchy titel" name="title">
+					{{ $errors->first('title') }}
 				</div>
 				<div class="medium-2 cell">
 					<label>Prijs</label>
 					<input type="text" placeholder="bv. 55" name="price">
+					{{ $errors->first('price') }}
 				</div>
 				<div class="medium-1 cell">
 					<br>
@@ -29,30 +31,36 @@
 						<option value="Week">Week</option>
 						<option value="maand">Maand</option>
 					</select>
+					{{ $errors->first('price_time') }}
 				</div>
 				<div class="medium-12 cell">
 					<label>Beschrijving</label>
 					<textarea rows="10" type="text" placeholder="Beschrijving" name="description"></textarea>
+					{{ $errors->first('description') }}
 				</div>
 				<div class="medium-6 cell">
 					<label>Selecteer een locatie</label>
 					<div id="googleMap" name="location" style="width:100%;height:250px;background-color:grey;"></div>
+					{{ $errors->first('location') }}
 				</div>
 				<div class="medium-6 cell">
 					<label>Categorie</label>
-						<select name="category">
-							<option value="ervaring">Ervaring</option>
-							<option value="uitstap">Uitstap</option>
-							<option value="dienst">Dienst</option>
-							<option value="auto">Auto</option>
-							<option value="dier">Dier</option>
-							<option value="woning">Woning</option>
-						</select>
+					<select name="category">
+						<option value="ervaring">Ervaring</option>
+						<option value="uitstap">Uitstap</option>
+						<option value="dienst">Dienst</option>
+						<option value="auto">Auto</option>
+						<option value="dier">Dier</option>
+						<option value="woning">Woning</option>
+					</select>
+					{{ $errors->first('category') }}
 				</div>
+
 				<div class="medium-6 cell">
 					<label>Upload een afbeeldingen over de aanbieding</label>
 					<label for="upload_image" class="button primary">Upload Afbeelding</label>
 					<input type="file" class="show-for-sr" id="upload_image" name="image">
+					{{ $errors->first('image') }}
 				</div>
 
 			</div>
