@@ -50,7 +50,7 @@
 				<input type="text" id="paypal" value="{{ $user->paypal }}" name="paypal">
 			</div>
 
-			<input type="submit" value="Paypal toevoegen">
+			<input type="submit" class="button" value="Paypal toevoegen">
 		</form>
 	@endcomponent
 @endsection

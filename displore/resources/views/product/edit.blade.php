@@ -56,13 +56,21 @@
 					</div>
 					<div class="medium-6 cell">
 						<label>Upload een afbeeldingen over de aanbieding</label> <!-- Nakijken!!! -->
-						<label for="upload_image" class="button primary">Upload Afbeelding</label>
-						<input type="file" class="show-for-sr" id="upload_image" name="image">
+
+						<div class="file-upload-holder">
+							<label for="upload_image" class="button primary">Upload Afbeelding</label>
+							<input type="file" class="show-for-sr" id="upload_image" name="image[]" multiple>
+						</div>
+
 						{{ $errors->first('image') }}
+
+						@foreach($images as $image)
+							<img src="{{ asset($image->image) }}" alt="afbeelding van de {{ $product->title }}" class="medium-6 cell">	
+						@endforeach
+
 					</div>
 					</div>
 
-				
 					<div class="medium-12 cell">
 						<input type="submit" class="button primary float-left" value="Bewerking Opslaan"/>
 					

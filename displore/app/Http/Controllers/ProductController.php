@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Product;
 use App\ProductReview;
+use App\ProductImage;
 use App\Http\Requests\StoreProduct;
+use App\Http\Helpers\ImageHelper;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller 
@@ -65,6 +67,8 @@ class ProductController extends Controller
 
     $product->save();
 
+    ImageHelper::uploadMultiple(request('image'));
+
     return redirect('/ervaring/toon/' . $product->id);
   }
 
@@ -77,6 +81,7 @@ class ProductController extends Controller
   public function show($id)
   {
     $product = Product::find($id);
+    $images = ProductImage::where('product_id', $id)->get();
 
     if($product === null){
       return abort('404');
@@ -84,7 +89,7 @@ class ProductController extends Controller
 
     $reviews = $product->reviews()->get();
 
-    return view('product.show', compact('product', 'reviews'));
+    return view('product.show', compact('product', 'reviews', 'images'));
   }
 
   /**
@@ -105,8 +110,9 @@ class ProductController extends Controller
   public function edit($id)
   {
     $product = Product::find($id);
+    $images = ProductImage::where('product_id', $id)->get();
 
-    return view('product.edit', compact('product'));    
+    return view('product.edit', compact('product', 'images'));    
   }
 
   /**
@@ -126,6 +132,8 @@ class ProductController extends Controller
     $product->price_time = request('price_time');
 
     $product->save();
+
+    ImageHelper::uploadMultiple(request('image'));
 
     return redirect('/ervaring/toon/' . $product->id);
   }

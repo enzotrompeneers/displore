@@ -15,9 +15,9 @@
 				<h1>{{ $product->title }}</h1>
 
 				<ul class="example-orbit" data-orbit>
-					<li><img src="graphics/src.jpg" alt="image1"></li>
-					<li><img src="graphics/src.jpg" alt="image2"></li>
-					<li><img src="graphics/src.jpg" alt="image3"></li>
+					@foreach($images as $image)
+						<li><img src="{{ asset($image->image) }}" alt="Afbeelding van {{ $product->title }}"></li>
+					@endforeach
 				</ul>
 				<p>{{ $product->description }}</p>
 			</div>
@@ -62,7 +62,7 @@
 					{{ csrf_field() }}
 					<span>Geef een rating: <input type="number" min="0" max="5" name="stars" placeholder="0-5" /></span>
 					<textarea name="text" placeholder="recensie schrijven"></textarea>
-					<input type="submit" value="Recensie insturen"/>
+					<input type="submit" class="button" value="Recensie insturen"/>
 				</form>
 			</div>
 			
