@@ -37,6 +37,9 @@ Route::middleware('auth')->group(function(){
 	Route::patch('/ervaring/bewerken/{id}', 'ProductController@update')->name('product.update');
 	Route::delete('/ervaring/verwijderen/{id}', 'ProductController@destroy')->name('product.destroy');
 
+	//Image routes
+	Route::delete('/afbeelding/verwijderen/{id}', 'ProductImageController@destroy')->name('image.destroy');
+
 	//Reservation routes
 	Route::post('/reservatie/maken', 'ReservationController@store')->name('reservation.store');
 });

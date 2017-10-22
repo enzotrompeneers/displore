@@ -67,7 +67,7 @@ class ProductController extends Controller
 
     $product->save();
 
-    ImageHelper::uploadMultiple(request('image'));
+    ImageHelper::uploadMultiple(request('image'), $product->id);
 
     return redirect('/ervaring/toon/' . $product->id);
   }
@@ -133,7 +133,7 @@ class ProductController extends Controller
 
     $product->save();
 
-    ImageHelper::uploadMultiple(request('image'));
+    ImageHelper::uploadMultiple(request('image'), $id);
 
     return redirect('/ervaring/toon/' . $product->id);
   }

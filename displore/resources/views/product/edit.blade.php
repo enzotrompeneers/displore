@@ -3,7 +3,7 @@
 @section('content')
 	<div class="row container-white">
 		<h1>Ervaring bewerken</h1>
-		<form action="{{ route('product.update', $product->id) }}" method="post">
+		<form action="{{ route('product.update', $product->id) }}" method="post" enctype="multipart/form-data">
 			{{ method_field('PATCH') }}
 			{{ csrf_field() }}
 			<div class="grid-container">
@@ -65,7 +65,16 @@
 						{{ $errors->first('image') }}
 
 						@foreach($images as $image)
-							<img src="{{ asset($image->image) }}" alt="afbeelding van de {{ $product->title }}" class="medium-6 cell">	
+							<div class="image medium-6 cell">
+								<div class="image-overlay" data-id="{{ $image->id }}">
+									<img src="{{ asset('assets/graphics/close_icon.svg') }}" class="image-delete">
+									Verwijder
+								</div>
+								<div class="image-element">
+									<img src="{{ asset($image->image) }}" alt="afbeelding van de {{ $product->title }}" >
+								</div>
+							</div>
+								
 						@endforeach
 
 					</div>
