@@ -616,8 +616,8 @@ input[type="search"]:focus {
 .white_btn:hover,
 .facebook_btn:hover,
 .login_btn:hover {
-  background-color: #d01538;
-  border: 2px solid #d01538;
+  background-color: #c21334;
+  border: 2px solid #c21334;
 }
 
 .button:active,
