@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<h1>home page</h1>
+
 
 <form action="{{ route('discover.search') }}" method="post">
 	{{ csrf_field() }}
@@ -11,11 +11,14 @@
 	</div>
 
 </form>
-
 @if(isset($search_term))
 	<h2>Zoeken naar: {{ $search_term }}</h2>
 @endif
 
+<h1>Ervaringen voor jouw!</h1>
+<div class="row">
+	
+</div>
 @foreach($products as $product)
 	<a href="{{ route('product.show', $product->id) }}"> {{ $product->title }}</a>
 @endforeach
