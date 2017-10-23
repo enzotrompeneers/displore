@@ -46,7 +46,7 @@
 				<h2>Vergelijkbare ervaringen</h2>
 			</div>
 			<div class="medium-6 cell">
-				<p>Aangeboden door: {{ $product->user_id }}</p>
+				<p>Aangeboden door: {{ $product->user->first_name }} {{ $product->user->last_name }}</p>
 				<p>Categorie: {{ $product->category }}</p>
 				<p>Locatie: {{ $product->location }}</p>
 				<div id="googleMap" name="location" style="width:100%;height:250px;background-color:grey;" value="{{ $product->location }}"></div> <!-- Nakijken!!! -->
