@@ -20,9 +20,10 @@ class ProductController extends Controller
    */
   public function index()
   {
-    $products = Product::take(30)->get();
+    $products = Product::orderBy('id', 'desc')->take(30)->get();
+    $images = ProductImage::take(30)->get();
 
-    return view('discover', compact('products'));
+    return view('discover', compact('products', 'images'));
   }
 
   /**
@@ -34,9 +35,10 @@ class ProductController extends Controller
   {
     $search_term = request('search_input');
 
-    $products = Product::search($search_term)->get();
+    $products = Product::search($search_term)->orderBy('id', 'desc')->get();
+    $images = ProductImage::get();
 
-    return view('discover', compact('search_term', 'products'));
+    return view('discover', compact('search_term', 'products', 'images'));
   }
 
   /**
