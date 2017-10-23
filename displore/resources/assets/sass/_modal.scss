@@ -1,0 +1,48 @@
+.modal{
+	margin: 150px auto;
+	width: 650px;
+	background: $secondary-4;
+
+	&-close{
+		cursor: pointer;
+		padding: 15px 0px;
+	}
+
+	&-overlay{
+		background: rgba(0, 0, 0, 0.75);
+		height: 100%;
+		width: 100%;
+		box-sizing: border-box;
+		position: fixed;
+	}
+
+	&-title, &-content{
+		padding: 45px;
+	}
+
+	&-title div{
+		padding: 0;
+	}
+
+	&-buttons{
+		@include clearfix();
+		padding: 0px 45px 45px 45px;
+	}
+
+	&-title{
+		padding: 30px 45px;
+		background: white;
+	}
+
+	&-content{
+		font-weight: 800;
+		color: $secondary-1;
+	}
+
+	&-cancel{
+		left: 10px;
+
+		color: $secondary-2;
+		border-color: $secondary-2;
+	}
+}
