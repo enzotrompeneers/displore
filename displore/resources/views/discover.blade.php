@@ -2,15 +2,19 @@
 
 @section('content')
 <div class="row">
-	<div class="large-12 columns">
-		<form action="{{ route('discover.search') }}" method="post">
-			{{ csrf_field() }}
-			<div class="clearfix textbox">
-				<input type="search" name="search_input" id="search_input" placeholder="Wat wil je ontdekken?">
-				<input type="submit" class="button float-right" value="Zoeken">
-			</div>
+	<form action="{{ route('discover.search') }}" method="post">
+		{{ csrf_field() }}
+		<div class="large-11 columns">
+			<input type="search" name="search_input" id="search_input" placeholder="Wat wil je ontdekken?">
+		</div>
+		<div class="large-1 columns">
+			<input type="submit" class="button float-right" value="Zoeken">
+		</div>
+	</form>
+</div>	
 
-		</form>
+<div class="row">
+	<div class="large-12 columns">
 		@if(isset($search_term))
 			<h2>Zoeken naar: {{ $search_term }}</h2>
 		@endif

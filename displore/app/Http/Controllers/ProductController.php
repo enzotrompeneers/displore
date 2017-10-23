@@ -35,9 +35,10 @@ class ProductController extends Controller
   {
     $search_term = request('search_input');
 
-    $products = Product::search($search_term)->get();
+    $products = Product::search($search_term)->orderBy('id', 'desc')->get();
+    $images = ProductImage::get();
 
-    return view('discover', compact('search_term', 'products'));
+    return view('discover', compact('search_term', 'products', 'images'));
   }
 
   /**
