@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Reservation;
 use App\User;
+use Carbon\Carbon;
 use Auth;
 
 class ReservationController extends Controller
@@ -42,9 +43,27 @@ class ReservationController extends Controller
 
         $reservation->user_id = Auth::user()->id;
         $reservation->product_id = $product_id;
-        $reservation->from = request('from');
-        $reservation->to = request('to');
-        $reservation->quantity = request('quantity');
+
+        $from = request('from');
+        $to = request('to');
+        $quantity = request('quantity');
+        $price_time = request('price_time');
+
+        $reservation->from = Carbon::parse($from);
+
+
+
+        if($price_time === "hour"){
+            $reservation->to = Carbon::parse($from)->addHours($quantity);
+        } else if($price_time === "week") {
+            $reservation->to = Carbon::parse($from)->addWeeks($quantity);
+        } else if($price_time === "month") {
+            $reservation->to = Carbon::parse($from)->addMonths($quantity);
+        } else {
+            $reservation->to = Carbon::parse($to);
+        }
+
+        $reservation->quantity = $quantity;
 
         $reservation->save();
 
