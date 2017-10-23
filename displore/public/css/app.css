@@ -221,7 +221,7 @@
 
 .call_to_action_wrapper {
   text-align: center;
-  top: 30%;
+  top: 25%;
   position: relative;
   width: 60%;
   left: 20%;
@@ -446,7 +446,7 @@ input[type="password"],
 select,
 textarea,
 .textbox {
-  padding: 10px 15px;
+  padding: 0px 15px;
   border: 1px solid #dadada;
   border-radius: 3px;
   outline: none;
@@ -467,6 +467,10 @@ select:focus,
 textarea:focus,
 .textbox:focus {
   border: 1px solid #c1c0c0;
+}
+
+textarea {
+  padding: 10px 15px;
 }
 
 input[type="search"] {

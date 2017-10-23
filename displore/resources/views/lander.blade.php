@@ -56,8 +56,10 @@
 		<div class="call_to_action_wrapper">
 			<h1>De website om ervaringen te ontdekken</h1>
 			<h2>Weet je niet wat te doen? Heb je ooit al eens iets heel speciaal willen doen? Je vind het allemaal hier!</h2>
-			<a href="{{ route('discover') }}" class="button red_btn">ONTDEKKEN</a>
-			<a href="{{ route('product.create') }}" class="button white_btn">AANBIEDEN</a>
+			<div class="form-group">
+				<a href="{{ route('discover') }}" class="button red_btn">ONTDEKKEN</a>
+				<a href="{{ route('product.create') }}" class="button white_btn">AANBIEDEN</a>
+			</div>
 		</div>
 		<!-- End Call To Action -->
 		<script src="{{ asset('js/app.js') }}"></script>
