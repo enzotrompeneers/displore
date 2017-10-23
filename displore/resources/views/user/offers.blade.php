@@ -9,7 +9,11 @@
 		<h1>Jouw aanbiedingen</h1>
 		@foreach($products as $product)
 			<div class="borderdiv">
-				<div class="product_text">{{ $product->title }}</div><a class="red_ghost right" href="{{ route('product.edit', $product->id) }}">Bewerken</a>
+				<div class="product_text">
+					{{ $product->title }}
+				</div>
+
+				<a class="red_ghost right" href="{{ route('product.edit', $product->id) }}">Bewerken</a>
 			</div>
 		@endforeach
 	@endcomponent
