@@ -1,23 +1,25 @@
 @extends('layouts.master')
 
-@if(Auth::user()->paypal === "" || Auth::user()->paypal === null)
-	@component('components.modal')
-		@slot('cancel_link')
-			{{ route('discover') }}
-		@endslot()
-		@slot('title')
-			Geen paypal
-		@endslot
-		@slot('content')
-			Je moet een paypal e-mail hebben zodat mensen jouw kunnen betalen via het platform.
-		@endslot
+@section('modal')
+	@if(Auth::user()->paypal === "" || Auth::user()->paypal === null)
+		@component('components.modal')
+			@slot('cancel_link')
+				{{ route('discover') }}
+			@endslot()
+			@slot('title')
+				Geen paypal
+			@endslot
+			@slot('content')
+				Je moet een paypal e-mail hebben zodat mensen jouw kunnen betalen via het platform.
+			@endslot
 
-		@slot('buttons')
-			<div class="left"><a href="{{ route('user.profile') }}" class="button">Paypal e-mail toevoegen</a></div>
-			<div class="left"><a href="{{ route('discover') }}" class="button red_ghost modal-cancel">Geen aanbieding maken</a></div>
-		@endslot
-	@endcomponent
-@endif
+			@slot('buttons')
+				<div class="left"><a href="{{ route('user.profile') }}" class="button">Paypal e-mail toevoegen</a></div>
+				<div class="left"><a href="{{ route('discover') }}" class="button red_ghost modal-cancel">Geen aanbieding maken</a></div>
+			@endslot
+		@endcomponent
+	@endif
+@endsection
 
 @section('content')
 	<div class="row container-white">

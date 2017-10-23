@@ -232,6 +232,7 @@
   margin: 150px auto;
   width: 650px;
   background: #efefef;
+  z-index: 5;
 }
 
 .modal-close {
@@ -246,6 +247,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: fixed;
+  z-index: 4;
 }
 
 .modal-title,
