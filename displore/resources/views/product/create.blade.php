@@ -1,23 +1,25 @@
 @extends('layouts.master')
 
-@if(Auth::user()->paypal === "" || Auth::user()->paypal === null)
-	@component('components.modal')
-		@slot('cancel_link')
-			{{ route('discover') }}
-		@endslot()
-		@slot('title')
-			Geen paypal
-		@endslot
-		@slot('content')
-			Je moet een paypal e-mail hebben zodat mensen jouw kunnen betalen via het platform.
-		@endslot
+@section('modal')
+	@if(Auth::user()->paypal === "" || Auth::user()->paypal === null)
+		@component('components.modal')
+			@slot('cancel_link')
+				{{ route('discover') }}
+			@endslot()
+			@slot('title')
+				Geen paypal
+			@endslot
+			@slot('content')
+				Je moet een paypal e-mail hebben zodat mensen jouw kunnen betalen via het platform.
+			@endslot
 
-		@slot('buttons')
-			<div class="left"><a href="{{ route('user.profile') }}" class="button">Paypal e-mail toevoegen</a></div>
-			<div class="left"><a href="{{ route('discover') }}" class="button red_ghost modal-cancel">Geen aanbieding maken</a></div>
-		@endslot
-	@endcomponent
-@endif
+			@slot('buttons')
+				<div class="left"><a href="{{ route('user.profile') }}" class="button">Paypal e-mail toevoegen</a></div>
+				<div class="left"><a href="{{ route('discover') }}" class="button red_ghost modal-cancel">Geen aanbieding maken</a></div>
+			@endslot
+		@endcomponent
+	@endif
+@endsection
 
 @section('content')
 	<div class="row container-white">
@@ -45,10 +47,10 @@
 				<div class="medium-3 cell">
 					<label>Periode</label>
 					<select name="price_time">
-						<option value="uur">Uur</option>
-						<option value="dag">Dag</option>
-						<option value="Week">Week</option>
-						<option value="maand">Maand</option>
+						<option value="hour">Uur</option>
+						<option value="day">Dag</option>
+						<option value="week">Week</option>
+						<option value="month">Maand</option>
 					</select>
 					{{ $errors->first('price_time') }}
 				</div>

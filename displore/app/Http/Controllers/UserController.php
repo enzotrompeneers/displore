@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUser;
 use App\Product;
 use App\Reservation;
 use Auth;
@@ -42,9 +43,10 @@ class UserController extends Controller
             echo "Nope das fout";
         }
 
+        // $validation = 
        
 
-        return redirect('/gebruiker/wachtwoord');
+        return redirect()->route('user.password');
     }
 
     public function offers()
@@ -56,7 +58,7 @@ class UserController extends Controller
         return view('user.offers', compact('products'));
     }
 
-    public function update(Request $request)
+    public function update(StoreUser $request)
     {
         $user = Auth::user();
 
@@ -70,17 +72,25 @@ class UserController extends Controller
 
         $user->update();
 
-        return redirect('/gebruiker');
+        return redirect()->route('user.profile');
     }
 
     public function paypal(Request $request)
     {
         $user = Auth::user();
 
+        $validator = $request->validate([
+            'paypal' => 'required|unique:users|email'
+        ]);
+
+        if($validator->fails()){
+            return redirect()->route('user.profile');
+        }
+
         $user->paypal = request('paypal');
         $user->update();
 
-        return redirect('/gebruiker');
+        return redirect()->route('user.profile');
     }
 
     public function reservations()

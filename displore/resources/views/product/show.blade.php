@@ -1,11 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="row container-white-padding">
+
 	<form action="{{ route('reservation.store') }}" method="post">
 		{{ csrf_field() }}
 		<input type="hidden" name="product_id" value="{{ $product->id }}"/>
-		<div class="grid-x grid-padding-x">
+		<input type="hidden" name="price_time" value="{{ $product->price_time }}"/>
+		<div class="row container-white-padding">
 			<div class="medium-6 cell">
 				@if(Auth::check())
 					@if($product->user_id === Auth::user()->id)
@@ -32,14 +33,20 @@
 				<label class="date_label" for="from">Van</label>
 				<input type="datetime" class="span2" value="" name="from" id="dpd1">
 				<label class="date_label" for="to">Tot</label>
-				@if ( $product->price_time == "uur")
+				@if ( $product->price_time === "hour" || $product->price_time === "month" || $product->price_time === "week")
 					<input type="text" class="span2" value="" name="to" id="dpd2" disabled>
 				@else
 					<input type="text" class="span2" value="" name="to" id="dpd2">
 				@endif
-				<label class="date_label" for="quantity">Aantal</label>
-				<input type="datetime" id="quantity" name="quantity">
-				<p>{{ $product->price_time }}</p>
+				<div class="row">
+					<div class="medium-8 cell">
+						<label class="date_label" for="quantity">Aantal</label>
+						<input type="datetime" id="quantity" name="quantity">
+					</div>
+					<div class="medium-4 cell" style="display: table;">
+						<label class="date_label vertical-align" style="display: table-cell; vertical-align: middle;">{{ $product->price_time }}</label>
+					</div>
+				</div>
 			</div>
 		</form>
 			<div class="medium-6 cell">

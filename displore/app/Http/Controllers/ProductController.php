@@ -57,11 +57,16 @@ class ProductController extends Controller
    */
   public function store(StoreProduct $request)
   {
+    $user = Auth::user();
+
+    if($user->paypal === "" || $user->paypal === null){
+      return redirect()->route('product.create');
+    }
 
     $product = new Product();
 
     $product->title = request('title');
-    $product->user_id = Auth::user()->id;
+    $product->user_id = $user->id;
     $product->description = request('description');
     $product->price = request('price');
     $product->price_time = request('price_time');
@@ -70,7 +75,7 @@ class ProductController extends Controller
 
     ImageHelper::uploadMultiple(request('image'), $product->id);
 
-    return redirect('/ervaring/toon/' . $product->id);
+    return redirect()->route('product.show', ['id' => $product->id]);
   }
 
   /**
@@ -136,7 +141,7 @@ class ProductController extends Controller
 
     ImageHelper::uploadMultiple(request('image'), $id);
 
-    return redirect('/ervaring/toon/' . $product->id);
+    return redirect()->route('product.show', ['id' => $product->id]);
   }
 
   /**
@@ -149,7 +154,7 @@ class ProductController extends Controller
   {
     $product = Product::find($id)->delete();
 
-    return redirect('/gebruiker');
+    return redirect()->route('user.profile');
   }
   
 }

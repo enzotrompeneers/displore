@@ -4,6 +4,7 @@
         @include('includes.header')
     </head>
     <body>
+        @yield('modal')
         <header class="header">
             <div class="header-logo">
                 <div class="header-logo-image">
