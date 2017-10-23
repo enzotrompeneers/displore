@@ -9,5 +9,24 @@
 }
 .image_small {
     height: 300px;
+    width: 100%;
+    position: relative;
+    margin: 20px 0;
+}
+.image_big {
+    height: 400px;
+    width: 100%;
+    position: relative;
+}
+#search_input {
+    height:40px;
+}
+.h2_over_image {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    color: #fff;
+    
+    padding: 10px;
 }
 

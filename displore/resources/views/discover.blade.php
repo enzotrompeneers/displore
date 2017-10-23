@@ -21,13 +21,23 @@
 	</div>
 	<div class="large-12 columns">
 		<h1>Ervaringen voor jouw!</h1>
+		<ul class="example-orbit" data-orbit>
+			@foreach($products as $product)
+				<li>
+					<a href="{{ route('product.show', $product->id) }}">
+						<img class="image_big" src="{{ asset($images[$product->id-1]->image) }}" alt="Afbeelding van {{ $product->title }}">
+						<h2 class="h2_over_image">{{ $product->title }}</h2>
+					</a>
+				</li>
+			@endforeach
+		</ul>
 		
 		@foreach($products as $product)
 		<div class="large-6 columns">
-			<a href="{{ route('product.show', $product->id) }}"> {{ $product->title }}</a>
-			<a href="{{ route('product.show', $product->id) }}">
-				<img class="image_small" src="{{ asset($images[$product->id-1]->image) }}" alt="Afbeelding van {{ $product->title }}">
-			</a>
+		<a href="{{ route('product.show', $product->id) }}">
+			<img class="image_small" src="{{ asset($images[$product->id-1]->image) }}" alt="Afbeelding van {{ $product->title }}">
+			<h2 class="h2_over_image">{{ $product->title }}</h2>
+		</a>
 		</div>
 		@endforeach
 	</div>
