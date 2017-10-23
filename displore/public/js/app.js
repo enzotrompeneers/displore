@@ -746,7 +746,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
-module.exports = __webpack_require__(38);
+module.exports = __webpack_require__(37);
 
 
 /***/ }),
@@ -758,8 +758,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__form_fileupload__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__form_image__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_foundation_datepicker_js_foundation_datepicker__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__form_image__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_foundation_datepicker_js_foundation_datepicker__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_foundation_datepicker_js_foundation_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_foundation_datepicker_js_foundation_datepicker__);
 
 
@@ -31784,51 +31784,6 @@ new FileUpload();
 
 /***/ }),
 /* 36 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export Image */
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Image = function () {
-	function Image() {
-		_classCallCheck(this, Image);
-
-		this.image = document.getElementsByClassName("image-overlay");
-		this.imageDelete = document.getElementsByClassName("image-delete");
-
-		for (var imageIndex = 0; imageIndex < this.image.length; imageIndex++) {
-			this.image[imageIndex].addEventListener('click', this.delete, false);
-			this.imageDelete[imageIndex].addEventListener('click', this.delete, false);
-		}
-	}
-
-	_createClass(Image, [{
-		key: "delete",
-		value: function _delete(event) {
-			var image = event.target;
-
-			if (image.className === "image-delete") {
-				image = event.target.parentNode;
-			}
-
-			axios.post('/afbeelding/verwijderen/' + image.dataset.id, {
-				"_method": "DELETE"
-			});
-
-			image.parentNode.remove();
-		}
-	}]);
-
-	return Image;
-}();
-
-new Image();
-
-/***/ }),
-/* 37 */
 /***/ (function(module, exports) {
 
 /* =========================================================
@@ -33251,10 +33206,59 @@ new Image();
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export Image */
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Image = function () {
+	function Image() {
+		_classCallCheck(this, Image);
+
+		this.image = document.getElementsByClassName("image-overlay");
+		this.imageDelete = document.getElementsByClassName("image-delete");
+
+		for (var imageIndex = 0; imageIndex < this.image.length; imageIndex++) {
+			this.image[imageIndex].addEventListener('click', this.delete, false);
+			this.imageDelete[imageIndex].addEventListener('click', this.delete, false);
+		}
+	}
+
+	_createClass(Image, [{
+		key: "delete",
+		value: function _delete(event) {
+			var image = event.target;
+
+			if (image.className === "image-delete") {
+				image = event.target.parentNode;
+			}
+
+			axios.post('/afbeelding/verwijderen/' + image.dataset.id, {
+				"_method": "DELETE"
+			});
+
+			image.parentNode.remove();
+		}
+	}]);
+
+	return Image;
+}();
+
+new Image();
 
 /***/ })
 /******/ ]);
