@@ -217,6 +217,7 @@
 .lander-bg {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url("/assets/graphics/lander_background.jpg");
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/graphics/lander_background.jpg");
+  background-size: cover;
 }
 
 .call_to_action_wrapper {
@@ -319,6 +320,7 @@
 
 .tab-active {
   border-top: 3px solid #e7173e;
+  color: #e7173e;
 }
 
 .tab-content {

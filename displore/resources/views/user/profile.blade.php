@@ -2,6 +2,9 @@
 
 @section('content')
 	@component('components.user-tabs')
+		@slot('tab')
+			profile
+		@endslot
 		<div class="row">
 			
 		
