@@ -20,9 +20,10 @@ class ProductController extends Controller
    */
   public function index()
   {
-    $products = Product::take(30)->get();
+    $products = Product::orderBy('id', 'desc')->take(30)->get();
+    $images = ProductImage::take(30)->get();
 
-    return view('discover', compact('products'));
+    return view('discover', compact('products', 'images'));
   }
 
   /**

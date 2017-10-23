@@ -918,3 +918,7 @@ a:focus {
   padding: 20px;
 }
 
+.image_small {
+  height: 300px;
+}
+
