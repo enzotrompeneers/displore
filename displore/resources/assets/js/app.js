@@ -1,6 +1,8 @@
 import './bootstrap';
 import './form/fileupload';
 import './form/image';
+import './actions/paypal';
+
 
 import 'foundation-datepicker/js/foundation-datepicker';
 

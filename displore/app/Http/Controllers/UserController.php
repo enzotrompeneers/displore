@@ -83,10 +83,6 @@ class UserController extends Controller
             'paypal' => 'required|unique:users|email'
         ]);
 
-        if($validator->fails()){
-            return redirect()->route('user.profile');
-        }
-
         $user->paypal = request('paypal');
         $user->update();
 

@@ -42,4 +42,7 @@ Route::middleware('auth')->group(function(){
 
 	//Reservation routes
 	Route::post('/reservatie/maken', 'ReservationController@store')->name('reservation.store');
+	Route::get('/reservatie/betalen/{id}', 'ReservationController@payment')->name('reservation.payment');
+	Route::post('/reservatie/betalen/{id}/compleet', 'ReservationController@paymentComplete')->name('reservation.paymentComplete');
+
 });

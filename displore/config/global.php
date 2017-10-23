@@ -8,9 +8,9 @@ return [
 		"Dieren"
 	],
 	'price_time' => [
-		"uur",
-		"maand",
-		"dag",
+		"hour",
+		"month",
+		"day",
 		"week"
 	]
 ];

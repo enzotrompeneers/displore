@@ -51,8 +51,6 @@ class ReservationController extends Controller
 
         $reservation->from = Carbon::parse($from);
 
-
-
         if($price_time === "hour"){
             $reservation->to = Carbon::parse($from)->addHours($quantity);
         } else if($price_time === "week") {
@@ -64,10 +62,45 @@ class ReservationController extends Controller
         }
 
         $reservation->quantity = $quantity;
+        $reservation->paid = false;
 
         $reservation->save();
 
-        return redirect('/ervaring/toon/' . $product_id);
+        return redirect()->route('reservation.payment', ['id' => $reservation->id]);
+    }
+
+    /**
+    * Payment process for an experience
+    *
+    * @param 
+    * @return 
+    */
+
+    public function payment($id)
+    {
+        $reservation = Reservation::find($id);
+        $user = $reservation->product->user;
+        $price = $reservation->product->price * $reservation->quantity;
+
+        return view('reservation.payment', compact('reservation', 'user', 'price'));
+    }
+
+    /**
+    * Declare a payment complete
+    *
+    * @param 
+    * @return 
+    */
+
+    public function paymentComplete($id)
+    {
+        $reservation = Reservation::find($id);
+
+        $reservation->paid = true;
+
+        $reservation->update();
+
+        return;
     }
 
     /**
