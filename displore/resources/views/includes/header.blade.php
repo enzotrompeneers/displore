@@ -11,4 +11,4 @@
 <link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
 <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
 
-<link href='/stylesheets/foundation-datepicker.css' rel='stylesheet' type='text/css'>
+
