@@ -25,7 +25,7 @@
 			@foreach($products as $product)
 				<li>
 					<a href="{{ route('product.show', $product->id) }}">
-						<img class="image_big" src="{{ asset($images[$product->id-1]->image) }}" alt="Afbeelding van {{ $product->title }}">
+						<img class="image_big" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}">
 						<h2 class="h2_over_image">{{ $product->title }}</h2>
 					</a>
 				</li>
@@ -35,7 +35,7 @@
 		@foreach($products as $product)
 		<div class="large-6 columns">
 		<a href="{{ route('product.show', $product->id) }}">
-			<img class="image_small" src="{{ asset($images[$product->id-1]->image) }}" alt="Afbeelding van {{ $product->title }}">
+			<img class="image_small" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}">
 			<h2 class="h2_over_image">{{ $product->title }}</h2>
 		</a>
 		</div>

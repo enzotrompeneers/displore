@@ -21,9 +21,8 @@ class ProductController extends Controller
   public function index()
   {
     $products = Product::orderBy('id', 'desc')->take(30)->get();
-    $images = ProductImage::take(30)->get();
 
-    return view('discover', compact('products', 'images'));
+    return view('discover', compact('products'));
   }
 
   /**
@@ -36,9 +35,8 @@ class ProductController extends Controller
     $search_term = request('search_input');
 
     $products = Product::search($search_term)->orderBy('id', 'desc')->get();
-    $images = ProductImage::get();
 
-    return view('discover', compact('search_term', 'products', 'images'));
+    return view('discover', compact('search_term', 'products'));
   }
 
   /**

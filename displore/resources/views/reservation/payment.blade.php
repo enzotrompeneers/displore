@@ -49,7 +49,9 @@
 			</div>
 		</div>
 		@else
-			<h4>Betaling van deze reservatie is afgerond</h4>
+			<div class="row">
+				<div class="medium-12 cell"><h4>Betaling van deze reservatie is afgerond</h4></div>
+			</div>
 		@endif
 	</div>
 @endsection
