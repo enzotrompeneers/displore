@@ -2,6 +2,9 @@
 
 @section('content')
 	@component('components.user-tabs')
+		@slot('tab')
+			password
+		@endslot
 		<h1>Wachtwoord veranderen</h1>
 
 		<form action="{{ route('user.password_change') }}" method="post">

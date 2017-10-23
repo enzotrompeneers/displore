@@ -7,7 +7,7 @@
 	{{ csrf_field() }}
 	<div class="clearfix textbox">
 		<input type="search" name="search_input" id="search_input" placeholder="Wat wil je ontdekken?">
-		<input type="submit" class="float-right" value="Zoeken">
+		<input type="submit" class="button float-right" value="Zoeken">
 	</div>
 
 </form>

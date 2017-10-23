@@ -1,5 +1,7 @@
 import './bootstrap';
 import './form/fileupload';
+import './form/image';
+
 import 'foundation-datepicker/js/foundation-datepicker';
 
 // '/js/foundation-datepicker.js'

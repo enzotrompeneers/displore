@@ -15,4 +15,8 @@ class ProductImage extends Model
 
     protected $dates = ['deleted_at'];
 
+    public function product(){
+    	return $this->belongsTo('App\Product');
+    }
+
 }

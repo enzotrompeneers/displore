@@ -3,6 +3,9 @@
 @section('content')
 
 	@component('components.user-tabs')
+		@slot('tab')
+			offers
+		@endslot
 		<h1>Jouw aanbiedingen</h1>
 		@foreach($products as $product)
 			<div class="borderdiv">

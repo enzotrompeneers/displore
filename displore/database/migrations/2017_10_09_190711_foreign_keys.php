@@ -14,7 +14,7 @@ class ForeignKeys extends Migration {
                         ->onUpdate('restrict');
         });
         Schema::table('product_images', function(Blueprint $table) {
-            $table->foreign('product_id')->references('id')->on('product_images')
+            $table->foreign('product_id')->references('id')->on('products')
                         ->onDelete('restrict')
                         ->onUpdate('restrict');
         });

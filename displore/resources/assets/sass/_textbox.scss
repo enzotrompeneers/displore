@@ -7,7 +7,7 @@ input[type="password"],
 select,
 textarea,
 .textbox{
-	padding: 10px 15px;
+	padding: 0px 15px;
 	border: 1px solid $secondary-3;
 	border-radius: 3px;
 	outline: none;
@@ -20,6 +20,10 @@ textarea,
 	&:focus{
 		border: 1px solid darken($secondary-3, 10%);
 	}
+}
+
+textarea{
+	padding: 10px 15px;
 }
 
 input[type="search"]{

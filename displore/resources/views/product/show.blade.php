@@ -3,6 +3,8 @@
 @section('content')
 <div class="row container-white-padding">
 	<form action="{{ route('reservation.store') }}" method="post">
+		{{ csrf_field() }}
+		<input type="hidden" name="product_id" value="{{ $product->id }}"/>
 		<div class="grid-x grid-padding-x">
 			<div class="medium-6 cell">
 				@if(Auth::check())
@@ -13,9 +15,9 @@
 				<h1>{{ $product->title }}</h1>
 
 				<ul class="example-orbit" data-orbit>
-					<li><img src="graphics/src.jpg" alt="image1"></li>
-					<li><img src="graphics/src.jpg" alt="image2"></li>
-					<li><img src="graphics/src.jpg" alt="image3"></li>
+					@foreach($images as $image)
+						<li><img src="{{ asset($image->image) }}" alt="Afbeelding van {{ $product->title }}"></li>
+					@endforeach
 				</ul>
 				<p>{{ $product->description }}</p>
 			</div>
@@ -28,12 +30,12 @@
 			<div class="medium-3 cell date_container">
 
 				<label class="date_label" for="from">Van</label>
-				<input type="datetime" class="span2" value="" id="dpd1">
+				<input type="datetime" class="span2" value="" name="from" id="dpd1">
 				<label class="date_label" for="to">Tot</label>
 				@if ( $product->price_time == "uur")
-					<input type="text" class="span2" value="" id="dpd2" disabled>
+					<input type="text" class="span2" value="" name="to" id="dpd2" disabled>
 				@else
-					<input type="text" class="span2" value="" id="dpd2">
+					<input type="text" class="span2" value="" name="to" id="dpd2">
 				@endif
 				<label class="date_label" for="quantity">Aantal</label>
 				<input type="datetime" id="quantity" name="quantity">
@@ -44,7 +46,7 @@
 				<h2>Vergelijkbare ervaringen</h2>
 			</div>
 			<div class="medium-6 cell">
-				<p>Aangeboden door: {{ $product->user_id }}</p>
+				<p>Aangeboden door: {{ $product->user->first_name }} {{ $product->user->last_name }}</p>
 				<p>Categorie: {{ $product->category }}</p>
 				<p>Locatie: {{ $product->location }}</p>
 				<div id="googleMap" name="location" style="width:100%;height:250px;background-color:grey;" value="{{ $product->location }}"></div> <!-- Nakijken!!! -->
@@ -60,7 +62,7 @@
 					{{ csrf_field() }}
 					<span>Geef een rating: <input type="number" min="0" max="5" name="stars" placeholder="0-5" /></span>
 					<textarea name="text" placeholder="recensie schrijven"></textarea>
-					<input type="submit" value="Recensie insturen"/>
+					<input type="submit" class="button" value="Recensie insturen"/>
 				</form>
 			</div>
 			
