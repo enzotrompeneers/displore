@@ -21,13 +21,14 @@
 	<body class="lander-bg">
 
 	<!-- Navbar -->
-	<header  class="header header-lander">
+	<header class="header header-lander">
             <div class="header-logo">
                 <div class="header-logo-image">
-                    <a href="{{ route('lander') }}"><img src="{{asset('assets/graphics/displore_logo.svg')}}" alt="Displore"></a>
+                    <a href="{{ route('lander') }}"><img src="{{asset('assets/graphics/displore_logo_dark.svg')}}" alt="Displore"></a>
                 </div>
 
                 <div class="header-logo-text">
+                	{{-- TODO: GEEN INLINE STYLING --}}
                     <a href="{{ route('lander') }}" style="color:white;">
                         Displore
                     </a>

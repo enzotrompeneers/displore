@@ -66,6 +66,7 @@ class ProductController extends Controller
     $product->title = request('title');
     $product->user_id = $user->id;
     $product->description = request('description');
+    $product->category = request('category');
     $product->price = request('price');
     $product->price_time = request('price_time');
 
@@ -86,6 +87,7 @@ class ProductController extends Controller
   {
     $product = Product::find($id);
     $images = ProductImage::where('product_id', $id)->get();
+    $relevantProducts = Product::where('category', $product->category)->take(4)->get();
 
     $products = Product::orderBy('id', 'desc')->take(6)->get();
 
@@ -95,7 +97,11 @@ class ProductController extends Controller
 
     $reviews = $product->reviews()->get();
 
+<<<<<<< HEAD
     return view('product.show', compact('product', 'reviews', 'images', 'products'));
+=======
+    return view('product.show', compact('product', 'reviews', 'images', 'relevantProducts'));
+>>>>>>> eb4ec84e4af23b5d46a4bfb3b6ae7fdc4a40af55
   }
 
   /**
@@ -134,6 +140,7 @@ class ProductController extends Controller
     $product->title = request('title');
     $product->user_id = Auth::user()->id;
     $product->description = request('description');
+    $product->category = request('category');
     $product->price = request('price');
     $product->price_time = request('price_time');
 

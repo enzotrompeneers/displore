@@ -19,10 +19,9 @@ class HomeController extends Controller
     /**
     * Toont de landing pagina met welkom en slagzin
     */
-    public function lander(){
+    public function lander()
+    {
         return view('lander');
     }
-    public function displore(){
-        return view('lander');
-    }
+
 }
