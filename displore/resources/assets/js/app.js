@@ -2,6 +2,7 @@ import './bootstrap';
 import './form/fileupload';
 import './form/image';
 import './actions/paypal';
+import './googlemaps';
 
 
 import 'foundation-datepicker/js/foundation-datepicker';
@@ -62,6 +63,9 @@ import 'foundation-datepicker/js/foundation-datepicker';
         checkout.hide();
     }).data('datepicker');
     // End Datepicker
+
+    var gmaps = new GoogleMaps();
+    gmaps.initMap();
     
 })()
 

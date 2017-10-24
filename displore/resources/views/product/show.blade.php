@@ -25,12 +25,12 @@
 
 				<h2>Vergelijkbare ervaringen</h2>
 				@foreach($relevantProducts as $relevantProduct)
-				<div class="large-3 columns">
-				<a href="{{ route('product.show', $relevantProduct->id) }}">
-					<img class="image_small" src="{{ asset($relevantProduct->images->first()->image) }}" alt="Afbeelding van {{ $relevantProduct->title }}">
-					<h2 class="h2_over_image">{{ $relevantProduct->title }}</h2>
-				</a>
-				</div>
+					<div class="large-6 columns">
+						<a href="{{ route('product.show', $product->id) }}">
+							<img class="image_xsmall" src="{{ asset($relevantProduct->images->first()->image) }}" alt="Afbeelding van {{ $relevantProduct->title }}">
+							<h2 class="h2_over_image_small">{{ $relevantProduct->title }}</h2>
+						</a>
+					</div>
 				@endforeach
 
 			</div>
@@ -61,6 +61,7 @@
 				</div>
 			</div>
 		</form>
+<<<<<<< HEAD
 			{{-- <div class="medium-6 cell">
 				<h2>Vergelijkbare ervaringen</h2>
 				@foreach($relevantProducts as $relevantProduct)
@@ -68,6 +69,8 @@
 					<img src="{{ asset($relevantProduct->images->first()->image) }}" alt="Een foto van het relevant product {{ $relevantProduct->title }}">
 				@endforeach
 			</div> --}}
+=======
+>>>>>>> 20d510bddd8b40b7453d13d1e964837b7dc09fa1
 			<div class="medium-6 cell">
 				<p>Aangeboden door: {{ $product->user->first_name }} {{ $product->user->last_name }}</p>
 				<p>Categorie: {{ $product->category }}</p>
@@ -88,7 +91,4 @@
 					<input type="submit" class="button" value="Recensie insturen"/>
 				</form>
 			</div>
-			
-	
-
 @stop

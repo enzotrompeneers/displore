@@ -60,9 +60,15 @@
 					{{ $errors->first('description') }}
 				</div>
 				<div class="medium-6 cell">
-					<label>Selecteer een locatie</label>
-					<div id="googleMap" name="location" style="width:100%;height:250px;background-color:grey;"></div>
+					<label>Locatie</label>
+					<input id="pac-input" class="controls" type="text" placeholder="Geef een locatie" name="location">
+					<div id="map"></div>
+					<div id="infowindow-content">
+						<span id="place-name"  class="title"></span><br>
+						<span id="place-address"></span>
+					</div>
 					{{ $errors->first('location') }}
+
 				</div>
 				<div class="medium-6 cell">
 					<label>Categorie</label>
