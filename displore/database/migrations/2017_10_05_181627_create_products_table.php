@@ -12,6 +12,7 @@ class CreateProductsTable extends Migration {
 			$table->integer('user_id')->unsigned();
 			$table->string('title', 30);
 			$table->text('description');
+			$table->string('category');
 			$table->double('price');
 			$table->char('price_time');
 			$table->timestamps();

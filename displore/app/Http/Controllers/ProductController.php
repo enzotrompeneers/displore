@@ -67,6 +67,7 @@ class ProductController extends Controller
     $product->title = request('title');
     $product->user_id = $user->id;
     $product->description = request('description');
+    $product->category = request('category');
     $product->price = request('price');
     $product->price_time = request('price_time');
 
@@ -87,6 +88,7 @@ class ProductController extends Controller
   {
     $product = Product::find($id);
     $images = ProductImage::where('product_id', $id)->get();
+    $relevantProducts = Product::where('category', $product->category)->take(4)->get();
 
     if($product === null){
       return abort('404');
@@ -94,7 +96,7 @@ class ProductController extends Controller
 
     $reviews = $product->reviews()->get();
 
-    return view('product.show', compact('product', 'reviews', 'images'));
+    return view('product.show', compact('product', 'reviews', 'images', 'relevantProducts'));
   }
 
   /**
@@ -133,6 +135,7 @@ class ProductController extends Controller
     $product->title = request('title');
     $product->user_id = Auth::user()->id;
     $product->description = request('description');
+    $product->category = request('category');
     $product->price = request('price');
     $product->price_time = request('price_time');
 
