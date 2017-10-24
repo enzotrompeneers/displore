@@ -7,8 +7,12 @@ import {GoogleMaps} from './googlemaps';
 
 import 'foundation-datepicker/js/foundation-datepicker';
 
-var gmaps = new GoogleMaps();
-gmaps.initMap();
+if(document.getElementById("map") !== null)
+{
+    var gmaps = new GoogleMaps();
+    gmaps.initMap();
+}
+
 
 // '/js/foundation-datepicker.js'
 // '/stylesheets/foundation-datepicker.css'
