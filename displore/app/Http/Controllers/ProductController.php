@@ -89,8 +89,6 @@ class ProductController extends Controller
     $images = ProductImage::where('product_id', $id)->get();
     $relevantProducts = Product::where('category', $product->category)->take(4)->get();
 
-    $products = Product::orderBy('id', 'desc')->take(6)->get();
-
     if($product === null){
       return abort('404');
     }

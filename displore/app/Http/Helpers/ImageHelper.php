@@ -4,6 +4,11 @@ namespace App\Http\Helpers;
 
 use App\ProductImage;
 
+/**
+* Helper klasse voor afbeeldingsacties.
+*
+*/
+
 class ImageHelper{
 
 	public static function uploadMultiple($images, $product_id){

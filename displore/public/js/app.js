@@ -31890,6 +31890,7 @@ function renderPaypal() {
         onAuthorize: function onAuthorize(data, actions) {
             return actions.payment.execute().then(function () {
                 new __WEBPACK_IMPORTED_MODULE_0__ui_modal__["a" /* Modal */]("paypal-modal", "Betaling voltooid!", "Dankje voor je betaling, geniet van de ervaring!").show();
+                //TODO: Dit is fucked up en onveilig
                 axios.post("/reservatie/betalen/" + reservation + "/compleet");
             });
         }

@@ -13,6 +13,7 @@ class StoreUser extends FormRequest
      */
     public function authorize()
     {
+        //TODO: check of het de gebruiker is
         return true;
     }
 
