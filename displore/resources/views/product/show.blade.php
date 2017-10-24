@@ -65,7 +65,12 @@
 				<p>Aangeboden door: {{ $product->user->first_name }} {{ $product->user->last_name }}</p>
 				<p>Categorie: {{ $product->category }}</p>
 				<p>Locatie: {{ $product->location }}</p>
-				<div id="googleMap" name="location" style="width:100%;height:250px;background-color:grey;" value="{{ $product->location }}"></div> <!-- Nakijken!!! -->
+					<div id="map"></div>
+					<div id="infowindow-content">
+						<span id="place-name"  class="title"></span><br>
+						<span id="place-address"></span>
+					</div>
+					{{ $errors->first('location') }}
 				
 				<h3>Recensies</h3>
 				@foreach($reviews as $review)
