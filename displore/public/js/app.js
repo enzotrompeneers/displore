@@ -772,8 +772,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var gmaps = new __WEBPACK_IMPORTED_MODULE_4__googlemaps__["a" /* GoogleMaps */]();
-gmaps.initMap();
+if (document.getElementById("map") !== null) {
+    var gmaps = new __WEBPACK_IMPORTED_MODULE_4__googlemaps__["a" /* GoogleMaps */]();
+    gmaps.initMap();
+}
 
 // '/js/foundation-datepicker.js'
 // '/stylesheets/foundation-datepicker.css'
