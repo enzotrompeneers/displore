@@ -61,16 +61,6 @@
 				</div>
 			</div>
 		</form>
-<<<<<<< HEAD
-			{{-- <div class="medium-6 cell">
-				<h2>Vergelijkbare ervaringen</h2>
-				@foreach($relevantProducts as $relevantProduct)
-					{{ $relevantProduct->title }}
-					<img src="{{ asset($relevantProduct->images->first()->image) }}" alt="Een foto van het relevant product {{ $relevantProduct->title }}">
-				@endforeach
-			</div> --}}
-=======
->>>>>>> 20d510bddd8b40b7453d13d1e964837b7dc09fa1
 			<div class="medium-6 cell">
 				<p>Aangeboden door: {{ $product->user->first_name }} {{ $product->user->last_name }}</p>
 				<p>Categorie: {{ $product->category }}</p>
