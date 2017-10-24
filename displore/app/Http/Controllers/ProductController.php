@@ -33,7 +33,6 @@ class ProductController extends Controller
   public function search(Request $request)
   {
     $search_term = request('search_input');
-
     $products = Product::search($search_term)->orderBy('id', 'desc')->get();
 
     return view('discover', compact('search_term', 'products'));
@@ -88,13 +87,15 @@ class ProductController extends Controller
     $product = Product::find($id);
     $images = ProductImage::where('product_id', $id)->get();
 
+    $products = Product::orderBy('id', 'desc')->take(6)->get();
+
     if($product === null){
       return abort('404');
     }
 
     $reviews = $product->reviews()->get();
 
-    return view('product.show', compact('product', 'reviews', 'images'));
+    return view('product.show', compact('product', 'reviews', 'images', 'products'));
   }
 
   /**

@@ -20,7 +20,19 @@
 						<li><img src="{{ asset($image->image) }}" alt="Afbeelding van {{ $product->title }}"></li>
 					@endforeach
 				</ul>
+				<h2>Beschrijving</h2>
 				<p>{{ $product->description }}</p>
+
+				<h2>Vergelijkbare ervaringen</h2>
+				@foreach($products as $product)
+				<div class="large-3 columns">
+				<a href="{{ route('product.show', $product->id) }}">
+					<img class="image_small" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}">
+					<h2 class="h2_over_image">{{ $product->title }}</h2>
+				</a>
+				</div>
+				@endforeach
+
 			</div>
 			<div class="medium-3 cell price_container">
 				<div class="price_text">{{ $product->price }} € </div> 
@@ -49,9 +61,6 @@
 				</div>
 			</div>
 		</form>
-			<div class="medium-6 cell">
-				<h2>Vergelijkbare ervaringen</h2>
-			</div>
 			<div class="medium-6 cell">
 				<p>Aangeboden door: {{ $product->user->first_name }} {{ $product->user->last_name }}</p>
 				<p>Categorie: {{ $product->category }}</p>
