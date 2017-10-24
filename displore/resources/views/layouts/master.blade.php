@@ -41,7 +41,7 @@
             @include('includes.footer')
         </footer>
 
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}" async defer></script>
         @yield('scripts')
     </body>
 </html>
