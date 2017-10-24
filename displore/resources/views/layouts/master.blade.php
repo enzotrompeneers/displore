@@ -37,11 +37,9 @@
         <div class="container">
             @yield('content')
         </div>
-        <footer>
-            @include('includes.footer')
-        </footer>
-
-        <script src="{{ asset('js/app.js') }}" async defer></script>
+   
+        @include('includes.footer')
+        <script src="{{ asset('js/app.js') }}"></script>
         @yield('scripts')
     </body>
 </html>

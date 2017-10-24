@@ -210,6 +210,22 @@
   background-color: transparent;
 }
 
+label {
+  font-size: 16px;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.form-group {
+  padding-top: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group .textbox {
+  margin-top: 5px;
+}
+
 .form-inline {
   display: inline;
 }
@@ -393,6 +409,10 @@
   height: 150px;
 }
 
+.image-element {
+  overflow: hidden;
+}
+
 .image-overlay {
   position: relative;
   z-index: 3;
@@ -549,6 +569,45 @@ textarea:focus,
   border: 1px solid #c1c0c0;
 }
 
+input[type="text"]::-webkit-input-placeholder,
+input[type="email"]::-webkit-input-placeholder,
+input[type="search"]::-webkit-input-placeholder,
+input[type="datetime"]::-webkit-input-placeholder,
+input[type="number"]::-webkit-input-placeholder,
+input[type="password"]::-webkit-input-placeholder,
+select::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+.textbox::-webkit-input-placeholder {
+  color: #8A8A8A;
+  font-weight: 500;
+}
+
+input[type="text"]:-ms-input-placeholder,
+input[type="email"]:-ms-input-placeholder,
+input[type="search"]:-ms-input-placeholder,
+input[type="datetime"]:-ms-input-placeholder,
+input[type="number"]:-ms-input-placeholder,
+input[type="password"]:-ms-input-placeholder,
+select:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+.textbox:-ms-input-placeholder {
+  color: #8A8A8A;
+  font-weight: 500;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="search"]::placeholder,
+input[type="datetime"]::placeholder,
+input[type="number"]::placeholder,
+input[type="password"]::placeholder,
+select::placeholder,
+textarea::placeholder,
+.textbox::placeholder {
+  color: #8A8A8A;
+  font-weight: 500;
+}
+
 textarea {
   padding: 10px 15px;
 }
@@ -562,16 +621,6 @@ input[type="search"] {
 input[type="search"]:active,
 input[type="search"]:focus {
   border: none;
-}
-
-.form-group {
-  padding: 10px 0px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group .textbox {
-  margin-top: 5px;
 }
 
 .button,
@@ -896,7 +945,8 @@ a:focus {
 }
 
 .borderdiv {
-  border: 1px solid #000000;
+  border: 1px solid #8A8A8A;
+  border-radius: 3px;
   height: 70px;
   padding: 15px;
   margin: 10px;

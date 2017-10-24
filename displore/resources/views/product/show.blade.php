@@ -26,7 +26,7 @@
 				<h2>Vergelijkbare ervaringen</h2>
 				@foreach($relevantProducts as $relevantProduct)
 					<div class="large-6 columns">
-						<a href="{{ route('product.show', $product->id) }}">
+						<a href="{{ route('product.show', $relevantProduct->id) }}">
 							<img class="image_xsmall" src="{{ asset($relevantProduct->images->first()->image) }}" alt="Afbeelding van {{ $relevantProduct->title }}">
 							<h2 class="h2_over_image_small">{{ $relevantProduct->title }}</h2>
 						</a>
@@ -69,7 +69,7 @@
 				
 				<h3>Recensies</h3>
 				@foreach($reviews as $review)
-					<b>{{ $review->title }}</b>
+					<b>{{ $review->user->first_name }} {{ $review->user->last_name }}</b>
 					<div>{{ $review->stars }}</div>
 					<p>{{ $review->text }}</p>
 				@endforeach

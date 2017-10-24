@@ -75,7 +75,7 @@ class ProductController extends Controller
 
     ImageHelper::uploadMultiple(request('image'), $product->id);
 
-    return redirect()->route('product.show', ['id' => $product->id]);
+    return redirect()->route('availability.create', ['id' => $product->id]);
   }
 
   /**
