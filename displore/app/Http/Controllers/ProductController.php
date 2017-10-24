@@ -89,19 +89,13 @@ class ProductController extends Controller
     $images = ProductImage::where('product_id', $id)->get();
     $relevantProducts = Product::where('category', $product->category)->take(4)->get();
 
-    $products = Product::orderBy('id', 'desc')->take(6)->get();
-
     if($product === null){
       return abort('404');
     }
 
     $reviews = $product->reviews()->get();
 
-<<<<<<< HEAD
-    return view('product.show', compact('product', 'reviews', 'images', 'products'));
-=======
     return view('product.show', compact('product', 'reviews', 'images', 'relevantProducts'));
->>>>>>> eb4ec84e4af23b5d46a4bfb3b6ae7fdc4a40af55
   }
 
   /**

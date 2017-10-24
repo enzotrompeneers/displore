@@ -12,8 +12,11 @@
 				<div class="product_text">
 					{{ $product->title }}
 				</div>
-
-				<a class="red_ghost right" href="{{ route('product.edit', $product->id) }}">Bewerken</a>
+				<div class="right">
+					<a class="button" href="{{ route('availability.create', $product->id) }}">Geef je beschikbaarheid aan</a>
+					<a class="red_ghost" href="{{ route('product.edit', $product->id) }}">Bewerken</a>
+				</div>
+				
 			</div>
 		@endforeach
 	@endcomponent

@@ -45,4 +45,7 @@ Route::middleware('auth')->group(function(){
 	Route::get('/reservatie/betalen/{id}', 'ReservationController@payment')->name('reservation.payment');
 	Route::post('/reservatie/betalen/{id}/compleet', 'ReservationController@paymentComplete')->name('reservation.paymentComplete');
 
+	//Availability route
+	Route::get('/reservatie/{id}/beschikbaar/maken', 'AvailabilityController@create')->name('availability.create');
+
 });
