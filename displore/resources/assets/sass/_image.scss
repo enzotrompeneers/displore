@@ -30,3 +30,17 @@
 	}
 
 }
+.image_xsmall, .image_small, .image_big {
+	width: 100%;
+    position: relative;
+    margin: 20px 0;
+}
+.image_xsmall {
+    height: 150px;
+}
+.image_small {
+    height: 300px;
+}
+.image_big {
+    height: 400px;
+}

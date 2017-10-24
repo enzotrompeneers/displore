@@ -97,11 +97,7 @@ class ProductController extends Controller
 
     $reviews = $product->reviews()->get();
 
-<<<<<<< HEAD
-    return view('product.show', compact('product', 'reviews', 'images', 'products'));
-=======
     return view('product.show', compact('product', 'reviews', 'images', 'relevantProducts'));
->>>>>>> eb4ec84e4af23b5d46a4bfb3b6ae7fdc4a40af55
   }
 
   /**

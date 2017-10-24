@@ -746,7 +746,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
-module.exports = __webpack_require__(40);
+module.exports = __webpack_require__(38);
 
 
 /***/ }),
@@ -759,13 +759,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__form_fileupload__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__form_image__ = __webpack_require__(36);
-<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_paypal__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_foundation_datepicker_js_foundation_datepicker__ = __webpack_require__(37);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_paypal__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_foundation_datepicker_js_foundation_datepicker__ = __webpack_require__(39);
->>>>>>> eb4ec84e4af23b5d46a4bfb3b6ae7fdc4a40af55
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_foundation_datepicker_js_foundation_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_foundation_datepicker_js_foundation_datepicker__);
 
 
@@ -31836,104 +31831,6 @@ new Image();
 
 /***/ }),
 /* 37 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_modal__ = __webpack_require__(38);
-
-
-if (document.getElementById("paypal-button-container") !== null) {
-    var price = parseInt(document.getElementById("reservation-price").innerHTML);
-    var reservation = parseInt(document.getElementById("reservation-id").value);
-
-    renderPaypal();
-}
-
-//renders the paypal button
-function renderPaypal() {
-    paypal.Button.render({
-
-        // Set your environment
-
-        env: 'sandbox', // sandbox | production
-
-        // Specify the style of the button
-
-        style: {
-            label: 'checkout',
-            size: 'small', // small | medium | large | responsive
-            shape: 'pill', // pill | rect
-            color: 'gold' // gold | blue | silver | black
-        },
-
-        // PayPal Client IDs - replace with your own
-        // Create a PayPal app: https://developer.paypal.com/developer/applications/create
-
-        client: {
-            sandbox: 'AfwH7wX1XMl9S4ccjBff33AOcpU5tSVAII8uDPXWKH7ElAwOHetAV66ijqnLhgV9ZbllVi-Ut68pFj0T',
-            production: '<insert production client id>'
-        },
-
-        payment: function payment(data, actions) {
-            return actions.payment.create({
-                payment: {
-                    transactions: [{
-                        amount: { total: price, currency: 'EUR' }
-                    }]
-                }
-            });
-        },
-
-        onAuthorize: function onAuthorize(data, actions) {
-            return actions.payment.execute().then(function () {
-                new __WEBPACK_IMPORTED_MODULE_0__ui_modal__["a" /* Modal */]("paypal-modal", "Betaling voltooid!", "Dankje voor je betaling, geniet van de ervaring!").show();
-                axios.post("/reservatie/betalen/" + reservation + "/compleet");
-            });
-        }
-
-    }, '#paypal-button-container');
-}
-
-/***/ }),
-/* 38 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Modal; });
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Modal = function () {
-	function Modal(modal_id, title, description) {
-		_classCallCheck(this, Modal);
-
-		this.modal = document.getElementById(modal_id);
-
-		this.title = title;
-		this.description = description;
-
-		this.setContent();
-	}
-
-	_createClass(Modal, [{
-		key: "setContent",
-		value: function setContent() {
-			this.modal.getElementsByClassName("modal-title-text")[0].innerHTML = this.title;
-			this.modal.getElementsByClassName("modal-content")[0].innerHTML = this.description;
-		}
-	}, {
-		key: "show",
-		value: function show() {
-			this.modal.parentNode.style.display = "block";
-		}
-	}]);
-
-	return Modal;
-}();
-
-/***/ }),
-/* 39 */
 /***/ (function(module, exports) {
 
 /* =========================================================
@@ -33356,12 +33253,11 @@ var Modal = function () {
 
 
 /***/ }),
-/* 40 */
+/* 38 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
-<<<<<<< HEAD
 /***/ }),
 /* 39 */,
 /* 40 */,
@@ -33464,7 +33360,5 @@ var Modal = function () {
 	return Modal;
 }();
 
-=======
->>>>>>> eb4ec84e4af23b5d46a4bfb3b6ae7fdc4a40af55
 /***/ })
 /******/ ]);
