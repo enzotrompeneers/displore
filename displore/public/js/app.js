@@ -746,7 +746,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
-module.exports = __webpack_require__(38);
+module.exports = __webpack_require__(41);
 
 
 /***/ }),
@@ -759,9 +759,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__form_fileupload__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__form_image__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_paypal__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_foundation_datepicker_js_foundation_datepicker__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_foundation_datepicker_js_foundation_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_foundation_datepicker_js_foundation_datepicker__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_paypal__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__googlemaps__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_foundation_datepicker_js_foundation_datepicker__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_foundation_datepicker_js_foundation_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_foundation_datepicker_js_foundation_datepicker__);
+
 
 
 
@@ -825,6 +827,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         checkout.hide();
     }).data('datepicker');
     // End Datepicker
+
+    var gmaps = new GoogleMaps();
+    gmaps.initMap();
 })();
 
 /***/ }),
@@ -31831,6 +31836,176 @@ new Image();
 
 /***/ }),
 /* 37 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_modal__ = __webpack_require__(38);
+
+
+if (document.getElementById("paypal-button-container") !== null) {
+    var price = parseInt(document.getElementById("reservation-price").innerHTML);
+    var reservation = parseInt(document.getElementById("reservation-id").value);
+
+    renderPaypal();
+}
+
+//renders the paypal button
+function renderPaypal() {
+    paypal.Button.render({
+
+        // Set your environment
+
+        env: 'sandbox', // sandbox | production
+
+        // Specify the style of the button
+
+        style: {
+            label: 'checkout',
+            size: 'small', // small | medium | large | responsive
+            shape: 'pill', // pill | rect
+            color: 'gold' // gold | blue | silver | black
+        },
+
+        // PayPal Client IDs - replace with your own
+        // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+
+        client: {
+            sandbox: 'AfwH7wX1XMl9S4ccjBff33AOcpU5tSVAII8uDPXWKH7ElAwOHetAV66ijqnLhgV9ZbllVi-Ut68pFj0T',
+            production: '<insert production client id>'
+        },
+
+        payment: function payment(data, actions) {
+            return actions.payment.create({
+                payment: {
+                    transactions: [{
+                        amount: { total: price, currency: 'EUR' }
+                    }]
+                }
+            });
+        },
+
+        onAuthorize: function onAuthorize(data, actions) {
+            return actions.payment.execute().then(function () {
+                new __WEBPACK_IMPORTED_MODULE_0__ui_modal__["a" /* Modal */]("paypal-modal", "Betaling voltooid!", "Dankje voor je betaling, geniet van de ervaring!").show();
+                axios.post("/reservatie/betalen/" + reservation + "/compleet");
+            });
+        }
+
+    }, '#paypal-button-container');
+}
+
+/***/ }),
+/* 38 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Modal; });
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Modal = function () {
+	function Modal(modal_id, title, description) {
+		_classCallCheck(this, Modal);
+
+		this.modal = document.getElementById(modal_id);
+
+		this.title = title;
+		this.description = description;
+
+		this.setContent();
+	}
+
+	_createClass(Modal, [{
+		key: "setContent",
+		value: function setContent() {
+			this.modal.getElementsByClassName("modal-title-text")[0].innerHTML = this.title;
+			this.modal.getElementsByClassName("modal-content")[0].innerHTML = this.description;
+		}
+	}, {
+		key: "show",
+		value: function show() {
+			this.modal.parentNode.style.display = "block";
+		}
+	}]);
+
+	return Modal;
+}();
+
+/***/ }),
+/* 39 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export GoogleMaps */
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var GoogleMaps = function () {
+  function GoogleMaps() {
+    _classCallCheck(this, GoogleMaps);
+  }
+
+  _createClass(GoogleMaps, [{
+    key: 'initMap',
+    value: function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: -33.8688, lng: 151.2195 },
+        zoom: 13
+      });
+
+      var input = document.getElementById('pac-input');
+
+      var autocomplete = new google.maps.places.Autocomplete(input);
+      autocomplete.bindTo('bounds', map);
+
+      map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+      var infowindow = new google.maps.InfoWindow();
+      var infowindowContent = document.getElementById('infowindow-content');
+      infowindow.setContent(infowindowContent);
+      var marker = new google.maps.Marker({
+        map: map
+      });
+      marker.addListener('click', function () {
+        infowindow.open(map, marker);
+      });
+
+      autocomplete.addListener('place_changed', function () {
+        infowindow.close();
+        var place = autocomplete.getPlace();
+        if (!place.geometry) {
+          return;
+        }
+
+        if (place.geometry.viewport) {
+          map.fitBounds(place.geometry.viewport);
+        } else {
+          map.setCenter(place.geometry.location);
+          map.setZoom(17);
+        }
+
+        // Set the position of the marker using the place ID and location.
+        marker.setPlace({
+          placeId: place.place_id,
+          location: place.geometry.location
+        });
+        marker.setVisible(true);
+
+        infowindowContent.children['place-name'].textContent = place.name;
+        infowindowContent.children['place-id'].textContent = place.place_id;
+        infowindowContent.children['place-address'].textContent = place.formatted_address;
+        infowindow.open(map, marker);
+      });
+    }
+  }]);
+
+  return GoogleMaps;
+}();
+
+/***/ }),
+/* 40 */
 /***/ (function(module, exports) {
 
 /* =========================================================
@@ -33253,112 +33428,10 @@ new Image();
 
 
 /***/ }),
-/* 38 */
+/* 41 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_modal__ = __webpack_require__(44);
-
-
-if (document.getElementById("paypal-button-container") !== null) {
-    var price = parseInt(document.getElementById("reservation-price").innerHTML);
-    var reservation = parseInt(document.getElementById("reservation-id").value);
-
-    renderPaypal();
-}
-
-//renders the paypal button
-function renderPaypal() {
-    paypal.Button.render({
-
-        // Set your environment
-
-        env: 'sandbox', // sandbox | production
-
-        // Specify the style of the button
-
-        style: {
-            label: 'checkout',
-            size: 'small', // small | medium | large | responsive
-            shape: 'pill', // pill | rect
-            color: 'gold' // gold | blue | silver | black
-        },
-
-        // PayPal Client IDs - replace with your own
-        // Create a PayPal app: https://developer.paypal.com/developer/applications/create
-
-        client: {
-            sandbox: 'AfwH7wX1XMl9S4ccjBff33AOcpU5tSVAII8uDPXWKH7ElAwOHetAV66ijqnLhgV9ZbllVi-Ut68pFj0T',
-            production: '<insert production client id>'
-        },
-
-        payment: function payment(data, actions) {
-            return actions.payment.create({
-                payment: {
-                    transactions: [{
-                        amount: { total: price, currency: 'EUR' }
-                    }]
-                }
-            });
-        },
-
-        onAuthorize: function onAuthorize(data, actions) {
-            return actions.payment.execute().then(function () {
-                new __WEBPACK_IMPORTED_MODULE_0__ui_modal__["a" /* Modal */]("paypal-modal", "Betaling voltooid!", "Dankje voor je betaling, geniet van de ervaring!").show();
-                axios.post("/reservatie/betalen/" + reservation + "/compleet");
-            });
-        }
-
-    }, '#paypal-button-container');
-}
-
-/***/ }),
-/* 44 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Modal; });
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Modal = function () {
-	function Modal(modal_id, title, description) {
-		_classCallCheck(this, Modal);
-
-		this.modal = document.getElementById(modal_id);
-
-		this.title = title;
-		this.description = description;
-
-		this.setContent();
-	}
-
-	_createClass(Modal, [{
-		key: "setContent",
-		value: function setContent() {
-			this.modal.getElementsByClassName("modal-title-text")[0].innerHTML = this.title;
-			this.modal.getElementsByClassName("modal-content")[0].innerHTML = this.description;
-		}
-	}, {
-		key: "show",
-		value: function show() {
-			this.modal.parentNode.style.display = "block";
-		}
-	}]);
-
-	return Modal;
-}();
 
 /***/ })
 /******/ ]);
