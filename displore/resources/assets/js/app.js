@@ -66,8 +66,6 @@ gmaps.initMap();
         checkout.hide();
     }).data('datepicker');
     // End Datepicker
-
-
     
 })()
 
