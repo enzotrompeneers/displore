@@ -13,6 +13,7 @@ class CreateProductsTable extends Migration {
 			$table->string('title', 30);
 			$table->text('description');
 			$table->string('category');
+			$table->string('location');
 			$table->double('price');
 			$table->char('price_time');
 			$table->timestamps();

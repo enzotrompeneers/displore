@@ -67,6 +67,7 @@ class ProductController extends Controller
     $product->user_id = $user->id;
     $product->description = request('description');
     $product->category = request('category');
+    $product->location = request('location');
     $product->price = request('price');
     $product->price_time = request('price_time');
 
@@ -135,6 +136,7 @@ class ProductController extends Controller
     $product->user_id = Auth::user()->id;
     $product->description = request('description');
     $product->category = request('category');
+    $product->location = request('location');
     $product->price = request('price');
     $product->price_time = request('price_time');
 
