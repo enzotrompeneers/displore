@@ -51,7 +51,7 @@ class AvailabilityController extends Controller
         $start_hour = request('start_hour');
         $end_hour = request('end_hour');
 
-        $reservationHelper = new ReservationHelper($product->id, $product->price_time, $from);
+        $reservationHelper = new ReservationHelper($product_id, $product->price_time, $from);
 
         $availability->product_id = $product_id;
         $availability->from = $from;

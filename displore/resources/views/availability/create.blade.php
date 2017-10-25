@@ -72,7 +72,7 @@
 					@foreach($availabilities as $available)
 						<div class="borderdiv">
 							@if($product->price_time === "day")
-								{{ $available->from }} - {{ $available->to }}
+								{{ $available->from->format("D d/m/Y") }} - {{ $available->to->format("D d/m/Y") }}
 							@else
 								{{ $available->start_hour->format("H:i") . " uur" }} - {{ $available->end_hour->format("H:i") . " uur" }} op {{ $available->from->diffForHumans() }}
 							@endif
