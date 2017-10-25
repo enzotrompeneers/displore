@@ -13,6 +13,7 @@
 			</div>
 			
 			<form action="{{ route('availability.store', $product->id) }}" method="post">
+				{{ csrf_field() }}
 				<div class="row">
 					<div class="medium-12 cell">
 						<h2>Geef aan wanneer je beschikbaar bent om je ervaring aan te bieden</h2>
@@ -53,6 +54,10 @@
 						</div>
 						
 					@endif
+
+				</div>
+				<div class="row">
+					<div class="medium-12 cell">{{ $errors->first('overlap') }}</div>
 				</div>
 				<div class="row">
 					<div class="medium-12 cell">

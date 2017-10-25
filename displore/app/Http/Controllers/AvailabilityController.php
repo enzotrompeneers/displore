@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreAvailability;
+use App\Http\Helpers\ReservationHelper;
 
 use App\Product;
+use App\Availability;
 
 class AvailabilityController extends Controller
 {
@@ -35,9 +38,40 @@ class AvailabilityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAvailability $request, $product_id)
     {
         $availability = new Availability();
+        $product = Product::find($product_id);
+        
+        $from = request('from');
+        $to = request('to');
+        $start_hour = request('start_hour');
+        $end_hour = request('end_hour');
+
+        $reservationHelper = new ReservationHelper($product->id, $product->price_time, $from);
+
+        $availability->product_id = $product_id;
+        $availability->from = $from;
+        
+        if($reservationHelper->isDay())
+        {
+            $availability->to = $to;
+
+            if($reservationHelper->hasAvailabilityOverlap($from, $to)){
+                return redirect()->route('availability.create', ['id' => $product_id])->withErrors(['overlap' => 'Er is overlap met een al bestaande beschikbaarheid']);
+            }
+        }
+        else{
+            $availability->start_hour = $start_hour;
+            $availability->end_hour = $end_hour;
+
+            if($reservationHelper->hasAvailabilityOverlap($start_hour, $end_hour)){
+                return redirect()->route('availability.create', ['id' => $product_id])->withErrors(['overlap' => 'Er is overlap met een al bestaande beschikbaarheid']);
+            }
+        }
+
+        $availability->save();
+        return redirect()->route('availability.create', ['id' => $product_id]);
     }
 
     /**

@@ -43,12 +43,12 @@
 			<div class="medium-3 cell date_container">
 
 				<label class="date_label" for="from">Van</label>
-				<input type="datetime" class="span2" value="" name="from" id="dpd1">
+				<input type="datetime" class="span2 datetimepicker datepicker" value="" name="from" id="dpd1">
 				<label class="date_label" for="to">Tot</label>
 				@if ( $product->price_time === "hour" || $product->price_time === "month" || $product->price_time === "week")
-					<input type="text" class="span2" value="" name="to" id="dpd2" disabled>
+					<input type="text" class="span2 datetimepicker datepicker" value="" name="to" id="dpd2" disabled>
 				@else
-					<input type="text" class="span2" value="" name="to" id="dpd2">
+					<input type="text" class="span2 datetimepicker datepicker" value="" name="to" id="dpd2">
 				@endif
 				<div class="row">
 					<div class="medium-8 cell">
