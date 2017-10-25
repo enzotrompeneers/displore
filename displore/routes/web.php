@@ -48,4 +48,5 @@ Route::middleware('auth')->group(function(){
 	//Availability route
 	Route::get('/reservatie/{id}/beschikbaar/maken', 'AvailabilityController@create')->name('availability.create');
 	Route::post('/reservatie/{id}/beschikbaar/maken', 'AvailabilityController@store')->name('availability.store');
+	Route::delete('/beschikbaarheid/{id}/delete', 'AvailabilityController@destroy')->name('availability.destroy');
 });
