@@ -70,16 +70,18 @@
 				
 				<h3>Recensies</h3>
 				@foreach($reviews as $review)
-					<b>{{ $review->user->first_name }} {{ $review->user->last_name }}</b>
+					<b class="red_text">{{ $review->user->first_name }} {{ $review->user->last_name }}</b>
 					<div>{{ $review->stars }}</div>
 					<p>{{ $review->text }}</p>
 				@endforeach
 				<h4>Nieuwe recensie schrijven</h4>
-				<form action="{{ route("review.store", $product->id) }}" method="post">
+				<form action="{{ route("review.store", $product->id) }}" method="post" data-abide novalidate>
 					{{ csrf_field() }}
-					<span>Geef een rating: <input type="number" min="0" max="5" name="stars" placeholder="0-5" /></span>
+					
+					@include('layouts.ratings')
 					<textarea name="text" placeholder="recensie schrijven"></textarea>
 					<input type="submit" class="button" value="Recensie insturen"/>
+					
 				</form>
 			</div>
 @stop
