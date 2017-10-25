@@ -2,9 +2,10 @@ export class GoogleMaps {
 
    initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -33.8688, lng: 151.2195},
-      zoom: 13
+      center: {lat: 50.80, lng: 4.20},
+      zoom: 7
     });
+
   
     var input = document.getElementById('pac-input');
   
