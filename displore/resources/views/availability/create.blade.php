@@ -13,6 +13,7 @@
 			</div>
 			
 			<form action="{{ route('availability.store', $product->id) }}" method="post">
+				{{ csrf_field() }}
 				<div class="row">
 					<div class="medium-12 cell">
 						<h2>Geef aan wanneer je beschikbaar bent om je ervaring aan te bieden</h2>
@@ -35,8 +36,8 @@
 					@else
 						<div class="medium-4 cell">
 							<div class="form-group">
-								<label for="date">Datum</label>
-								<input type="datetime" class="datetimepicker datepicker" id="date" name="date" placeholder="Datum">
+								<label for="from">Datum</label>
+								<input type="datetime" class="datetimepicker datepicker" id="from" name="from" placeholder="Datum">
 							</div>
 						</div>
 						<div class="medium-4 cell">
@@ -53,6 +54,10 @@
 						</div>
 						
 					@endif
+
+				</div>
+				<div class="row">
+					<div class="medium-12 cell">{{ $errors->first('overlap') }}</div>
 				</div>
 				<div class="row">
 					<div class="medium-12 cell">
@@ -61,6 +66,20 @@
 				</div>
 				
 			</form>
+
+			<div class="row">
+				<div class="medium-12 cell">
+					@foreach($availabilities as $available)
+						<div class="borderdiv">
+							@if($product->price_time === "day")
+								{{ $available->from }} - {{ $available->to }}
+							@else
+								{{ $available->start_hour->format("H:i") . " uur" }} - {{ $available->end_hour->format("H:i") . " uur" }} op {{ $available->from->diffForHumans() }}
+							@endif
+						</div>
+					@endforeach
+				</div>
+			</div>
 		</div>
 	</div>
 @endsection
