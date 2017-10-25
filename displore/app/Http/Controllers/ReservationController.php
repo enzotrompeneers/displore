@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreReservation;
 use App\Reservation;
 use App\User;
 use Carbon\Carbon;
@@ -36,7 +37,7 @@ class ReservationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreReservation $request)
     {
         $product_id = request('product_id');
         $reservation = new Reservation();
@@ -53,12 +54,8 @@ class ReservationController extends Controller
 
         if($price_time === "hour"){
             $reservation->to = Carbon::parse($from)->addHours($quantity);
-        } else if($price_time === "week") {
-            $reservation->to = Carbon::parse($from)->addWeeks($quantity);
-        } else if($price_time === "month") {
-            $reservation->to = Carbon::parse($from)->addMonths($quantity);
-        } else {
-            $reservation->to = Carbon::parse($to);
+        } else if($price_time === "day") {
+            $reservation->to = Carbon::parse($from)->addDays($quantity);
         }
 
         $reservation->quantity = $quantity;
