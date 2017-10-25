@@ -39,7 +39,7 @@
 					</div>
 					<div class="medium-6 cell">
 						<label>Locatie</label>
-						<input id="pac-input" class="controls" type="text" placeholder="Geef een locatie" name="location">
+						<input id="pac-input" class="controls" type="text" placeholder="{{ $product->location }}" name="location">
 						<div id="map"></div>
 						<div id="infowindow-content">
 							<span id="place-name"  class="title"></span><br>
