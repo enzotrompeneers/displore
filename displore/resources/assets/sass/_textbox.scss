@@ -1,4 +1,5 @@
 input[type="text"], 
+input[type="text"][readonly],
 input[type="email"],
 input[type="search"],
 input[type="datetime"],
@@ -39,4 +40,8 @@ input[type="search"]{
 	&:active, &:focus{
 		border: none;
 	}
+}
+
+.flatpickr-input .active{
+	background-color: white;
 }

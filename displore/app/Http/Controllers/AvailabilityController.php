@@ -37,7 +37,7 @@ class AvailabilityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $availability = new Availability();
     }
 
     /**

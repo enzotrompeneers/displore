@@ -19,36 +19,36 @@
 					</div>
 				</div>
 				<div class="row">
-					@if($product->price_time === "d")
+					@if($product->price_time === "day")
 						<div class="medium-6 cell">
 							<div class="form-group">
 								<label for="from">Van</label>
-								<input type="datetime" id="from" name="from">
+								<input type="datetime" class="datetimepicker datepicker" id="from" name="from" placeholder="Begin datum">
 							</div>
 						</div>
 						<div class="medium-6 cell">
 							<div class="form-group">
 								<label for="to">Tot</label>
-								<input type="datetime" id="to" name="to">
+								<input type="datetime" class="datetimepicker datepicker" id="to" name="to" placeholder="Eind datum">
 							</div>
 						</div>
 					@else
 						<div class="medium-4 cell">
 							<div class="form-group">
 								<label for="date">Datum</label>
-								<input type="datetime" id="date" name="date" placeholder="Datum">
+								<input type="datetime" class="datetimepicker datepicker" id="date" name="date" placeholder="Datum">
 							</div>
 						</div>
 						<div class="medium-4 cell">
 							<div class="form-group">
 								<label for="start_hour">Start uur</label>
-								<input type="datetime" id="start_hour" name="start_hour" placeholder="Start uur">
+								<input type="datetime" class="datetimepicker timepicker" id="start_hour" name="start_hour" placeholder="Start uur">
 							</div>
 						</div>
 						<div class="medium-4 cell">
 							<div class="form-group">
 								<label for="end_hour">Eind uur</label>
-								<input type="datetime" id="end_hour" name="end_hour" placeholder="Eind uur">
+								<input type="datetime" class="datetimepicker timepicker" id="end_hour" name="end_hour" placeholder="Eind uur">
 							</div>
 						</div>
 						

@@ -1,22 +1,31 @@
 import './bootstrap';
 import './form/fileupload';
 import './form/image';
+
 import './actions/paypal';
 
 import {GoogleMaps} from './googlemaps';
-
-import 'foundation-datepicker/js/foundation-datepicker';
+import {DateTimePicker} from './form/datetimepicker';
 
 if(document.getElementById("map") !== null)
 {
     var gmaps = new GoogleMaps();
     gmaps.initMap();
 }
+<<<<<<< HEAD
 if(document.getElementById("showMap") !== null)
 {
     var gmaps = new GoogleMaps();
     gmaps.showMap();
 }
+=======
+
+if(document.getElementsByClassName("datetimepicker") !== 0)
+{
+    new DateTimePicker();
+}
+
+>>>>>>> 1e7252fd3f8207c8bf7bda02d46329c3d476a7d6
 
 // '/js/foundation-datepicker.js'
 // '/stylesheets/foundation-datepicker.css'
@@ -49,31 +58,6 @@ if(document.getElementById("showMap") !== null)
     // End Login Toggle Event
     */
     // implementation of disabled form fields
-
-    // Datepicker
-    var nowTemp = new Date();
-    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-    var checkin = $('#dpd1').fdatepicker({
-        onRender: function (date) {
-            return date.valueOf() < now.valueOf() ? 'disabled' : '';
-        }
-    }).on('changeDate', function (ev) {
-        if (ev.date.valueOf() > checkout.date.valueOf()) {
-            var newDate = new Date(ev.date)
-            newDate.setDate(newDate.getDate() + 1);
-            checkout.update(newDate);
-        }
-        checkin.hide();
-        $('#dpd2')[0].focus();
-    }).data('datepicker');
-    var checkout = $('#dpd2').fdatepicker({
-        onRender: function (date) {
-            return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
-        }
-    }).on('changeDate', function (ev) {
-        checkout.hide();
-    }).data('datepicker');
-    // End Datepicker
     
 })()
 
