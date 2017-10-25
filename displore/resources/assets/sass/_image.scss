@@ -3,6 +3,10 @@
 	&-overlay, &-element{
 		height: 150px;
 	}
+
+	&-element{
+		overflow: hidden;
+	}
 	
 	&-overlay{
 		position: relative;

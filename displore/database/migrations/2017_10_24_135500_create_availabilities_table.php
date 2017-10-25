@@ -18,6 +18,8 @@ class CreateAvailabilitiesTable extends Migration
             $table->integer('product_id')->unsigned();
             $table->datetime('from');
             $table->datetime('to');
+            $table->datetime('start_hour');
+            $table->datetime('end_hour');
             $table->integer('capacity');
             $table->timestamps();
             $table->softDeletes();

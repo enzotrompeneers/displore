@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Product;
+
 class AvailabilityController extends Controller
 {
     /**
@@ -21,9 +23,10 @@ class AvailabilityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('availability.create');
+        $product = Product::find($id);
+        return view('availability.create', compact('product'));
     }
 
     /**

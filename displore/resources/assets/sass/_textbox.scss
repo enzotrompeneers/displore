@@ -20,6 +20,11 @@ textarea,
 	&:focus{
 		border: 1px solid darken($secondary-3, 10%);
 	}
+
+	&::placeholder{
+		color: $secondary-5;
+		font-weight: 500;
+	}
 }
 
 textarea{
@@ -33,15 +38,5 @@ input[type="search"]{
 
 	&:active, &:focus{
 		border: none;
-	}
-}
-
-.form-group{
-	padding: 10px 0px;
-
-	input[type="text"], 
-	input[type="email"],
-	.textbox{
-		margin-top: 5px;
 	}
 }

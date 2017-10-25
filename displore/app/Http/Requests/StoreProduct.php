@@ -34,6 +34,8 @@ class StoreProduct extends FormRequest
         return [
             'title' => 'required|max:30',
             'description' => 'required',
+            'category' => 'required',
+            'location' => 'required',
             'price' => 'required|numeric',
             'price_time' => 'required|'
         ];
