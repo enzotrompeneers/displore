@@ -12,20 +12,17 @@ if(document.getElementById("map") !== null)
     var gmaps = new GoogleMaps();
     gmaps.initMap();
 }
-<<<<<<< HEAD
 if(document.getElementById("showMap") !== null)
 {
     var gmaps = new GoogleMaps();
     gmaps.showMap();
 }
-=======
 
 if(document.getElementsByClassName("datetimepicker") !== 0)
 {
     new DateTimePicker();
 }
 
->>>>>>> 1e7252fd3f8207c8bf7bda02d46329c3d476a7d6
 
 // '/js/foundation-datepicker.js'
 // '/stylesheets/foundation-datepicker.css'
