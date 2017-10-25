@@ -746,7 +746,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
-module.exports = __webpack_require__(42);
+module.exports = __webpack_require__(41);
 
 
 /***/ }),
@@ -761,7 +761,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__form_image__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_paypal__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__googlemaps__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__form_datetimepicker__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__form_datetimepicker__ = __webpack_require__(47);
 
 
 
@@ -32036,58 +32036,18 @@ var GoogleMaps = function () {
 // End Init Map
 
 /***/ }),
-/* 40 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* 40 */,
+/* 41 */
+/***/ (function(module, exports) {
 
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DateTimePicker; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flatpickr__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flatpickr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_flatpickr__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-
-
-var DateTimePicker = function () {
-	function DateTimePicker() {
-		_classCallCheck(this, DateTimePicker);
-
-		this.instance = document.getElementsByClassName("datetimepicker");
-
-		this.activate();
-	}
-
-	_createClass(DateTimePicker, [{
-		key: "activate",
-		value: function activate() {
-			for (var pickerIndex = this.instance.length - 1; pickerIndex >= 0; pickerIndex--) {
-				var datetimepicker = this.instance[pickerIndex];
-
-				if (datetimepicker.classList.contains("timepicker")) {
-					datetimepicker.flatpickr({
-						enableTime: true,
-						noCalendar: true,
-						time_24hr: true,
-						dateFormat: "H:i",
-						defaultHour: 12,
-						defaultMinute: 0
-					});
-				} else if (datetimepicker.classList.contains("datepicker")) {
-					datetimepicker.flatpickr({
-						enableTime: false,
-						minDate: "today"
-					});
-				}
-			}
-		}
-	}]);
-
-	return DateTimePicker;
-}();
+// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 41 */
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* flatpickr v4.0.6, @license MIT */
@@ -34220,10 +34180,55 @@ return flatpickr$1;
 
 
 /***/ }),
-/* 42 */
-/***/ (function(module, exports) {
+/* 47 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DateTimePicker; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flatpickr__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flatpickr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_flatpickr__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
+
+var DateTimePicker = function () {
+	function DateTimePicker() {
+		_classCallCheck(this, DateTimePicker);
+
+		this.instance = document.getElementsByClassName("datetimepicker");
+
+		this.activate();
+	}
+
+	_createClass(DateTimePicker, [{
+		key: "activate",
+		value: function activate() {
+			for (var pickerIndex = this.instance.length - 1; pickerIndex >= 0; pickerIndex--) {
+				var datetimepicker = this.instance[pickerIndex];
+
+				if (datetimepicker.classList.contains("timepicker")) {
+					datetimepicker.flatpickr({
+						enableTime: true,
+						noCalendar: true,
+						time_24hr: true,
+						dateFormat: "H:i",
+						defaultHour: 12,
+						defaultMinute: 0
+					});
+				} else if (datetimepicker.classList.contains("datepicker")) {
+					datetimepicker.flatpickr({
+						enableTime: false,
+						minDate: "today"
+					});
+				}
+			}
+		}
+	}]);
+
+	return DateTimePicker;
+}();
 
 /***/ })
 /******/ ]);

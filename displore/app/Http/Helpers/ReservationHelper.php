@@ -14,10 +14,13 @@ use Auth;
 class ReservationHelper{
 	private $price_time;
 	private $product_id;
+	private $from;
 
 	public function __construct($product_id, $price_time, $from)
 	{
 		$this->price_time = $price_time;
+		$this->product_id = $product_id;
+		$this->from = $from;
 	}
 
 	public function isDay(){
@@ -40,9 +43,9 @@ class ReservationHelper{
 		else if($this->price_time === "hour")
 		{
 			return Availability::where('product_id', $this->product_id)
-							->where('from', $date)
-							 ->where('start_hour', '<=', $start_hour)
-							 ->orWhere('end_hour', '>=', $end_hour)
+							 ->where('from', $this->from)
+							 ->where('start_hour', '<=', $to)
+							 ->orWhere('end_hour', '>=', $from)
 							 ->exists();
 		}
 		

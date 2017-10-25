@@ -9,6 +9,13 @@ class Availability extends Model
 {
     use SoftDeletes;
 
+    protected $dates = [
+    	'from',
+    	'to',
+    	'start_hour',
+    	'end_hour'
+    ];
+
     public function product()
     {
     	return $this->belongsTo('App\Product');

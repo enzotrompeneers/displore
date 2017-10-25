@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreAvailability;
 use App\Http\Helpers\ReservationHelper;
+use Carbon\Carbon;
 
 use App\Product;
 use App\Availability;
@@ -29,7 +30,9 @@ class AvailabilityController extends Controller
     public function create($id)
     {
         $product = Product::find($id);
-        return view('availability.create', compact('product'));
+        $availabilities = Availability::where('product_id', $id)->get();
+
+        return view('availability.create', compact('product', 'availabilities'));
     }
 
     /**
@@ -62,8 +65,8 @@ class AvailabilityController extends Controller
             }
         }
         else{
-            $availability->start_hour = $start_hour;
-            $availability->end_hour = $end_hour;
+            $availability->start_hour = Carbon::parse($from . " " . $start_hour);
+            $availability->end_hour = Carbon::parse($from . " " . $end_hour);
 
             if($reservationHelper->hasAvailabilityOverlap($start_hour, $end_hour)){
                 return redirect()->route('availability.create', ['id' => $product_id])->withErrors(['overlap' => 'Er is overlap met een al bestaande beschikbaarheid']);
