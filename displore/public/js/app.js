@@ -776,6 +776,10 @@ if (document.getElementById("map") !== null) {
     var gmaps = new __WEBPACK_IMPORTED_MODULE_4__googlemaps__["a" /* GoogleMaps */]();
     gmaps.initMap();
 }
+if (document.getElementById("showMap") !== null) {
+    var gmaps = new __WEBPACK_IMPORTED_MODULE_4__googlemaps__["a" /* GoogleMaps */]();
+    gmaps.showMap();
+}
 
 // '/js/foundation-datepicker.js'
 // '/stylesheets/foundation-datepicker.css'
@@ -31952,10 +31956,46 @@ var GoogleMaps = function () {
   }
 
   _createClass(GoogleMaps, [{
-    key: 'initMap',
+    key: "showMap",
+
+
+    // Show Map (sets lat en long)
+    value: function showMap() {
+      var setLatitude = 50.80;
+      var setLongitude = 4.20;
+
+      var geocoder = new google.maps.Geocoder();
+      var address = document.getElementById("location").innerHTML;
+      console.log("Adres: " + address);
+
+      geocoder.geocode({ 'address': address }, function (results, status) {
+
+        if (status == google.maps.GeocoderStatus.OK) {
+          setLatitude = results[0].geometry.location.lat();
+          setLongitude = results[0].geometry.location.lng();
+
+          console.log("setLatitude: " + setLatitude);
+          console.log("setLongitude: " + setLongitude);
+        }
+        var mapProp = {
+          center: new google.maps.LatLng(setLatitude, setLongitude),
+          zoom: 5
+        };
+        var map = new google.maps.Map(document.getElementById("showMap"), mapProp);
+      });
+    }
+    // End Show Map
+
+    // Init Map
+
+  }, {
+    key: "initMap",
     value: function initMap() {
+      var setLatitude = 50.80;
+      var setLongitude = 4.20;
+
       var map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 50.80, lng: 4.20 },
+        center: { lat: setLatitude, lng: setLongitude },
         zoom: 7
       });
 
@@ -32007,6 +32047,7 @@ var GoogleMaps = function () {
 
   return GoogleMaps;
 }();
+// End Init Map
 
 /***/ }),
 /* 40 */

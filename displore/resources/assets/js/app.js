@@ -12,7 +12,11 @@ if(document.getElementById("map") !== null)
     var gmaps = new GoogleMaps();
     gmaps.initMap();
 }
-
+if(document.getElementById("showMap") !== null)
+{
+    var gmaps = new GoogleMaps();
+    gmaps.showMap();
+}
 
 // '/js/foundation-datepicker.js'
 // '/stylesheets/foundation-datepicker.css'
