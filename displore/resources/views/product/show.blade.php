@@ -64,12 +64,8 @@
 			<div class="medium-6 cell">
 				<p>Aangeboden door: {{ $product->user->first_name }} {{ $product->user->last_name }}</p>
 				<p>Categorie: {{ $product->category }}</p>
-				<p>Locatie: {{ $product->location }}</p>
-					<div id="map"></div>
-					<div id="infowindow-content">
-						<span id="place-name"  class="title"></span><br>
-						<span id="place-address"></span>
-					</div>
+				<p>Locatie: <div id="location">{{ $product->location }}</div></p>
+					<div id="showMap" style="width:100%;height:250px;"></div>
 					{{ $errors->first('location') }}
 				
 				<h3>Recensies</h3>

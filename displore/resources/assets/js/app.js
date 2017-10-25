@@ -12,6 +12,11 @@ if(document.getElementById("map") !== null)
     var gmaps = new GoogleMaps();
     gmaps.initMap();
 }
+if(document.getElementById("showMap") !== null)
+{
+    var gmaps = new GoogleMaps();
+    gmaps.showMap();
+}
 
 if(document.getElementsByClassName("datetimepicker") !== 0)
 {
