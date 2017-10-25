@@ -4,6 +4,7 @@ export class GoogleMaps {
   showMap() {
     var setLatitude = 50.80;
     var setLongitude = 4.20;
+    var setLatLong;
 
     var geocoder = new google.maps.Geocoder();
     var address = document.getElementById("location").innerHTML;
@@ -17,12 +18,20 @@ export class GoogleMaps {
 
         console.log("setLatitude: " + setLatitude);
         console.log("setLongitude: " + setLongitude);
+        setLatLong = {lat: setLatitude, lng: setLongitude};
+
         } 
+        
         var mapProp= {
-          center:new google.maps.LatLng(setLatitude, setLongitude),
-          zoom:5,
-      };
-      var map=new google.maps.Map(document.getElementById("showMap"),mapProp);
+          center:new google.maps.LatLng(setLatLong),
+          zoom:15,
+        };
+        var map=new google.maps.Map(document.getElementById("showMap"),mapProp);
+
+        var marker = new google.maps.Marker({
+          position: setLatLong,
+          map: map,
+        });
     }); 
   }
   // End Show Map
