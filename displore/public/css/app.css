@@ -2904,3 +2904,58 @@ a:focus {
   display: inline;
 }
 
+.red_text {
+  color: red;
+}
+
+.rating-block {
+  padding: 2px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.rating-block .ratings-type {
+  margin-right: 1rem;
+  margin-bottom: 0;
+}
+
+.rating-block .rating-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2rem;
+}
+
+.rating-block .rating-block-rating {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.rating-block .star {
+  cursor: pointer;
+  stroke: #cc4b37;
+}
+
+.rating-block .rating-block-rating .star.selected polygon {
+  fill: #cc4b37;
+}
+
+.rating-block .rating-block-rating.is-voted .star polygon {
+  fill: #cc4b37;
+}
+
+.rating-block .rating-block-rating.is-voted .star.selected ~ .star polygon {
+  fill: transparent;
+}
+
