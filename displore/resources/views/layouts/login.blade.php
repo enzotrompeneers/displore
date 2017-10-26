@@ -38,7 +38,7 @@
                 <button type="submit" class="big_btn login_btn">Inloggen</button><br>
                 <a class="big_btn facebook_btn">Inloggen met facebook</a>
                 <a class="btn btn-link" href="{{ route('password.request') }}">Wachtwoord vergeten?</a><br>
-                <a class="btn btn-link" href="{{ route('register') }}">Nog niet geregistreerd?</a><br><br>
+                <a class="red_ghost" href="{{ route('register') }}">Nog niet geregistreerd?</a><br><br>
             </div>
         </div>
             

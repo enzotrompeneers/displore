@@ -75,13 +75,9 @@
 					<p>{{ $review->text }}</p>
 				@endforeach
 				<h4>Nieuwe recensie schrijven</h4>
-				<form action="{{ route("review.store", $product->id) }}" method="post" data-abide novalidate>
-					{{ csrf_field() }}
+		
 					
 					@include('layouts.ratings')
-					<textarea name="text" placeholder="recensie schrijven"></textarea>
-					<input type="submit" class="button" value="Recensie insturen"/>
-					
-				</form>
+				
 			</div>
 @stop

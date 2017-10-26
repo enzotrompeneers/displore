@@ -12,7 +12,7 @@
     <ul class="right">
         <li><a href="{{ route('lander') }}">Wat is displore?</a></li>
         @if ($user = Auth::user()) 
-            <li><a href="{{ route('user.offers') }}">Jouw ervaringen</a></li>
+            <li><a href="{{ route('user.offers') }}">Jou aanbiedingen</a></li>
             <li><a href="{{ route('user.profile') }}">Toon Profiel</a></li>
             <li><a href="{{ route('logout') }}">Uitloggen</a></li>
         @else

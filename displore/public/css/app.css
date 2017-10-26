@@ -2905,7 +2905,19 @@ a:focus {
 }
 
 .red_text {
-  color: red;
+  color: #e7173e;
+}
+
+[data-abide] .error small.error,
+[data-abide] .error span.error,
+[data-abide] span.error,
+[data-abide] small.error {
+  background-color: #e7173e;
+}
+
+.error label,
+.error label.error {
+  color: #e7173e;
 }
 
 .rating-block {

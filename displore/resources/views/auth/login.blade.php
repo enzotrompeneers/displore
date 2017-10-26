@@ -6,7 +6,6 @@
     <div class="panel-body">
         <form class="form-horizontal" method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
-
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                 <label for="email" class="col-md-4 control-label">E-Mail</label>
                 <div class="col-md-6">
@@ -48,20 +47,22 @@
                     <button type="submit" class="button primary">
                         Login
                     </button>
+                    <a class="red_ghost" href="{{ route('register') }}">Nog niet geregistreerd?</a>
 
-                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                        Wachtwoord vergeten?
-                    </a>
+                    
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-4 col-md-offset-4">
-                    <a class="btn btn-link" href="{{ route('register') }}">Nog niet geregistreerd?</a>
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        Wachtwoord vergeten?
+                    </a>
                 </div>
+                <!--
                 <div class="col-md-4 col-md-offset-4">
                     <a class="button facebook_btn">Inloggen met facebook</a>
                 </div>
-                
+                -->
             </div>
         </form>
     </div>
