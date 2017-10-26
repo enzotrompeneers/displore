@@ -2,7 +2,7 @@
 	<div>
 		<ul>
 			<li>
-				<a href="{{ route('user.offers') }}" class="tab {{ trim($tab) === "offers" ? "tab-active" : "" }}">Jouw aanbiedingen</a>
+				<a href="{{ route('user.offers') }}" class="tab {{ trim($tab) === "offers" ? "tab-active" : "" }}">Jou aanbiedingen</a>
 			</li>
 			<li>
 				<a href="{{ route('user.reservations') }}" class="tab {{ trim($tab) === "reservations" ? "tab-active" : "" }}">Reservaties</a>

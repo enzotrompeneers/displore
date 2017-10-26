@@ -6,6 +6,7 @@
 		{{ csrf_field() }}
 		<input type="hidden" name="product_id" value="{{ $product->id }}"/>
 		<input type="hidden" name="price_time" value="{{ $product->price_time }}"/>
+
 		<div class="row container-white-padding">
 			<div class="medium-6 cell">
 				@if(Auth::check())
@@ -33,6 +34,7 @@
 						</a>
 					</div>
 				@endforeach
+				
 
 			</div>
 			<div class="medium-3 cell price_container">

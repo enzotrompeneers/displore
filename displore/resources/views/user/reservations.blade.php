@@ -6,7 +6,7 @@
 		@slot('tab')
 			reservations
 		@endslot
-		<h1>Reservaties bij jouw</h1>
+		<h1>Reservaties bij jou</h1>
 
 		@foreach($products as $product)
 			@foreach($product->reservations()->get() as $reservation)
