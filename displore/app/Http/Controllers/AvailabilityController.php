@@ -30,7 +30,7 @@ class AvailabilityController extends Controller
     public function create($id)
     {
         $product = Product::find($id);
-        $availabilities = Availability::where('product_id', $id)->get();
+        $availabilities = Availability::where('product_id', $id)->orderBy("to")->get();
 
         return view('availability.create', compact('product', 'availabilities'));
     }
@@ -51,7 +51,7 @@ class AvailabilityController extends Controller
         $start_hour = request('start_hour');
         $end_hour = request('end_hour');
 
-        $reservationHelper = new ReservationHelper($product->id, $product->price_time, $from);
+        $reservationHelper = new ReservationHelper($product_id, $product->price_time, $from);
 
         $availability->product_id = $product_id;
         $availability->from = $from;
@@ -119,6 +119,12 @@ class AvailabilityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $availability = Availability::find($id);
+
+        $product_id = $availability->product_id;
+
+        $availability->delete();
+
+        return redirect()->route('availability.create', ['id' => $product_id]);
     }
 }

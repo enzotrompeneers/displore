@@ -57,10 +57,8 @@
 
 				</div>
 				<div class="row">
-					<div class="medium-12 cell">{{ $errors->first('overlap') }}</div>
-				</div>
-				<div class="row">
 					<div class="medium-12 cell">
+						{{ $errors->first('overlap') }}
 						<input type="submit" class="button" value="Toevoegen">
 					</div>
 				</div>
@@ -72,10 +70,17 @@
 					@foreach($availabilities as $available)
 						<div class="borderdiv">
 							@if($product->price_time === "day")
-								{{ $available->from }} - {{ $available->to }}
+								{{ $available->from->format("D d/m/Y") }} - {{ $available->to->format("D d/m/Y") }}
 							@else
 								{{ $available->start_hour->format("H:i") . " uur" }} - {{ $available->end_hour->format("H:i") . " uur" }} op {{ $available->from->diffForHumans() }}
 							@endif
+							<div class="right">
+								<form action="{{ route("availability.destroy", $available->id) }}" method="post">
+									{{ csrf_field() }}
+									{{ method_field('DELETE') }}
+									<input type="submit" class="button" value="Delete">
+								</form>
+							</div>
 						</div>
 					@endforeach
 				</div>
