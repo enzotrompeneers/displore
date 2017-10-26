@@ -22,7 +22,12 @@ class User extends Authenticatable
         'first_name', 
         'last_name',
         'email',
-        'password'
+        'password',
+        'street',
+        'house_nr',
+        'city',
+        'country',
+        'paypal',
     ];
 
     protected $dates = ['deleted_at'];
