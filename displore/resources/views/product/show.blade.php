@@ -10,7 +10,7 @@
 			<div class="medium-6 cell">
 				@if(Auth::check())
 					@if($product->user_id === Auth::user()->id)
-						<a href="{{ route('product.edit', $product->id) }}">Bewerken</a>
+						<a class="red_ghost" href="{{ route('product.edit', $product->id) }}">Bewerken</a>
 					@endif
 				@endif
 				<h1>{{ $product->title }}</h1>
@@ -20,8 +20,6 @@
 					<li><img src="{{ asset($image->image) }}" alt="Afbeelding van {{ $product->title }}"></li>
 				@endforeach
 
-
-					
 				</ul>
 				<h2>Beschrijving</h2>
 				<p>{{ $product->description }}</p>
@@ -39,9 +37,8 @@
 			</div>
 			<div class="medium-3 cell price_container">
 				<div class="price_text">{{ $product->price }} € <small>per {{ $product->price_time }}</small></div> 
-				
-
 			</div>
+
 			<div class="medium-3 cell date_container">
 
 				<div class="small-12 columns">
@@ -64,26 +61,23 @@
 					<input type="submit" class="red_ghost" value="Reserveren"/>
 					</div>
 				</div>
-				
-			</div>
-		</form>
-			<div class="medium-6 cell">
-				<p>Aangeboden door: {{ $product->user->first_name }} {{ $product->user->last_name }}</p>
-				<p>Categorie: {{ $product->category }}</p>
-				<p>Locatie: <div id="location">{{ $product->location }}</div></p>
-					<div id="showMap" style="width:100%;height:250px;"></div>
-					{{ $errors->first('location') }}
-				
-				<h3>Recensies</h3>
-				@foreach($reviews as $review)
-					<b class="red_text">{{ $review->user->first_name }} {{ $review->user->last_name }}</b>
-					<div>{{ $review->stars }}</div>
-					<p>{{ $review->text }}</p>
-				@endforeach
-				<h4>Nieuwe recensie schrijven</h4>
-		
+				<div class="medium-6 cell">
+					<p>Aangeboden door: {{ $product->user->first_name }} {{ $product->user->last_name }}</p>
+					<p>Categorie: {{ $product->category }}</p>
+					<div id="location">Locatie: {{ $product->location }}</div>
+						<div id="showMap" style="width:100%;height:250px;"></div>
+						{{ $errors->first('location') }}
 					
-					@include('layouts.ratings')
-				
+					<h3>Recensies</h3>
+					@foreach($reviews as $review)
+						<b class="red_text">{{ $review->user->first_name }} {{ $review->user->last_name }}</b>
+						<div>{{ $review->stars }}</div>
+						<p>{{ $review->text }}</p>
+					@endforeach
+					<h4>Nieuwe recensie schrijven</h4>
+						@include('layouts.ratings')
+				</div>
 			</div>
+		</div>
+	</form>
 @stop

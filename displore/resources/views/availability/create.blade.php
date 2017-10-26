@@ -69,10 +69,10 @@
 				<div class="medium-12 cell">
 					@foreach($availabilities as $available)
 						<div class="borderdiv">
-							@if($product->price_time === "day")
+							@if($product->price_time === "Dag")
 								{{ $available->from->format("D d/m/Y") }} - {{ $available->to->format("D d/m/Y") }}
 							@else
-								{{ $available->start_hour->format("H:i") . " uur" }} - {{ $available->end_hour->format("H:i") . " uur" }} op {{ $available->from->diffForHumans() }}
+								{{ $available->start_hour->format("H:i") . " Uur" }} - {{ $available->end_hour->format("H:i") . " Uur" }} op {{ $available->from->diffForHumans() }}
 							@endif
 							<div class="right">
 								<form action="{{ route("availability.destroy", $available->id) }}" method="post">

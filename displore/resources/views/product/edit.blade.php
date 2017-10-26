@@ -25,8 +25,14 @@
 					<div class="medium-3 cell">
 						<label>Periode</label>
 						<select name="price_time">
-							<option value="uur">Uur</option>
-							<option value="dag">Dag</option>
+							<option value="{{ $product->price_time }}">{{ $product->price_time }}</option>
+							@if ($product->price_time === "Uur")
+								<option value="Dag">Dag</option>
+							@endif
+							@if ($product->price_time === "Dag")
+								<option value="Uur">Uur</option>
+							@endif
+					
 						</select>
 						{{ $errors->first('price_time') }}
 					</div>
@@ -48,12 +54,13 @@
 					<div class="medium-6 cell">
 						<label>Categorie</label>
 						<select name="category" value="{{ $product->category }}"> <!-- Nakijken!!!! -->
-							<option value="ervaring">Ervaring</option>
-							<option value="uitstap">Uitstap</option>
-							<option value="dienst">Dienst</option>
-							<option value="auto">Auto</option>
-							<option value="dier">Dier</option>
-							<option value="woning">Woning</option>
+							<option value="{{ $product->category }}">{{ $product->category }}</option>
+							<option value="Ervaring">Ervaring</option>
+							<option value="Uitstap">Uitstap</option>
+							<option value="Dienst">Dienst</option>
+							<option value="Auto">Auto</option>
+							<option value="Dier">Dier</option>
+							<option value="Woning">Woning</option>
 						</select>
 						{{ $errors->first('category') }}
 					</div>
