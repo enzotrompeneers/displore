@@ -57,7 +57,7 @@ class RegisterController extends Controller
             'house_nr' => 'string|max:255|integer',
             'city' => 'string|max:255',
             'country' => 'string|max:255',
-            'paypal' => 'string|email|max:255|unique:users',
+            'paypal' => 'string|email|max:255|unique:users|nullable',
         ]);
     }
 
