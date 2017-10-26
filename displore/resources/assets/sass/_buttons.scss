@@ -110,19 +110,17 @@ input[type="submit"]{
     width: 100%;
     height: 50px;
     margin: 0;
-    background-color: rgba(0,0,0,0.3); /* Black background with opacity */
-    border-style: none;
-    margin-top:56px;
+    background-color: transparent;
+    border-style: 3px solid #fff;
+    color: #fff;
 }
 #reservation_btn:hover {
     width: 100%;
     height: 50px;
     margin: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-    border-style: none;
-    margin-top:56px;
+    background-color: #fff; /* Black background with opacity */
+    color: #000;
+    border-style: 3px solid #fff;
 }
-
-  
   
 

@@ -25,10 +25,8 @@
 					<div class="medium-3 cell">
 						<label>Periode</label>
 						<select name="price_time">
-							<option value="hour">Uur</option>
-							<option value="day">Dag</option>
-							<option value="week">Week</option>
-							<option value="month">Maand</option>
+							<option value="uur">Uur</option>
+							<option value="dag">Dag</option>
 						</select>
 						{{ $errors->first('price_time') }}
 					</div>
@@ -39,7 +37,7 @@
 					</div>
 					<div class="medium-6 cell">
 						<label>Locatie</label>
-						<input id="pac-input" class="controls" type="text" placeholder="{{ $product->location }}" name="location">
+						<input id="pac-input" class="controls" type="text" placeholder="{{ $product->location }}" name="location" value="{{ $product->location }}">
 						<div id="map"></div>
 						<div id="infowindow-content">
 							<span id="place-name"  class="title"></span><br>

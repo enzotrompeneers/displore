@@ -47,10 +47,8 @@
 				<div class="medium-3 cell">
 					<label>Periode</label>
 					<select name="price_time">
-						<option value="hour">Uur</option>
-						<option value="day">Dag</option>
-						<option value="week">Week</option>
-						<option value="month">Maand</option>
+						<option value="uur">Uur</option>
+						<option value="dag">Dag</option>
 					</select>
 					{{ $errors->first('price_time') }}
 				</div>

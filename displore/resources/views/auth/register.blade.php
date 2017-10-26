@@ -9,7 +9,7 @@
 	</div>
 	<div class="small-12 columns">
 		<label>Voornaam <small>Verplicht</small>
-		<input type="text" placeholder="Voornaam" required pattern="alpha" name="first_name" value="{{ old('first_name') }}" >
+		<input type="text" placeholder="Voornaam" required pattern="^[0-9]*$" name="first_name" value="{{ old('first_name') }}" >
 		<small class="error">Verplicht veld, enkel letters!</small>
 		</label>
 	</div>
@@ -54,13 +54,13 @@
 		</label>
 	</div>
 
-	<div class="small-6 columns">
+	<div class="small-12 columns">
 		<label>Huisnummer <small>Optioneel</small>
-		<input type="text" placeholder="Huisnummer"  pattern"integer" name="house_nr" value="{{ old('house_nr') }}">
+		<input type="text" placeholder="huisnummer" required pattern="number" name="house_nr" value="{{ old('house_nr') }}" >
 		<small class="error">Enkel cijfers!</small>
 		</label>
-
 	</div>
+
 	<div class="small-12 columns">
 		<label>Stad <small>Optioneel</small>
 		<input type="text" placeholder="Stad"  pattern="^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$" name="city" value="{{ old('city') }}">
