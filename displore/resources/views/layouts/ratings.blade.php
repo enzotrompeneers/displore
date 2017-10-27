@@ -3,8 +3,8 @@
         <div class="card-section">
         
             <div class="rating-block">
-            
-                <p class="ratings-type">Geef een rating</p>
+
+                <p>Geef een rating: </p>
                 <form action="{{ route("review.store", $product->id) }}" method="post" class="rating" data-abide novalidate>
                 {{ csrf_field() }}
                 
@@ -13,7 +13,7 @@
                         <label>
                             <input type="radio" name="stars" value="{{ $i }}" />
                             @for ($icon = 0; $icon < $i; $icon++)
-                                <span class="icon">★</span>
+                                <p class="icon">★</p>
                             @endfor
                         </label>
                     @endfor

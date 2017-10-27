@@ -73,9 +73,20 @@
 					
 					<h3>Recensies</h3>
 					@foreach($reviews as $review)
-						<b class="red_text">{{ $review->user->first_name }} {{ $review->user->last_name }}</b>
-						<div>{{ $review->stars }}</div>
-						<p>{{ $review->text }}</p>
+						<b class="red_text">
+							<div class="left">
+								{{ $review->user->first_name }} {{ $review->user->last_name }} 
+							</div>
+							<div class="right">
+								@for ($i = 0; $i < $review->stars; $i++)
+									<span class="icon">★</span>
+								@endfor
+							</div>
+						</b>
+						<br>
+							<p>{{ $review->text }}</p>
+							<hr>
+						
 					@endforeach
 					<h4>Nieuwe recensie schrijven</h4>
 						@include('layouts.ratings')
