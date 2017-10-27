@@ -30,16 +30,12 @@ if(document.getElementsByClassName("datetimepicker") !== 0)
     console.log("app loaded");
 
     // Rating 
-    $('[data-rating] .star').on('click', function() {
-        var selectedCssClass = 'selected';
-        var $this = $(this);
-        $this.siblings('.' + selectedCssClass).removeClass(selectedCssClass);
-        $this
-          .addClass(selectedCssClass)
-          .parent().addClass('is-voted');
+    $(':radio').change(function() {
+        console.log('New star rating: ' + this.value);
       });
-      // End Rating
+    // End Rating
 
+      
 	// $(document).foundation();
   
   

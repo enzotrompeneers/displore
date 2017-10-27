@@ -63,6 +63,7 @@
 					<input type="submit" class="red_ghost" value="Reserveren"/>
 					</div>
 				</div>
+	</form>
 				<div class="medium-6 cell">
 					<p>Aangeboden door: {{ $product->user->first_name }} {{ $product->user->last_name }}</p>
 					<p>Categorie: {{ $product->category }}</p>
@@ -81,5 +82,5 @@
 				</div>
 			</div>
 		</div>
-	</form>
+	
 @stop
