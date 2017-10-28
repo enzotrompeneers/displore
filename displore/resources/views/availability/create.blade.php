@@ -43,13 +43,13 @@
 						<div class="medium-4 cell">
 							<div class="form-group">
 								<label for="start_hour">Start uur</label>
-								<input type="datetime" class="datetimepicker timepicker" id="start_hour" name="start_hour" placeholder="Start uur">
+								<input type="datetime" class="datetimepicker timepicker" id="start_hour" name="start_hour" placeholder="Start uur" value="12:00">
 							</div>
 						</div>
 						<div class="medium-4 cell">
 							<div class="form-group">
 								<label for="end_hour">Eind uur</label>
-								<input type="datetime" class="datetimepicker timepicker" id="end_hour" name="end_hour" placeholder="Eind uur">
+								<input type="datetime" class="datetimepicker timepicker" id="end_hour" name="end_hour" placeholder="Eind uur" value="12:00">
 							</div>
 						</div>
 						

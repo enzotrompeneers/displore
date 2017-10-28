@@ -29,7 +29,9 @@
 				@foreach($relevantProducts as $relevantProduct)
 					<div class="large-6 columns">
 						<a href="{{ route('product.show', $relevantProduct->id) }}">
-							<img class="image_xsmall" src="{{ asset($relevantProduct->images->first()->image) }}" alt="Afbeelding van {{ $relevantProduct->title }}">
+							@if(isset($relevantProduct->images->first()->image))
+								<img class="image_xsmall" src="{{ asset($relevantProduct->images->first()->image) }}" alt="Afbeelding van {{ $relevantProduct->title }}">
+							@endif
 							<h2 class="h2_over_image_small">{{ $relevantProduct->title }}</h2>
 						</a>
 					</div>

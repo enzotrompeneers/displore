@@ -32,13 +32,17 @@
 				<div class="grid-x grid-padding-x">
 				<div class="medium-6 cell">
 					<label>Titel</label>
-					<input type="text" placeholder="typ hier een catchy titel" name="title">
-					{{ $errors->first('title') }}
+					<input type="text" placeholder="typ hier een catchy titel" name="title" value="{{ old('title') }}">
+					@if($errors->has('title'))
+						<small class="error">{{ $errors->first('title') }}</small>
+					@endif
 				</div>
 				<div class="medium-2 cell">
 					<label>Prijs</label>
-					<input type="text" placeholder="bv. 55" name="price">
-					{{ $errors->first('price') }}
+					<input type="text" placeholder="bv. 55" name="price" value="{{ old('price') }}">
+					@if($errors->has('price'))
+						<small class="error">{{ $errors->first('price') }}</small>
+					@endif
 				</div>
 				<div class="medium-1 cell">
 					<br>
@@ -46,31 +50,37 @@
 				</div>
 				<div class="medium-3 cell">
 					<label>Periode</label>
-					<select name="price_time">
+					<select name="price_time" value="{{ old('price_time') }}">
 						<option value="Uur">Uur</option>
 						<option value="Dag">Dag</option>
 					</select>
-					{{ $errors->first('price_time') }}
+					@if($errors->has('price_time'))
+						<small class="error">{{ $errors->first('price_time') }}</small>
+					@endif
 				</div>
 				<div class="medium-12 cell">
 					<label>Beschrijving</label>
-					<textarea rows="10" type="text" placeholder="Beschrijving" name="description"></textarea>
-					{{ $errors->first('description') }}
+					<textarea rows="10" type="text" placeholder="Beschrijving" name="description">{{ old('description') }}</textarea>
+					@if($errors->has('description'))
+						<small class="error">{{ $errors->first('description') }}</small>
+					@endif
 				</div>
 				<div class="medium-6 cell">
 					<label>Locatie</label>
-					<input id="pac-input" class="controls" type="text" placeholder="Geef een locatie" name="location">
+					<input id="pac-input" class="controls" type="text" placeholder="Geef een locatie" name="location" value="{{ old('location') }}">
 					<div id="map"></div>
 					<div id="infowindow-content">
 						<span id="place-name"  class="title"></span><br>
 						<span id="place-address"></span>
 					</div>
-					{{ $errors->first('location') }}
+					@if($errors->has('location'))
+						<small class="error">{{ $errors->first('location') }}</small>
+					@endif
 
 				</div>
 				<div class="medium-6 cell">
 					<label>Categorie</label>
-					<select name="category">
+					<select name="category" value="{{ old('category') }}">
 						<option value="Ervaring">Ervaring</option>
 						<option value="Uitstap">Uitstap</option>
 						<option value="Dienst">Dienst</option>
@@ -78,7 +88,9 @@
 						<option value="Dier">Dier</option>
 						<option value="Woning">Woning</option>
 					</select>
-					{{ $errors->first('category') }}
+					@if($errors->has('category'))
+						<small class="error">{{ $errors->first('category') }}</small>
+					@endif
 				</div>
 
 				<div class="medium-6 cell">
@@ -87,7 +99,9 @@
 						<label for="upload_image" class="button primary file-upload-label">Upload Afbeelding</label>
 						<input type="file" class="show-for-sr file-upload" id="upload_image" name="image[]" multiple>
 					</div>
-					{{ $errors->first('image') }}
+					@if($errors->has('image'))
+						<small class="error">{{ $errors->first('image') }}</small>
+					@endif
 				</div>
 
 			</div>
