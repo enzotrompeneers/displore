@@ -7,6 +7,7 @@ use App\Product;
 use App\ProductReview;
 use App\ProductImage;
 use App\Http\Requests\StoreProduct;
+use App\Http\Requests\UpdateProduct;
 use App\Http\Helpers\ImageHelper;
 use Illuminate\Http\Request;
 
@@ -128,7 +129,7 @@ class ProductController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function update(StoreProduct $request, $id)
+  public function update(UpdateProduct $request, $id)
   {
     $product = Product::find($id);
 

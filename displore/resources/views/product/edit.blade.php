@@ -11,12 +11,17 @@
 					<div class="medium-6 cell">
 						<label>Titel</label>
 						<input type="text" placeholder="typ hier een catchy titel" name="title" value="{{ $product->title }}">
-						{{ $errors->first('title') }}
+						@if($errors->has('title'))
+							<small class="error">{{ $errors->first('title') }}</small>
+						@endif
+			
 					</div>
 					<div class="medium-2 cell">
 						<label>Prijs</label>
 						<input type="text" placeholder="bv. 55" name="price" value="{{ $product->price }}">
-						{{ $errors->first('price') }}
+						@if($errors->has('price'))
+							<small class="error">{{ $errors->first('price') }}</small>
+						@endif
 					</div>
 					<div class="medium-1 cell">
 						<br>
@@ -34,12 +39,16 @@
 							@endif
 					
 						</select>
-						{{ $errors->first('price_time') }}
+						@if($errors->has('price_time'))
+							<small class="error">{{ $errors->first('price_time') }}</small>
+						@endif
 					</div>
 					<div class="medium-12 cell">
 						<label>Beschrijving</label>
 						<textarea rows="10" type="text" placeholder="Beschrijving" name="description">{{ $product->description }}</textarea>
-						{{ $errors->first('description') }}
+						@if($errors->has('description'))
+							<small class="error">{{ $errors->first('description') }}</small>
+						@endif
 					</div>
 					<div class="medium-6 cell">
 						<label>Locatie</label>
@@ -49,7 +58,9 @@
 							<span id="place-name"  class="title"></span><br>
 							<span id="place-address"></span>
 						</div>
-						{{ $errors->first('location') }}
+						@if($errors->has('location'))
+							<small class="error">{{ $errors->first('location') }}</small>
+						@endif
 					</div>
 					<div class="medium-6 cell">
 						<label>Categorie</label>
@@ -62,7 +73,9 @@
 							<option value="Dier">Dier</option>
 							<option value="Woning">Woning</option>
 						</select>
-						{{ $errors->first('category') }}
+						@if($errors->has('category'))
+							<small class="error">{{ $errors->first('category') }}</small>
+						@endif
 					</div>
 					<div class="medium-6 cell">
 						<label>Upload een afbeeldingen over de aanbieding</label> <!-- Nakijken!!! -->
@@ -72,7 +85,9 @@
 							<input type="file" class="show-for-sr" id="upload_image" name="image[]" multiple>
 						</div>
 
-						{{ $errors->first('image') }}
+						@if($errors->has('image'))
+							<small class="error">{{ $errors->first('image') }}</small>
+						@endif
 
 						@foreach($images as $image)
 							<div class="image medium-6 cell">
