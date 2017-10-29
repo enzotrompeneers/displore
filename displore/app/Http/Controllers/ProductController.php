@@ -87,7 +87,7 @@ class ProductController extends Controller
    */
   public function show($id)
   {
-    $product = Product::find($id);
+    $product = Product::findOrFail($id);
     $images = ProductImage::where('product_id', $id)->get();
     $relevantProducts = Product::where('category', $product->category)->take(4)->get();
 

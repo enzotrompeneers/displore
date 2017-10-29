@@ -2,8 +2,11 @@
 
 namespace App\Http\Helpers;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Reservation;
 use App\Availability;
+use Carbon\Carbon;
 
 use Auth;
 /**
@@ -44,8 +47,8 @@ class ReservationHelper{
 		{
 			return Availability::where('product_id', $this->product_id)
 							 ->where('from', $this->from)
-							 ->where('start_hour', '>=', $to)
-							 ->where('end_hour', '<=', $from)
+							 ->where('start_hour', '>=', Carbon::parse($from))
+							 ->where('end_hour', '<=', Carbon::parse($to))
 							 ->exists();
 		}
 		

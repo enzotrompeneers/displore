@@ -20,7 +20,7 @@
 		@endif
 	</div>
 	<div class="large-12 columns">
-		<h1>Ervaringen voor jouw!</h1>
+		<h1>Ervaringen voor jou!</h1>
 		<ul class="example-orbit" data-orbit>
 			@foreach($products as $product)
 				<li>

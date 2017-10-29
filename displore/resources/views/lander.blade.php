@@ -40,7 +40,7 @@
 				 <li class="header-list-item"><a href="{{ route('lander') }}" class="header-list-item-link">Wat is displore?</a></li>
 
 				@if ($user = Auth::user()) 
-                    <li class="header-list-item"><a class="red_ghost" href="{{ route('user.offers') }}" >Jou aanbiedingen</a></li>
+                    <li class="header-list-item"><a class="header-list-item-link" href="{{ route('user.offers') }}" >Jouw aanbiedingen</a></li>
 					<li class="header-list-item"><a class="header-list-item-link" href="{{ route('user.profile') }}">{{ $user->first_name }} {{ $user->last_name }}</a></li>
 					<li class="header-list-item"><a class="button primary" href="{{ route('logout') }}">Uitloggen</a></li>
 				@else

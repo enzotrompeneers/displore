@@ -65,6 +65,7 @@ class AvailabilityController extends Controller
             }
         }
         else{
+
             $availability->start_hour = Carbon::parse($from . " " . $start_hour);
             $availability->end_hour = Carbon::parse($from . " " . $end_hour);
 

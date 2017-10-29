@@ -58,7 +58,9 @@
 				</div>
 				<div class="row">
 					<div class="medium-12 cell">
-						{{ $errors->first('overlap') }}
+						@if($errors->has('overlap'))
+							<small class="error">{{ $errors->first('overlap') }}</small>
+						@endif
 						<input type="submit" class="button" value="Toevoegen">
 					</div>
 				</div>
