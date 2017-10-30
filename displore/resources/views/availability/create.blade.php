@@ -16,7 +16,11 @@
 				{{ csrf_field() }}
 				<div class="row">
 					<div class="medium-12 cell">
-						<h2>Geef aan wanneer je beschikbaar bent om je ervaring aan te bieden</h2>
+						@if($product->price_time === "day")
+							<h2>Geef aan wanneer je beschikbaar bent om je ervaring aan te bieden</h2>
+						@else 
+							<h2>Maak een sessie aan die gebruikers kunnen boeken.</h2>
+						@endif
 					</div>
 				</div>
 				<div class="row">
@@ -61,7 +65,12 @@
 						@if($errors->has('overlap'))
 							<small class="error">{{ $errors->first('overlap') }}</small>
 						@endif
-						<input type="submit" class="button" value="Toevoegen">
+						@if($product->price_time === "day")
+							<input type="submit" class="button" value="Beschikbaarheid toevoegen">
+						@else 
+							<input type="submit" class="button" value="Sessie Toevoegen">
+						@endif
+						
 					</div>
 				</div>
 				
