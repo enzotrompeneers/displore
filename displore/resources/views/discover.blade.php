@@ -68,7 +68,11 @@
 @endif
 
 <div class="row">		
+	   
 		@if(sizeof($products) !== 0 || !isset($search_term))
+			<div class="large-12 columns">
+		   	 <h1>Leuke ervaringen</h1>
+		   </div>
 			@foreach($products as $product)
 			<div class="large-4 columns">
 				<div class="box">

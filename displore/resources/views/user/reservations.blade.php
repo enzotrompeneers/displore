@@ -22,6 +22,10 @@
 			@endforeach
 		@endforeach
 
+		@if(sizeof($products) === 0)
+			<h3 class="search-fail">Nog niemand heeft bij je gereserveerd!</h3>
+		@endif
+
 		<h1>Reservaties bij andere</h1>
 	
 		@foreach($my_reservations as $reservation)
@@ -35,6 +39,10 @@
 			</div>
 			
 		@endforeach
+
+		@if(sizeof($my_reservations) === 0)
+			<h3 class="search-fail">Je hebt nog geen reservaties bij anderen gedaan!</h3>
+		@endif
 
 
 	@endcomponent

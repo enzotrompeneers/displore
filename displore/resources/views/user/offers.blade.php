@@ -19,6 +19,10 @@
 				
 			</div>
 		@endforeach
+
+		@if(sizeof($products) === 0)
+			<h3 class="search-fail">Je bied nog niets aan!</h3>
+		@endif
 	@endcomponent
 	
 @endsection
