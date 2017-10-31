@@ -73,6 +73,7 @@
 			<div class="large-12 columns">
 		   	 <h1>Leuke ervaringen</h1>
 		   </div>
+		   <div class="row">
 			@foreach($products as $product)
 			<div class="large-4 columns">
 				<div class="box">
@@ -95,6 +96,7 @@
 			</div>
 
 			@endforeach
+			</div>
 		@else
 			<div class="large-12 columns">
 				<h3 class="search-fail">

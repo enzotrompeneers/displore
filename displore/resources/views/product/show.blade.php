@@ -113,6 +113,10 @@
 							<hr>
 						
 					@endforeach
+
+					@if(count($reviews) === 0)
+						<h4 class="search-fail">Geen recensies voor dit product</h4>
+					@endif
 					<h3>Nieuwe recensie schrijven</h3>
 						@include('layouts.ratings')
 					</div>
