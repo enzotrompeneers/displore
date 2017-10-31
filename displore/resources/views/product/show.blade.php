@@ -40,7 +40,18 @@
 
 			</div>
 			<div class="medium-3 cell price_container">
-				<div class="price_text">{{ $product->price }} € <small>per {{ $product->price_time }}</small></div> 
+				<div class="price_text">
+					{{ $product->price }} 
+					€ 
+					<small>
+						per 
+						@if($product->price_time === "hour")
+							uur
+						@else 
+							dag
+						@endif
+					</small>
+				</div> 
 			</div>
 
 			<div class="medium-3 cell date_container">

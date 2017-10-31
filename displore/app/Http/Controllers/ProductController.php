@@ -34,7 +34,8 @@ class ProductController extends Controller
   public function search(Request $request)
   {
     $search_term = request('search_input');
-    $products = Product::search($search_term)->orderBy('id', 'desc')->get();
+    $products = Product::search($search_term)
+    ->orderBy('id', 'desc')->get();
 
     return view('discover', compact('search_term', 'products'));
   }
@@ -107,6 +108,17 @@ class ProductController extends Controller
   public function showAll() {
     $product = Product::showAll();
     return view('product.show', compact('product'));
+  }
+
+  /**
+  * Toont een willekeurige ervaring voor de avontuurlijke mensen
+  * @return response
+  */
+
+  public function random(){
+    $product = Product::inRandomOrder()->first();
+    
+    return view('product.random', compact('product'));
   }
 
   /**

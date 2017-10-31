@@ -9,11 +9,11 @@
         <header class="header">
             <div class="header-logo">
                 <div class="header-logo-image">
-                    <a href="{{ route('lander') }}"><img src="{{asset('assets/graphics/displore_logo.svg')}}" alt="Displore"></a>
+                    <a href="{{ route('discover') }}"><img src="{{asset('assets/graphics/displore_logo.svg')}}" alt="Displore"></a>
                 </div>
 
                 <div class="header-logo-text">
-                    <a href="{{ route('lander') }}">
+                    <a href="{{ route('discover') }}">
                         Displore
                     </a>
                 </div>

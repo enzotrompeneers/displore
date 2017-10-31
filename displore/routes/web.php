@@ -21,6 +21,7 @@ Route::get('/gebruiker/reservaties', 'UserController@reservations')->name('user.
 Route::get('/ontdek', 'ProductController@index')->name('discover');
 Route::post('/ontdek/zoeken', 'ProductController@search')->name('discover.search');
 Route::get('/ervaring/toon/{id}', 'ProductController@show')->name('product.show');
+Route::get('/ervaring/random', 'ProductController@random')->name('product.random');
 
 //Home routes
 Route::get('/', 'HomeController@lander')->name('lander');

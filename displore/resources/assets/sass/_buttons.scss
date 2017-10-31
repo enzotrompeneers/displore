@@ -28,7 +28,18 @@ input[type="submit"]{
 
 .button{
     @extend %button;
+
+    &-search{
+        width: 100%;
+        padding: 8.5px 25px;
+    }
+
+    &-center{
+        display: inline-block;
+        margin: 30px auto;
+    }
 }
+
 
 .big_btn {
     @extend %button;

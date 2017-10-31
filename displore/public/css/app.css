@@ -2048,6 +2048,151 @@ span.flatpickr-day.nextMonthDay.selected {
   border-right: 0;
 }
 
+@-webkit-keyframes boat-animation {
+  0% {
+    -webkit-transform: rotate(-10deg) translateX(-30px);
+            transform: rotate(-10deg) translateX(-30px);
+  }
+
+  50% {
+    -webkit-transform: rotate(10deg) translateX(30px);
+            transform: rotate(10deg) translateX(30px);
+  }
+
+  100% {
+    -webkit-transform: rotate(-10deg) translateX(-30px);
+            transform: rotate(-10deg) translateX(-30px);
+  }
+}
+
+@keyframes boat-animation {
+  0% {
+    -webkit-transform: rotate(-10deg) translateX(-30px);
+            transform: rotate(-10deg) translateX(-30px);
+  }
+
+  50% {
+    -webkit-transform: rotate(10deg) translateX(30px);
+            transform: rotate(10deg) translateX(30px);
+  }
+
+  100% {
+    -webkit-transform: rotate(-10deg) translateX(-30px);
+            transform: rotate(-10deg) translateX(-30px);
+  }
+}
+
+.boat-animation {
+  position: relative;
+  trnasform-origin: center bottom;
+  width: 250px;
+  display: block;
+  margin: 10px auto;
+  top: 110px;
+  left: 20px;
+  -webkit-animation-name: boat-animation;
+          animation-name: boat-animation;
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes water-animation {
+  0% {
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+  }
+}
+
+@keyframes water-animation {
+  0% {
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+  }
+}
+
+.water-animation {
+  position: relative;
+  z-index: -1;
+  margin-top: -70px;
+  left: 20px;
+  -webkit-animation-name: water-animation;
+          animation-name: water-animation;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes container-animation {
+  from {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes container-animation {
+  from {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.random {
+  z-index: -1;
+  position: relative;
+  height: 400px;
+  width: 400px;
+  background: #555;
+  border-radius: 250px;
+  margin: 80px auto;
+}
+
+.random-title {
+  padding: 10px 0px;
+  font-size: 36px;
+  text-align: center;
+}
+
 label {
   font-size: 16px;
   font-weight: 900;
@@ -2145,7 +2290,7 @@ label {
   display: table;
   clear: both;
   background: white;
-  padding: 25px 45px;
+  padding: 10px 35px;
   border-bottom: 2px solid #dadada;
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -2455,17 +2600,6 @@ textarea {
   padding: 10px 15px;
 }
 
-input[type="search"] {
-  border: none;
-  outline: none;
-  float: left;
-}
-
-input[type="search"]:active,
-input[type="search"]:focus {
-  border: none;
-}
-
 .flatpickr-input .active {
   background-color: white;
 }
@@ -2558,6 +2692,16 @@ input[type="search"]:focus {
 
 input[type="submit"] {
   border-radius: 3px;
+}
+
+.button-search {
+  width: 100%;
+  padding: 8.5px 25px;
+}
+
+.button-center {
+  display: inline-block;
+  margin: 30px auto;
 }
 
 .big_btn {
@@ -2758,6 +2902,10 @@ body {
 .container {
   margin: 50px auto;
   width: 1020px;
+  -webkit-animation-name: container-animation;
+          animation-name: container-animation;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
 }
 
 .clearfix {
@@ -2768,6 +2916,10 @@ body {
 
 .float-right {
   float: right;
+}
+
+.search-row-correction {
+  margin-top: 5px;
 }
 
 a:active,
@@ -2833,10 +2985,6 @@ a:focus {
 .container-white {
   background-color: white;
   padding: 20px;
-}
-
-#search_input {
-  height: 40px;
 }
 
 .h2_over_image,

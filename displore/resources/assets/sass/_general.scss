@@ -13,6 +13,8 @@ body{
 .container{
 	margin: 50px auto;
 	width: 1020px;
+	animation-name: container-animation;
+	animation-duration: 0.7s;
 }
 
 .clearfix{
@@ -21,6 +23,10 @@ body{
 
 .float-right{
 	float: right;
+}
+
+.search-row-correction{
+	margin-top: 5px;
 }
 
 a:active, a:focus{
