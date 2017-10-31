@@ -30,25 +30,25 @@
 			{{ csrf_field() }}
 			<div class="grid-container">
 				<div class="grid-x grid-padding-x">
-				<div class="medium-6 cell">
+				<div class="small-12 medium-6 cell">
 					<label>Titel</label>
 					<input type="text" placeholder="typ hier een catchy titel" name="title" value="{{ old('title') }}">
 					@if($errors->has('title'))
 						<small class="error">{{ $errors->first('title') }}</small>
 					@endif
 				</div>
-				<div class="medium-2 cell">
+				<div class="small-5 medium-2 cell">
 					<label>Prijs</label>
 					<input type="text" placeholder="bv. 55" name="price" value="{{ old('price') }}">
 					@if($errors->has('price'))
 						<small class="error">{{ $errors->first('price') }}</small>
 					@endif
 				</div>
-				<div class="medium-1 cell">
+				<div class="small-2 medium-1 cell">
 					<br>
 					<label>Per</label>
 				</div>
-				<div class="medium-3 cell">
+				<div class="small-5 medium-3 cell">
 					<label>Periode</label>
 					<select name="price_time">
 						<option value="hour">Uur</option>
@@ -58,14 +58,14 @@
 						<small class="error">{{ $errors->first('price_time') }}</small>
 					@endif
 				</div>
-				<div class="medium-12 cell">
+				<div class="small-12 medium-12 cell">
 					<label>Beschrijving</label>
 					<textarea rows="10" type="text" placeholder="Beschrijving" name="description">{{ old('description') }}</textarea>
 					@if($errors->has('description'))
 						<small class="error">{{ $errors->first('description') }}</small>
 					@endif
 				</div>
-				<div class="medium-6 cell">
+				<div class="small-12 medium-6 cell">
 					<label>Locatie</label>
 					<input id="pac-input" class="controls" type="text" placeholder="Geef een locatie" name="location" value="{{ old('location') }}">
 					<div id="map"></div>
@@ -78,7 +78,7 @@
 					@endif
 
 				</div>
-				<div class="medium-6 cell">
+				<div class="small-12 medium-6 cell">
 					<label>Categorie</label>
 					<select name="category" value="{{ old('category') }}">
 						<option value="Ervaring">Ervaring</option>
@@ -93,7 +93,7 @@
 					@endif
 				</div>
 
-				<div class="medium-6 cell">
+				<div class="small-12 medium-6 cell">
 					<label>Upload een afbeeldingen over de aanbieding</label>
 					<div class="file-upload-holder">
 						<label for="upload_image" class="button primary file-upload-label">Upload Afbeelding</label>
@@ -105,7 +105,7 @@
 				</div>
 
 			</div>
-			<div class="medium-12 cell">
+			<div class="small-12 medium-12 cell">
 				<input type="submit" class="button primary" value="Aanbieden"/>
 			</div>
 		</form>

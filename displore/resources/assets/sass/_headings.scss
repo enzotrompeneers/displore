@@ -1,14 +1,22 @@
 h1{
 	font-weight: 700;
+	color: $secondary-1;
 }
 
 h2 {
     font-size: 1.2rem;
+    color: $secondary-1;
+}
+
+h3 {
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: $secondary-2;
 }
 
 h1, h2, h3, h4, h5{
 	font-family: $font-primary;
-	color: $secondary-1;
+	
 }
 
 .lander_headers{

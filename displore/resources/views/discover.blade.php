@@ -69,7 +69,7 @@
 
 <div class="row">		
 	   
-		@if(sizeof($products) !== 0 || !isset($search_term))
+		@if(sizeof($products) !== 0)
 			<div class="large-12 columns">
 		   	 <h1>Leuke ervaringen</h1>
 		   </div>
@@ -77,14 +77,16 @@
 			<div class="large-4 columns">
 				<div class="box">
 					<a href="{{ route('product.show', $product->id) }}">
-						@if(isset($product->images->first()->image))
+						
 							<div class="box-image-overlay">
 								<div class="box-image-overlay-title">Bekijk meer</div> 
 							</div >
 							<div class="box-image-holder">
-								<img class="box-image" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}">
+								@if(isset($product->images->first()->image))
+									<img class="box-image" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}">
+								@endif
 							</div>
-						@endif
+						
 					</a>
 					<div class="box-details">
 						<span class="box-title">{{ str_limit($product->title, 28) }}</span>
@@ -96,7 +98,7 @@
 		@else
 			<div class="large-12 columns">
 				<h3 class="search-fail">
-					Niets gevonden voor <b>{{ $search_term }}</b>, <b>{{ $date }}</b> met categorie <b>{{ $category }}</b>
+					Niets gevonden voor <b>{{ $search_term }}</b> <b>{{ $date }}</b> met categorie <b>{{ $category }}</b>
 				</h3>
 			</div>
 		@endif

@@ -1,7 +1,8 @@
 .header{
 	@include clearfix;
 	background: white;
-	padding: 10px 35px;
+	// padding: 10px 35px;
+	padding: 0.975rem;
 	border-bottom: 2px solid $secondary-3;
 	width: 100%;
 	box-sizing: border-box;
