@@ -2151,8 +2151,8 @@ span.flatpickr-day.nextMonthDay.selected {
 
 @-webkit-keyframes container-animation {
   from {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
     opacity: 0;
   }
 
@@ -2165,8 +2165,8 @@ span.flatpickr-day.nextMonthDay.selected {
 
 @keyframes container-animation {
   from {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
     opacity: 0;
   }
 
@@ -2904,8 +2904,8 @@ body {
   width: 1020px;
   -webkit-animation-name: container-animation;
           animation-name: container-animation;
-  -webkit-animation-duration: 0.7s;
-          animation-duration: 0.7s;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
 }
 
 .clearfix {
