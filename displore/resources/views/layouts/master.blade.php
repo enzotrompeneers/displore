@@ -12,7 +12,7 @@
                     <a href="{{ route('discover') }}"><img src="{{asset('assets/graphics/displore_logo.svg')}}" alt="Displore"></a>
                 </div>
 
-                <div class="header-logo-text">
+                <div class="header-logo-text show-for-medium-up">
                     <a href="{{ route('discover') }}">
                         Displore
                     </a>
@@ -20,7 +20,7 @@
                 
             </div>
             <nav>
-                <ul>
+                <ul class="show-for-medium-up">
                     @if ($user = Auth::user()) 
                         <li class="header-list-item"><a href="{{ route('product.create') }}" class="red_ghost">Ervaring aanbieden</a></li>
                         <li class="header-list-item"><a href="{{ route('user.offers') }}" class="header-list-item-link">Jouw aanbiedingen</a></li>
@@ -29,8 +29,7 @@
                         <li class="header-list-item"><a class="button primary" href="{{ route('login') }}">Inloggen</a></li>
                     @endif
                     
-                </ul>
-                
+                </ul>              
                 
             </nav>
         </header>

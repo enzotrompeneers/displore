@@ -1,8 +1,6 @@
 .header{
 	@include clearfix;
 	background: white;
-	// padding: 10px 35px;
-	padding: 0.975rem;
 	border-bottom: 2px solid $secondary-3;
 	width: 100%;
 	box-sizing: border-box;
@@ -18,11 +16,12 @@
 	}
 
 	&-logo{
+		margin: 0.975rem;
 		float: left;
 	}
 
 	nav{
-		line-height: 110px;
+		margin: 0.975rem;
 		float: right;
 	}
 
@@ -63,8 +62,12 @@
 	}
 
 	&-logo-image{
-		height: 75px;
-		width: 75px;
-		padding: 15px 0px;
+		height: 4.7rem;
+		width: 4.7rem;
+		padding: 1rem 0;
+		@media screen and(max-width: 800px)
+		{
+			padding: 0;
+		}
 	}
 }
