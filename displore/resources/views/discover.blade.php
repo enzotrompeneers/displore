@@ -3,7 +3,11 @@
 @section('content')
 <div class="row">
 	<div class="large-12 columns">
-		<h1>Leuke ervaring zoeken</h1>
+		@if(isset($search_term))
+			<h1>Zoeken naar: {{ $search_term }}</h1>
+		@else
+			<h1>Leuke ervaring zoeken</h1>
+		@endif
 	</div>
 </div>
 <div class="row">
@@ -12,13 +16,17 @@
 		<div class="large-3 columns">
 			<div class="form-group">
 				<label for="date">Op</label>
-				<input type="text" class="datetimepicker datepicker" id="date" name="date" value="{{ today() }}">
+				@if(isset($search_term))
+					<input type="text" class="datetimepicker datepicker" id="date" name="date" value="{{ $datetime }}">
+				@else
+					<input type="text" class="datetimepicker datepicker" id="date" name="date" value="{{ today() }}">
+				@endif
 			</div>
 		</div>
 		<div class="large-3 columns">
 			<div class="form-group">
 				<label for="category">Soort</label>
-				<select name="category" id="category">
+				<select name="category" id="category" value="{{ old('category') }}">
 						<option value="Ervaring">Ervaring</option>
 						<option value="Uitstap">Uitstap</option>
 						<option value="Dienst">Dienst</option>
@@ -32,7 +40,11 @@
 			<label for="search_input">Zoekterm</label>
 			<div class="row">
 				<div class="large-8 columns">
-					<input type="text"  name="search_input" id="search_input" placeholder="Wat wil je ontdekken?">				
+					@if(isset($search_term))
+						<input type="text" name="search_input" id="search_input" value="{{ $search_term }}" placeholder="Wat wil je ontdekken?">	
+					@else
+						<input type="text" name="search_input" id="search_input" placeholder="Wat wil je ontdekken?">	
+					@endif			
 				</div>
 				<div class="large-4 columns">
 					<input type="submit" class="button button-search" value="Zoeken">
@@ -44,6 +56,8 @@
 
 <hr>
 
+
+@if(!isset($search_term))
 <div class="row">
 	<div class="large-12 columns large-centered text-center">
 		<h2>Heb je helemaal geen idee wat je wilt. Weet je niet wat te doen? Wij kiezen een coole ervaring voor jou!</h2>
@@ -51,14 +65,15 @@
 		<a href="{{ route('product.random') }}" class="button red_ghost button-center button-random">Kies een coole ervaring voor me!</a>
 	</div>
 </div>
+@endif
 
 <div class="row">
-	<div class="large-12 columns">
+{{-- 	<div class="large-12 columns">
 		@if(isset($search_term))
 			<h2>Zoeken naar: {{ $search_term }}</h2>
 		@endif
-	</div>
-	<div class="large-12 columns">
+	</div> --}}
+	{{-- <div class="large-12 columns"> --}}
 		{{-- <h1>Ervaringen voor jou!</h1> --}}
 		{{-- <ul class="example-orbit" data-orbit>
 			@foreach($products as $product)
@@ -73,17 +88,25 @@
 			@endforeach
 		</ul> --}}
 		
-		@foreach($products as $product)
-		<div class="large-6 columns">
-		<a href="{{ route('product.show', $product->id) }}">
-			@if(isset($product->images->first()->image))
-				<img class="image_small" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}">
-			@endif
-			<h2 class="h2_over_image">{{ $product->title }}</h2>
-		</a>
-		</div>
-		@endforeach
-	</div>
+		@if(sizeof($products) !== 0 || !isset($search_term))
+			@foreach($products as $product)
+			<div class="large-6 columns">
+			<a href="{{ route('product.show', $product->id) }}">
+				@if(isset($product->images->first()->image))
+					<img class="image_small" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}">
+				@endif
+				<h2 class="h2_over_image">{{ $product->title }}</h2>
+			</a>
+			</div>
+			@endforeach
+		@else
+			<div class="large-12 columns">
+				<h3 class="search-fail">
+					Niets gevonden voor <b>{{ $search_term }}</b>, <b>{{ $date }}</b> met categorie <b>{{ $category }}</b>
+				</h3>
+			</div>
+		@endif
+
 </div>
 
 @stop

@@ -9,6 +9,8 @@ use App\ProductImage;
 use App\Http\Requests\StoreProduct;
 use App\Http\Requests\UpdateProduct;
 use App\Http\Helpers\ImageHelper;
+
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller 
@@ -34,10 +36,27 @@ class ProductController extends Controller
   public function search(Request $request)
   {
     $search_term = request('search_input');
-    $products = Product::search($search_term)
-    ->orderBy('id', 'desc')->get();
+    $category = request('category');
+    $date = Carbon::parse(request('date'))->diffForHumans();
+    $datetime = Carbon::parse(request('date'));
 
-    return view('discover', compact('search_term', 'products'));
+    $products = Product::search($search_term)
+    ->where('category', $category)
+    ->get();
+
+    foreach($products as $product)
+    {
+      if(!$product->availabilities()
+        ->where('from', '>=', $datetime)
+        ->where('to', '<=', $datetime)
+        ->exists())
+      {
+        $products = $products->keyBy('id');
+        $products->forget($product->id);
+      }
+    }
+    
+    return view('discover', compact('search_term', 'category', 'date', 'datetime', 'products'));
   }
 
   /**
