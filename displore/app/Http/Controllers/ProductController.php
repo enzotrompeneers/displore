@@ -47,8 +47,7 @@ class ProductController extends Controller
     foreach($products as $product)
     {
       if(!$product->availabilities()
-        ->where('from', '>=', $datetime)
-        ->where('to', '<=', $datetime)
+        ->where('date', '=', $datetime)
         ->exists())
       {
         $products = $products->keyBy('id');

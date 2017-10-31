@@ -77,24 +77,36 @@
 			</form>
 
 			<div class="row">
-				<div class="medium-12 cell">
-					@foreach($availabilities as $available)
-						<div class="borderdiv">
-							@if($product->price_time === "Dag")
-								{{ $available->from->format("D d/m/Y") }} - {{ $available->to->format("D d/m/Y") }}
-							@else
-								{{ $available->start_hour->format("H:i") . " Uur" }} - {{ $available->end_hour->format("H:i") . " Uur" }} op {{ $available->from->diffForHumans() }}
-							@endif
-							<div class="right">
-								<form action="{{ route("availability.destroy", $available->id) }}" method="post">
-									{{ csrf_field() }}
-									{{ method_field('DELETE') }}
-									<input type="submit" class="button" value="Delete">
-								</form>
+				<h3>Jouw beschikbare dagen</h3>
+				@foreach($availabilities as $available)									
+					@if($product->price_time === "day")
+						<div class="medium-4 cell">
+							<div class="borderdiv">
+								{{ $available->date->format("d/m/Y") }}
+								<div class="right">
+									<form action="{{ route("availability.destroy", $available->id) }}" method="post">
+										{{ csrf_field() }}
+										{{ method_field('DELETE') }}
+										<input type="submit" class="button" value="Delete">
+									</form>
+								</div>
 							</div>
 						</div>
-					@endforeach
-				</div>
+					@else
+						<div class="medium-12 cell">
+							<div class="borderdiv">
+									{{ $available->start_hour->format("H:i") . " Uur" }} - {{ $available->end_hour->format("H:i") . " Uur" }} op {{ $available->date->diffForHumans() }}
+								<div class="right">
+									<form action="{{ route("availability.destroy", $available->id) }}" method="post">
+										{{ csrf_field() }}
+										{{ method_field('DELETE') }}
+										<input type="submit" class="button" value="Delete">
+									</form>
+								</div>
+							</div>
+						</div>
+					@endif
+				@endforeach
 			</div>
 		</div>
 	</div>

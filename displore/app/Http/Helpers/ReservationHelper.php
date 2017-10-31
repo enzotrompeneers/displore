@@ -39,8 +39,7 @@ class ReservationHelper{
 		if($this->price_time === "day")
 		{
 			return Availability::where('product_id', $this->product_id)
-							 ->where('from', '>=', $from)
-							 ->where('to', '<=', $to)
+							 ->where('date', '=', $from)
 							 ->exists();
 		}
 		else if($this->price_time === "hour")

@@ -51,8 +51,8 @@
 				<div class="medium-3 cell">
 					<label>Periode</label>
 					<select name="price_time" value="{{ old('price_time') }}">
-						<option value="Uur">Uur</option>
-						<option value="Dag">Dag</option>
+						<option value="hour">Uur</option>
+						<option value="day">Dag</option>
 					</select>
 					@if($errors->has('price_time'))
 						<small class="error">{{ $errors->first('price_time') }}</small>

@@ -32,10 +32,10 @@
 						<select name="price_time">
 							<option value="{{ $product->price_time }}">{{ $product->price_time }}</option>
 							@if ($product->price_time === "Uur")
-								<option value="Dag">Dag</option>
+								<option value="day">Dag</option>
 							@endif
 							@if ($product->price_time === "Dag")
-								<option value="Uur">Uur</option>
+								<option value="hour">Uur</option>
 							@endif
 					
 						</select>
