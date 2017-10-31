@@ -38,7 +38,7 @@ class UpdateProduct extends FormRequest
             'location' => 'required',
             'price' => 'required|numeric',
             'image.*' => 'image|mimes:jpeg,png,jpg|max:2048',
-            'price_time' => 'required|in:day, hour'
+            'price_time' => 'required|in:day,hour'
         ];
     }
 }

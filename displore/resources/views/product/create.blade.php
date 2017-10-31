@@ -50,7 +50,7 @@
 				</div>
 				<div class="medium-3 cell">
 					<label>Periode</label>
-					<select name="price_time" value="{{ old('price_time') }}">
+					<select name="price_time">
 						<option value="hour">Uur</option>
 						<option value="day">Dag</option>
 					</select>

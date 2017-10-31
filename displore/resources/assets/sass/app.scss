@@ -8,13 +8,12 @@
 @import "mixins";
 @import "variables";
 @import "animation";
-@import "form";
+
+/**
+ * More general styling
+ */
 @import "lander";
-@import "modal";
-@import "header";
-@import "tabs";
 @import "image";
-@import "navbar";
 @import "headings";
 @import "textbox";
 @import "buttons";
@@ -23,5 +22,17 @@
 @import "master";
 @import "rating";
 @import "icons";
+
+/** 
+ * Major ui components 
+ */
+@import "components/modal";
+@import "components/header";
+@import "components/navbar";
+@import "components/tabs";
+@import "components/form";
+@import "components/box";
+
+
 
  

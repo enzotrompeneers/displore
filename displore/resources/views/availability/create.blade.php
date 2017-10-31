@@ -77,9 +77,18 @@
 			</form>
 
 			<div class="row">
-				<h3>Jouw beschikbare dagen</h3>
+
+				<div class="medium-12 cell">
+					@if($product->price_time === "day")
+						<h3>Jouw beschikbare dagen</h3>		
+					@else
+						<h3>Jouw sessies</h3>
+					@endif
+				</div>
+
 				@foreach($availabilities as $available)									
 					@if($product->price_time === "day")
+
 						<div class="medium-4 cell">
 							<div class="borderdiv">
 								{{ $available->date->format("d/m/Y") }}
@@ -93,6 +102,7 @@
 							</div>
 						</div>
 					@else
+	
 						<div class="medium-12 cell">
 							<div class="borderdiv">
 									{{ $available->start_hour->format("H:i") . " Uur" }} - {{ $available->end_hour->format("H:i") . " Uur" }} op {{ $available->date->diffForHumans() }}

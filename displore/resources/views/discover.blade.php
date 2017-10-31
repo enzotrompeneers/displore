@@ -67,37 +67,27 @@
 </div>
 @endif
 
-<div class="row">
-{{-- 	<div class="large-12 columns">
-		@if(isset($search_term))
-			<h2>Zoeken naar: {{ $search_term }}</h2>
-		@endif
-	</div> --}}
-	{{-- <div class="large-12 columns"> --}}
-		{{-- <h1>Ervaringen voor jou!</h1> --}}
-		{{-- <ul class="example-orbit" data-orbit>
-			@foreach($products as $product)
-				<li>
-					<a href="{{ route('product.show', $product->id) }}">
-						@if(isset($product->images->first()->image))
-							<img class="image_big" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}">
-						@endif
-						<h2 class="h2_over_image">{{ $product->title }}</h2>
-					</a>
-				</li>
-			@endforeach
-		</ul> --}}
-		
+<div class="row">		
 		@if(sizeof($products) !== 0 || !isset($search_term))
 			@foreach($products as $product)
-			<div class="large-6 columns">
-			<a href="{{ route('product.show', $product->id) }}">
-				@if(isset($product->images->first()->image))
-					<img class="image_small" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}">
-				@endif
-				<h2 class="h2_over_image">{{ $product->title }}</h2>
-			</a>
+			<div class="large-4 columns">
+				<div class="box">
+					<a href="{{ route('product.show', $product->id) }}">
+						@if(isset($product->images->first()->image))
+							<div class="box-image-overlay">
+								<div class="box-image-overlay-title">Bekijk meer</div> 
+							</div >
+							<div class="box-image-holder">
+								<img class="box-image" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}">
+							</div>
+						@endif
+					</a>
+					<div class="box-details">
+						<span class="box-title">{{ str_limit($product->title, 28) }}</span>
+					</div>
+				</div>
 			</div>
+
 			@endforeach
 		@else
 			<div class="large-12 columns">
@@ -106,7 +96,6 @@
 				</h3>
 			</div>
 		@endif
-
 </div>
 
 @stop
