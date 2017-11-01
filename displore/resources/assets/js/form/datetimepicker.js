@@ -1,4 +1,9 @@
 import 'flatpickr';
+import { Dutch } from 'flatpickr/dist/l10n/nl.js'
+// flatpickr.l10n.weekdays = {
+//     shorthand: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+//     longhand: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']
+// };
 
 export class DateTimePicker{
 
@@ -21,12 +26,13 @@ export class DateTimePicker{
 					time_24hr: true,
 					dateFormat: "H:i", 
 				    defaultHour: 12,
-				    defaultMinute: 0
+				    defaultMinute: 0   
 				});
 			}else if(datetimepicker.classList.contains("datepicker")){
 				datetimepicker.flatpickr({
 					enableTime: false,
-					minDate: "today"
+					minDate: "today",
+					locale: Dutch
 				});
 			}
 			

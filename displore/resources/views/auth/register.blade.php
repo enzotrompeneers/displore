@@ -47,7 +47,7 @@
 			</label>
 		</div>
 
-		<div class="small-12 medium-12 columns{{ $errors->has('email') ? ' has-error' : '' }}">
+		<div class="small-12 medium-6 columns{{ $errors->has('email') ? ' has-error' : '' }}">
 			<label>Paypal E-mail <small>Optioneel</small>
 			<input type="text" placeholder="paypal@email.com" pattern="email" name="paypal" value="{{ old('paypal') }}">
 			@if ($errors->has('email'))

@@ -771,6 +771,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
 if (document.getElementById("map") !== null) {
     var gmaps = new __WEBPACK_IMPORTED_MODULE_4__googlemaps__["a" /* GoogleMaps */]();
     gmaps.initMap();
@@ -32047,11 +32048,18 @@ var GoogleMaps = function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DateTimePicker; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flatpickr__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flatpickr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_flatpickr__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 
+
+// flatpickr.l10n.weekdays = {
+//     shorthand: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+//     longhand: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']
+// };
 
 var DateTimePicker = function () {
 	function DateTimePicker() {
@@ -32063,7 +32071,7 @@ var DateTimePicker = function () {
 	}
 
 	_createClass(DateTimePicker, [{
-		key: "activate",
+		key: 'activate',
 		value: function activate() {
 			for (var pickerIndex = this.instance.length - 1; pickerIndex >= 0; pickerIndex--) {
 				var datetimepicker = this.instance[pickerIndex];
@@ -32080,7 +32088,8 @@ var DateTimePicker = function () {
 				} else if (datetimepicker.classList.contains("datepicker")) {
 					datetimepicker.flatpickr({
 						enableTime: false,
-						minDate: "today"
+						minDate: "today",
+						locale: __WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js__["Dutch"]
 					});
 				}
 			}
@@ -34228,6 +34237,92 @@ return flatpickr$1;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* flatpickr v4.0.6, @license MIT */
+(function (global, factory) {
+	 true ? factory(exports) :
+	typeof define === 'function' && define.amd ? define(['exports'], factory) :
+	(factory((global.nl = {})));
+}(this, (function (exports) { 'use strict';
+
+var fp = typeof window !== "undefined" && window.flatpickr !== undefined
+    ? window.flatpickr
+    : {
+        l10ns: {},
+    };
+var Dutch = {
+    weekdays: {
+        shorthand: ["zo", "ma", "di", "wo", "do", "vr", "za"],
+        longhand: [
+            "zondag",
+            "maandag",
+            "dinsdag",
+            "woensdag",
+            "donderdag",
+            "vrijdag",
+            "zaterdag",
+        ],
+    },
+    months: {
+        shorthand: [
+            "jan",
+            "feb",
+            "mrt",
+            "apr",
+            "mei",
+            "jun",
+            "jul",
+            "aug",
+            "sept",
+            "okt",
+            "nov",
+            "dec",
+        ],
+        longhand: [
+            "januari",
+            "februari",
+            "maart",
+            "april",
+            "mei",
+            "juni",
+            "juli",
+            "augustus",
+            "september",
+            "oktober",
+            "november",
+            "december",
+        ],
+    },
+    firstDayOfWeek: 1,
+    weekAbbreviation: "wk",
+    rangeSeparator: " tot ",
+    scrollTitle: "Scroll voor volgende / vorige",
+    toggleTitle: "Klik om te wisselen",
+    ordinal: function (nth) {
+        if (nth === 1 || nth === 8 || nth >= 20)
+            return "ste";
+        return "de";
+    },
+};
+fp.l10ns.nl = Dutch;
+var nl = fp.l10ns;
+
+exports.Dutch = Dutch;
+exports['default'] = nl;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
+
 
 /***/ })
 /******/ ]);
