@@ -9,28 +9,27 @@
         <header class="header">
             <div class="header-logo">
                 <div class="header-logo-image">
-                    <a href="{{ route('lander') }}"><img src="{{asset('assets/graphics/displore_logo.svg')}}" alt="Displore"></a>
+                    <a href="{{ route('discover') }}"><img src="{{asset('assets/graphics/displore_logo.svg')}}" alt="Displore"></a>
                 </div>
 
-                <div class="header-logo-text">
-                    <a href="{{ route('lander') }}">
+                <div class="header-logo-text show-for-medium-up">
+                    <a href="{{ route('discover') }}">
                         Displore
                     </a>
                 </div>
                 
             </div>
             <nav>
-                <ul>
+                <ul class="show-for-medium-up">
                     @if ($user = Auth::user()) 
                         <li class="header-list-item"><a href="{{ route('product.create') }}" class="red_ghost">Ervaring aanbieden</a></li>
-                        <li class="header-list-item"><a href="{{ route('user.offers') }}" class="header-list-item-link">Jou aanbiedingen</a></li>
+                        <li class="header-list-item"><a href="{{ route('user.offers') }}" class="header-list-item-link">Jouw aanbiedingen</a></li>
                         <li class="header-list-item"><a class="button primary" href="{{ route('logout') }}">Uitloggen</a></li>
                     @else
                         <li class="header-list-item"><a class="button primary" href="{{ route('login') }}">Inloggen</a></li>
                     @endif
                     
-                </ul>
-                
+                </ul>              
                 
             </nav>
         </header>

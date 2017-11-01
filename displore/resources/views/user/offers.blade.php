@@ -6,7 +6,7 @@
 		@slot('tab')
 			offers
 		@endslot
-		<h1>Jou aanbiedingen</h1>
+		<h1>Jouw aanbiedingen</h1>
 		@foreach($products as $product)
 			<div class="borderdiv">
 				<div class="product_text">
@@ -19,6 +19,10 @@
 				
 			</div>
 		@endforeach
+
+		@if(sizeof($products) === 0)
+			<h3 class="search-fail">Je bied nog niets aan!</h3>
+		@endif
 	@endcomponent
 	
 @endsection

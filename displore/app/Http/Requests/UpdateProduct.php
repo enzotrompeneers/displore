@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Auth;
 
-class StoreProduct extends FormRequest
+class UpdateProduct extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -37,7 +37,6 @@ class StoreProduct extends FormRequest
             'category' => 'required',
             'location' => 'required',
             'price' => 'required|numeric',
-            'image' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg|max:2048',
             'price_time' => 'required|in:day,hour'
         ];

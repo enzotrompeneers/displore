@@ -12,7 +12,14 @@ body{
 
 .container{
 	margin: 50px auto;
-	width: 1020px;
+	max-width: 1020px;
+	animation-name: container-animation;
+	animation-duration: 0.5s;
+
+	@media screen and(max-width: 800px)
+	{
+		margin: 0.975rem auto;
+	}
 }
 
 .clearfix{
@@ -23,11 +30,16 @@ body{
 	float: right;
 }
 
+.search-row-correction{
+	margin-top: 5px;
+}
+
 a:active, a:focus{
 	color: $secondary-2;
 }	
 .container-white {
     padding: 20px;
+    padding-top: 30px;
 	background-color: #fff;
 	&-padding {
 		background-color:#fff;
@@ -52,14 +64,14 @@ a:active, a:focus{
 }
 .price_container {
 	background-color: $primary-1;
-	padding: 0;
+	padding: 0.975rem;
 	margin: 0;
 	height: 280px;
 }
 .price_text {
 	color: #fff;
 	font-size: 4rem;
-	margin-left: 50px;
+	margin: 0.975rem;
 }
 .date_container {
 	background-color: #000;
@@ -70,3 +82,17 @@ a:active, a:focus{
 	text-transform: uppercase;
 }
 
+.price_container, .date_container{
+	@media screen and(max-width: 800px){
+		padding: 0.975rem;
+		margin-left: 0;
+		height: auto;
+	}
+}
+
+.search-fail{
+	text-align: center;
+	font-weight: 100;
+	color: $secondary-5;
+	padding: 100px 0px;
+}

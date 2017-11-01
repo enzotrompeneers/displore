@@ -32,15 +32,19 @@ textarea{
 	padding: 10px 15px;
 }
 
-input[type="search"]{
-	border: none;
-	outline: none;
-	float: left;
+// input[type="search"]{
+// 	// border: none;
+// 	outline: none;
+// 	// float: left;
 
-	&:active, &:focus{
-		border: none;
-	}
-}
+// 	&:active, &:focus{
+// 		// border: none;
+// 	}
+// }
+
+// #search_input {
+//     height:40px;
+// }
 
 .flatpickr-input .active{
 	background-color: white;

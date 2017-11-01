@@ -16,7 +16,11 @@
 				{{ csrf_field() }}
 				<div class="row">
 					<div class="medium-12 cell">
-						<h2>Geef aan wanneer je beschikbaar bent om je ervaring aan te bieden</h2>
+						@if($product->price_time === "day")
+							<h2>Geef aan wanneer je beschikbaar bent om je ervaring aan te bieden</h2>
+						@else 
+							<h2>Maak een sessie aan die gebruikers kunnen boeken.</h2>
+						@endif
 					</div>
 				</div>
 				<div class="row">
@@ -43,13 +47,13 @@
 						<div class="medium-4 cell">
 							<div class="form-group">
 								<label for="start_hour">Start uur</label>
-								<input type="datetime" class="datetimepicker timepicker" id="start_hour" name="start_hour" placeholder="Start uur">
+								<input type="datetime" class="datetimepicker timepicker" id="start_hour" name="start_hour" placeholder="Start uur" value="12:00">
 							</div>
 						</div>
 						<div class="medium-4 cell">
 							<div class="form-group">
 								<label for="end_hour">Eind uur</label>
-								<input type="datetime" class="datetimepicker timepicker" id="end_hour" name="end_hour" placeholder="Eind uur">
+								<input type="datetime" class="datetimepicker timepicker" id="end_hour" name="end_hour" placeholder="Eind uur" value="12:00">
 							</div>
 						</div>
 						
@@ -58,32 +62,61 @@
 				</div>
 				<div class="row">
 					<div class="medium-12 cell">
-						{{ $errors->first('overlap') }}
-						<input type="submit" class="button" value="Toevoegen">
+						@if($errors->has('overlap'))
+							<small class="error">{{ $errors->first('overlap') }}</small>
+						@endif
+						@if($product->price_time === "day")
+							<input type="submit" class="button" value="Beschikbaarheid toevoegen">
+						@else 
+							<input type="submit" class="button" value="Sessie Toevoegen">
+						@endif
+						
 					</div>
 				</div>
 				
 			</form>
 
 			<div class="row">
+
 				<div class="medium-12 cell">
-					@foreach($availabilities as $available)
-						<div class="borderdiv">
-							@if($product->price_time === "Dag")
-								{{ $available->from->format("D d/m/Y") }} - {{ $available->to->format("D d/m/Y") }}
-							@else
-								{{ $available->start_hour->format("H:i") . " Uur" }} - {{ $available->end_hour->format("H:i") . " Uur" }} op {{ $available->from->diffForHumans() }}
-							@endif
-							<div class="right">
-								<form action="{{ route("availability.destroy", $available->id) }}" method="post">
-									{{ csrf_field() }}
-									{{ method_field('DELETE') }}
-									<input type="submit" class="button" value="Delete">
-								</form>
+					@if($product->price_time === "day")
+						<h3>Jouw beschikbare dagen</h3>		
+					@else
+						<h3>Jouw sessies</h3>
+					@endif
+				</div>
+
+				@foreach($availabilities as $available)									
+					@if($product->price_time === "day")
+
+						<div class="medium-4 cell">
+							<div class="borderdiv">
+								{{ $available->date->format("d/m/Y") }}
+								<div class="right">
+									<form action="{{ route("availability.destroy", $available->id) }}" method="post">
+										{{ csrf_field() }}
+										{{ method_field('DELETE') }}
+										<input type="submit" class="button" value="Delete">
+									</form>
+								</div>
 							</div>
 						</div>
-					@endforeach
-				</div>
+					@else
+	
+						<div class="medium-12 cell">
+							<div class="borderdiv">
+									{{ $available->start_hour->format("H:i") . " Uur" }} - {{ $available->end_hour->format("H:i") . " Uur" }} op {{ $available->date->diffForHumans() }}
+								<div class="right">
+									<form action="{{ route("availability.destroy", $available->id) }}" method="post">
+										{{ csrf_field() }}
+										{{ method_field('DELETE') }}
+										<input type="submit" class="button" value="Delete">
+									</form>
+								</div>
+							</div>
+						</div>
+					@endif
+				@endforeach
 			</div>
 		</div>
 	</div>

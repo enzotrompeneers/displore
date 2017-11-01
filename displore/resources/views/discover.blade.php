@@ -2,49 +2,108 @@
 
 @section('content')
 <div class="row">
+	<div class="large-12 columns">
+		@if(isset($search_term))
+			<h1>Zoeken naar: {{ $search_term }}</h1>
+		@else
+			<h1>Leuke ervaring zoeken</h1>
+		@endif
+	</div>
+</div>
+<div class="row">
 	<form action="{{ route('discover.search') }}" method="post">
 		{{ csrf_field() }}
-		<div class="large-11 columns">
-			<input type="search" name="search_input" id="search_input" placeholder="Wat wil je ontdekken?">
+		<div class="large-3 columns">
+			<div class="form-group">
+				<label for="date">Op</label>
+				@if(isset($search_term))
+					<input type="text" class="datetimepicker datepicker" id="date" name="date" value="{{ $datetime }}">
+				@else
+					<input type="text" class="datetimepicker datepicker" id="date" name="date" value="{{ today() }}">
+				@endif
+			</div>
 		</div>
-		<div class="large-1 columns">
-			<input type="submit" class="button float-right" value="Zoeken">
+		<div class="large-3 columns">
+			<div class="form-group">
+				<label for="category">Soort</label>
+				<select name="category" id="category" value="{{ old('category') }}">
+						<option value="Ervaring">Ervaring</option>
+						<option value="Uitstap">Uitstap</option>
+						<option value="Dienst">Dienst</option>
+						<option value="Auto">Auto</option>
+						<option value="Dier">Dier</option>
+						<option value="Woning">Woning</option>
+				</select>
+			</div>
+		</div>
+		<div class="large-6 columns search-row-correction">
+			<label for="search_input">Zoekterm</label>
+			<div class="row">
+				<div class="large-8 columns">
+					@if(isset($search_term))
+						<input type="text" name="search_input" id="search_input" value="{{ $search_term }}" placeholder="Wat wil je ontdekken?">	
+					@else
+						<input type="text" name="search_input" id="search_input" placeholder="Wat wil je ontdekken?">	
+					@endif			
+				</div>
+				<div class="large-4 columns">
+					<input type="submit" class="button button-search" value="Zoeken">
+				</div>
+			</div>
 		</div>
 	</form>
 </div>	
 
+<hr>
+
+
+@if(!isset($search_term))
 <div class="row">
-	<div class="large-12 columns">
-		@if(isset($search_term))
-			<h2>Zoeken naar: {{ $search_term }}</h2>
-		@endif
+	<div class="large-12 columns large-centered text-center">
+		<h2>Heb je helemaal geen idee wat je wilt. Weet je niet wat te doen? Wij kiezen een coole ervaring voor jou!</h2>
+	
+		<a href="{{ route('product.random') }}" class="button red_ghost button-center button-random">Kies een coole ervaring voor me!</a>
 	</div>
-	<div class="large-12 columns">
-		<h1>Ervaringen voor jouw!</h1>
-		<ul class="example-orbit" data-orbit>
+</div>
+@endif
+
+<div class="row">		
+	   
+		@if(sizeof($products) !== 0)
+			<div class="large-12 columns">
+		   	 <h1>Leuke ervaringen</h1>
+		   </div>
+		   <div class="row">
 			@foreach($products as $product)
-				<li>
+			<div class="large-4 columns">
+				<div class="box">
 					<a href="{{ route('product.show', $product->id) }}">
-						@if(isset($product->images->first()->image))
-							<img class="image_big" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}">
-						@endif
-						<h2 class="h2_over_image">{{ $product->title }}</h2>
+						
+							<div class="box-image-overlay">
+								<div class="box-image-overlay-title">Bekijk meer</div> 
+							</div >
+							<div class="box-image-holder">
+								@if(isset($product->images->first()->image))
+									<img class="box-image" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}">
+								@endif
+							</div>
+						
 					</a>
-				</li>
+					<div class="box-details">
+						<span class="box-title">{{ str_limit($product->title, 28) }}</span>
+					</div>
+				</div>
+			</div>
+
 			@endforeach
-		</ul>
-		
-		@foreach($products as $product)
-		<div class="large-6 columns">
-		<a href="{{ route('product.show', $product->id) }}">
-			@if(isset($product->images->first()->image))
-				<img class="image_small" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}">
-			@endif
-			<h2 class="h2_over_image">{{ $product->title }}</h2>
-		</a>
-		</div>
-		@endforeach
-	</div>
+			</div>
+		@else
+			<div class="large-12 columns">
+				<h3 class="search-fail">
+					Niets gevonden voor <b>{{ $search_term }}</b> <b>{{ $date }}</b> met categorie <b>{{ $category }}</b>
+				</h3>
+			</div>
+		@endif
 </div>
 
 @stop

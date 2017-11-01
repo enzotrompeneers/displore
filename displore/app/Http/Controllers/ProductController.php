@@ -7,7 +7,10 @@ use App\Product;
 use App\ProductReview;
 use App\ProductImage;
 use App\Http\Requests\StoreProduct;
+use App\Http\Requests\UpdateProduct;
 use App\Http\Helpers\ImageHelper;
+
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller 
@@ -33,9 +36,26 @@ class ProductController extends Controller
   public function search(Request $request)
   {
     $search_term = request('search_input');
-    $products = Product::search($search_term)->orderBy('id', 'desc')->get();
+    $category = request('category');
+    $date = Carbon::parse(request('date'))->diffForHumans();
+    $datetime = Carbon::parse(request('date'));
 
-    return view('discover', compact('search_term', 'products'));
+    $products = Product::search($search_term)
+    ->where('category', $category)
+    ->get();
+
+    foreach($products as $product)
+    {
+      if(!$product->availabilities()
+        ->where('date', '=', $datetime)
+        ->exists())
+      {
+        $products = $products->keyBy('id');
+        $products->forget($product->id);
+      }
+    }
+    
+    return view('discover', compact('search_term', 'category', 'date', 'datetime', 'products'));
   }
 
   /**
@@ -85,7 +105,7 @@ class ProductController extends Controller
    */
   public function show($id)
   {
-    $product = Product::find($id);
+    $product = Product::findOrFail($id);
     $images = ProductImage::where('product_id', $id)->get();
     $relevantProducts = Product::where('category', $product->category)->take(4)->get();
 
@@ -108,6 +128,17 @@ class ProductController extends Controller
   }
 
   /**
+  * Toont een willekeurige ervaring voor de avontuurlijke mensen
+  * @return response
+  */
+
+  public function random(){
+    $product = Product::inRandomOrder()->first();
+    
+    return view('product.random', compact('product'));
+  }
+
+  /**
    * Show the form for editing the specified resource.
    *
    * @param  int  $id
@@ -127,7 +158,7 @@ class ProductController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function update(StoreProduct $request, $id)
+  public function update(UpdateProduct $request, $id)
   {
     $product = Product::find($id);
 

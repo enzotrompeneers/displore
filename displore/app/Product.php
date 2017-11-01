@@ -14,7 +14,8 @@ class Product extends Model
     protected $searchable = [
         'columns' => [
             'products.title' => 10,
-            'products.description' => 6
+            'products.description' => 6,
+            'products.category' => 6
         ]
     ];
 
@@ -37,6 +38,11 @@ class Product extends Model
     public function reservations()
     {
         return $this->hasMany('App\Reservation');
+    }
+
+    public function availabilities()
+    {
+        return $this->hasMany('App\Availability');
     }
 
     public function user()

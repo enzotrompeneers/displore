@@ -8,40 +8,49 @@
 			{{ csrf_field() }}
 			<div class="grid-container">
 					<div class="grid-x grid-padding-x">
-					<div class="medium-6 cell">
+					<div class="small-12 medium-6 cell">
 						<label>Titel</label>
 						<input type="text" placeholder="typ hier een catchy titel" name="title" value="{{ $product->title }}">
-						{{ $errors->first('title') }}
+						@if($errors->has('title'))
+							<small class="error">{{ $errors->first('title') }}</small>
+						@endif
+			
 					</div>
-					<div class="medium-2 cell">
+					<div class="small-5 medium-2 cell">
 						<label>Prijs</label>
 						<input type="text" placeholder="bv. 55" name="price" value="{{ $product->price }}">
-						{{ $errors->first('price') }}
+						@if($errors->has('price'))
+							<small class="error">{{ $errors->first('price') }}</small>
+						@endif
 					</div>
-					<div class="medium-1 cell">
+					<div class="small-2 medium-1 cell">
 						<br>
 						<label>Per</label>
 					</div>
-					<div class="medium-3 cell">
+					<div class="small-5 medium-3 cell">
 						<label>Periode</label>
 						<select name="price_time">
 							<option value="{{ $product->price_time }}">{{ $product->price_time }}</option>
 							@if ($product->price_time === "Uur")
-								<option value="Dag">Dag</option>
+								<option value="day">Dag</option>
 							@endif
 							@if ($product->price_time === "Dag")
-								<option value="Uur">Uur</option>
+								<option value="hour">Uur</option>
 							@endif
 					
 						</select>
-						{{ $errors->first('price_time') }}
+						@if($errors->has('price_time'))
+							<small class="error">{{ $errors->first('price_time') }}</small>
+						@endif
 					</div>
-					<div class="medium-12 cell">
+					<div class="small-12 medium-12 cell">
 						<label>Beschrijving</label>
 						<textarea rows="10" type="text" placeholder="Beschrijving" name="description">{{ $product->description }}</textarea>
-						{{ $errors->first('description') }}
+						@if($errors->has('description'))
+							<small class="error">{{ $errors->first('description') }}</small>
+						@endif
 					</div>
-					<div class="medium-6 cell">
+					<div class="small-12 medium-6 cell">
 						<label>Locatie</label>
 						<input id="pac-input" class="controls" type="text" placeholder="{{ $product->location }}" name="location" value="{{ $product->location }}">
 						<div id="map"></div>
@@ -49,9 +58,11 @@
 							<span id="place-name"  class="title"></span><br>
 							<span id="place-address"></span>
 						</div>
-						{{ $errors->first('location') }}
+						@if($errors->has('location'))
+							<small class="error">{{ $errors->first('location') }}</small>
+						@endif
 					</div>
-					<div class="medium-6 cell">
+					<div class="small-12 medium-6 cell">
 						<label>Categorie</label>
 						<select name="category" value="{{ $product->category }}"> <!-- Nakijken!!!! -->
 							<option value="{{ $product->category }}">{{ $product->category }}</option>
@@ -62,9 +73,11 @@
 							<option value="Dier">Dier</option>
 							<option value="Woning">Woning</option>
 						</select>
-						{{ $errors->first('category') }}
+						@if($errors->has('category'))
+							<small class="error">{{ $errors->first('category') }}</small>
+						@endif
 					</div>
-					<div class="medium-6 cell">
+					<div class="small-12 medium-6 cell">
 						<label>Upload een afbeeldingen over de aanbieding</label> <!-- Nakijken!!! -->
 
 						<div class="file-upload-holder">
@@ -72,10 +85,12 @@
 							<input type="file" class="show-for-sr" id="upload_image" name="image[]" multiple>
 						</div>
 
-						{{ $errors->first('image') }}
+						@if($errors->has('image'))
+							<small class="error">{{ $errors->first('image') }}</small>
+						@endif
 
 						@foreach($images as $image)
-							<div class="image medium-6 cell">
+							<div class="image small-6 medium-6 cell">
 								<div class="image-overlay" data-id="{{ $image->id }}">
 									<img src="{{ asset('assets/graphics/close_icon.svg') }}" class="image-delete">
 									Verwijder

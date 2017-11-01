@@ -10,8 +10,7 @@ class Availability extends Model
     use SoftDeletes;
 
     protected $dates = [
-    	'from',
-    	'to',
+    	'date',
     	'start_hour',
     	'end_hour'
     ];

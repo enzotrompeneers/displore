@@ -16,8 +16,8 @@ class CreateAvailabilitiesTable extends Migration
         Schema::create('availabilities', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id')->unsigned();
-            $table->datetime('from');
-            $table->datetime('to');
+            $table->datetime('date');
+            $table->integer('group');
             $table->datetime('start_hour');
             $table->datetime('end_hour');
             $table->integer('capacity');
