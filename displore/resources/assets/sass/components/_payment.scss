@@ -1,0 +1,45 @@
+.payment{
+	padding: 0;
+	margin: 0;
+
+	&-title-holder{
+		background: $secondary-1;
+	}
+
+	&-title {
+		color: white;
+		padding: 0; margin: 0;
+	}
+
+	&-content, &-title-holder {
+		padding: 0.975rem;
+	}
+
+	&-price-holder {
+		padding: 0 0.975rem;
+		color: white;
+	}
+
+	&-price {
+		font-size: 56px;
+		color: white;
+	}
+
+	&-subtitle {
+		color: $secondary-4;
+		padding: 0; margin: 0;
+	}
+
+	&-price-holder {
+		background: $primary-1;
+	}
+
+	&-button-holder{
+		
+		padding: 15px 15px 0px 15px;
+	}
+}
+
+#paypal-button-container {
+	width: 100%;
+}

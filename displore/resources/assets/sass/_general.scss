@@ -10,7 +10,7 @@ body{
 	color: $body-font-color;
 }
 
-.container{
+%container{
 	margin: 50px auto;
 	max-width: 1020px;
 	animation-name: container-animation;
@@ -20,6 +20,15 @@ body{
 	{
 		margin: 0.975rem auto;
 	}
+}
+
+.container{
+	@extend %container;
+}
+
+.container-small{
+	@extend %container;
+	max-width: 400px;
 }
 
 .clearfix{

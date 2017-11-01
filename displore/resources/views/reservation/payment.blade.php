@@ -19,40 +19,44 @@
 @endsection
 
 @section('content')
-	<div class="container container-white-padding">
-		<div class="row">
-			<div class="medium-12 cell">
-				<h1>Betalen</h1>
-				<h3>Betaling van: <b>{{ $reservation->product->title }}</b></h3>
+	<div class="container-small">
+	<div class="container-white payment">
+		<div class="row payment-title-holder">
+			<div class="small-12 medium-12 cell">
+				<h1 class="payment-title">Betalen</h1>
+				<h3 class="payment-subtitle">Betaling van: <b>{{ $reservation->product->title }}</b></h3>
 			</div>
 		</div>
+
 		@if(!$reservation->paid)
-		<div class="row">
-			<div class="medium-6 cell">
+		<div class="row payment-content">
+			<div class="small-12 medium-12 cell">
 				<h3>{{ $user->first_name }} {{ $user->last_name }}</h3>
-				<p>
-					{{ $user->street }} {{ $user->house_nr }}
-					{{ $user->city }}, {{ $user->country }}
-				</p>
-			</div>
 
-			<div class="medium-6 cell">
-				<input type="hidden" id="reservation-id" value="{{ $reservation->id }}">
-				<p>Een bedrag van <h3>€ <span id="reservation-price">{{ $price }}</span></h3></p>
+				{{ $user->street }} {{ $user->house_nr }}
+				{{ $user->city }}, {{ $user->country }}
 			</div>
-
 		</div>
 
-		<div class="row">
-			<div class="medium-12 cell">
+		<div class="row payment-price-holder">
+			<div class="small-12 medium-12 cell">
+				<input type="hidden" id="reservation-id" value="{{ $reservation->id }}">
+				<span>Een bedrag van</span>
+				<h3><span id="reservation-price" class="payment-price">€ {{ $price }}</span></h3>
+			</div>
+		</div>
+
+		<div class="row payment-button-holder">
+			<div class="small-12 medium-12 cell">
 				<div id="paypal-button-container"></div>
 			</div>
 		</div>
 		@else
 			<div class="row">
-				<div class="medium-12 cell"><h4>Betaling van deze reservatie is afgerond</h4></div>
+				<div class="small-12 medium-12 cell"><h4>Betaling van deze reservatie is afgerond</h4></div>
 			</div>
 		@endif
+		</div>
 	</div>
 @endsection
 

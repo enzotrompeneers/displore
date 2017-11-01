@@ -55,8 +55,8 @@
 	</form>
 </div>	
 
-<hr>
-
+{{-- <hr> --}}
+<br>
 
 @if(!isset($search_term))
 <div class="row">

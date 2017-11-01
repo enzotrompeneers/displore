@@ -31853,9 +31853,9 @@ function renderPaypal() {
 
         style: {
             label: 'checkout',
-            size: 'small', // small | medium | large | responsive
-            shape: 'pill', // pill | rect
-            color: 'gold' // gold | blue | silver | black
+            size: 'responsive', // small | medium | large | responsive
+            shape: 'rect', // pill | rect
+            color: 'blue' // gold | blue | silver | black
         },
 
         // PayPal Client IDs - replace with your own

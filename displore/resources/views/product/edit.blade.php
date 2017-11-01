@@ -3,6 +3,7 @@
 @section('content')
 	<div class="row container-white">
 		<h1>Ervaring bewerken</h1>
+		<hr>
 		<form action="{{ route('product.update', $product->id) }}" method="post" enctype="multipart/form-data">
 			{{ method_field('PATCH') }}
 			{{ csrf_field() }}
