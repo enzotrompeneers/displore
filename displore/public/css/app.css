@@ -2800,12 +2800,16 @@ a:focus {
   padding: 100px 0px;
 }
 
-#showMap {
-  overflow: visible;
+.map-show {
+  padding: 10px 5px 5px 5px;
 }
 
 .body_master {
   background-color: black;
+}
+
+.orbit-show-page {
+  margin: 0rem -0.65rem 0rem -1.975rem;
 }
 
 .h2_over_image,
@@ -3249,7 +3253,8 @@ label {
   position: relative;
 }
 
-.box {
+.box,
+.box-small {
   position: relative;
   background: white;
   border-radius: 6px;
@@ -3264,7 +3269,8 @@ label {
   margin-top: 25px;
 }
 
-.box:hover {
+.box:hover,
+.box-small:hover {
   -webkit-box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
           box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
 }
@@ -3309,6 +3315,35 @@ label {
 .box-title {
   font-weight: 500;
   color: #333;
+  font-size: 18px;
+}
+
+.box-small {
+  padding: 0;
+}
+
+.box-small .box-image,
+.box-small .box-image-overlay,
+.box-small .box-image-holder,
+.box-small .box-image-overlay-title {
+  height: 150px;
+}
+
+.box-small .box-details {
+  padding: 15px 10px;
+}
+
+.box-small .box-title {
+  font-size: 14px;
+}
+
+.box-small .box-image {
+  width: 100%;
+  height: auto;
+}
+
+.box-small .box-image-overlay-title {
+  margin-top: 65px;
   font-size: 18px;
 }
 

@@ -15,27 +15,38 @@
 					@endif
 				@endif
 				<h1>{{ $product->title }}</h1>
+				
+				<div class="orbit-show-page">
+					<ul class="example-orbit" data-orbit>
+						@foreach($images as $image)
+							<li><img src="{{ asset($image->image) }}" alt="Afbeelding van {{ $product->title }}"></li>
+						@endforeach
+					</ul>
+				</div>
 
-				<ul class="example-orbit" data-orbit>
-				@foreach($images as $image)
-					<li><img src="{{ asset($image->image) }}" alt="Afbeelding van {{ $product->title }}"></li>
-				@endforeach
-
-				</ul>
 				<h3>Beschrijving</h3>
 				<p>{{ $product->description }}</p>
 
 				<div class="show-for-medium-up">
 				<h3>Vergelijkbare ervaringen</h3>
 				@foreach($relevantProducts as $relevantProduct)
-					<div class="large-6 columns">
-						<a href="{{ route('product.show', $relevantProduct->id) }}">
-							@if(isset($relevantProduct->images->first()->image))
-								<img class="image_xsmall" src="{{ asset($relevantProduct->images->first()->image) }}" alt="Afbeelding van {{ $relevantProduct->title }}">
-							@endif
-							<h2 class="h2_over_image_small">{{ $relevantProduct->title }}</h2>
-						</a>
-					</div>
+	
+						<div class="large-6 columns box-small">
+							<a href="{{ route('product.show', $relevantProduct->id) }}">
+								<div class="box-image-overlay">
+									<div class="box-image-overlay-title">Bekijk meer</div> 
+								</div>
+								<div class="box-image-holder">
+									@if(isset($relevantProduct->images->first()->image))
+										<img class="box-image" src="{{ asset($relevantProduct->images->first()->image) }}" alt="Afbeelding van {{ $relevantProduct->title }}">
+									@endif
+								</div>
+							</a>
+							<div class="box-details">
+								<div class="box-title">{{ $relevantProduct->title }}</div>
+							</div>
+						</div>
+		
 				@endforeach
 				</div>
 
@@ -88,7 +99,7 @@
 					</div>
 
 					<div class="row">
-						<div class="small-12 medium-12 cell">
+						<div class="small-12 medium-12 cell map-show">
 							<div id="showMap" style="width:100%;height:250px;overflow: visible;"></div>
 						</div>
 					</div>

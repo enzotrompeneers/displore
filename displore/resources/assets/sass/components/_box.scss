@@ -56,3 +56,33 @@
 		font-size: 18px;
 	}
 }
+
+.box-small{
+	@extend .box;
+	padding: 0;
+
+	.box-image, 
+	.box-image-overlay, 
+	.box-image-holder, 
+	.box-image-overlay-title {
+		height: 150px;
+	}
+
+	.box-details{
+		padding: 15px 10px;
+	}
+
+	.box-title{
+		font-size: 14px;
+	}
+
+	.box-image{
+		width: 100%;
+		height: auto;
+	}
+
+	.box-image-overlay-title {
+		margin-top: 65px;
+		font-size: 18px;
+	}
+}

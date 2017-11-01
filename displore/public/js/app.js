@@ -31964,7 +31964,7 @@ var GoogleMaps = function () {
 
         var mapProp = {
           center: new google.maps.LatLng(setLatLong),
-          zoom: 8
+          zoom: 16
         };
         var map = new google.maps.Map(document.getElementById("showMap"), mapProp);
 
