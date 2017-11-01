@@ -7,7 +7,7 @@
 		<input type="hidden" name="product_id" value="{{ $product->id }}"/>
 		<input type="hidden" name="price_time" value="{{ $product->price_time }}"/>
 
-		<div class="row container-white-padding">
+		<div class="row container-white container-white-show">
 			<div class="medium-6 cell">
 				@if(Auth::check())
 					@if($product->user_id === Auth::user()->id)

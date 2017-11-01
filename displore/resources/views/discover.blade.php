@@ -10,7 +10,8 @@
 		@endif
 	</div>
 </div>
-<div class="row">
+
+<div class="row container-white">
 	<form action="{{ route('discover.search') }}" method="post">
 		{{ csrf_field() }}
 		<div class="large-3 columns">

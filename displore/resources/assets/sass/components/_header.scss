@@ -1,8 +1,10 @@
 .header{
 	@include clearfix;
 	background: white;
-	border-bottom: 2px solid $secondary-3;
+	z-index: 5;
+	border-bottom: 1px solid $secondary-3;
 	width: 100%;
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.05);
 	box-sizing: border-box;
 
 	&-lander{
@@ -16,12 +18,12 @@
 	}
 
 	&-logo{
-		margin: 0.975rem;
+		margin: 0.5rem;
 		float: left;
 	}
 
 	nav{
-		margin: 0.975rem;
+		margin: 0.5rem 1rem;
 		float: right;
 	}
 

@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="container">
-		<div class="container-white-padding">
+		<div class="container-white">
 			
 			<div class="row">
 				<div class="medium-12 cell">
