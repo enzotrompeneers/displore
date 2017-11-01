@@ -42,7 +42,7 @@
 			<div class="small-12 medium-12 cell">
 				<input type="hidden" id="reservation-id" value="{{ $reservation->id }}">
 				<span>Een bedrag van</span>
-				<h3><span id="reservation-price" class="payment-price">€ {{ $price }}</span></h3>
+				<h3><span class="payment-price">€ </span><span id="reservation-price" class="payment-price">{{ $price }}</span></h3>
 			</div>
 		</div>
 
