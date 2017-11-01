@@ -84,16 +84,15 @@
 							<p><b>Aangeboden door</b> {{ $product->user->first_name }} {{ $product->user->last_name }}</p>
 							<p><b>Categorie</b> {{ $product->category }}</p>
 
-							<div id="location"><b>Locatie</b> {{ $product->location }}</div>
+							<div><b>Locatie</b> <span id="location">{{ $product->location }}</span></div>
 					</div>
+
 					<div class="row">
 						<div class="small-12 medium-12 cell">
-							<div id="showMap" style="width:100%;height:250px;"></div>
-								{{ $errors->first('location') }}
-							</div>
+							<div id="showMap" style="width:100%;height:250px;overflow: visible;"></div>
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="small-12 medium-12 cell">
 					<h3>Recensies</h3>

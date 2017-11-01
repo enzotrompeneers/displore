@@ -2383,6 +2383,12 @@ textarea {
   background-color: white;
 }
 
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover {
+  background-color: #e7173e;
+  border-color: #e7173e;
+}
+
 .button,
 .big_btn,
 .red_ghost,
@@ -2792,6 +2798,10 @@ a:focus {
   font-weight: 100;
   color: #8A8A8A;
   padding: 100px 0px;
+}
+
+#showMap {
+  overflow: visible;
 }
 
 .body_master {

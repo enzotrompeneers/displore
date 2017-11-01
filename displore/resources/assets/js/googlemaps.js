@@ -8,7 +8,6 @@ export class GoogleMaps {
 
     var geocoder = new google.maps.Geocoder();
     var address = document.getElementById("location").innerHTML;
-    console.log("Adres: " + address);
     
     geocoder.geocode( { 'address': address}, function(results, status) {
     
@@ -16,15 +15,13 @@ export class GoogleMaps {
         setLatitude = results[0].geometry.location.lat();
         setLongitude = results[0].geometry.location.lng();
 
-        console.log("setLatitude: " + setLatitude);
-        console.log("setLongitude: " + setLongitude);
         setLatLong = {lat: setLatitude, lng: setLongitude};
 
         } 
         
         var mapProp= {
           center:new google.maps.LatLng(setLatLong),
-          zoom:15,
+          zoom: 8,
         };
         var map=new google.maps.Map(document.getElementById("showMap"),mapProp);
 
@@ -86,8 +83,7 @@ export class GoogleMaps {
   
       infowindowContent.children['place-name'].textContent = place.name;
       infowindowContent.children['place-id'].textContent = place.place_id;
-      infowindowContent.children['place-address'].textContent =
-          place.formatted_address;
+      infowindowContent.children['place-address'].textContent = place.formatted_address;
       infowindow.open(map, marker);
     });
   }

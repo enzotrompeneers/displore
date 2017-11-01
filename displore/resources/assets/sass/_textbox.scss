@@ -49,3 +49,8 @@ textarea{
 .flatpickr-input .active{
 	background-color: white;
 }
+
+.flatpickr-day.selected, .flatpickr-day.selected:hover {
+	background-color: $primary-1;
+	border-color: $primary-1;
+}

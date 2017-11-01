@@ -10,6 +10,10 @@ body{
 	color: $body-font-color;
 }
 
+p{
+	
+}
+
 %container{
 	margin: 50px auto;
 	max-width: 1020px;
@@ -111,4 +115,8 @@ a:active, a:focus{
 	font-weight: 100;
 	color: $secondary-5;
 	padding: 100px 0px;
+}
+
+#showMap{
+	overflow: visible;
 }

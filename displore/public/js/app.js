@@ -31952,7 +31952,6 @@ var GoogleMaps = function () {
 
       var geocoder = new google.maps.Geocoder();
       var address = document.getElementById("location").innerHTML;
-      console.log("Adres: " + address);
 
       geocoder.geocode({ 'address': address }, function (results, status) {
 
@@ -31960,14 +31959,12 @@ var GoogleMaps = function () {
           setLatitude = results[0].geometry.location.lat();
           setLongitude = results[0].geometry.location.lng();
 
-          console.log("setLatitude: " + setLatitude);
-          console.log("setLongitude: " + setLongitude);
           setLatLong = { lat: setLatitude, lng: setLongitude };
         }
 
         var mapProp = {
           center: new google.maps.LatLng(setLatLong),
-          zoom: 15
+          zoom: 8
         };
         var map = new google.maps.Map(document.getElementById("showMap"), mapProp);
 
