@@ -21,6 +21,6 @@
             </div>
         </div>
     </div>
-    <textarea name="text" placeholder="recensie schrijven"></textarea>
+    <textarea name="text" placeholder="Recensie schrijven"></textarea>
     <input type="submit" class="button" value="Recensie insturen"/>
 </form>
