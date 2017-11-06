@@ -24,7 +24,18 @@
                     @if ($user = Auth::user()) 
                         <li class="header-list-item"><a href="{{ route('product.create') }}" class="red_ghost">Ervaring aanbieden</a></li>
                         <li class="header-list-item"><a href="{{ route('user.offers') }}" class="header-list-item-link">Jouw aanbiedingen</a></li>
-                        <li class="header-list-item"><a class="button primary" href="{{ route('logout') }}">Uitloggen</a></li>
+                        <span class="dropdown-holder">
+                            <li class="header-list-item">
+                                <a class="button primary dropdown">
+                                    {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
+                                </a>
+                            </li>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-menu-item"><a href="{{ route('user.profile') }}">Profiel</a></li>
+                                <li class="dropdown-menu-item"><a href="{{ route('user.reservations') }}">Reservaties</a></li>
+                                <li class="dropdown-menu-item"><a href="{{ route('logout') }}">Uitloggen</a></li>
+                            </ul>
+                        </span>
                     @else
                         <li class="header-list-item"><a class="button primary" href="{{ route('login') }}">Inloggen</a></li>
                     @endif

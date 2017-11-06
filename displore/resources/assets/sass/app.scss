@@ -5,23 +5,20 @@
 @import "node_modules/flatpickr/dist/flatpickr";
 @import "node_modules/flatpickr/dist/themes/airbnb";
 
-@import "mixins";
 @import "variables";
+@import "mixins";
 @import "animation";
 
 /**
- * More general styling
+ * Html & ui elements
  */
-@import "lander";
-@import "image";
-@import "headings";
-@import "textbox";
-@import "buttons";
-@import "login";
-@import "general";
-@import "master";
-@import "rating";
-@import "icons";
+@import "elements/rating";
+@import "elements/textbox";
+@import "elements/icons";
+@import "elements/buttons";
+@import "elements/headings";
+@import "elements/image";
+
 
 /** 
  * Major ui components 
@@ -32,8 +29,15 @@
 @import "components/tabs";
 @import "components/form";
 @import "components/box";
+@import "components/dropdown";
 @import "components/payment";
 
-
+/**
+ * More general styling
+ */
+@import "lander";
+@import "login";
+@import "general";
+@import "master";
 
  

@@ -1,0 +1,37 @@
+.dropdown{
+
+	&-menu{
+		@include box;
+		
+		display: none;
+		z-index: 2;
+		position: absolute;
+		float: left;
+		border-radius: 5px;
+		top: 100px;
+		right: 15px;
+		width: 250px;
+	}
+
+	&-menu-item{
+		display: block;
+		width: 100%;
+		border-bottom: 1px solid $secondary-4;
+	
+		&:last-child {
+			border-bottom: 1px solid transparent;
+		}
+	}
+
+	&-menu-item a{
+		text-align: left;
+		display: block;
+		text-decoration: none;
+		color: $secondary-1;
+		
+
+		&:hover{
+			background: darken(white, 2%);
+		}
+	}
+}

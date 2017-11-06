@@ -24,30 +24,38 @@
 	<header class="header header-lander">
             <div class="header-logo">
                 <div class="header-logo-image">
-                    <a href="{{ route('lander') }}"><img src="{{asset('assets/graphics/displore_logo_dark.svg')}}" alt="Displore"></a>
+                    <a href="{{ route('discover') }}"><img src="{{asset('assets/graphics/displore_logo.svg')}}" alt="Displore"></a>
                 </div>
 
-                <div class="header-logo-text">
-                	{{-- TODO: GEEN INLINE STYLING --}}
-                    <a href="{{ route('lander') }}" style="color:white;">
+                <div class="header-logo-text show-for-medium-up">
+                    <a href="{{ route('discover') }}">
                         Displore
                     </a>
                 </div>
                 
             </div>
             <nav>
-                <ul>
-				 <li class="header-list-item"><a href="{{ route('lander') }}" class="header-list-item-link">Wat is displore?</a></li>
-
-				@if ($user = Auth::user()) 
-                    <li class="header-list-item"><a class="header-list-item-link" href="{{ route('user.offers') }}" >Jouw aanbiedingen</a></li>
-					<li class="header-list-item"><a class="header-list-item-link" href="{{ route('user.profile') }}">{{ $user->first_name }} {{ $user->last_name }}</a></li>
-					<li class="header-list-item"><a class="button primary" href="{{ route('logout') }}">Uitloggen</a></li>
-				@else
-					<li class="header-list-item"><a class="button primary" href="{{ route('login') }}">Inloggen</a></li>
-				@endif
-                </ul>
-                
+                <ul class="show-for-medium-up">
+                    @if ($user = Auth::user()) 
+                        <li class="header-list-item"><a href="{{ route('product.create') }}" class="red_ghost">Ervaring aanbieden</a></li>
+                        <li class="header-list-item"><a href="{{ route('user.offers') }}" class="header-list-item-link">Jouw aanbiedingen</a></li>
+                        <span class="dropdown-holder">
+                            <li class="header-list-item">
+                            	<a class="button primary dropdown">
+                            		{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
+                            	</a>
+                        	</li>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-menu-item"><a href="{{ route('user.profile') }}">Profiel</a></li>
+                                <li class="dropdown-menu-item"><a href="{{ route('user.reservations') }}">Reservaties</a></li>
+                                <li class="dropdown-menu-item"><a href="{{ route('logout') }}">Uitloggen</a></li>
+                            </ul>
+                        </span>
+                    @else
+                        <li class="header-list-item"><a class="button primary" href="{{ route('login') }}">Inloggen</a></li>
+                    @endif
+                    
+                </ul>              
                 
             </nav>
         </header>

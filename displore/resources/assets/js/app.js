@@ -1,12 +1,18 @@
 import './bootstrap';
 
+/* form items */
 import './form/fileupload';
 import './form/image';
 
+/* actions */
 import './actions/paypal';
+
+/* ui stuff */
+import './ui/dropdown';
 
 import {GoogleMaps} from './googlemaps';
 import {DateTimePicker} from './form/datetimepicker';
+
 
 if(document.getElementById("map") !== null)
 {
@@ -23,7 +29,6 @@ if(document.getElementsByClassName("datetimepicker") !== 0)
 {
     new DateTimePicker();
 }
-
 
 // '/js/foundation-datepicker.js'
 // '/stylesheets/foundation-datepicker.css'
