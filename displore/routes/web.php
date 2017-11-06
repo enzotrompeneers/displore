@@ -22,6 +22,7 @@ Route::get('/ontdek', 'ProductController@index')->name('discover');
 Route::post('/ontdek/zoeken', 'ProductController@search')->name('discover.search');
 Route::get('/ervaring/toon/{id}', 'ProductController@show')->name('product.show');
 Route::get('/ervaring/random', 'ProductController@random')->name('product.random');
+Route::get('/ervaring/beschikbaar/{id}', 'ProductController@showDaysAvailable')->name('product.days');
 
 //Home routes
 Route::get('/', 'HomeController@lander')->name('lander');

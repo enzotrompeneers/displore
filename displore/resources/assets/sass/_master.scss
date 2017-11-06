@@ -4,22 +4,22 @@
 }
 
 .orbit-show-page {
-  margin: 0rem -0.65rem 0rem -1.975rem;
+  margin: 1.5rem -0.65rem 0rem -1.975rem;
 }
 
-.h2_over_image, .h2_over_image_small {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color: #fff;
-    padding: 10px;
+// .h2_over_image, .h2_over_image_small {
+//     position: absolute;
+//     top: 20px;
+//     left: 20px;
+//     color: #fff;
+//     padding: 10px;
 
-    &_small {
-        font-size: 0.8rem;
-        top: 10px;
-        left: 10px;
-    }
-}
+//     &_small {
+//         font-size: 0.8rem;
+//         top: 10px;
+//         left: 10px;
+//     }
+// }
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
        #map {

@@ -9,6 +9,7 @@ use App\ProductImage;
 use App\Http\Requests\StoreProduct;
 use App\Http\Requests\UpdateProduct;
 use App\Http\Helpers\ImageHelper;
+use App\Http\Helpers\ReservationHelper;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -116,6 +117,11 @@ class ProductController extends Controller
     $reviews = $product->reviews()->get();
 
     return view('product.show', compact('product', 'reviews', 'images', 'relevantProducts'));
+  }
+
+  public function showDaysAvailable($id)
+  {
+    return response()->json(ReservationHelper::daysAvailable($id));
   }
 
   /**

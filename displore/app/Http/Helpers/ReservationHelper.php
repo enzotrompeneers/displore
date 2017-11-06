@@ -53,4 +53,22 @@ class ReservationHelper{
 		
 	}
 
+	public static function daysAvailable($product_id)
+	{
+		$dates =  Availability::where('product_id', $product_id)
+		->where('date', '>', Carbon::now())
+		->where('capacity', '>', 0)
+		->pluck('date')
+		->toArray();
+
+		$dateExport = [];
+
+		foreach($dates as $date)
+		{
+			array_push($dateExport, $date->toDateString());
+		}
+
+		return $dateExport;
+	}
+
 }

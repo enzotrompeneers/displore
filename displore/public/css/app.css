@@ -2684,6 +2684,10 @@ body {
   color: #222;
 }
 
+p.white {
+  color: white;
+}
+
 .container,
 .container-small {
   margin: 50px auto;
@@ -2809,23 +2813,7 @@ a:focus {
 }
 
 .orbit-show-page {
-  margin: 0rem -0.65rem 0rem -1.975rem;
-}
-
-.h2_over_image,
-.h2_over_image_small {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  color: #fff;
-  padding: 10px;
-}
-
-.h2_over_image_small,
-.h2_over_image_small_small {
-  font-size: 0.8rem;
-  top: 10px;
-  left: 10px;
+  margin: 1.5rem -0.65rem 0rem -1.975rem;
 }
 
 /* Always set the map height explicitly to define the size of the div

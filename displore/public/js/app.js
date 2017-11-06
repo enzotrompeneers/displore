@@ -746,7 +746,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
-module.exports = __webpack_require__(42);
+module.exports = __webpack_require__(43);
 
 
 /***/ }),
@@ -32048,7 +32048,7 @@ var GoogleMaps = function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DateTimePicker; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flatpickr__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flatpickr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_flatpickr__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -32066,31 +32066,73 @@ var DateTimePicker = function () {
 		_classCallCheck(this, DateTimePicker);
 
 		this.instance = document.getElementsByClassName("datetimepicker");
+		this.productInput = document.getElementById("product_id");
 
 		this.activate();
 	}
 
 	_createClass(DateTimePicker, [{
+		key: 'makePicker',
+		value: function makePicker(element, options) {
+			element.flatpickr(options);
+			element.style.display = "block";
+		}
+	}, {
+		key: 'makeDayChecker',
+		value: function makeDayChecker(datetimepicker, options) {
+			var _this = this;
+
+			//globaal zetten
+			var datetimepicker = datetimepicker;
+			var options = options;
+
+			return axios.get('/ervaring/beschikbaar/' + this.productInput.value).then(function (response) {
+
+				if (response.data.length === 0) {
+					var noReservationElement = document.createElement("p");
+					noReservationElement.className = "white";
+					var noReservationText = document.createTextNode("Geen reservaties mogelijk op dit moment");
+
+					noReservationElement.appendChild(noReservationText);
+					datetimepicker.parentNode.appendChild(noReservationElement);
+
+					document.getElementById("date-error").remove();
+				} else {
+					options["enable"] = response.data;
+					_this.makePicker(datetimepicker, options);
+				}
+			});
+		}
+	}, {
 		key: 'activate',
 		value: function activate() {
 			for (var pickerIndex = this.instance.length - 1; pickerIndex >= 0; pickerIndex--) {
 				var datetimepicker = this.instance[pickerIndex];
+				datetimepicker.style.display = "none";
 
 				if (datetimepicker.classList.contains("timepicker")) {
-					datetimepicker.flatpickr({
+					var options = {
 						enableTime: true,
 						noCalendar: true,
 						time_24hr: true,
 						dateFormat: "H:i",
 						defaultHour: 12,
 						defaultMinute: 0
-					});
+					};
+
+					this.makePicker(datetimepicker, options);
 				} else if (datetimepicker.classList.contains("datepicker")) {
-					datetimepicker.flatpickr({
+					var options = {
 						enableTime: false,
 						minDate: "today",
 						locale: __WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js__["Dutch"]
-					});
+					};
+
+					if (datetimepicker.classList.contains("days-check") && this.productInput !== null) {
+						this.makeDayChecker(datetimepicker, options);
+					} else {
+						this.makePicker(datetimepicker, options);
+					}
 				}
 			}
 		}
@@ -34234,17 +34276,6 @@ return flatpickr$1;
 
 /***/ }),
 /* 42 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* flatpickr v4.0.6, @license MIT */
@@ -34323,6 +34354,12 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
 
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

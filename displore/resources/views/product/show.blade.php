@@ -4,8 +4,8 @@
 
 	<form action="{{ route('reservation.store') }}" method="post" data-abide novalidate>
 		{{ csrf_field() }}
-		<input type="hidden" name="product_id" value="{{ $product->id }}"/>
-		<input type="hidden" name="price_time" value="{{ $product->price_time }}"/>
+		<input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}"/>
+		<input type="hidden" name="price_time" id="price_time" value="{{ $product->price_time }}"/>
 
 		<div class="row container-white container-white-show">
 			<div class="medium-6 cell">
@@ -70,8 +70,8 @@
 
 				<div class="small-12 columns">
 					<label class="date_label" for="from">Wanneer?</label>
-						<input type="datetime" placeholder="yyyy-mm-dd" required pattern="date" name="from" id="dpd1" class="span2 datetimepicker datepicker">
-						<small class="error">Datum is niet geldig!</small>
+						<input type="datetime" placeholder="yyyy-mm-dd" required pattern="date" name="from" id="dpd1" class="span2 datetimepicker datepicker days-check">
+						<small class="error" id="date-error">Datum is niet geldig!</small>
 					</label>
 
 					@if ($product->price_time === "uur")

@@ -81,6 +81,7 @@ class AvailabilityController extends Controller
             $id = $availability->id;
 
             $availability->group = $id;
+            $availability->capacity = $capacity;
 
             $availability->update();
 
@@ -91,6 +92,7 @@ class AvailabilityController extends Controller
                 $availability = new Availability();
                 $availability->product_id = $product_id;
                 $availability->date = $today;
+                $availability->capacity = $capacity;
                 $availability->group = $id;
 
                 if(!$availability
