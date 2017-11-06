@@ -60,7 +60,7 @@
 						<div class="medium-12 cell">
 							<div class="form-group">
 								<label for="capacity">Aantal personen die kunnen reserveren voor de sessie</label>
-								<input type="text" name="capacity" id="capacity" placeholder="Capaciteit" value="1">
+								<input type="number" name="capacity" id="capacity" placeholder="Capaciteit" value="1">
 							</div>
 						</div>
 					@endif

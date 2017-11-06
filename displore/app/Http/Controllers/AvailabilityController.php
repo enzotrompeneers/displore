@@ -59,7 +59,7 @@ class AvailabilityController extends Controller
         $to = request('to');
         $start_hour = request('start_hour');
         $end_hour = request('end_hour');
-        $capacity = request('capacity');
+        $capacity = intval(request('capacity'));
 
         $reservationHelper = new ReservationHelper($product_id, $product->price_time, $from);
 
@@ -82,6 +82,7 @@ class AvailabilityController extends Controller
             $id = $availability->id;
 
             $availability->group = $id;
+
             $availability->capacity = $capacity;
 
             $availability->update();
@@ -112,6 +113,8 @@ class AvailabilityController extends Controller
 
             $availability->start_hour = Carbon::parse($from . " " . $start_hour);
             $availability->end_hour = Carbon::parse($from . " " . $end_hour);
+
+            $availability->capacity = $capacity;
 
             if($reservationHelper->hasAvailabilityOverlap($start_hour, $end_hour)){
                 return redirect()->route('availability.create', ['id' => $product_id])->withErrors(['overlap' => 'Er is overlap met een al bestaande beschikbaarheid']);

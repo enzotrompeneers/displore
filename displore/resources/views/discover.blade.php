@@ -61,7 +61,7 @@
 @if(!isset($search_term))
 <div class="row">
 	<div class="large-12 columns large-centered text-center">
-		<h2>Heb je helemaal geen idee wat je wilt. Weet je niet wat te doen? Wij kiezen een coole ervaring voor jou!</h2>
+		<h2>Heb je helemaal geen idee wat je wilt. Weet je niet wat te doen? Wij hebben de coole ervaring die jij zoekt!</h2>
 	
 		<a href="{{ route('product.random') }}" class="button red_ghost button-center button-random">Kies een coole ervaring voor me!</a>
 	</div>

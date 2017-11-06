@@ -64,6 +64,11 @@ a:active, a:focus{
 	box-sizing: border-box;
 	overflow: hidden;
 
+	@media screen and(max-width: 800px){
+		margin: 0rem;
+		padding: 0rem;
+	}
+
 	&-show{
 		padding-right: 0;
 	}

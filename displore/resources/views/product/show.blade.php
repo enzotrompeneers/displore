@@ -31,19 +31,21 @@
 				<h3>Vergelijkbare ervaringen</h3>
 				@foreach($relevantProducts as $relevantProduct)
 	
-						<div class="large-6 columns box-small">
-							<a href="{{ route('product.show', $relevantProduct->id) }}">
-								<div class="box-image-overlay">
-									<div class="box-image-overlay-title">Bekijk meer</div> 
+						<div class="large-6 columns">
+							<div class="box-small">
+								<a href="{{ route('product.show', $relevantProduct->id) }}">
+									<div class="box-image-overlay">
+										<div class="box-image-overlay-title">Bekijk meer</div> 
+									</div>
+									<div class="box-image-holder">
+										@if(isset($relevantProduct->images->first()->image))
+											<img class="box-image" src="{{ asset($relevantProduct->images->first()->image) }}" alt="Afbeelding van {{ $relevantProduct->title }}">
+										@endif
+									</div>
+								</a>
+								<div class="box-details">
+									<div class="box-title">{{ $relevantProduct->title }}</div>
 								</div>
-								<div class="box-image-holder">
-									@if(isset($relevantProduct->images->first()->image))
-										<img class="box-image" src="{{ asset($relevantProduct->images->first()->image) }}" alt="Afbeelding van {{ $relevantProduct->title }}">
-									@endif
-								</div>
-							</a>
-							<div class="box-details">
-								<div class="box-title">{{ $relevantProduct->title }}</div>
 							</div>
 						</div>
 		
