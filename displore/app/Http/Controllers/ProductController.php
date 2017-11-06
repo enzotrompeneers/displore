@@ -41,9 +41,15 @@ class ProductController extends Controller
     $date = Carbon::parse(request('date'))->diffForHumans();
     $datetime = Carbon::parse(request('date'));
 
-    $products = Product::search($search_term)
-    ->where('category', $category)
-    ->get();
+    if(!$category){
+      $products = Product::search($search_term)
+      ->get();
+    }else{
+      $products = Product::search($search_term)
+      ->where('category', $category)
+      ->get();
+    }
+
 
     foreach($products as $product)
     {
@@ -108,7 +114,7 @@ class ProductController extends Controller
   {
     $product = Product::findOrFail($id);
     $images = ProductImage::where('product_id', $id)->get();
-    $relevantProducts = Product::where('category', $product->category)->take(4)->get();
+    $relevantProducts = Product::where('category', $product->category)->where('id', '<>', $id)->take(4)->get();
 
     if($product === null){
       return abort('404');

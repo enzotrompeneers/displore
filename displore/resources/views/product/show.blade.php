@@ -70,19 +70,19 @@
 
 			<div class="small-12 medium-3 cell date_container">
 
-				<div class="small-12 columns">
+				<div class="small-12 columns" id="reservation-form">
 					<label class="date_label" for="from">Wanneer?</label>
 						<input type="datetime" placeholder="yyyy-mm-dd" required pattern="date" name="from" id="dpd1" class="span2 datetimepicker datepicker days-check">
 						<small class="error" id="date-error">Datum is niet geldig!</small>
 					</label>
 
-					@if ($product->price_time === "uur")
+					@if ($product->price_time === "hour")
 						<label class="date_label" for="quantity">Hoeveel uren?
 					@endif
-					@if ($product->price_time === "dag")
+					@if ($product->price_time === "day")
 						<label class="date_label" for="quantity">Hoeveel dagen?
 					@endif
-
+						
 						<input type="text" placeholder="bv. 3" required pattern="number" name="quantity" value="{{ old('quantity') }}" id="quantity" >
 						<small class="error">Enkel cijfers!</small>
 					</label>

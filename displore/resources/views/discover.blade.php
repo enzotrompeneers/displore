@@ -28,6 +28,7 @@
 			<div class="form-group">
 				<label for="category">Soort</label>
 				<select name="category" id="category" value="{{ old('category') }}">
+					    <option value="">Geen categorie</option>
 						<option value="Ervaring">Ervaring</option>
 						<option value="Uitstap">Uitstap</option>
 						<option value="Dienst">Dienst</option>

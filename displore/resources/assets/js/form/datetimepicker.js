@@ -36,9 +36,16 @@ export class DateTimePicker{
 				let noReservationText = document.createTextNode("Geen reservaties mogelijk op dit moment");
 
 				noReservationElement.appendChild(noReservationText);
-				datetimepicker.parentNode.appendChild(noReservationElement);
+				
 
-				document.getElementById("date-error").remove();
+				var reservationForm = document.getElementById("reservation-form");
+
+				while(reservationForm.firstChild)
+				{
+					reservationForm.removeChild(reservationForm.firstChild);
+				}
+
+				reservationForm.parentNode.appendChild(noReservationElement);
 			}else{
 				options["enable"] = response.data;
 				this.makePicker(datetimepicker, options);
