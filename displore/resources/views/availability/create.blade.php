@@ -37,6 +37,7 @@
 								<input type="datetime" class="datetimepicker datepicker" id="to" name="to" placeholder="Eind datum">
 							</div>
 						</div>
+						<input type="hidden" name="capacity" value="1">
 					@else
 						<div class="medium-4 cell">
 							<div class="form-group">
@@ -56,7 +57,12 @@
 								<input type="datetime" class="datetimepicker timepicker" id="end_hour" name="end_hour" placeholder="Eind uur" value="12:00">
 							</div>
 						</div>
-						
+						<div class="medium-12 cell">
+							<div class="form-group">
+								<label for="capacity">Aantal personen die kunnen reserveren voor de sessie</label>
+								<input type="text" name="capacity" id="capacity" placeholder="Capaciteit" value="1">
+							</div>
+						</div>
 					@endif
 
 				</div>

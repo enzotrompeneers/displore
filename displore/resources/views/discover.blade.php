@@ -101,7 +101,22 @@
 		@else
 			<div class="large-12 columns">
 				<h3 class="search-fail">
-					Niets gevonden voor <b>{{ $search_term }}</b> <b>{{ $date }}</b> met categorie <b>{{ $category }}</b>
+					Niets gevonden @if(isset($search_term)) voor 
+					<b>
+						{{ $search_term }} 	
+					</b> 
+					@endif
+					<b>
+						@if(isset($date))
+							{{ $date }}
+						@endif
+					</b> 
+					@if(isset($category))
+					met categorie 
+					<b>
+						{{ $category }}
+					</b>
+					@endif
 				</h3>
 			</div>
 		@endif

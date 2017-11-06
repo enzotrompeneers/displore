@@ -52,12 +52,6 @@ class RegisterController extends Controller
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-
-            'street' => 'string|max:255',
-            'house_nr' => 'string|max:255|integer',
-            'city' => 'string|max:255',
-            'country' => 'string|max:255',
-            'paypal' => 'string|email|max:255|unique:users|nullable',
         ]);
     }
 

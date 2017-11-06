@@ -24,11 +24,11 @@
 	<header class="header header-lander">
             <div class="header-logo">
                 <div class="header-logo-image">
-                    <a href="{{ route('discover') }}"><img src="{{asset('assets/graphics/displore_logo.svg')}}" alt="Displore"></a>
+                    <a href="{{ route('lander') }}"><img src="{{asset('assets/graphics/displore_logo_dark.svg')}}" alt="Displore"></a>
                 </div>
 
                 <div class="header-logo-text show-for-medium-up">
-                    <a href="{{ route('discover') }}">
+                    <a href="{{ route('lander') }}" style="color: white;">
                         Displore
                     </a>
                 </div>
