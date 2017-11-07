@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,7 +71,7 @@
 
 
 var bind = __webpack_require__(2);
-var isBuffer = __webpack_require__(17);
+var isBuffer = __webpack_require__(18);
 
 /*global toString:true*/
 
@@ -381,7 +381,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(20);
+var normalizeHeaderName = __webpack_require__(21);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -471,7 +471,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
 
 /***/ }),
 /* 2 */
@@ -499,12 +499,12 @@ module.exports = function bind(fn, thisArg) {
 
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(21);
-var buildURL = __webpack_require__(23);
-var parseHeaders = __webpack_require__(24);
-var isURLSameOrigin = __webpack_require__(25);
+var settle = __webpack_require__(22);
+var buildURL = __webpack_require__(24);
+var parseHeaders = __webpack_require__(25);
+var isURLSameOrigin = __webpack_require__(26);
 var createError = __webpack_require__(4);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(26);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(27);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -601,7 +601,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(27);
+      var cookies = __webpack_require__(28);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -685,7 +685,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(22);
+var enhanceError = __webpack_require__(23);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -743,26 +743,65 @@ module.exports = Cancel;
 
 /***/ }),
 /* 7 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-__webpack_require__(8);
-module.exports = __webpack_require__(43);
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Modal; });
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Modal = function () {
+	function Modal(modal_id, title, description) {
+		_classCallCheck(this, Modal);
+
+		this.modal = document.getElementById(modal_id);
+
+		this.title = title;
+		this.description = description;
+
+		this.setContent();
+	}
+
+	_createClass(Modal, [{
+		key: "setContent",
+		value: function setContent() {
+			this.modal.getElementsByClassName("modal-title-text")[0].innerHTML = this.title;
+			this.modal.getElementsByClassName("modal-content")[0].innerHTML = this.description;
+		}
+	}, {
+		key: "show",
+		value: function show() {
+			this.modal.parentNode.style.display = "block";
+		}
+	}]);
+
+	return Modal;
+}();
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(9);
+module.exports = __webpack_require__(45);
+
+
+/***/ }),
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__form_fileupload__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__form_image__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_paypal__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ui_dropdown__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__googlemaps__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__form_datetimepicker__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__form_fileupload__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__form_image__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_paypal__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions_whatisdisplore__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ui_dropdown__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__googlemaps__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__form_datetimepicker__ = __webpack_require__(42);
 
 
 /* form items */
@@ -772,6 +811,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* actions */
 
 
+
 /* ui stuff */
 
 
@@ -779,16 +819,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (document.getElementById("map") !== null) {
-    var gmaps = new __WEBPACK_IMPORTED_MODULE_5__googlemaps__["a" /* GoogleMaps */]();
+    var gmaps = new __WEBPACK_IMPORTED_MODULE_6__googlemaps__["a" /* GoogleMaps */]();
     gmaps.initMap();
 }
 if (document.getElementById("showMap") !== null) {
-    var gmaps = new __WEBPACK_IMPORTED_MODULE_5__googlemaps__["a" /* GoogleMaps */]();
+    var gmaps = new __WEBPACK_IMPORTED_MODULE_6__googlemaps__["a" /* GoogleMaps */]();
     gmaps.showMap();
 }
 
 if (document.getElementsByClassName("datetimepicker") !== 0) {
-    new __WEBPACK_IMPORTED_MODULE_6__form_datetimepicker__["a" /* DateTimePicker */]();
+    new __WEBPACK_IMPORTED_MODULE_7__form_datetimepicker__["a" /* DateTimePicker */]();
 }
 
 // '/js/foundation-datepicker.js'
@@ -832,11 +872,11 @@ if (document.getElementsByClassName("datetimepicker") !== 0) {
 })();
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(10);
+window._ = __webpack_require__(11);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -845,9 +885,9 @@ window._ = __webpack_require__(10);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(13);
+  window.$ = window.jQuery = __webpack_require__(14);
 
-  __webpack_require__(14);
+  __webpack_require__(15);
 } catch (e) {}
 
 /**
@@ -856,7 +896,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(15);
+window.axios = __webpack_require__(16);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -890,7 +930,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -17979,10 +18019,10 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11), __webpack_require__(12)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(13)(module)))
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 var g;
@@ -18009,7 +18049,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -18037,7 +18077,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -28297,7 +28337,7 @@ return jQuery;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 /*!
@@ -30680,13 +30720,13 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(16);
+module.exports = __webpack_require__(17);
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30694,7 +30734,7 @@ module.exports = __webpack_require__(16);
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(2);
-var Axios = __webpack_require__(18);
+var Axios = __webpack_require__(19);
 var defaults = __webpack_require__(1);
 
 /**
@@ -30729,14 +30769,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(6);
-axios.CancelToken = __webpack_require__(33);
+axios.CancelToken = __webpack_require__(34);
 axios.isCancel = __webpack_require__(5);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(34);
+axios.spread = __webpack_require__(35);
 
 module.exports = axios;
 
@@ -30745,7 +30785,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 /*!
@@ -30772,7 +30812,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30780,10 +30820,10 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(1);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(28);
-var dispatchRequest = __webpack_require__(29);
-var isAbsoluteURL = __webpack_require__(31);
-var combineURLs = __webpack_require__(32);
+var InterceptorManager = __webpack_require__(29);
+var dispatchRequest = __webpack_require__(30);
+var isAbsoluteURL = __webpack_require__(32);
+var combineURLs = __webpack_require__(33);
 
 /**
  * Create a new instance of Axios
@@ -30865,7 +30905,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -31055,7 +31095,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31074,7 +31114,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31107,7 +31147,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31135,7 +31175,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31210,7 +31250,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31254,7 +31294,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31329,7 +31369,7 @@ module.exports = (
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31372,7 +31412,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31432,7 +31472,7 @@ module.exports = (
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31491,14 +31531,14 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(30);
+var transformData = __webpack_require__(31);
 var isCancel = __webpack_require__(5);
 var defaults = __webpack_require__(1);
 
@@ -31577,7 +31617,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31604,7 +31644,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31625,7 +31665,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31646,7 +31686,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31710,7 +31750,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31744,7 +31784,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -31789,7 +31829,7 @@ var FileUpload = function () {
 new FileUpload();
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -31834,11 +31874,11 @@ var Image = function () {
 new Image();
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_modal__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_modal__ = __webpack_require__(7);
 
 
 if (document.getElementById("paypal-button-container") !== null) {
@@ -31895,45 +31935,74 @@ function renderPaypal() {
 }
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Modal; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_modal__ = __webpack_require__(7);
+
+
+var disploreWat = document.getElementById("wat-is-displore");
+
+disploreWat.addEventListener('click', function (event) {
+	event.preventDefault();
+	new __WEBPACK_IMPORTED_MODULE_0__ui_modal__["a" /* Modal */]("displore-modal", "Wat is displore?", '<iframe width="850" height="478" src="https://www.youtube.com/embed/I0Ktmdj41KE?autoplay=1" frameborder="0" gesture="media" allowfullscreen></iframe>').show();
+}, false);
+
+/***/ }),
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export Dropdown */
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Modal = function () {
-	function Modal(modal_id, title, description) {
-		_classCallCheck(this, Modal);
+var Dropdown = function () {
+	function Dropdown() {
+		_classCallCheck(this, Dropdown);
 
-		this.modal = document.getElementById(modal_id);
+		this.dropdown = document.getElementsByClassName("dropdown-holder");
 
-		this.title = title;
-		this.description = description;
+		document.onclick = this.closeDropdown.bind(document, this.dropdown);
 
-		this.setContent();
+		for (var dropdownIndex = 0; dropdownIndex < this.dropdown.length; dropdownIndex++) {
+			var dropdownButton = this.dropdown[dropdownIndex].getElementsByClassName("dropdown")[0];
+			var dropdownMenu = this.dropdown[dropdownIndex].getElementsByClassName("dropdown-menu")[0];
+			dropdownButton.onclick = this.openDropdown.bind(dropdownMenu, dropdownMenu);
+		}
 	}
 
-	_createClass(Modal, [{
-		key: "setContent",
-		value: function setContent() {
-			this.modal.getElementsByClassName("modal-title-text")[0].innerHTML = this.title;
-			this.modal.getElementsByClassName("modal-content")[0].innerHTML = this.description;
+	_createClass(Dropdown, [{
+		key: "openDropdown",
+		value: function openDropdown(dropdownMenu) {
+			dropdownMenu.classList.add("visible");
 		}
 	}, {
-		key: "show",
-		value: function show() {
-			this.modal.parentNode.style.display = "block";
+		key: "closeDropdown",
+		value: function closeDropdown(dropdown) {
+			if (event.srcElement.classList.contains("dropdown")) {
+				return;
+			}
+
+			for (var dropdownIndex = 0; dropdownIndex < dropdown.length; dropdownIndex++) {
+				var dropdownMenu = dropdown[dropdownIndex].getElementsByClassName("dropdown-menu")[0];
+
+				if (dropdownMenu.classList.contains("visible")) {
+					dropdownMenu.classList.remove("visible");
+				}
+			}
 		}
 	}]);
 
-	return Modal;
+	return Dropdown;
 }();
 
+new Dropdown();
+
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -32047,14 +32116,14 @@ var GoogleMaps = function () {
 // End Init Map
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DateTimePicker; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flatpickr__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flatpickr__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flatpickr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_flatpickr__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -32153,7 +32222,7 @@ var DateTimePicker = function () {
 }();
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* flatpickr v4.0.6, @license MIT */
@@ -34286,7 +34355,7 @@ return flatpickr$1;
 
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* flatpickr v4.0.6, @license MIT */
@@ -34367,66 +34436,10 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export Dropdown */
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Dropdown = function () {
-	function Dropdown() {
-		_classCallCheck(this, Dropdown);
-
-		this.dropdown = document.getElementsByClassName("dropdown-holder");
-
-		document.onclick = this.closeDropdown.bind(document, this.dropdown);
-
-		for (var dropdownIndex = 0; dropdownIndex < this.dropdown.length; dropdownIndex++) {
-			var dropdownButton = this.dropdown[dropdownIndex].getElementsByClassName("dropdown")[0];
-			var dropdownMenu = this.dropdown[dropdownIndex].getElementsByClassName("dropdown-menu")[0];
-			dropdownButton.onclick = this.openDropdown.bind(dropdownMenu, dropdownMenu);
-		}
-	}
-
-	_createClass(Dropdown, [{
-		key: "openDropdown",
-		value: function openDropdown(dropdownMenu) {
-			dropdownMenu.classList.add("visible");
-		}
-	}, {
-		key: "closeDropdown",
-		value: function closeDropdown(dropdown) {
-			if (event.srcElement.classList.contains("dropdown")) {
-				return;
-			}
-
-			for (var dropdownIndex = 0; dropdownIndex < dropdown.length; dropdownIndex++) {
-				var dropdownMenu = dropdown[dropdownIndex].getElementsByClassName("dropdown-menu")[0];
-
-				if (dropdownMenu.classList.contains("visible")) {
-					dropdownMenu.classList.remove("visible");
-				}
-			}
-		}
-	}]);
-
-	return Dropdown;
-}();
-
-new Dropdown();
 
 /***/ })
 /******/ ]);

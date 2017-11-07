@@ -1,9 +1,22 @@
 <!DOCTYPE html>
+<html>
 <head>
     @include('includes.header')
 </head>
-<html>
-	<body class="lander-bg">
+
+<body class="lander-bg">
+    @component('components.modal')
+        @slot('id')
+            displore-modal
+        @endslot
+        @slot('overlay_class')
+            modal-hidden
+        @endslot
+        @slot('class')
+            modal-video
+        @endslot
+    @endcomponent
+
 
 	<!-- Navbar -->
 	<header class="header header-lander">
@@ -37,6 +50,7 @@
                             </ul>
                         </span>
                     @else
+                        <li class="header-list-item"><a class="header-list-item-link" id="wat-is-displore">Wat is displore?</a></li>
                         <li class="header-list-item"><a class="button primary" href="{{ route('login') }}">Inloggen</a></li>
                     @endif
                     

@@ -6,6 +6,7 @@ import './form/image';
 
 /* actions */
 import './actions/paypal';
+import './actions/whatisdisplore';
 
 /* ui stuff */
 import './ui/dropdown';

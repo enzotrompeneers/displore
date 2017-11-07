@@ -2699,6 +2699,19 @@ h5 {
   display: none;
 }
 
+.modal-video {
+  width: 850px;
+}
+
+.modal-video .modal-content {
+  padding: 0;
+}
+
+.modal-video .modal-buttons {
+  margin: 0;
+  padding: 0;
+}
+
 .modal-close {
   cursor: pointer;
   padding: 15px 0px;
@@ -2763,6 +2776,8 @@ h5 {
 
 .header-lander {
   background-color: transparent;
+  -webkit-box-shadow: 0px 3px 5px transparent;
+          box-shadow: 0px 3px 5px transparent;
   border: none;
 }
 
