@@ -10,7 +10,7 @@
 				Geen paypal
 			@endslot
 			@slot('content')
-				Je moet een paypal e-mail hebben zodat mensen jouw kunnen betalen via het platform.
+				Je moet een paypal e-mail hebben zodat mensen jou kunnen betalen via het platform.
 			@endslot
 
 			@slot('buttons')

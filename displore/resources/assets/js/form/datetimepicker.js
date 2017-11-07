@@ -1,9 +1,5 @@
 import 'flatpickr';
 import { Dutch } from 'flatpickr/dist/l10n/nl.js'
-// flatpickr.l10n.weekdays = {
-//     shorthand: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
-//     longhand: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']
-// };
 
 export class DateTimePicker{
 

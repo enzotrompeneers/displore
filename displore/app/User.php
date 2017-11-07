@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -12,6 +13,7 @@ class User extends Authenticatable
     public $timestamps = true;
 
     use SoftDeletes;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
