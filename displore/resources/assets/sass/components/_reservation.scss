@@ -5,6 +5,12 @@
 	padding:15px;
 	margin: 10px;
 
+	@media screen and(max-width: 800px){
+		@include clearfix;
+		padding: 0.5rem;
+		box-sizing: border-box;
+	}
+
 
 	&-text {
 		line-height: 2.5;
@@ -12,7 +18,20 @@
 	}
 
 	&-info{
+		float: right;
 		line-height: 38px;
-		margin-left: 0.5rem;
+		
+	}
+
+	&-text, &-info{
+		@media screen and(max-width: 800px){
+			float: none;
+			width: 100%;
+
+			.red_ghost{
+				margin: 0.5rem 0;
+				width: 100%;
+			}
+		}
 	}
 }

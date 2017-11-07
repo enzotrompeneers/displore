@@ -15,7 +15,7 @@
 					<div class="reservation-text">{{ $reservation->product->title }}</div>
 
 
-					<div class="reservation-info right">
+					<div class="reservation-info">
 						Door <a href="mailto: {{ $reservation->user->email }}">{{ $reservation->user->first_name . " " . $reservation->user->last_name }}</a>
 
 						Op {{ Carbon\Carbon::parse($reservation->from)->toDateString() }}
@@ -39,7 +39,7 @@
 			<div class="reservation">
 				<div class="reservation-text">{{ $reservation->product->title }}</div>
 	
-				<div class="reservation-info right">
+				<div class="reservation-info">
 					Door <a href="mailto: {{ $reservation->user->email }}">{{ $reservation->user->first_name . " " . $reservation->user->last_name }}</a>
 
 					Op {{ Carbon\Carbon::parse($reservation->from)->toDateString() }}

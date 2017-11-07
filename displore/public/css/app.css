@@ -2971,6 +2971,13 @@ label {
   margin-top: 25px;
 }
 
+@media screen and (max-width: 800px) {
+  .box,
+  .box-small {
+    margin: 0.975rem;
+  }
+}
+
 .box:hover,
 .box-small:hover {
   -webkit-box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
@@ -3066,6 +3073,12 @@ label {
   width: 250px;
 }
 
+@media screen and (max-width: 800px) {
+  .dropdown-menu {
+    margin: 0.975rem;
+  }
+}
+
 .dropdown-menu-item {
   display: block;
   width: 100%;
@@ -3143,14 +3156,39 @@ label {
   margin: 10px;
 }
 
+@media screen and (max-width: 800px) {
+  .reservation {
+    content: "";
+    display: table;
+    clear: both;
+    padding: 0.5rem;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+}
+
 .reservation-text {
   line-height: 2.5;
   display: inline;
 }
 
 .reservation-info {
+  float: right;
   line-height: 38px;
-  margin-left: 0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+  .reservation-text,
+  .reservation-info {
+    float: none;
+    width: 100%;
+  }
+
+  .reservation-text .red_ghost,
+  .reservation-info .red_ghost {
+    margin: 0.5rem 0;
+    width: 100%;
+  }
 }
 
 /**
@@ -3290,6 +3328,9 @@ body {
           animation-name: container-animation;
   -webkit-animation-duration: 0.5s;
           animation-duration: 0.5s;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 800px) {
@@ -3301,6 +3342,38 @@ body {
 
 .container-small {
   max-width: 400px;
+}
+
+.container-white {
+  padding: 0.975rem;
+  margin: 0.975rem;
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #dadada;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 800px) {
+  .container-white {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 1rem;
+  }
+}
+
+.container-white-show {
+  padding-right: 0;
+}
+
+.container-white-tabs {
+  margin: 0rem;
+  border-radius: 0px 6px 6px 6px;
+  position: relative;
+  z-index: 1;
 }
 
 .clearfix {
@@ -3320,37 +3393,6 @@ body {
 a:active,
 a:focus {
   color: #555;
-}
-
-.container-white {
-  padding: 0.975rem;
-  margin: 0.975rem;
-  background-color: #fff;
-  border-radius: 6px;
-  border: 1px solid #dadada;
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  overflow: hidden;
-}
-
-@media screen and (max-width: 800px) {
-  .container-white {
-    margin: 0rem;
-    padding: 0rem;
-  }
-}
-
-.container-white-show {
-  padding-right: 0;
-}
-
-.container-white-tabs {
-  margin: 0rem;
-  border-radius: 0px 6px 6px 6px;
-  position: relative;
-  z-index: 1;
 }
 
 .cell {

@@ -8,7 +8,7 @@
 		<input type="hidden" name="price_time" id="price_time" value="{{ $product->price_time }}"/>
 
 		<div class="row container-white container-white-show">
-			<div class="medium-6 cell">
+			<div class="small-12 medium-6 cell">
 				@if(Auth::check())
 					@if($product->user_id === Auth::user()->id)
 						<a class="red_ghost" href="{{ route('product.edit', $product->id) }}">Bewerken</a>

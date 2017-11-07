@@ -12,7 +12,7 @@
 				<div class="reservation-text">
 					{{ $product->title }}
 				</div>
-				<div class="right">
+				<div class="reservation-info">
 					<a class="button" href="{{ route('availability.create', $product->id) }}">Geef je beschikbaarheid aan</a>
 					<a class="red_ghost" href="{{ route('product.edit', $product->id) }}">Bewerken</a>
 				</div>

@@ -23,6 +23,8 @@ body{
 	max-width: 1020px;
 	animation-name: container-animation;
 	animation-duration: 0.5s;
+	box-sizing: border-box;
+	overflow: hidden;
 
 	@media screen and(max-width: 800px)
 	{
@@ -37,6 +39,34 @@ body{
 .container-small{
 	@extend %container;
 	max-width: 400px;
+}
+
+.container-white {
+    padding: 0.975rem;
+    margin: 0.975rem;
+	background-color: #fff;
+	border-radius: 6px;
+	border: 1px solid $secondary-3;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+	box-sizing: border-box;
+	overflow: hidden;
+
+	@media screen and(max-width: 800px){
+		margin: 0;
+		padding: 0;
+		padding-bottom: 1rem;
+	}
+
+	&-show{
+		padding-right: 0;
+	}
+
+	&-tabs{
+		margin: 0rem;
+		border-radius: 0px 6px 6px 6px;
+		position: relative;
+		z-index: 1;
+	}
 }
 
 .clearfix{
@@ -54,32 +84,7 @@ body{
 a:active, a:focus{
 	color: $secondary-2;
 }	
-.container-white {
-    padding: 0.975rem;
-    margin: 0.975rem;
-	background-color: #fff;
-	border-radius: 6px;
-	border: 1px solid $secondary-3;
-	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
-	box-sizing: border-box;
-	overflow: hidden;
 
-	@media screen and(max-width: 800px){
-		margin: 0rem;
-		padding: 0rem;
-	}
-
-	&-show{
-		padding-right: 0;
-	}
-
-	&-tabs{
-		margin: 0rem;
-		border-radius: 0px 6px 6px 6px;
-		position: relative;
-		z-index: 1;
-	}
-}
 
 .cell {
     float: left;
