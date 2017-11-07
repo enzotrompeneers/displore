@@ -1,5 +1,5 @@
 <div>
-	<div>
+	<div class="tab-holder">
 		<ul>
 			<li>
 				<a href="{{ route('user.offers') }}" class="tab {{ trim($tab) === "offers" ? "tab-active" : "" }}">Jouw aanbiedingen</a>
@@ -16,7 +16,7 @@
 		</ul>
 	</div>
 
-	<div class="tab-content">
+	<div class="tab-content container-white container-white-tabs">
 		{{ $slot }}
 	</div>
 </div>

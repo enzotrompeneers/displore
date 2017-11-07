@@ -31,12 +31,11 @@
 					<div class="small-5 medium-3 cell">
 						<label>Periode</label>
 						<select name="price_time">
-							<option value="{{ $product->price_time }}">{{ $product->price_time }}</option>
-							@if ($product->price_time === "Uur")
+							@if ($product->price_time === "day")
 								<option value="day">Dag</option>
 							@endif
-							@if ($product->price_time === "Dag")
-								<option value="hour">Uur</option>
+							@if ($product->price_time === "hour")
+								<option value="hour">Sessie</option>
 							@endif
 					
 						</select>

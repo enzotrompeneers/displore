@@ -96,7 +96,7 @@
 					@if($product->price_time === "day")
 
 						<div class="medium-4 cell">
-							<div class="borderdiv">
+							<div class="reservation">
 								{{ $available->date->format("d/m/Y") }}
 								<div class="right">
 									<form action="{{ route("availability.destroy", $available->id) }}" method="post">
@@ -110,7 +110,7 @@
 					@else
 	
 						<div class="medium-12 cell">
-							<div class="borderdiv">
+							<div class="reservation">
 									{{ $available->start_hour->format("H:i") . " Uur" }} - {{ $available->end_hour->format("H:i") . " Uur" }} op {{ $available->date->diffForHumans() }}
 								<div class="right">
 									<form action="{{ route("availability.destroy", $available->id) }}" method="post">

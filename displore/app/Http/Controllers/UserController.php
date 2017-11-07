@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreUser;
 use App\Product;
 use App\Reservation;
+use Carbon\Carbon;
 use Auth;
 
 class UserController extends Controller

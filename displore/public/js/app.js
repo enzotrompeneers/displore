@@ -764,8 +764,13 @@ var Modal = function () {
 		this.modalCloseButton = document.getElementById("modal-close");
 		this.modalOverlay = this.modal.parentNode;
 
-		this.modalCloseButton.onclick = this.hide.bind(this.modalOverlay, this.modalOverlay, this.hooks.onHide);
-		this.modalOverlay.onclick = this.hide.bind(this.modalOverlay, this.modalOverlay, this.hooks.onHide);
+		if (this.hooks.onHide === undefined) {
+			this.modalCloseButton.onclick = this.hide.bind(this.modalOverlay, this.modalOverlay);
+			this.modalOverlay.onclick = this.hide.bind(this.modalOverlay, this.modalOverlay);
+		} else {
+			this.modalCloseButton.onclick = this.hide.bind(this.modalOverlay, this.modalOverlay, this.hooks.onHide);
+			this.modalOverlay.onclick = this.hide.bind(this.modalOverlay, this.modalOverlay, this.hooks.onHide);
+		}
 
 		this.setContent();
 	}
@@ -776,7 +781,7 @@ var Modal = function () {
 			this.modal.getElementsByClassName("modal-title-text")[0].innerHTML = this.title;
 			this.modal.getElementsByClassName("modal-content")[0].innerHTML = this.description;
 
-			if (this.hooks.onLoad !== null) {
+			if (this.hooks.onLoad !== undefined) {
 				this.hooks.onLoad();
 			}
 		}
@@ -785,13 +790,19 @@ var Modal = function () {
 		value: function hide(modalOverlay, hideHook) {
 			event.preventDefault();
 			modalOverlay.style.display = "none";
-			hideHook();
+
+			if (hideHook !== undefined) {
+				hideHook();
+			}
 		}
 	}, {
 		key: "show",
 		value: function show() {
 			this.modalOverlay.style.display = "block";
-			this.hooks.onShow();
+
+			if (this.hooks.onShow !== undefined) {
+				this.hooks.onShow();
+			}
 		}
 	}]);
 
@@ -31944,10 +31955,14 @@ function renderPaypal() {
 
         onAuthorize: function onAuthorize(data, actions) {
             return actions.payment.execute().then(function () {
-                new __WEBPACK_IMPORTED_MODULE_0__ui_modal__["a" /* Modal */]("paypal-modal", "Betaling voltooid!", "Dankje voor je betaling, geniet van de ervaring!").show();
+                new __WEBPACK_IMPORTED_MODULE_0__ui_modal__["a" /* Modal */]("paypal-modal", "Betaling voltooid!", "Dankje voor je betaling, geniet van de ervaring!", {}).show();
                 //TODO: Dit is fucked up en onveilig
                 axios.post("/reservatie/betalen/" + reservation + "/compleet");
             });
+        },
+
+        onCancel: function onCancel(data, actions) {
+            new __WEBPACK_IMPORTED_MODULE_0__ui_modal__["a" /* Modal */]("paypal-modal", "Betaling is geannuleerd!", "De betaling is niet goed verlopen :(", {}).show();
         }
 
     }, '#paypal-button-container');

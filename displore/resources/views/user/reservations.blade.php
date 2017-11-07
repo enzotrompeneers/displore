@@ -11,13 +11,20 @@
 		@foreach($products as $product)
 			@foreach($product->reservations()->get() as $reservation)
 				
-				<div>
-					<h2>{{ $reservation->product->title }}</h2>
+				<div class="reservation">
+					<div class="reservation-text">{{ $reservation->product->title }}</div>
 
-					<div>Door <a href="mailto: {{ $reservation->user->email }}">{{ $reservation->user->first_name . " " . $reservation->user->last_name }}</a></div>
 
-					<div>{{ $reservation->from }}</div>
-					<div>{{ $reservation->to }}</div>
+					<div class="reservation-info right">
+						Door <a href="mailto: {{ $reservation->user->email }}">{{ $reservation->user->first_name . " " . $reservation->user->last_name }}</a>
+
+						Op {{ Carbon\Carbon::parse($reservation->from)->toDateString() }}
+						@if($reservation->product->price_time === "day")
+							Tot en met
+							{{ Carbon\Carbon::parse($reservation->to)->toDateString() }}
+						@endif
+					
+					</div>
 				</div>
 			@endforeach
 		@endforeach
@@ -29,13 +36,24 @@
 		<h1>Reservaties bij andere</h1>
 	
 		@foreach($my_reservations as $reservation)
-			<div>
-				<h2>{{ $reservation->product->title }}</h2>
+			<div class="reservation">
+				<div class="reservation-text">{{ $reservation->product->title }}</div>
+	
+				<div class="reservation-info right">
+					Door <a href="mailto: {{ $reservation->user->email }}">{{ $reservation->user->first_name . " " . $reservation->user->last_name }}</a>
 
-				<div>Door <a href="mailto: {{ $reservation->user->email }}">{{ $reservation->user->first_name . " " . $reservation->user->last_name }}</a></div>
+					Op {{ Carbon\Carbon::parse($reservation->from)->toDateString() }}
+					@if($reservation->product->price_time === "day")
+						Tot en met
+						{{ Carbon\Carbon::parse($reservation->to)->toDateString() }}
+					@endif
+				</div>
 
-				<div>{{ $reservation->from }}</div>
-				<div>{{ $reservation->to }}</div>
+				@if(!$reservation->paid)
+				<div class="right">
+					<a href="{{ route('reservation.payment', $reservation->id) }}" class="button">Betalen</a>
+				</div>
+				@endif
 			</div>
 			
 		@endforeach

@@ -7,7 +7,7 @@ if(disploreWat !== null)
 {
 	disploreWat.addEventListener('click', (event) => {
 		event.preventDefault();
-		var player;
+		var player
 
 		let content = '<div id="displore-video"></div>';
 		let modalHooks = {

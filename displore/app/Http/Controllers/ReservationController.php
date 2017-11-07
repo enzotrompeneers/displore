@@ -6,31 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreReservation;
 use App\Reservation;
 use App\User;
+use App\Availability;
+
 use Carbon\Carbon;
 use Auth;
 
 class ReservationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -50,15 +32,25 @@ class ReservationController extends Controller
         $quantity = request('quantity');
         $price_time = request('price_time');
 
+        
+
         $reservation->from = Carbon::parse($from);
 
         if($price_time === "hour"){
-            $reservation->to = Carbon::parse($from)->addHours($quantity);
-        } else if($price_time === "day") {
-            $reservation->to = Carbon::parse($from)->addDays($quantity);
-        }
+            $reservation->to = Carbon::parse($from);
+            $reservation->quantity = 1;
 
-        $reservation->quantity = $quantity;
+            $availability = Availability::where('product_id', $product_id)->where('date', $from);
+            $availability->increment('reservations');
+        } else if($price_time === "day") {
+            $to = Carbon::parse($from)->addDays($quantity);
+            $reservation->to = $to;
+            $reservation->quantity = $quantity;
+
+            $availability = Availability::where('product_id', $product_id)->where('date', '>=', $from)->where('date', '<=', $to);
+            $availability->increment('reservations');
+        }
+        
         $reservation->paid = false;
 
         $reservation->save();
@@ -98,50 +90,5 @@ class ReservationController extends Controller
         $reservation->update();
 
         return;
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

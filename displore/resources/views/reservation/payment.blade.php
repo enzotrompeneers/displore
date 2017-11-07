@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section('head')
-	<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 @endsection
 
 @section('modal')

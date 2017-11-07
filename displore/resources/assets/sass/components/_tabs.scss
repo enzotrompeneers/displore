@@ -1,7 +1,8 @@
 .tab{
 	padding: 12px 25px;
 	color: $secondary-2;
-	border: 1px solid $secondary-4;
+	border-left: 1px solid $secondary-3;
+	border-right: 1px solid $secondary-3;
 	border-top: 3px solid $secondary-3;
 	background: white;
 	text-decoration: none;
@@ -16,6 +17,12 @@
 	&-active{
 		border-top: 3px solid $primary-1;
 		color: $primary-1;
+	}
+
+	&-holder{
+		position: relative;
+		z-index: 3;
+		
 	}
 
 	&-content{

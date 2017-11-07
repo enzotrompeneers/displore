@@ -2264,7 +2264,7 @@ textarea,
   outline: none;
   font-family: "Work Sans";
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 300;
   display: block;
   background-color: white;
 }
@@ -2900,7 +2900,8 @@ li a:hover {
 .tab {
   padding: 12px 25px;
   color: #555;
-  border: 1px solid #efefef;
+  border-left: 1px solid #dadada;
+  border-right: 1px solid #dadada;
   border-top: 3px solid #dadada;
   background: white;
   text-decoration: none;
@@ -2916,6 +2917,11 @@ li a:hover {
 .tab-active {
   border-top: 3px solid #e7173e;
   color: #e7173e;
+}
+
+.tab-holder {
+  position: relative;
+  z-index: 3;
 }
 
 .tab-content {
@@ -3129,6 +3135,24 @@ label {
   width: 100%;
 }
 
+.reservation {
+  border: 1px solid #8A8A8A;
+  border-radius: 3px;
+  height: 70px;
+  padding: 15px;
+  margin: 10px;
+}
+
+.reservation-text {
+  line-height: 2.5;
+  display: inline;
+}
+
+.reservation-info {
+  line-height: 38px;
+  margin-left: 0.5rem;
+}
+
 /**
  * More general styling
  */
@@ -3322,22 +3346,16 @@ a:focus {
   padding-right: 0;
 }
 
+.container-white-tabs {
+  margin: 0rem;
+  border-radius: 0px 6px 6px 6px;
+  position: relative;
+  z-index: 1;
+}
+
 .cell {
   float: left;
   padding: 10px;
-}
-
-.borderdiv {
-  border: 1px solid #8A8A8A;
-  border-radius: 3px;
-  height: 70px;
-  padding: 15px;
-  margin: 10px;
-}
-
-.product_text {
-  line-height: 2.5;
-  display: inline;
 }
 
 .price_container {
@@ -3347,10 +3365,18 @@ a:focus {
   height: 280px;
 }
 
-.price_text {
+.price_text,
+.price_text_description {
   color: #fff;
-  font-size: 4rem;
   margin: 0.975rem;
+}
+
+.price_text {
+  font-size: 4rem;
+}
+
+.price_text_description {
+  font-size: 1.8rem;
 }
 
 .date_container {

@@ -58,6 +58,7 @@ class ReservationHelper{
 		$dates =  Availability::where('product_id', $product_id)
 		->where('date', '>', Carbon::now())
 		->where('capacity', '>', 0)
+		->whereColumn('capacity', '<>' , 'reservations')
 		->pluck('date')
 		->toArray();
 

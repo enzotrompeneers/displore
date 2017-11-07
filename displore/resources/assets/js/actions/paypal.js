@@ -49,10 +49,14 @@ function renderPaypal()
 
         onAuthorize: function(data, actions) {
             return actions.payment.execute().then(function() {
-                new Modal("paypal-modal", "Betaling voltooid!", "Dankje voor je betaling, geniet van de ervaring!").show();
+                new Modal("paypal-modal", "Betaling voltooid!", "Dankje voor je betaling, geniet van de ervaring!", {}).show();
                 //TODO: Dit is fucked up en onveilig
                 axios.post("/reservatie/betalen/" + reservation + "/compleet");
             });
+        },
+
+        onCancel: function(data, actions) {
+            new Modal("paypal-modal", "Betaling is geannuleerd!", "De betaling is niet goed verlopen :(", {}).show();
         }
 
     }, '#paypal-button-container');

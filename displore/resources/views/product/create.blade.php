@@ -51,7 +51,7 @@
 				<div class="small-5 medium-3 cell">
 					<label>Periode</label>
 					<select name="price_time">
-						<option value="hour">Uur</option>
+						<option value="hour">Sessie</option>
 						<option value="day">Dag</option>
 					</select>
 					@if($errors->has('price_time'))

@@ -55,17 +55,16 @@
 			</div>
 			<div class="small-12 medium-3 cell price_container">
 				<div class="price_text">
-					{{ $product->price }} 
-					€ 
-					<small>
+					{{ $product->price }} € 
+				</div> 
+				<div class="price_text_description">
 						per 
 						@if($product->price_time === "hour")
-							uur
+							sessie
 						@else 
 							dag
 						@endif
-					</small>
-				</div> 
+					</div>
 			</div>
 
 			<div class="small-12 medium-3 cell date_container">
@@ -76,16 +75,15 @@
 						<small class="error" id="date-error">Datum is niet geldig!</small>
 					</label>
 
-					@if ($product->price_time === "hour")
-						<label class="date_label" for="quantity">Hoeveel uren?
-					@endif
+		
 					@if ($product->price_time === "day")
 						<label class="date_label" for="quantity">Hoeveel dagen?
-					@endif
+					
 						
 						<input type="text" placeholder="bv. 3" required pattern="number" name="quantity" value="{{ old('quantity') }}" id="quantity" >
 						<small class="error">Enkel cijfers!</small>
 					</label>
+					@endif
 
 					<input type="submit" class="button red_ghost" value="Reserveren"/>
 					</div>

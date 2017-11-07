@@ -20,6 +20,7 @@ class CreateAvailabilitiesTable extends Migration
             $table->integer('group');
             $table->datetime('start_hour');
             $table->datetime('end_hour');
+            $table->integer('reservations')->default(0);
             $table->integer('capacity');
             $table->timestamps();
             $table->softDeletes();

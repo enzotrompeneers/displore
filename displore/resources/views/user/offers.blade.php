@@ -8,8 +8,8 @@
 		@endslot
 		<h1>Jouw aanbiedingen</h1>
 		@foreach($products as $product)
-			<div class="borderdiv">
-				<div class="product_text">
+			<div class="reservation">
+				<div class="reservation-text">
 					{{ $product->title }}
 				</div>
 				<div class="right">
