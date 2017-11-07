@@ -4,12 +4,23 @@
 	background: $secondary-4;
 	z-index: 5;
 
+	@media screen and(max-width: 800px)
+	{
+		margin: 0;
+		height: 100%;
+		width: 100%;
+	}
+
 	&-hidden{
 		display: none;
 	}
 
 	&-video{
 		width: 850px;
+		@media screen and(max-width: 800px)
+		{
+			width: 100%;
+		}
 
 		.modal-content{
 			padding: 0;

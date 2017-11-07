@@ -1,5 +1,5 @@
 
-    <div class="card rating">
+    <div class="card rating" id="rating">
         <div class="card-section">
         
             <div class="rating-block">
@@ -17,10 +17,19 @@
                             @endfor
                         </label>
                     @endfor
+                    
                 </div>
             </div>
         </div>
     </div>
+    @if($errors->has('stars'))
+        <div>
+            <small class="error" style="display: block;">Je moet je rating nog geven</small>       
+        </div>
+    @endif
     <textarea name="text" placeholder="Recensie schrijven"></textarea>
+    @if($errors->has('text'))
+        <small class="error" style="display: block;">{{ $errors->first('text') }}</small>
+    @endif
     <input type="submit" class="button" value="Recensie insturen"/>
 </form>

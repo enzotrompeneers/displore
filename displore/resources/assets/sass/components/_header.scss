@@ -8,6 +8,11 @@
 	box-sizing: border-box;
 	padding: 0 1rem;
 
+	@media screen and(max-width: 800px)
+	{
+		padding: 0;
+	}
+
 	&-lander{
 		background-color: transparent; 
 		box-shadow: 0px 3px 5px transparent;
@@ -71,6 +76,8 @@
 		padding: 1rem 0;
 		@media screen and(max-width: 800px)
 		{
+			height: 3.5rem;
+			width: 3.5rem;
 			padding: 0;
 		}
 	}
