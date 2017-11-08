@@ -7,6 +7,7 @@ import './form/image';
 /* actions */
 import './actions/paypal';
 import './actions/whatisdisplore';
+import './actions/session';
 
 /* ui stuff */
 import './ui/dropdown';

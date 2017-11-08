@@ -6,6 +6,7 @@ use Auth;
 use App\Product;
 use App\ProductReview;
 use App\ProductImage;
+use App\Availability;
 use App\Http\Requests\StoreProduct;
 use App\Http\Requests\UpdateProduct;
 use App\Http\Helpers\ImageHelper;
@@ -115,6 +116,7 @@ class ProductController extends Controller
     $product = Product::findOrFail($id);
     $images = ProductImage::where('product_id', $id)->get();
     $relevantProducts = Product::where('category', $product->category)->where('id', '<>', $id)->take(4)->get();
+    $availabilities = Availability::where('product_id', $id)->whereColumn('reservations', '<', 'capacity')->get();
 
     if($product === null){
       return abort('404');
@@ -122,7 +124,7 @@ class ProductController extends Controller
 
     $reviews = $product->reviews()->get();
 
-    return view('product.show', compact('product', 'reviews', 'images', 'relevantProducts'));
+    return view('product.show', compact('product', 'reviews', 'images', 'relevantProducts', 'availabilities'));
   }
 
   public function showDaysAvailable($id)

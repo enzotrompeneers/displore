@@ -25,7 +25,11 @@ export class Modal{
 	setContent()
 	{
 		this.modal.getElementsByClassName("modal-title-text")[0].innerHTML = this.title;
-		this.modal.getElementsByClassName("modal-content")[0].innerHTML = this.description;
+
+		if(this.description !== null)
+		{
+			this.modal.getElementsByClassName("modal-content")[0].innerHTML = this.description;
+		}
 
 		if(this.hooks.onLoad !== undefined)
 		{
@@ -38,7 +42,8 @@ export class Modal{
 		event.preventDefault();
 		modalOverlay.style.display = "none";
 
-		if(hideHook !== undefined)
+
+		if(typeof hideHook === "function")
 		{
 			hideHook();
 		}

@@ -2692,7 +2692,8 @@ h5 {
   margin: 150px auto;
   width: 650px;
   background: #efefef;
-  z-index: 5;
+  z-index: 50;
+  position: relative;
 }
 
 @media screen and (max-width: 800px) {
@@ -2738,7 +2739,8 @@ h5 {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: fixed;
-  z-index: 4;
+  z-index: 49;
+  overflow-y: scroll;
 }
 
 .modal-title,
@@ -3332,6 +3334,14 @@ body {
   background: #F5F5F5;
   font-family: "Work Sans";
   color: #222;
+}
+
+.vertical-align {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  text-align: right;
 }
 
 .visible {

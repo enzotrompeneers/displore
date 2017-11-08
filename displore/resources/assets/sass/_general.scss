@@ -10,6 +10,14 @@ body{
 	color: $body-font-color;
 }
 
+.vertical-align{
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  text-align: right;
+}
+
 .visible{
 	display: block;
 }

@@ -1,5 +1,35 @@
 @extends('layouts.master')
 
+@section('modal')
+	@component('components.modal')
+        @slot('id')
+            session-modal
+        @endslot
+        @slot('overlay_class')
+            modal-hidden
+        @endslot
+        @slot('content')
+        	@foreach($availabilities as $available)
+        		@if($available->capacity - $available->reservations !== 0)
+        		<div class="row">
+        			<div class="small-8 medium-8 columns">
+		        		<h3>Sessie op <span id="choose-date-{{ $available->id }}">{{ $available->date->toDateString() }}</span></h3>
+		        		<p>
+		        			Van {{ $available->start_hour->toTimeString() }}u tot {{ $available->end_hour->toTimeString() }}u <br />
+		        			Nog <b>{{ $available->capacity - $available->reservations }}</b> plaatsen over
+		        		</p>
+	        		</div>
+	        		<div class="small-4 medium-4 columns vertical-align">
+	        			<button class="button choose-button" data-id="{{ $available->id }}">Kiezen</button>
+	        		</div>
+        		</div>
+        		<hr>
+        		@endif
+        	@endforeach
+        @endslot
+    @endcomponent
+@endsection
+
 @section('content')
 
 	<form action="{{ route('reservation.store') }}" method="post" data-abide novalidate>
@@ -71,7 +101,11 @@
 
 				<div class="small-12 columns" id="reservation-form">
 					<label class="date_label" for="from">Wanneer?</label>
-						<input type="datetime" placeholder="yyyy-mm-dd" required pattern="date" name="from" id="dpd1" class="span2 datetimepicker datepicker days-check">
+						@if ($product->price_time === "day")
+							<input type="datetime" placeholder="yyyy-mm-dd" required pattern="date" name="from" id="dpd1" class="span2 datetimepicker datepicker days-check">						
+						@elseif($product->price_time === "hour")
+							<input type="datetime" placeholder="yyyy-mm-dd" required pattern="date" name="from" id="session-chooser">
+						@endif
 						<small class="error" id="date-error">Datum is niet geldig!</small>
 					</label>
 
@@ -83,6 +117,8 @@
 						<input type="text" placeholder="bv. 3" required pattern="number" name="quantity" value="{{ old('quantity') }}" id="quantity" >
 						<small class="error">Enkel cijfers!</small>
 					</label>
+					@else 
+						<input type="hidden" name="quantity" value="1" id="quantity" >
 					@endif
 
 					<input type="submit" class="button red_ghost" value="Reserveren"/>

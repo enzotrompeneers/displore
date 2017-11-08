@@ -30,9 +30,7 @@ class ReservationController extends Controller
         $from = request('from');
         $to = request('to');
         $quantity = request('quantity');
-        $price_time = request('price_time');
-
-        
+        $price_time = request('price_time');   
 
         $reservation->from = Carbon::parse($from);
 
