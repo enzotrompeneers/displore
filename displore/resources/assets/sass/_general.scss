@@ -18,67 +18,54 @@ body{
   text-align: right;
 }
 
+/**
+* General padding/margin classes
+*/
+.no-margin{
+	margin: 0;
+}
+
+.no-margin-top{
+	margin-top: 0;
+}
+
+.no-padding{
+	padding: 0;
+}
+
+.no-padding-top{
+	padding-top: 0;
+}
+
+.general-padding{
+	padding: 1.5rem;
+}
+
+.general-padding-small{
+	padding: 0.975rem;
+}
+
+/**
+* General utility classes
+*/
+
 .visible{
 	display: block;
 }
 
+.clearfix{
+	@include clearfix;
+}
+
+/**
+* Classes for color management
+*/
 .white{
 	color: white;
 }
 
-%container{
-	margin: 50px auto;
-	max-width: 1020px;
-	animation-name: container-animation;
-	animation-duration: 0.5s;
-	box-sizing: border-box;
-	overflow: hidden;
-
-	@media screen and(max-width: 800px)
-	{
-		margin: 0.975rem auto;
-	}
-}
-
-.container{
-	@extend %container;
-}
-
-.container-small{
-	@extend %container;
-	max-width: 400px;
-}
-
-.container-white {
-    padding: 0.975rem;
-    margin: 0.975rem;
-	background-color: #fff;
-	border-radius: 6px;
-	border: 1px solid $secondary-3;
-	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
-	box-sizing: border-box;
-	overflow: hidden;
-
-	@media screen and(max-width: 800px){
-		margin: 0;
-		padding: 0;
-		padding-bottom: 1rem;
-	}
-
-	&-show{
-		padding-right: 0;
-	}
-
-	&-tabs{
-		margin: 0rem;
-		border-radius: 0px 6px 6px 6px;
-		position: relative;
-		z-index: 1;
-	}
-}
-
-.clearfix{
-	@include clearfix;
+.red_text {
+    color: $primary-1;
 }
 
 .float-right{
@@ -93,15 +80,9 @@ a:active, a:focus{
 	color: $secondary-2;
 }	
 
-
-.cell {
-    float: left;
-    padding:10px;
-}
 .price_container {
 	background-color: $primary-1;
 	padding: 0.975rem;
-	margin-top: -0.975rem;
 	height: 280px;
 }
 .price_text, .price_text_description {
@@ -117,8 +98,7 @@ a:active, a:focus{
 .date_container {
 	background-color: #000;
 	height: 280px;
-	margin-top: -0.975rem;
-	margin-right: -0.975rem;
+	padding: 0.975rem;
 }
 .date_label {
 	color: #fff;
@@ -140,6 +120,14 @@ a:active, a:focus{
 	padding: 100px 0px;
 }
 
-.map-show{
-	padding: 10px 5px 5px 5px;
+#map{
+	height: 250px;
+}
+
+/**
+* Custom column styling
+*/ 
+.column
+.columns{
+	padding: 1rem 1rem;
 }

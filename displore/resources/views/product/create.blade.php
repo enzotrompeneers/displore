@@ -22,33 +22,39 @@
 @endsection
 
 @section('content')
-	<div class="row container-white">
-		<h1>Ervaring aanbieden</h1>
-		<hr>
+	<div class="container-white">
+		
+		<div class="row">
+			<div class="small-12 medium-12 columns container-white-header">
+				<h1>Ervaring aanbieden</h1>
+			</div>
 
+		</div>
+	
+		<hr class="no-margin-top">
+		
 		<form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
 			{{ csrf_field() }}
-			<div class="grid-container">
-				<div class="grid-x grid-padding-x">
-				<div class="small-12 medium-6 cell">
+			<div class="row">
+				<div class="small-12 medium-6 columns">
 					<label>Titel</label>
 					<input type="text" placeholder="typ hier een catchy titel" name="title" value="{{ old('title') }}">
 					@if($errors->has('title'))
 						<small class="error">{{ $errors->first('title') }}</small>
 					@endif
 				</div>
-				<div class="small-5 medium-2 cell">
+				<div class="small-5 medium-2 columns">
 					<label>Prijs</label>
 					<input type="text" placeholder="bv. 55" name="price" value="{{ old('price') }}">
 					@if($errors->has('price'))
 						<small class="error">{{ $errors->first('price') }}</small>
 					@endif
 				</div>
-				<div class="small-2 medium-1 cell">
+				<div class="small-2 medium-1 columns">
 					<br>
 					<label>Per</label>
 				</div>
-				<div class="small-5 medium-3 cell">
+				<div class="small-5 medium-3 columns">
 					<label>Periode</label>
 					<select name="price_time">
 						<option value="hour">Sessie</option>
@@ -58,14 +64,14 @@
 						<small class="error">{{ $errors->first('price_time') }}</small>
 					@endif
 				</div>
-				<div class="small-12 medium-12 cell">
+				<div class="small-12 medium-12 columns">
 					<label>Beschrijving</label>
 					<textarea rows="10" type="text" placeholder="Beschrijving" name="description">{{ old('description') }}</textarea>
 					@if($errors->has('description'))
 						<small class="error">{{ $errors->first('description') }}</small>
 					@endif
 				</div>
-				<div class="small-12 medium-6 cell">
+				<div class="small-12 medium-6 columns">
 					<label>Locatie</label>
 					<input id="pac-input" class="controls" type="text" placeholder="Geef een locatie" name="location" value="{{ old('location') }}">
 					<div id="map"></div>
@@ -78,7 +84,7 @@
 					@endif
 
 				</div>
-				<div class="small-12 medium-6 cell">
+				<div class="small-12 medium-6 columns">
 					<label>Categorie</label>
 					<select name="category" value="{{ old('category') }}">
 						<option value="Ervaring">Ervaring</option>
@@ -93,7 +99,7 @@
 					@endif
 				</div>
 
-				<div class="small-12 medium-6 cell">
+				<div class="small-12 medium-6 columns">
 					<label>Upload een afbeeldingen over de aanbieding</label>
 					<div class="file-upload-holder">
 						<label for="upload_image" class="button primary file-upload-label">Upload Afbeelding</label>
@@ -105,7 +111,7 @@
 				</div>
 
 			</div>
-			<div class="small-12 medium-12 cell">
+			<div class="small-12 medium-12 columns">
 				<input type="submit" class="button primary" value="Aanbieden"/>
 			</div>
 		</form>

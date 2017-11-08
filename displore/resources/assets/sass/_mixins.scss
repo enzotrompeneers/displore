@@ -12,9 +12,4 @@
 	overflow: hidden;
 	transition: box-shadow .5s ease;
 	border: 1px solid $secondary-3;
-
-	@media screen and(max-width: 800px)
-	{
-		margin: 0.975rem;
-	}
 }

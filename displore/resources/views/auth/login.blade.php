@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<div class="container-white container-small">
 <div class="row">
     <h1>Inloggen</h1>
     <div class="panel-body">
@@ -66,6 +67,7 @@
             </div>
         </form>
     </div>
+</div>
 </div>
 @endsection
 

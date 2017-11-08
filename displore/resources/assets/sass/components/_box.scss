@@ -8,11 +8,12 @@
 
 	&-image{
 		height: 350px;
-		max-width: none;
 
 		&-holder{	
 			overflow: hidden;
 			height: 350px;
+			background-size: cover;
+			background-position: center;
 		}
 
 		&-overlay{
@@ -59,7 +60,8 @@
 	.box-image-overlay, 
 	.box-image-holder, 
 	.box-image-overlay-title {
-		height: 150px;
+		max-height: 150px;
+		width: 100%;
 	}
 
 	.box-details{

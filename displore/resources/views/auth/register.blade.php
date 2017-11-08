@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<div class="container-white">
 <form class="form-horizontal" method="POST" action="{{ route('register') }}" data-abide novalidate>
 	{{ csrf_field() }}
 	<div class="row">
@@ -96,5 +97,6 @@
 		</div>
 	</div>
 </form>
+</div>
 @endsection
 

@@ -8,7 +8,7 @@
 		<div class="row">
 			
 		
-		<div class="medium-6 cell">
+		<div class="medium-6 columns">
 			<h1>Profiel</h1>
 			<form action="{{ route('user.update') }}" method="post">
 				{{ method_field('PATCH') }}
@@ -53,7 +53,7 @@
 			</form>
 		</div>
 		
-		<div class="medium-6 cell">
+		<div class="medium-6 columns">
 			<h1>Paypal Toevoegen</h1>
 			<h4>Deze actie is nodig om dingen te kunnen aanbieden <!-- TODO: mag van header naar iets anders veranderen --></h4>
 

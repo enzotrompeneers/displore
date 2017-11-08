@@ -1,0 +1,11 @@
+[data-abide] .error small.error, 
+[data-abide] .error span.error, 
+[data-abide] span.error, 
+[data-abide] small.error {
+	background: $primary-1;
+}
+
+.error label, 
+.error label.error{
+	color: $primary-1;
+}

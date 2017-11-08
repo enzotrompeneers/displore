@@ -116,7 +116,7 @@ class ProductController extends Controller
     $product = Product::findOrFail($id);
     $images = ProductImage::where('product_id', $id)->get();
     $relevantProducts = Product::where('category', $product->category)->where('id', '<>', $id)->take(4)->get();
-    $availabilities = Availability::where('product_id', $id)->whereColumn('reservations', '<', 'capacity')->get();
+    $availabilities = Availability::where('product_id', $id)->where('date', '>', Carbon::now())->whereColumn('reservations', '<', 'capacity')->get();
 
     if($product === null){
       return abort('404');

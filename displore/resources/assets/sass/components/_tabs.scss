@@ -4,6 +4,7 @@
 	border-left: 1px solid $secondary-3;
 	border-right: 1px solid $secondary-3;
 	border-top: 3px solid $secondary-3;
+	border-bottom: 1px solid $secondary-3;
 	background: white;
 	text-decoration: none;
 	margin: 0;
@@ -16,6 +17,7 @@
 
 	&-active{
 		border-top: 3px solid $primary-1;
+		border-bottom: 1px solid white;
 		color: $primary-1;
 	}
 
@@ -27,7 +29,6 @@
 
 	&-content{
 		margin-top: -1px;
-		border: 1px solid $secondary-4;
 		background: white;
 		padding: 15px 25px 45px 25px;
 	}

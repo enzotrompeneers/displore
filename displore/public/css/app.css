@@ -2253,6 +2253,7 @@ input[type="text"][readonly],
 input[type="email"],
 input[type="search"],
 input[type="datetime"],
+input[type="datetime"][readonly],
 input[type="number"],
 input[type="password"],
 select,
@@ -2274,6 +2275,7 @@ input[type="text"][readonly]:focus,
 input[type="email"]:focus,
 input[type="search"]:focus,
 input[type="datetime"]:focus,
+input[type="datetime"][readonly]:focus,
 input[type="number"]:focus,
 input[type="password"]:focus,
 select:focus,
@@ -2287,6 +2289,7 @@ input[type="text"][readonly]::-webkit-input-placeholder,
 input[type="email"]::-webkit-input-placeholder,
 input[type="search"]::-webkit-input-placeholder,
 input[type="datetime"]::-webkit-input-placeholder,
+input[type="datetime"][readonly]::-webkit-input-placeholder,
 input[type="number"]::-webkit-input-placeholder,
 input[type="password"]::-webkit-input-placeholder,
 select::-webkit-input-placeholder,
@@ -2301,6 +2304,7 @@ input[type="text"][readonly]:-ms-input-placeholder,
 input[type="email"]:-ms-input-placeholder,
 input[type="search"]:-ms-input-placeholder,
 input[type="datetime"]:-ms-input-placeholder,
+input[type="datetime"][readonly]:-ms-input-placeholder,
 input[type="number"]:-ms-input-placeholder,
 input[type="password"]:-ms-input-placeholder,
 select:-ms-input-placeholder,
@@ -2315,6 +2319,7 @@ input[type="text"][readonly]::placeholder,
 input[type="email"]::placeholder,
 input[type="search"]::placeholder,
 input[type="datetime"]::placeholder,
+input[type="datetime"][readonly]::placeholder,
 input[type="number"]::placeholder,
 input[type="password"]::placeholder,
 select::placeholder,
@@ -2599,6 +2604,7 @@ input[type="submit"] {
 h1 {
   font-weight: 700;
   color: #333;
+  margin-top: 0;
 }
 
 h2 {
@@ -2682,6 +2688,72 @@ h5 {
 
 .image_big {
   height: 400px;
+}
+
+/** 
+* Container styling
+*/
+
+.container,
+.container-small {
+  margin: 50px auto;
+  max-width: 1020px;
+  -webkit-animation-name: container-animation;
+          animation-name: container-animation;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media screen and (max-width: 800px) {
+  .container,
+  .container-small {
+    margin: 0.975rem auto;
+  }
+}
+
+.container-small {
+  max-width: 400px;
+}
+
+.container-white {
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #dadada;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.container-white-show {
+  padding-right: 0;
+}
+
+.container-white-tabs {
+  margin: 0rem;
+  border-radius: 0px 6px 6px 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.container-white-header {
+  padding-bottom: 0.5rem;
+}
+
+[data-abide] .error small.error,
+[data-abide] .error span.error,
+[data-abide] span.error,
+[data-abide] small.error {
+  background: #e7173e;
+}
+
+.error label,
+.error label.error {
+  color: #e7173e;
 }
 
 /** 
@@ -2927,6 +2999,7 @@ li a:hover {
   border-left: 1px solid #dadada;
   border-right: 1px solid #dadada;
   border-top: 3px solid #dadada;
+  border-bottom: 1px solid #dadada;
   background: white;
   text-decoration: none;
   margin: 0;
@@ -2940,6 +3013,7 @@ li a:hover {
 
 .tab-active {
   border-top: 3px solid #e7173e;
+  border-bottom: 1px solid white;
   color: #e7173e;
 }
 
@@ -2950,7 +3024,6 @@ li a:hover {
 
 .tab-content {
   margin-top: -1px;
-  border: 1px solid #efefef;
   background: white;
   padding: 15px 25px 45px 25px;
 }
@@ -2977,6 +3050,7 @@ label {
 
 .file-upload-holder {
   position: relative;
+  padding: 0.975rem 0;
 }
 
 .box,
@@ -2995,13 +3069,6 @@ label {
   margin-top: 25px;
 }
 
-@media screen and (max-width: 800px) {
-  .box,
-  .box-small {
-    margin: 0.975rem;
-  }
-}
-
 .box:hover,
 .box-small:hover {
   -webkit-box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
@@ -3010,12 +3077,13 @@ label {
 
 .box-image {
   height: 350px;
-  max-width: none;
 }
 
 .box-image-holder {
   overflow: hidden;
   height: 350px;
+  background-size: cover;
+  background-position: center;
 }
 
 .box-image-overlay {
@@ -3059,7 +3127,8 @@ label {
 .box-small .box-image-overlay,
 .box-small .box-image-holder,
 .box-small .box-image-overlay-title {
-  height: 150px;
+  max-height: 150px;
+  width: 100%;
 }
 
 .box-small .box-details {
@@ -3095,12 +3164,6 @@ label {
   top: 100px;
   right: 15px;
   width: 250px;
-}
-
-@media screen and (max-width: 800px) {
-  .dropdown-menu {
-    margin: 0.975rem;
-  }
 }
 
 .dropdown-menu-item {
@@ -3344,74 +3407,58 @@ body {
   text-align: right;
 }
 
+/**
+* General padding/margin classes
+*/
+
+.no-margin {
+  margin: 0;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.no-padding-top {
+  padding-top: 0;
+}
+
+.general-padding {
+  padding: 1.5rem;
+}
+
+.general-padding-small {
+  padding: 0.975rem;
+}
+
+/**
+* General utility classes
+*/
+
 .visible {
   display: block;
-}
-
-.white {
-  color: white;
-}
-
-.container,
-.container-small {
-  margin: 50px auto;
-  max-width: 1020px;
-  -webkit-animation-name: container-animation;
-          animation-name: container-animation;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  overflow: hidden;
-}
-
-@media screen and (max-width: 800px) {
-  .container,
-  .container-small {
-    margin: 0.975rem auto;
-  }
-}
-
-.container-small {
-  max-width: 400px;
-}
-
-.container-white {
-  padding: 0.975rem;
-  margin: 0.975rem;
-  background-color: #fff;
-  border-radius: 6px;
-  border: 1px solid #dadada;
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  overflow: hidden;
-}
-
-@media screen and (max-width: 800px) {
-  .container-white {
-    margin: 0;
-    padding: 0;
-    padding-bottom: 1rem;
-  }
-}
-
-.container-white-show {
-  padding-right: 0;
-}
-
-.container-white-tabs {
-  margin: 0rem;
-  border-radius: 0px 6px 6px 6px;
-  position: relative;
-  z-index: 1;
 }
 
 .clearfix {
   content: "";
   display: table;
   clear: both;
+}
+
+/**
+* Classes for color management
+*/
+
+.white {
+  color: white;
+}
+
+.red_text {
+  color: #e7173e;
 }
 
 .float-right {
@@ -3427,15 +3474,9 @@ a:focus {
   color: #555;
 }
 
-.cell {
-  float: left;
-  padding: 10px;
-}
-
 .price_container {
   background-color: #e7173e;
   padding: 0.975rem;
-  margin-top: -0.975rem;
   height: 280px;
 }
 
@@ -3456,8 +3497,7 @@ a:focus {
 .date_container {
   background-color: #000;
   height: 280px;
-  margin-top: -0.975rem;
-  margin-right: -0.975rem;
+  padding: 0.975rem;
 }
 
 .date_label {
@@ -3481,74 +3521,15 @@ a:focus {
   padding: 100px 0px;
 }
 
-.map-show {
-  padding: 10px 5px 5px 5px;
-}
-
-.body_master {
-  background-color: black;
-}
-
-.orbit-show-page {
-  margin: 1.5rem -0.65rem 0rem -1.975rem;
-}
-
-/* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-
 #map {
   height: 250px;
 }
 
-.controls {
-  background-color: #fff;
-  border-radius: 2px;
-  border: 1px solid transparent;
-  -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  height: 29px;
-  margin-left: 17px;
-  margin-top: 10px;
-  outline: none;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 400px;
-}
+/**
+* Custom column styling
+*/
 
-.controls:focus {
-  border-color: #4d90fe;
-}
-
-.title {
-  font-weight: bold;
-}
-
-#infowindow-content {
-  display: none;
-}
-
-#map #infowindow-content {
-  display: inline;
-}
-
-.red_text {
-  color: #e7173e;
-}
-
-[data-abide] .error small.error,
-[data-abide] .error span.error,
-[data-abide] span.error,
-[data-abide] small.error {
-  background-color: #e7173e;
-}
-
-.error label,
-.error label.error {
-  color: #e7173e;
+.column .columns {
+  padding: 1rem 1rem;
 }
 

@@ -9,14 +9,16 @@
 			<h1>Leuke ervaring zoeken</h1>
 		@endif
 	</div>
-</div>
+{{-- </div>
 
-<div class="row container-white">
+<div class="row"> --}}
+	<div class="small-12 medium-12 large-12 columns">
+	<div class="container-white general-padding-small">
 	<form action="{{ route('discover.search') }}" method="post">
 		{{ csrf_field() }}
 		<div class="large-3 columns">
 			<div class="form-group">
-				<label for="date">Op</label>
+				<label for="date">Op <small>Verplicht</small></label>
 				@if(isset($search_term))
 					<input type="text" class="datetimepicker datepicker" id="date" name="date" value="{{ $datetime }}">
 				@else
@@ -26,7 +28,7 @@
 		</div>
 		<div class="large-3 columns">
 			<div class="form-group">
-				<label for="category">Soort</label>
+				<label for="category">Soort <small>Optioneel</small></label>
 				<select name="category" id="category" value="{{ old('category') }}">
 					    <option value="">Geen categorie</option>
 						<option value="Ervaring">Ervaring</option>
@@ -39,7 +41,7 @@
 			</div>
 		</div>
 		<div class="large-6 columns search-row-correction">
-			<label for="search_input">Zoekterm</label>
+			<label for="search_input">Zoekterm <small>Optioneel</small></label>
 			<div class="row">
 				<div class="large-8 columns">
 					@if(isset($search_term))
@@ -54,6 +56,8 @@
 			</div>
 		</div>
 	</form>
+	</div>
+	</div>
 </div>	
 
 {{-- <hr> --}}
@@ -72,21 +76,20 @@
 <div class="row">		
 	   
 		@if(sizeof($products) !== 0)
-			<div class="large-12 columns">
+			<div class="small-12 medium-12 large-12 columns">
 		   	 <h1>Leuke ervaringen</h1>
 		   </div>
-		   <div class="row">
 			@foreach($products as $product)
-			<div class="large-4 columns">
+			<div class="small-12 medium-6 large-4 columns">
 				<div class="box">
 					<a href="{{ route('product.show', $product->id) }}">
 						
 							<div class="box-image-overlay">
 								<div class="box-image-overlay-title">Bekijk meer</div> 
 							</div >
-							<div class="box-image-holder">
+							<div class="box-image-holder" style="background-image: url({{ asset($product->images->first()->image) }})">
 								@if(isset($product->images->first()->image))
-									<img class="box-image" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}">
+									{{-- <img class="box-image" src="{{ asset($product->images->first()->image) }}" alt="Afbeelding van {{ $product->title }}"> --}}
 								@endif
 							</div>
 						
@@ -98,7 +101,7 @@
 			</div>
 
 			@endforeach
-			</div>
+			<div class="small-12 medium-6 large-4 columns end"></div>
 		@else
 			<div class="large-12 columns">
 				<h3 class="search-fail">
