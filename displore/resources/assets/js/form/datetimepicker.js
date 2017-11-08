@@ -41,7 +41,7 @@ export class DateTimePicker{
 					reservationForm.removeChild(reservationForm.firstChild);
 				}
 
-				reservationForm.parentNode.appendChild(noReservationElement);
+				reservationForm.appendChild(noReservationElement);
 			}else{
 				options["enable"] = response.data;
 				this.makePicker(datetimepicker, options);

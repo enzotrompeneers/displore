@@ -34,7 +34,7 @@
 				<h3>{{ $user->first_name }} {{ $user->last_name }}</h3>
 
 				{{ $user->street }} {{ $user->house_nr }}
-				{{ $user->city }}, {{ $user->country }}
+				{{ $user->city }}@if(isset($user->country)), {{ $user->country }}@endif
 			</div>
 		</div>
 

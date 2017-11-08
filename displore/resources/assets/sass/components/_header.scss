@@ -10,7 +10,7 @@
 
 	@media screen and(max-width: 800px)
 	{
-		padding: 0;
+		padding: 1rem 0;
 	}
 
 	&-lander{
@@ -42,6 +42,11 @@
 		box-sizing: border-box;
 		line-height: 110px;
 		padding: 0;
+
+		@media screen and(max-width: 800px){
+			line-height: 100%;
+			padding: 0.45rem;
+		}
 	}
 
 	&-list-item a{
@@ -76,9 +81,14 @@
 		padding: 1rem 0;
 		@media screen and(max-width: 800px)
 		{
-			height: 3.5rem;
-			width: 3.5rem;
+			height: 4rem;
+			width: 4rem;
 			padding: 0;
 		}
 	}
+}
+
+.hamburger{
+	fill: $primary-1;
+	color: $primary-1;
 }

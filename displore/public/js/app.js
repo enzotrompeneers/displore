@@ -834,8 +834,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions_whatisdisplore__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions_session__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ui_dropdown__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__googlemaps__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__form_datetimepicker__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ui_hamburger__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ui_hamburger___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__ui_hamburger__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__googlemaps__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__form_datetimepicker__ = __webpack_require__(45);
 
 
 /* form items */
@@ -853,17 +855,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
 if (document.getElementById("map") !== null) {
-    var gmaps = new __WEBPACK_IMPORTED_MODULE_7__googlemaps__["a" /* GoogleMaps */]();
+    var gmaps = new __WEBPACK_IMPORTED_MODULE_8__googlemaps__["a" /* GoogleMaps */]();
     gmaps.initMap();
 }
 if (document.getElementById("showMap") !== null) {
-    var gmaps = new __WEBPACK_IMPORTED_MODULE_7__googlemaps__["a" /* GoogleMaps */]();
+    var gmaps = new __WEBPACK_IMPORTED_MODULE_8__googlemaps__["a" /* GoogleMaps */]();
     gmaps.showMap();
 }
 
 if (document.getElementsByClassName("datetimepicker") !== 0) {
-    new __WEBPACK_IMPORTED_MODULE_8__form_datetimepicker__["a" /* DateTimePicker */]();
+    new __WEBPACK_IMPORTED_MODULE_9__form_datetimepicker__["a" /* DateTimePicker */]();
 }
 
 // '/js/foundation-datepicker.js'
@@ -33058,7 +33061,7 @@ var DateTimePicker = function () {
 						reservationForm.removeChild(reservationForm.firstChild);
 					}
 
-					reservationForm.parentNode.appendChild(noReservationElement);
+					reservationForm.appendChild(noReservationElement);
 				} else {
 					options["enable"] = response.data;
 					_this.makePicker(datetimepicker, options);
@@ -35454,6 +35457,23 @@ var DOM = function () {
 }();
 
 module.exports = DOM;
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports) {
+
+
+var hamburgerButton = document.getElementById("hamburger-button");
+
+hamburgerButton.addEventListener('click', function () {
+	var menu = document.getElementById('hamburger-menu');
+
+	if (menu.classList.contains("hidden")) {
+		menu.classList.remove("hidden");
+	} else {
+		menu.classList.add("hidden");
+	}
+}, false);
 
 /***/ })
 /******/ ]);

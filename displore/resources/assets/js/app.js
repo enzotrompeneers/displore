@@ -11,6 +11,7 @@ import './actions/session';
 
 /* ui stuff */
 import './ui/dropdown';
+import './ui/hamburger';
 
 import {GoogleMaps} from './googlemaps';
 import {DateTimePicker} from './form/datetimepicker';

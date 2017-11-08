@@ -8,6 +8,9 @@
 		<div class="small-12 columns">
 			<h1>Registreren</h1>
 		</div>
+	</div>
+	<hr class="no-margin-top">
+	<div class="row">
 		<div class="small-12 medium-6 columns">
 			<label>Voornaam <small>Verplicht</small>
 			<input type="text" placeholder="Voornaam" required pattern="alpha" name="first_name" value="{{ old('first_name') }}" >

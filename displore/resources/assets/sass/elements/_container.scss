@@ -23,6 +23,24 @@
 	max-width: 400px;
 }
 
+.container-calltoaction{
+	text-align: center;
+	position: relative;
+	bottom: -22%;
+
+	h1, h2{
+		color: white;
+	}
+
+	@media screen and(max-width: 800px)
+	{
+		position: fixed;
+		text-align: left;
+		padding: 2rem;
+		bottom: 1rem;
+	}
+}
+
 .container-white {
 	background-color: #fff;
 	border-radius: 6px;
