@@ -1,5 +1,4 @@
 # Displore
-Laravel project: Discover &amp; Explore
 
 ### Ik wil je design stelen
 
