@@ -4,7 +4,7 @@
 <div class="container-white container-small">
     
     <div class="row">
-        <div class="small-12 medium-12 columns">
+        <div class="large-12 columns">
             <h1>Inloggen</h1>
         </div>
     </div>
@@ -12,8 +12,7 @@
     <hr class="no-margin-top">
         
     <div class="row">
-        <div class="small-12 medium-12 columns">
-            
+        <div class="large-12 columns">
             
             <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}

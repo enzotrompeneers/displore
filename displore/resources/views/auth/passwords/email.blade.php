@@ -4,8 +4,9 @@
 <div class="container-white container-small">
 
     <div class="row">
-        <div class="small-12 medium-12 columns">
-            <h1>Reset Wachtwoord</h1>
+        <div class="large-12 columns">
+            <h1>Reset wachtwoord</h1>
+            <p>We sturen een link naar uw E-mail adres om je wachtwoord te veranderen.</p>
             @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}
@@ -16,9 +17,9 @@
 
     <hr class="no-margin-top">
     <div class="row">
-        <div class="small-12 medium-12 columns">
+        <div class="large-12 columns">
 
-            <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
+            <form class="form-horizontal" method="POST" action="{{ route('password.email') }}" data-abide novalidate>
                 {{ csrf_field() }}
 
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -33,7 +34,7 @@
                 </div>
 
                 <div>
-                    <button type="submit" class="button primary">Reset Wachtwoord</button>
+                    <button type="submit" class="button primary">Verzenden</button>
                 </div>
 
             </form>
