@@ -22,15 +22,6 @@ class AvailabilityController extends Controller
         $product = Product::find($id);
         $availabilities = Availability::where('product_id', $id)->orderBy("date")->get();
 
-        // $availabilitiesExport = array();
-
-        // foreach($availabilities as $availability){
-        //     array_push($availabilitiesExport, array(
-        //         "from" => $availabilities->where('group', )
-        //         "to" => 
-        //     ));
-        // }
-
         return view('availability.create', compact('product', 'availabilities'));
     }
 
@@ -40,7 +31,7 @@ class AvailabilityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAvailability $request, $product_id)
+    public function store(Request $request, $product_id)
     {
         $availability = new Availability();
         $product = Product::find($product_id);
@@ -53,11 +44,18 @@ class AvailabilityController extends Controller
 
         $reservationHelper = new ReservationHelper($product_id, $product->price_time, $from);
 
+
+
         $availability->product_id = $product_id;
         $availability->date = $from;
         
         if($reservationHelper->isDay())
         {
+            $request->validate([
+                'from' => 'required',
+                'to' => 'required'
+            ]);
+
             if($reservationHelper->hasAvailabilityOverlap($from, $to)){
                 return redirect()->route('availability.create', ['id' => $product_id])->withErrors(['overlap' => 'Er is overlap met een al bestaande beschikbaarheid']);
             }
@@ -100,6 +98,12 @@ class AvailabilityController extends Controller
             }
         }
         else{
+            $request->validate([
+                'from' => 'required',
+                'start_hour' => 'required',
+                'end_hour' => 'required',
+                'capacity' => 'required|numeric'
+            ]);
 
             $availability->start_hour = Carbon::parse($from . " " . $start_hour);
             $availability->end_hour = Carbon::parse($from . " " . $end_hour);

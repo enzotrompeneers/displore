@@ -1,7 +1,9 @@
 [data-abide] .error small.error, 
 [data-abide] .error span.error, 
 [data-abide] span.error, 
-[data-abide] small.error {
+[data-abide] small.error,
+small.error,
+span.error {
 	background: $primary-1;
 }
 
