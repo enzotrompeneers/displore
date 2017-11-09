@@ -1,9 +1,11 @@
 .reservation {
-	border:1px solid $secondary-5;
+	@include box;
+	// border:1px solid $secondary-5;
+	width: 100%;
 	border-radius: 3px;
 	height: 70px;
 	padding:15px;
-	margin: 10px;
+	margin: 10px 0;
 
 	@media screen and(max-width: 800px){
 		@include clearfix;
@@ -13,8 +15,11 @@
 
 
 	&-text {
-		line-height: 2.5;
-		display: inline;
+		font-weight: 600;
+		color: $secondary-2;
+		padding: 0.30rem 0;
+		font-size: 1.2rem;
+		display: inline-block;
 	}
 
 	&-info{

@@ -9,9 +9,9 @@
 					<h1>Beschikbaarheid</h1>
 					<h3>{{ $product->title }}</h3>
 				</div>
-				<hr>	
+					
 			</div>
-			
+			<hr>
 			<form action="{{ route('availability.store', $product->id) }}" method="post">
 				{{ csrf_field() }}
 				<div class="row">
@@ -81,9 +81,9 @@
 				</div>
 				
 			</form>
-
+			<hr>
 			<div class="row">
-
+					
 				<div class="medium-12 columns">
 					@if($product->price_time === "day")
 						<h3>Jouw beschikbare dagen</h3>		
@@ -91,6 +91,8 @@
 						<h3>Jouw sessies</h3>
 					@endif
 				</div>
+
+
 
 				@foreach($availabilities as $available)									
 					@if($product->price_time === "day")
@@ -123,6 +125,9 @@
 						</div>
 					@endif
 				@endforeach
+				@if($product->price_time === "day")
+					<div class="medium-4 columns end">
+				@endif
 			</div>
 		</div>
 	</div>
