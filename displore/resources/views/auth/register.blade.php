@@ -47,7 +47,7 @@
 			@if ($errors->has('email'))
 				<span>{{ $errors->first('email') }}</span>
 			@endif
-			<span class="error">Verplicht veld, geef een geldig e-mail adres!</span>
+			<span class="error">Verplicht veld, geef een geldig E-mail adres!</span>
 			</label>
 		</div>
 
