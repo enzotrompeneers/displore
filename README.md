@@ -72,3 +72,7 @@ Voorlopig werkt de paypal betaling in de sandbox van paypal. Als je de betaling 
 
 **Gebruikersnaam** klant@displore.be  
 **Wachtwoord** koopkoop
+
+### Feedback die we hebben gekregen
+
+Link:  [Feedback](https://github.com/enzotrompeneers/displore/blob/master/feedback.docx)
