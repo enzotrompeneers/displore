@@ -42,7 +42,7 @@
                 <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                     <label for="password" class="col-md-4 control-label">Bevestig Wachtwoord</label>
                     <div class="col-md-6">
-                        <input id="password-confirm" type="password" class="form-control" name="password-confirm" required pattern="^(?=.*[0-9])(?=.*[a-z]).{6,}$">
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required pattern="^(?=.*[0-9])(?=.*[a-z]).{6,}$">
                         <span class="error">Verplicht veld, min. 6 karakters, minstens 1 letter en 1 nummer</span>
                         <span class="error">Wachtwoord is niet hetzelfde!</span>
                         @if ($errors->has('password_confirmation'))
