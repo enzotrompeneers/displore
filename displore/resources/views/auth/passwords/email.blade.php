@@ -24,12 +24,10 @@
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                     <label for="email" class="col-md-4 control-label">E-Mail Adres</label>
                     <div class="col-md-6">
-                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
+                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required pattern="email">
+                        <span class="error">Verplicht veld, geef een geldig E-mail adres!</span>
                         @if ($errors->has('email'))
-                            <small class="error">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </small>
+                            <span>{{ $errors->first('email') }}</span>
                         @endif
                     </div>
                 </div>
