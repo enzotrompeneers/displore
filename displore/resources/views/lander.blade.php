@@ -63,7 +63,7 @@
         <!-- Call To Action -->
 		<div class="container container-calltoaction">
 			<h1>De website om ervaringen te ontdekken</h1>
-            <h2>Op zoek naar een unieke ervaring? Iets om mee te kunnen uitpakken tegen over vrienden en familie? Ontdek dan snel de ervaringen die onze gebruikers organiseren op ons platform.</h2>
+            <h2>Op zoek naar unieke ervaringen of zelf aanbieden? Ontdek ervaringen die hier aangeboden worden of maak zelf aanbiedingen.</h2>
 			<div class="lander-button-group">
 				<a href="{{ route('discover') }}" class="button red_btn">ERVARINGEN ONTDEKKEN</a>
 				<a href="{{ route('product.create') }}" class="button white_btn">ZELF EEN ERVARING ORGANISEREN</a>
