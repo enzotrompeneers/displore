@@ -70,7 +70,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(2);
+var bind = __webpack_require__(3);
 var isBuffer = __webpack_require__(18);
 
 /*global toString:true*/
@@ -397,10 +397,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(3);
+    adapter = __webpack_require__(4);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(3);
+    adapter = __webpack_require__(4);
   }
   return adapter;
 }
@@ -475,6 +475,77 @@ module.exports = defaults;
 
 /***/ }),
 /* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Modal; });
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Modal = function () {
+	function Modal(modal_id, title, description, hooks) {
+		_classCallCheck(this, Modal);
+
+		this.modal = document.getElementById(modal_id);
+
+		this.title = title;
+		this.description = description;
+		this.hooks = hooks;
+
+		this.modalCloseButton = document.getElementById("modal-close");
+		this.modalOverlay = this.modal.parentNode;
+
+		if (this.hooks.onHide === undefined) {
+			this.modalCloseButton.onclick = this.hide.bind(this.modalOverlay, this.modalOverlay);
+			this.modalOverlay.onclick = this.hide.bind(this.modalOverlay, this.modalOverlay);
+		} else {
+			this.modalCloseButton.onclick = this.hide.bind(this.modalOverlay, this.modalOverlay, this.hooks.onHide);
+			this.modalOverlay.onclick = this.hide.bind(this.modalOverlay, this.modalOverlay, this.hooks.onHide);
+		}
+
+		this.setContent();
+	}
+
+	_createClass(Modal, [{
+		key: "setContent",
+		value: function setContent() {
+			this.modal.getElementsByClassName("modal-title-text")[0].innerHTML = this.title;
+
+			if (this.description !== null) {
+				this.modal.getElementsByClassName("modal-content")[0].innerHTML = this.description;
+			}
+
+			if (this.hooks.onLoad !== undefined) {
+				this.hooks.onLoad();
+			}
+		}
+	}, {
+		key: "hide",
+		value: function hide(modalOverlay, hideHook) {
+			event.preventDefault();
+			modalOverlay.style.display = "none";
+
+			if (typeof hideHook === "function") {
+				hideHook();
+			}
+		}
+	}, {
+		key: "show",
+		value: function show() {
+			this.modalOverlay.style.display = "block";
+
+			if (this.hooks.onShow !== undefined) {
+				this.hooks.onShow();
+			}
+		}
+	}]);
+
+	return Modal;
+}();
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -492,7 +563,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -503,7 +574,7 @@ var settle = __webpack_require__(22);
 var buildURL = __webpack_require__(24);
 var parseHeaders = __webpack_require__(25);
 var isURLSameOrigin = __webpack_require__(26);
-var createError = __webpack_require__(4);
+var createError = __webpack_require__(5);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(27);
 
 module.exports = function xhrAdapter(config) {
@@ -679,7 +750,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -704,7 +775,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -716,7 +787,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -742,82 +813,11 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 7 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Modal; });
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Modal = function () {
-	function Modal(modal_id, title, description, hooks) {
-		_classCallCheck(this, Modal);
-
-		this.modal = document.getElementById(modal_id);
-
-		this.title = title;
-		this.description = description;
-		this.hooks = hooks;
-
-		this.modalCloseButton = document.getElementById("modal-close");
-		this.modalOverlay = this.modal.parentNode;
-
-		if (this.hooks.onHide === undefined) {
-			this.modalCloseButton.onclick = this.hide.bind(this.modalOverlay, this.modalOverlay);
-			this.modalOverlay.onclick = this.hide.bind(this.modalOverlay, this.modalOverlay);
-		} else {
-			this.modalCloseButton.onclick = this.hide.bind(this.modalOverlay, this.modalOverlay, this.hooks.onHide);
-			this.modalOverlay.onclick = this.hide.bind(this.modalOverlay, this.modalOverlay, this.hooks.onHide);
-		}
-
-		this.setContent();
-	}
-
-	_createClass(Modal, [{
-		key: "setContent",
-		value: function setContent() {
-			this.modal.getElementsByClassName("modal-title-text")[0].innerHTML = this.title;
-
-			if (this.description !== null) {
-				this.modal.getElementsByClassName("modal-content")[0].innerHTML = this.description;
-			}
-
-			if (this.hooks.onLoad !== undefined) {
-				this.hooks.onLoad();
-			}
-		}
-	}, {
-		key: "hide",
-		value: function hide(modalOverlay, hideHook) {
-			event.preventDefault();
-			modalOverlay.style.display = "none";
-
-			if (typeof hideHook === "function") {
-				hideHook();
-			}
-		}
-	}, {
-		key: "show",
-		value: function show() {
-			this.modalOverlay.style.display = "block";
-
-			if (this.hooks.onShow !== undefined) {
-				this.hooks.onShow();
-			}
-		}
-	}]);
-
-	return Modal;
-}();
-
-/***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(9);
-module.exports = __webpack_require__(48);
+module.exports = __webpack_require__(51);
 
 
 /***/ }),
@@ -832,12 +832,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__form_image__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_paypal__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions_whatisdisplore__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions_session__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ui_dropdown__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ui_hamburger__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions_session__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ui_dropdown__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ui_hamburger__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ui_hamburger___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__ui_hamburger__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__googlemaps__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__form_datetimepicker__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__googlemaps__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__form_datetimepicker__ = __webpack_require__(48);
 
 
 /* form items */
@@ -30771,7 +30771,7 @@ module.exports = __webpack_require__(17);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(2);
+var bind = __webpack_require__(3);
 var Axios = __webpack_require__(19);
 var defaults = __webpack_require__(1);
 
@@ -30806,9 +30806,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(6);
+axios.Cancel = __webpack_require__(7);
 axios.CancelToken = __webpack_require__(34);
-axios.isCancel = __webpack_require__(5);
+axios.isCancel = __webpack_require__(6);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -31158,7 +31158,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(4);
+var createError = __webpack_require__(5);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -31577,7 +31577,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(31);
-var isCancel = __webpack_require__(5);
+var isCancel = __webpack_require__(6);
 var defaults = __webpack_require__(1);
 
 /**
@@ -31730,7 +31730,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(6);
+var Cancel = __webpack_require__(7);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -31916,7 +31916,7 @@ new Image();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_modal__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_modal__ = __webpack_require__(2);
 
 
 if (document.getElementById("paypal-button-container") !== null) {
@@ -31981,7 +31981,7 @@ function renderPaypal() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_modal__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_modal__ = __webpack_require__(2);
 
 var YTPlayer = __webpack_require__(40);
 
@@ -32843,6 +32843,134 @@ function load (src, cb) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_modal__ = __webpack_require__(2);
+
+var DOM = __webpack_require__(44);
+
+var sessionChooser = document.getElementById("session-chooser");
+
+if (sessionChooser !== null) {
+	sessionChooser.addEventListener('click', function () {
+
+		new __WEBPACK_IMPORTED_MODULE_0__ui_modal__["a" /* Modal */]("session-modal", "Kies een sessie", null, {}).show();
+	}, false);
+
+	DOM.setListeners('click', 'choose-button', function () {
+		var button = event.target;
+
+		var date = document.getElementById("choose-date-" + button.dataset.id).innerHTML;
+
+		sessionChooser.value = date;
+	});
+}
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports) {
+
+/**
+ * Class for common dom operations to avoid duplicate code
+ * @module DOM
+ * @class
+ */
+var DOM = function () {
+
+  return {
+
+    createElement: function createElement(object) {
+      if (object.el) {
+        var element = document.createElement(object.el);
+      }
+
+      if (object.class) {
+        element.className = object.class;
+      }
+
+      if (object.id) {
+        element.id = object.id;
+      }
+
+      if (object.html) {
+        element.innerHTML = object.html;
+      }
+
+      return element;
+    },
+
+    /**
+     * toggles classes on element or array of elements
+     * @memberof DOM
+     * @function toggle
+     * @param {Object} element 
+     * @param {string} classToHave
+     */
+    toggle: function toggle(element, classToHave) {
+
+      if (element[0] !== undefined) {
+        for (var i = 0; i < element.length; i++) {
+          if (element[i].classList.contains(classToHave)) {
+            element[i].classList.remove(classToHave);
+          } else {
+            element[i].classList.add(classToHave);
+          }
+        }
+      } else {
+
+        if (element.classList.contains(classToHave)) {
+          element.classList.remove(classToHave);
+        } else {
+          element.classList.add(classToHave);
+        }
+      }
+    },
+    /**
+     * Sets listeners on classes
+     * @memberof DOM
+     * @function setListeners
+     * @param {string} eventType - Type of event 
+     * @param {string} className - Elements with that classname get the event
+     * @param {function} functionName - Function that will be executed on the event
+     */
+    setListeners: function setListeners(eventType, className, functionName) {
+
+      var elements = document.getElementsByClassName(className);
+      var elementsLength = elements.length;
+      for (var element = 0; element < elementsLength; element++) {
+        elements[element].addEventListener(eventType, functionName, false);
+      }
+    },
+
+    /**
+     * Get element with attribute that contains the requested value
+     * @memberof DOM
+     * @function elementWithAttribute
+     * @param {object} elementStart - Element to start from
+     * @param {string} elementType - Type of the element
+     * @param {string} attribute - attribute Type
+     * @param {string} attributeValue - attribute Value
+     */
+
+    elementWithAttribute: function elementWithAttribute(elementStart, elementType, attribute, attributeValue) {
+      var elements = elementStart.getElementsByTagName(elementType);
+      for (var element = 0; element < elements.length; element++) {
+        var value = elements[element].getAttribute(attribute);
+
+        if (value !== null && value === attributeValue) {
+
+          return elements[element];
+        }
+      }
+    }
+  };
+}();
+
+module.exports = DOM;
+
+/***/ }),
+/* 45 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* unused harmony export Dropdown */
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -32891,7 +33019,24 @@ var Dropdown = function () {
 new Dropdown();
 
 /***/ }),
-/* 44 */
+/* 46 */
+/***/ (function(module, exports) {
+
+
+var hamburgerButton = document.getElementById("hamburger-button");
+
+hamburgerButton.addEventListener('click', function () {
+	var menu = document.getElementById('hamburger-menu');
+
+	if (menu.classList.contains("hidden")) {
+		menu.classList.remove("hidden");
+	} else {
+		menu.classList.add("hidden");
+	}
+}, false);
+
+/***/ }),
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33005,14 +33150,14 @@ var GoogleMaps = function () {
 // End Init Map
 
 /***/ }),
-/* 45 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DateTimePicker; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flatpickr__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flatpickr__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flatpickr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_flatpickr__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_flatpickr_dist_l10n_nl_js__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -33107,7 +33252,7 @@ var DateTimePicker = function () {
 }();
 
 /***/ }),
-/* 46 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* flatpickr v4.0.6, @license MIT */
@@ -35240,7 +35385,7 @@ return flatpickr$1;
 
 
 /***/ }),
-/* 47 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* flatpickr v4.0.6, @license MIT */
@@ -35321,159 +35466,10 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 
 /***/ }),
-/* 48 */
+/* 51 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_modal__ = __webpack_require__(7);
-
-var DOM = __webpack_require__(54);
-
-var sessionChooser = document.getElementById("session-chooser");
-
-if (sessionChooser !== null) {
-	sessionChooser.addEventListener('click', function () {
-
-		new __WEBPACK_IMPORTED_MODULE_0__ui_modal__["a" /* Modal */]("session-modal", "Kies een sessie", null, {}).show();
-	}, false);
-
-	DOM.setListeners('click', 'choose-button', function () {
-		var button = event.target;
-
-		var date = document.getElementById("choose-date-" + button.dataset.id).innerHTML;
-
-		sessionChooser.value = date;
-	});
-}
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports) {
-
-/**
- * Class for common dom operations to avoid duplicate code
- * @module DOM
- * @class
- */
-var DOM = function () {
-
-  return {
-
-    createElement: function createElement(object) {
-      if (object.el) {
-        var element = document.createElement(object.el);
-      }
-
-      if (object.class) {
-        element.className = object.class;
-      }
-
-      if (object.id) {
-        element.id = object.id;
-      }
-
-      if (object.html) {
-        element.innerHTML = object.html;
-      }
-
-      return element;
-    },
-
-    /**
-     * toggles classes on element or array of elements
-     * @memberof DOM
-     * @function toggle
-     * @param {Object} element 
-     * @param {string} classToHave
-     */
-    toggle: function toggle(element, classToHave) {
-
-      if (element[0] !== undefined) {
-        for (var i = 0; i < element.length; i++) {
-          if (element[i].classList.contains(classToHave)) {
-            element[i].classList.remove(classToHave);
-          } else {
-            element[i].classList.add(classToHave);
-          }
-        }
-      } else {
-
-        if (element.classList.contains(classToHave)) {
-          element.classList.remove(classToHave);
-        } else {
-          element.classList.add(classToHave);
-        }
-      }
-    },
-    /**
-     * Sets listeners on classes
-     * @memberof DOM
-     * @function setListeners
-     * @param {string} eventType - Type of event 
-     * @param {string} className - Elements with that classname get the event
-     * @param {function} functionName - Function that will be executed on the event
-     */
-    setListeners: function setListeners(eventType, className, functionName) {
-
-      var elements = document.getElementsByClassName(className);
-      var elementsLength = elements.length;
-      for (var element = 0; element < elementsLength; element++) {
-        elements[element].addEventListener(eventType, functionName, false);
-      }
-    },
-
-    /**
-     * Get element with attribute that contains the requested value
-     * @memberof DOM
-     * @function elementWithAttribute
-     * @param {object} elementStart - Element to start from
-     * @param {string} elementType - Type of the element
-     * @param {string} attribute - attribute Type
-     * @param {string} attributeValue - attribute Value
-     */
-
-    elementWithAttribute: function elementWithAttribute(elementStart, elementType, attribute, attributeValue) {
-      var elements = elementStart.getElementsByTagName(elementType);
-      for (var element = 0; element < elements.length; element++) {
-        var value = elements[element].getAttribute(attribute);
-
-        if (value !== null && value === attributeValue) {
-
-          return elements[element];
-        }
-      }
-    }
-  };
-}();
-
-module.exports = DOM;
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports) {
-
-
-var hamburgerButton = document.getElementById("hamburger-button");
-
-hamburgerButton.addEventListener('click', function () {
-	var menu = document.getElementById('hamburger-menu');
-
-	if (menu.classList.contains("hidden")) {
-		menu.classList.remove("hidden");
-	} else {
-		menu.classList.add("hidden");
-	}
-}, false);
 
 /***/ })
 /******/ ]);
