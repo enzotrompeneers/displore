@@ -16,7 +16,7 @@ return [
     'password' => 'Je wachtwoord moet minstens 6 karakters hebben en gelijk zijn met de bevestiging',
     'reset' => 'Je wachtwoord is opnieuw ingesteld!',
     'sent' => 'We hebben je een reset link gestuurd.',
-    'token' => 'This password reset token is invalid.',
+    'token' => 'De wachtwoord reset link is niet geldig.',
     'user' => "We vonden geen gebruiker met deze e-mail.",
 
 ];
