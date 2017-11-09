@@ -11,7 +11,7 @@ class ResetPasswordCustom extends Notification
 {
     use Queueable;
 
-    private $token;
+    private $url;
 
     /**
      * Create a new notification instance.
@@ -20,7 +20,7 @@ class ResetPasswordCustom extends Notification
      */
     public function __construct($token)
     {
-        $this->token = $token;
+        $this->url = route('password.reset', ['token' => $token]);
     }
 
     /**
@@ -45,19 +45,7 @@ class ResetPasswordCustom extends Notification
         return (new MailMessage)
                     ->subject("Wachtwoord veranderen van je displore account")
                     ->line('Je hebt deze e-mail gekregen omdat je je wachtwoord wil veranderen.')
-                    ->action('Wachtwoord veranderen', $this->token);
+                    ->action('Wachtwoord veranderen', $this->url);
     }
 
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
-    }
 }
