@@ -14,7 +14,7 @@
 
 				@foreach($products as $product)
 					@foreach($product->reservations()->get() as $reservation)
-						
+						@if(isset($reservation->product))
 						<div class="reservation">
 							<div class="reservation-text">{{ $reservation->product->title }}</div>
 
@@ -30,6 +30,7 @@
 							
 							</div>
 						</div>
+						@endif
 					@endforeach
 				@endforeach
 
@@ -40,6 +41,7 @@
 				<h1>Reservaties bij andere</h1>
 			
 				@foreach($my_reservations as $reservation)
+					@if(isset($reservation->product))
 					<div class="reservation">
 						<div class="reservation-text">{{ $reservation->product->title }}</div>
 			
@@ -59,7 +61,7 @@
 						</div>
 						@endif
 					</div>
-					
+					@endif
 				@endforeach
 
 				@if(sizeof($my_reservations) === 0)
