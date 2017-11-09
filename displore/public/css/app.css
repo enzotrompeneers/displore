@@ -2777,6 +2777,23 @@ h5 {
   color: #e7173e;
 }
 
+.error-page-holder {
+  text-align: center;
+}
+
+.error-page-image {
+  height: 20rem;
+  margin: 5rem auto;
+  display: inline-block;
+}
+
+.error-page-title {
+  font-size: 2.5rem;
+  font-weight: 100;
+  font-family: "Work Sans";
+  display: inline-block;
+}
+
 /** 
  * Major ui components 
  */
