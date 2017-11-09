@@ -4,7 +4,8 @@
 <div class="container-white container-small">
     <div class="row">
         <div class="large-12 columns">
-            <h1>Verander Wachtwoord</h1>
+            <h1>Reset Wachtwoord</h1>
+            <p>Stel opnieuw een wachtwoord in voor je E-mail adres.</p>
         </div>
     </div>
 

@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="large-12 columns">
-            <h1>Wachtwoord vergeten?</h1>
+            <h1>Reset wachtwoord</h1>
             <p>We sturen een link naar uw E-mail adres om je wachtwoord te veranderen.</p>
             @if (session('status'))
                 <div class="alert alert-success">
