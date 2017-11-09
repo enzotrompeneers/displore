@@ -25,7 +25,6 @@ class ProductController extends Controller
    */
   public function index()
   {
-    return abort(500);
     $products = Product::orderBy('id', 'desc')->take(30)->get();
 
     return view('discover', compact('products'));
