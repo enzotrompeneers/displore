@@ -30,12 +30,18 @@
 								<label for="from">Van</label>
 								<input type="datetime" class="datetimepicker datepicker" id="from" name="from" placeholder="Begin datum">
 							</div>
+							@if($errors->has('from'))
+								<small class="error">{{ $errors->first('from') }}</small>
+							@endif
 						</div>
 						<div class="medium-6 columns">
 							<div class="form-group">
 								<label for="to">Tot</label>
 								<input type="datetime" class="datetimepicker datepicker" id="to" name="to" placeholder="Eind datum">
 							</div>
+							@if($errors->has('to'))
+								<small class="error">{{ $errors->first('to') }}</small>
+							@endif
 						</div>
 						<input type="hidden" name="capacity" value="1">
 					@else
@@ -44,24 +50,36 @@
 								<label for="from">Datum</label>
 								<input type="datetime" class="datetimepicker datepicker" id="from" name="from" placeholder="Datum">
 							</div>
+							@if($errors->has('from'))
+								<small class="error">{{ $errors->first('from') }}</small>
+							@endif
 						</div>
 						<div class="medium-4 columns">
 							<div class="form-group">
 								<label for="start_hour">Start uur</label>
 								<input type="datetime" class="datetimepicker timepicker" id="start_hour" name="start_hour" placeholder="Start uur" value="12:00">
 							</div>
+							@if($errors->has('start_hour'))
+								<small class="error">{{ $errors->first('start_hour') }}</small>
+							@endif
 						</div>
 						<div class="medium-4 columns">
 							<div class="form-group">
 								<label for="end_hour">Eind uur</label>
 								<input type="datetime" class="datetimepicker timepicker" id="end_hour" name="end_hour" placeholder="Eind uur" value="12:00">
 							</div>
+							@if($errors->has('end_hour'))
+								<small class="error">{{ $errors->first('end_hour') }}</small>
+							@endif
 						</div>
 						<div class="medium-12 columns">
 							<div class="form-group">
 								<label for="capacity">Aantal personen die kunnen reserveren voor de sessie</label>
 								<input type="number" name="capacity" id="capacity" placeholder="Capaciteit" value="1">
 							</div>
+							@if($errors->has('capacity'))
+								<small class="error">{{ $errors->first('capacity') }}</small>
+							@endif
 						</div>
 					@endif
 
