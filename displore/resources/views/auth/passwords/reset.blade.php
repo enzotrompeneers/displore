@@ -15,20 +15,18 @@
                 {{ csrf_field() }}
 
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <label for="email" class="col-md-4 control-label">E-Mail Adres</label>
+                    <label for="email" class="col-md-4 control-label">Nieuw Wachtwoord</label>
                     <div class="col-md-6">
                         <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
-                        @if ($errors->has('email'))
-                            <small class="error">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </small>
+                       @if ($errors->has('email'))
+                            <span>{{ $errors->first('email') }}</span>
                         @endif
                     </div>
                 </div>
 
                 <div>
-                    <button type="submit" class="button primary">Reset Wachtwoord</button>
+                    <button type="submit" class="button primary">Verander Wachtwoord</button>
                 </div>
             </form>
         </div>
