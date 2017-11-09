@@ -3,15 +3,15 @@
 @section('content')
 <div class="container-white container-small">
     <div class="row">
-        <div class="small-12 medium-12 columns">
-            <h1>Reset Wachtwoord</h1>
+        <div class="large-12 columns">
+            <h1>Verander Wachtwoord</h1>
         </div>
     </div>
 
     <hr class="no-margin-top">
     <div class="row">
-        <div class="small-12 medium-12 columns">
-            <form class="form-horizontal" method="POST" action="{{ route('password.request') }}">
+        <div class="large-12 columns">
+            <form class="form-horizontal" method="POST" action="{{ route('password.request') }}" data-abide novalidate>
                 {{ csrf_field() }}
 
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
