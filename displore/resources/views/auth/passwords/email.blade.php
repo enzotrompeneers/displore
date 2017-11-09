@@ -34,7 +34,7 @@
                 </div>
 
                 <div>
-                    <button type="submit" class="button primary">Reset Wachtwoord</button>
+                    <button type="submit" class="button primary">Verzenden</button>
                 </div>
 
             </form>
